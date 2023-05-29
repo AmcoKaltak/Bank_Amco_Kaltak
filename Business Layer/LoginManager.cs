@@ -18,7 +18,7 @@ namespace Business_Layer
 
             if (user != null)
             {
-                if (CheckPassword(password, user))
+                if (CheckValidUsernameAndPassword(username,password, user))
                 {
                     return user;
                 }
@@ -28,11 +28,11 @@ namespace Business_Layer
 
         }
 
-        private bool CheckPassword(string enteredPassword, User user)
+        private bool CheckValidUsernameAndPassword(string enteredUsername,string enteredPassword, User user)
         {
             Security security = new Security();
 
-            if (security.HashPassword($"{enteredPassword}{user.salt}") == user.password)
+            if (enteredUsername == user.username && security.HashPassword($"{enteredPassword}{user.salt}") == user.password)
             {
                 return true;
             }
