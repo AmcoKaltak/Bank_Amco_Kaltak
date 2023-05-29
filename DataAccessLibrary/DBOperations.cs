@@ -17,15 +17,13 @@ namespace DataAccessLibrary
             context.Users.Add(user);
 
             context.SaveChanges();
-
-            //Github test
         }
 
         public User LogInUser(string username, string password) //Hittat en entity i databasen med matchande användar namn samt lösenord
         {
             using Context context= new Context();
 
-            var user = context.Users
+            var user = context.Users //Linq queries är i normala fal alltid case insensitive, för att fixa detta kan man göra den dubbel check i client eller altera databas
                     .Where(u => u.username == username && u.password == password )
                     .FirstOrDefault();
 
