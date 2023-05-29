@@ -17,6 +17,8 @@ namespace DataAccessLibrary
             context.Users.Add(user);
 
             context.SaveChanges();
+
+            //Github test
         }
 
         public User LogInUser(string username, string password) //Hittat en entity i databasen med matchande användar namn samt lösenord
