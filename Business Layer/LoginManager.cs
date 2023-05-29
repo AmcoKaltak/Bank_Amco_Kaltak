@@ -10,20 +10,35 @@ namespace Business_Layer
 {
     public class LoginManager
     {
-        public User LogIn(string username,string password)
+        public User LogIn(string username,string password) //Kollar först ifall det finns en användare i databasen med den angivna användarnamnet. Om det finns checkas lösenordet
         {
             DBOperations dBOperations = new DBOperations();
-            User user = new User();
 
-            user = dBOperations.LogInUser(username,password);
+            var user = dBOperations.GetUser(username);
 
             if (user != null)
             {
-                return user;
+                if (CheckPassword(password, user))
+                {
+                    return user;
+                }
+            }
+
+            return null;
+
+        }
+
+        private bool CheckPassword(string enteredPassword, User user)
+        {
+            Security security = new Security();
+
+            if (security.HashPassword($"{enteredPassword}{user.salt}") == user.password)
+            {
+                return true;
             }
             else
             {
-                return null;
+                return false;
             }
 
         }

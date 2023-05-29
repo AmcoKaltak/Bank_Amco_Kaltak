@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccessLibrary;
@@ -17,10 +18,12 @@ namespace Business_Layer
         {
             User user = new User();
             DBOperations dBOperations = new DBOperations();
+            Security security = new Security();
             Random random = new Random();
 
             user.username = username;
-            user.password = password;
+            user.salt = DateTime.Now.ToString();
+            user.password = security.HashPassword($"{password}{user.salt}");
             user.name = name;
             user.lastName = lastName;
             user.email = email;
@@ -39,5 +42,7 @@ namespace Business_Layer
             }
 
         }
+
+
     }
 }
