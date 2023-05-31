@@ -32,6 +32,23 @@ namespace DataAccessLibrary
             return user;
         }
 
+        public bool CheckUniqueUser(User user)
+        {
+
+            using Context context = new Context();
+
+            var userUnique = context.Users //Linq queries är i normala fal alltid case insensitive, för att fixa detta kan man göra den dubbel check i client eller altera databasen
+                    .Where(u => u.username == user.username || u.email == user.email )
+                    .FirstOrDefault();
+
+            if (userUnique == null)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         //public void RemoveUser()
         //{
         //    using Context context = new Context();

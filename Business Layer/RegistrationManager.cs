@@ -16,8 +16,9 @@ namespace Business_Layer
         public bool Register(string username, string password, string name, string lastName, string email) //Checks på att fieldsen är valid
             //Checks på att varje users username,password och email är unikt i databasen
         {
-            User user = new User();
             DBOperations dBOperations = new DBOperations();
+            User user = new User();
+
             Security security = new Security();
             Random random = new Random();
 
@@ -30,10 +31,10 @@ namespace Business_Layer
             user.moneyBalance = random.Next(10000, 1000000);
 
 
-            if (string.IsNullOrWhiteSpace(user.username) || string.IsNullOrWhiteSpace(user.password) || string.IsNullOrWhiteSpace(user.name) || string.IsNullOrWhiteSpace(user.lastName) || string.IsNullOrWhiteSpace(user.email))
+            if (string.IsNullOrWhiteSpace(user.username) || string.IsNullOrWhiteSpace(user.password) || string.IsNullOrWhiteSpace(user.name) || string.IsNullOrWhiteSpace(user.lastName) || string.IsNullOrWhiteSpace(user.email) || dBOperations.CheckUniqueUser(user) == false)
             {
                 return false;
-            }
+            } 
             else
             {
                 dBOperations.AddUser(user);
@@ -42,6 +43,7 @@ namespace Business_Layer
             }
 
         }
+
 
 
     }
