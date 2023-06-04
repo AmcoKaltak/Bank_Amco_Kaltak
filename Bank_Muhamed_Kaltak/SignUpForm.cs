@@ -31,10 +31,9 @@ namespace Bank_Muhamed_Kaltak
             {
                 Popup(Color.Green,"Registered", "Successfully registered to the database!");
 
-                this.Hide();
                 LoginForm loginForm = new LoginForm();
-                loginForm.ShowDialog();
-                this.Close();
+                FormChanger.ChangeForm(this,loginForm);
+
             }
             else
             {
@@ -44,7 +43,7 @@ namespace Bank_Muhamed_Kaltak
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             LoginForm loginForm = new LoginForm();
-            ChangeForm(loginForm);
+            FormChanger.ChangeForm(this, loginForm);
         }
 
         private void Popup(Color color,string title,string body) //Möljigtvist att jag gör det till en klass och har denna metoden med, om det ska användas i andra pos
@@ -62,12 +61,6 @@ namespace Bank_Muhamed_Kaltak
             popupNotifier.Popup();
         }
 
-        private void ChangeForm(Form form)
-        {
-            this.Hide();
-            form.ShowDialog();
-            this.Close();
-        }
         
     }
 }
