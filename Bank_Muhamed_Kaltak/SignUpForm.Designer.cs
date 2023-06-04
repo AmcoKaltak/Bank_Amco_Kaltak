@@ -39,6 +39,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.buttonRegister = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelPassword
@@ -129,19 +130,31 @@
             // buttonRegister
             // 
             this.buttonRegister.Font = new System.Drawing.Font("Verdana Pro Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonRegister.Location = new System.Drawing.Point(290, 354);
+            this.buttonRegister.Location = new System.Drawing.Point(381, 343);
             this.buttonRegister.Name = "buttonRegister";
-            this.buttonRegister.Size = new System.Drawing.Size(180, 27);
+            this.buttonRegister.Size = new System.Drawing.Size(89, 27);
             this.buttonRegister.TabIndex = 23;
             this.buttonRegister.Text = "Register";
             this.buttonRegister.UseVisualStyleBackColor = true;
             this.buttonRegister.Click += new System.EventHandler(this.buttonRegister_Click);
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Font = new System.Drawing.Font("Verdana Pro Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonCancel.Location = new System.Drawing.Point(290, 343);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(89, 27);
+            this.buttonCancel.TabIndex = 24;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // SignUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonRegister);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBoxEmail);
@@ -173,5 +186,6 @@
         private Label label4;
         private TextBox textBoxEmail;
         private Button buttonRegister;
+        private Button buttonCancel;
     }
 }

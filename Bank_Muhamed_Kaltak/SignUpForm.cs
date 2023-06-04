@@ -41,6 +41,11 @@ namespace Bank_Muhamed_Kaltak
                 Popup(Color.Red,"Invalid Fields", "Make sure that the fields are not empty");
             }
         }
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            ChangeForm(loginForm);
+        }
 
         private void Popup(Color color,string title,string body) //Möljigtvist att jag gör det till en klass och har denna metoden med, om det ska användas i andra pos
         {
@@ -56,5 +61,13 @@ namespace Bank_Muhamed_Kaltak
             popupNotifier.ContentFont = new Font("Century Gothic", 15);
             popupNotifier.Popup();
         }
+
+        private void ChangeForm(Form form)
+        {
+            this.Hide();
+            form.ShowDialog();
+            this.Close();
+        }
+        
     }
 }
