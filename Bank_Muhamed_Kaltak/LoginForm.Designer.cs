@@ -34,6 +34,7 @@
             this.labelUsername = new System.Windows.Forms.Label();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.buttonLogin = new System.Windows.Forms.Button();
+            this.linkCredentials = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // buttonSignUp
@@ -90,11 +91,24 @@
             this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
+            // linkCredentials
+            // 
+            this.linkCredentials.AutoSize = true;
+            this.linkCredentials.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.linkCredentials.Location = new System.Drawing.Point(306, 332);
+            this.linkCredentials.Name = "linkCredentials";
+            this.linkCredentials.Size = new System.Drawing.Size(190, 19);
+            this.linkCredentials.TabIndex = 14;
+            this.linkCredentials.TabStop = true;
+            this.linkCredentials.Text = "Forgot Login Credentials?";
+            this.linkCredentials.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCredentials_LinkClicked);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.linkCredentials);
             this.Controls.Add(this.buttonSignUp);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.textBoxPassword);
@@ -116,5 +130,6 @@
         private Label labelUsername;
         private TextBox textBoxUsername;
         private Button buttonLogin;
+        private LinkLabel linkCredentials;
     }
 }
