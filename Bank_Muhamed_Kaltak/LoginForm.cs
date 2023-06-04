@@ -25,10 +25,8 @@ namespace Bank_Muhamed_Kaltak
 
         private void buttonSignUp_Click(object sender, EventArgs e)
         {
-            this.Hide();
             SignUpForm signUpForm = new SignUpForm();
-            signUpForm.ShowDialog();
-            this.Close();
+            FormChanger.ChangeForm(this, signUpForm);
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -41,10 +39,8 @@ namespace Bank_Muhamed_Kaltak
 
             if (user != null)
             {
-                this.Hide();
                 SignUpForm signUpForm = new SignUpForm();
-                signUpForm.ShowDialog();
-                this.Close();
+                FormChanger.ChangeForm(this, signUpForm);
             }
 
             //if (String.Equals(test.username,textBoxUsername.Text) && String.Equals(test.username,textBoxPassword.Text))
