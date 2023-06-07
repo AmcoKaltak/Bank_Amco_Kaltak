@@ -34,12 +34,13 @@
             this.labelUsername = new System.Windows.Forms.Label();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.buttonLogin = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabelUsername = new System.Windows.Forms.LinkLabel();
+            this.linkLabelPassword = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // buttonSignUp
             // 
-            this.buttonSignUp.Location = new System.Drawing.Point(412, 274);
+            this.buttonSignUp.Location = new System.Drawing.Point(412, 333);
             this.buttonSignUp.Name = "buttonSignUp";
             this.buttonSignUp.Size = new System.Drawing.Size(78, 33);
             this.buttonSignUp.TabIndex = 13;
@@ -83,7 +84,7 @@
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Location = new System.Drawing.Point(310, 274);
+            this.buttonLogin.Location = new System.Drawing.Point(310, 333);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(78, 33);
             this.buttonLogin.TabIndex = 8;
@@ -91,23 +92,35 @@
             this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
-            // linkLabel1
+            // linkLabelUsername
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.linkLabel1.Location = new System.Drawing.Point(350, 160);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(146, 14);
-            this.linkLabel1.TabIndex = 15;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Forgot Login Credentials?";
+            this.linkLabelUsername.AutoSize = true;
+            this.linkLabelUsername.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.linkLabelUsername.Location = new System.Drawing.Point(383, 160);
+            this.linkLabelUsername.Name = "linkLabelUsername";
+            this.linkLabelUsername.Size = new System.Drawing.Size(107, 14);
+            this.linkLabelUsername.TabIndex = 15;
+            this.linkLabelUsername.TabStop = true;
+            this.linkLabelUsername.Text = "Forgot Username?";
+            // 
+            // linkLabelPassword
+            // 
+            this.linkLabelPassword.AutoSize = true;
+            this.linkLabelPassword.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.linkLabelPassword.Location = new System.Drawing.Point(384, 248);
+            this.linkLabelPassword.Name = "linkLabelPassword";
+            this.linkLabelPassword.Size = new System.Drawing.Size(106, 14);
+            this.linkLabelPassword.TabIndex = 16;
+            this.linkLabelPassword.TabStop = true;
+            this.linkLabelPassword.Text = "Forgot Password?";
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.linkLabelPassword);
+            this.Controls.Add(this.linkLabelUsername);
             this.Controls.Add(this.buttonSignUp);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.textBoxPassword);
@@ -129,6 +142,7 @@
         private Label labelUsername;
         private TextBox textBoxUsername;
         private Button buttonLogin;
-        private LinkLabel linkLabel1;
+        private LinkLabel linkLabelUsername;
+        private LinkLabel linkLabelPassword;
     }
 }
