@@ -19,11 +19,24 @@ namespace DataAccessLibrary
             context.SaveChanges();
         }
 
-        public User GetUser(string username) //Hittat en entity i databasen med matchande användar namn
+        public User GetUserFromUsername(string username) //Hittat en entity i databasen med matchande användar namn
         {
             using Context context= new Context();
 
             var user = context.Users.FirstOrDefault(u => u.username == username);
+
+            //var user = context.Users //Linq queries är i normala fal alltid case insensitive, för att fixa detta kan man göra den dubbel check i client eller altera databasen
+            //        .Where(u => u.username == username && u.password == password )
+            //        .FirstOrDefault();
+
+            return user;
+        }
+
+        public User GetUserFromEmail(string email) //Hittat en entity i databasen med matchande användar namn
+        {
+            using Context context = new Context();
+
+            var user = context.Users.FirstOrDefault(u => u.email == email);
 
             //var user = context.Users //Linq queries är i normala fal alltid case insensitive, för att fixa detta kan man göra den dubbel check i client eller altera databasen
             //        .Where(u => u.username == username && u.password == password )

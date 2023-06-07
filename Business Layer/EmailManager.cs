@@ -6,32 +6,40 @@ using System.Threading.Tasks;
 using System.Net.Mail;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 using System.Net;
+using DataAccessLibrary;
+using DataAccessLibrary.Entity;
 
 namespace Business_Layer
 {
-    public class Email
+    public class EmailManager
     {
-        public void lol()
+        public void SendVerificationCode(string receiver)
         {
+
+            string subject = "Verification";
+
+            DBOperations dBOperations = new DBOperations();
+            User user = dBOperations.GetUserFromEmail(receiver);
+
+            if (user == null)
+            {
+                return;
+            }
 
             try
             {
-                string to = "abedking@hotmail.se";
-                string subject = "lol";
-                string body = "body";
-
-                string email = "abedking@hotmail.se"; //TODO fixa en ny mail just för projekt/tester
-                string password = "";//TODO fixa en ny mail just för projekt/tester
+                string sender = "muhamedkaltakprojekt@outlook.com";
+                string password = "MuhamedKaltak_Projekt";
                 string host = "smtp.office365.com";
                 int port = 587;
 
-                using (MailMessage mail = new MailMessage(email, to, subject, body))
+                using (MailMessage mail = new MailMessage(sender, receiver, subject, "Username: " +  user.username))
                 {
                     using (SmtpClient smtp = new SmtpClient(host, port))
                     {
                         smtp.UseDefaultCredentials = false;
                         smtp.EnableSsl = true;
-                        smtp.Credentials = new NetworkCredential(email, password);
+                        smtp.Credentials = new NetworkCredential(sender, password);
                         smtp.Send(mail);
                        
                     }

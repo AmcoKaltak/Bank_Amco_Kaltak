@@ -25,12 +25,7 @@ namespace Bank_Muhamed_Kaltak
 
         private void buttonSignUp_Click(object sender, EventArgs e)
         {
-            Email email = new Email();
-
-            email.lol();
-
-            SignUpForm signUpForm = new SignUpForm();
-            FormChanger.ChangeForm(this, signUpForm);
+            FormChanger.ChangeForm(this, new SignUpForm());
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -43,8 +38,8 @@ namespace Bank_Muhamed_Kaltak
 
             if (user != null)
             {
-                SignUpForm signUpForm = new SignUpForm();
-                FormChanger.ChangeForm(this, signUpForm);
+                
+                FormChanger.ChangeForm(this,new SignUpForm());
             }
 
             //if (String.Equals(test.username,textBoxUsername.Text) && String.Equals(test.username,textBoxPassword.Text))
@@ -58,7 +53,7 @@ namespace Bank_Muhamed_Kaltak
 
         private void linkLabelUsername_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            FormChanger.ChangeForm(this, new ForgotUsernameForm());
         }
     }
 }

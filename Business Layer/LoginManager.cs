@@ -14,7 +14,7 @@ namespace Business_Layer
         {
             DBOperations dBOperations = new DBOperations();
 
-            var user = dBOperations.GetUser(username);
+            var user = dBOperations.GetUserFromUsername(username);
 
             if (user != null)
             {
