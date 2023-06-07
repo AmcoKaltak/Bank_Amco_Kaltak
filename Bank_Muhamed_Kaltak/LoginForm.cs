@@ -25,6 +25,10 @@ namespace Bank_Muhamed_Kaltak
 
         private void buttonSignUp_Click(object sender, EventArgs e)
         {
+            Email email = new Email();
+
+            email.lol();
+
             SignUpForm signUpForm = new SignUpForm();
             FormChanger.ChangeForm(this, signUpForm);
         }
@@ -52,5 +56,9 @@ namespace Bank_Muhamed_Kaltak
             //}
         }
 
+        private void linkLabelUsername_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
     }
 }
