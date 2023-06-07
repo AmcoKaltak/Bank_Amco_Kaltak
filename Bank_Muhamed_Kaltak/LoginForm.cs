@@ -52,9 +52,5 @@ namespace Bank_Muhamed_Kaltak
             //}
         }
 
-        private void linkCredentials_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
     }
 }
