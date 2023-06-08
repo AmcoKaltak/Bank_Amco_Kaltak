@@ -13,35 +13,52 @@ namespace Business_Layer
 {
     public class EmailManager
     {
-        public void SendVerificationCode(string receiver)
+        const string SENDER = "muhamedkaltakprojekt@outlook.com";
+        const string PASSWORD = "MuhamedKaltak_Projekt";
+        const string HOST = "smtp.office365.com";
+        const int PORT = 587;
+
+        public void SendUsername(string receiver)
         {
 
-            string subject = "Verification";
-
-            DBOperations dBOperations = new DBOperations();
-            User user = dBOperations.GetUserFromEmail(receiver);
+            User user = GetUserFromEmail(receiver);
 
             if (user == null)
             {
                 return;
             }
 
+            SendEmail(receiver, "Username Recovery", "Your username is: " + user.username);
+
+        }
+
+        public void SendVerificationCode(string receiver)
+        {
+
+            User user = GetUserFromEmail(receiver);
+
+            if (user == null)
+            {
+                return;
+            }
+
+            SendEmail(receiver, "Password Verification Code", 123.ToString());
+        }
+
+
+        private void SendEmail(string receiver, string subject, string body)
+        {
             try
             {
-                string sender = "muhamedkaltakprojekt@outlook.com";
-                string password = "MuhamedKaltak_Projekt";
-                string host = "smtp.office365.com";
-                int port = 587;
-
-                using (MailMessage mail = new MailMessage(sender, receiver, subject, "Username: " +  user.username))
+                using (MailMessage mail = new MailMessage(SENDER, receiver, subject, body))
                 {
-                    using (SmtpClient smtp = new SmtpClient(host, port))
+                    using (SmtpClient smtp = new SmtpClient(HOST, PORT))
                     {
                         smtp.UseDefaultCredentials = false;
                         smtp.EnableSsl = true;
-                        smtp.Credentials = new NetworkCredential(sender, password);
+                        smtp.Credentials = new NetworkCredential(SENDER, PASSWORD);
                         smtp.Send(mail);
-                       
+
                     }
                 }
             }
@@ -50,7 +67,13 @@ namespace Business_Layer
 
                 Console.WriteLine(e);
             }
-            
+        }
+
+        private User GetUserFromEmail(string email)
+        {
+            DBOperations dBOperations = new DBOperations();
+
+            return dBOperations.GetUserFromEmail(email);
 
         }
     }

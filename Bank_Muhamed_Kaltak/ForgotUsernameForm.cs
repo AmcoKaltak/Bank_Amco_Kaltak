@@ -22,7 +22,7 @@ namespace Bank_Muhamed_Kaltak
         {
             EmailManager emailManager = new EmailManager();
 
-            emailManager.SendVerificationCode(textBoxEmail.Text);
+            emailManager.SendUsername(textBoxEmail.Text);
 
             MessageBox.Show("Username has been sent to the specified email adress"); //Man ska ej nämna om det lyckades eller ej för att ge så lite
             //- information som möljigt till hackare

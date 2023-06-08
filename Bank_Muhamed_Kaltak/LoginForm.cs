@@ -55,5 +55,10 @@ namespace Bank_Muhamed_Kaltak
         {
             FormChanger.ChangeForm(this, new ForgotUsernameForm());
         }
+
+        private void linkLabelPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormChanger.ChangeForm(this, new ForgotPasswordEmailForm());
+        }
     }
 }
