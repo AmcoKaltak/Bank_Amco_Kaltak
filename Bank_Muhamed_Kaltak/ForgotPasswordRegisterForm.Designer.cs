@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelRepeatPassword = new System.Windows.Forms.Label();
-            this.textBoxRepeatPassword = new System.Windows.Forms.TextBox();
+            this.labelConfirmPassword = new System.Windows.Forms.Label();
+            this.textBoxConfirmPassword = new System.Windows.Forms.TextBox();
             this.labelNewPassword = new System.Windows.Forms.Label();
             this.textBoxNewPassword = new System.Windows.Forms.TextBox();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonRegister = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // labelRepeatPassword
+            // labelConfirmPassword
             // 
-            this.labelRepeatPassword.AutoSize = true;
-            this.labelRepeatPassword.Font = new System.Drawing.Font("Verdana Pro", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelRepeatPassword.Location = new System.Drawing.Point(286, 164);
-            this.labelRepeatPassword.Name = "labelRepeatPassword";
-            this.labelRepeatPassword.Size = new System.Drawing.Size(70, 16);
-            this.labelRepeatPassword.TabIndex = 20;
-            this.labelRepeatPassword.Text = "Password";
+            this.labelConfirmPassword.AutoSize = true;
+            this.labelConfirmPassword.Font = new System.Drawing.Font("Verdana Pro", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelConfirmPassword.Location = new System.Drawing.Point(286, 164);
+            this.labelConfirmPassword.Name = "labelConfirmPassword";
+            this.labelConfirmPassword.Size = new System.Drawing.Size(127, 16);
+            this.labelConfirmPassword.TabIndex = 20;
+            this.labelConfirmPassword.Text = "Confirm Password";
             // 
-            // textBoxRepeatPassword
+            // textBoxConfirmPassword
             // 
-            this.textBoxRepeatPassword.Location = new System.Drawing.Point(286, 182);
-            this.textBoxRepeatPassword.Name = "textBoxRepeatPassword";
-            this.textBoxRepeatPassword.Size = new System.Drawing.Size(180, 23);
-            this.textBoxRepeatPassword.TabIndex = 19;
+            this.textBoxConfirmPassword.Location = new System.Drawing.Point(286, 182);
+            this.textBoxConfirmPassword.Name = "textBoxConfirmPassword";
+            this.textBoxConfirmPassword.Size = new System.Drawing.Size(180, 23);
+            this.textBoxConfirmPassword.TabIndex = 19;
             // 
             // labelNewPassword
             // 
@@ -59,9 +59,9 @@
             this.labelNewPassword.Font = new System.Drawing.Font("Verdana Pro", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelNewPassword.Location = new System.Drawing.Point(286, 104);
             this.labelNewPassword.Name = "labelNewPassword";
-            this.labelNewPassword.Size = new System.Drawing.Size(75, 16);
+            this.labelNewPassword.Size = new System.Drawing.Size(142, 16);
             this.labelNewPassword.TabIndex = 18;
-            this.labelNewPassword.Text = "Username";
+            this.labelNewPassword.Text = "Enter new password";
             // 
             // textBoxNewPassword
             // 
@@ -79,6 +79,7 @@
             this.buttonCancel.TabIndex = 26;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonRegister
             // 
@@ -89,6 +90,7 @@
             this.buttonRegister.TabIndex = 25;
             this.buttonRegister.Text = "Register";
             this.buttonRegister.UseVisualStyleBackColor = true;
+            this.buttonRegister.Click += new System.EventHandler(this.buttonRegister_Click);
             // 
             // ForgotPasswordRegisterForm
             // 
@@ -97,8 +99,8 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonRegister);
-            this.Controls.Add(this.labelRepeatPassword);
-            this.Controls.Add(this.textBoxRepeatPassword);
+            this.Controls.Add(this.labelConfirmPassword);
+            this.Controls.Add(this.textBoxConfirmPassword);
             this.Controls.Add(this.labelNewPassword);
             this.Controls.Add(this.textBoxNewPassword);
             this.Name = "ForgotPasswordRegisterForm";
@@ -110,8 +112,8 @@
 
         #endregion
 
-        private Label labelRepeatPassword;
-        private TextBox textBoxRepeatPassword;
+        private Label labelConfirmPassword;
+        private TextBox textBoxConfirmPassword;
         private Label labelNewPassword;
         private TextBox textBoxNewPassword;
         private Button buttonCancel;

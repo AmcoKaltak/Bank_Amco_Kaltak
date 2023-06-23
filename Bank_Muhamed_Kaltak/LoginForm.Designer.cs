@@ -41,7 +41,7 @@
             // buttonSignUp
             // 
             this.buttonSignUp.Font = new System.Drawing.Font("Verdana Pro Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonSignUp.Location = new System.Drawing.Point(412, 292);
+            this.buttonSignUp.Location = new System.Drawing.Point(310, 291);
             this.buttonSignUp.Name = "buttonSignUp";
             this.buttonSignUp.Size = new System.Drawing.Size(78, 33);
             this.buttonSignUp.TabIndex = 13;
@@ -86,7 +86,7 @@
             // buttonLogin
             // 
             this.buttonLogin.Font = new System.Drawing.Font("Verdana Pro Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonLogin.Location = new System.Drawing.Point(310, 292);
+            this.buttonLogin.Location = new System.Drawing.Point(412, 291);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(78, 33);
             this.buttonLogin.TabIndex = 8;

@@ -43,6 +43,7 @@
             this.buttonEmail.TabIndex = 29;
             this.buttonEmail.Text = "Submit";
             this.buttonEmail.UseVisualStyleBackColor = true;
+            this.buttonEmail.Click += new System.EventHandler(this.buttonEmail_Click);
             // 
             // labelEmail
             // 

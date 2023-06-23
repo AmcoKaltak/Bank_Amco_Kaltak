@@ -13,18 +13,19 @@ namespace Business_Layer
 {
     public class RegistrationManager
     {
+        DBOperations dBOperations = new DBOperations();
+        Security security = new Security();
+        User user = new User();
+
         public bool Register(string username, string password, string name, string lastName, string email) //Checks på att fieldsen är valid
             //Checks på att varje users username,password och email är unikt i databasen
         {
-            DBOperations dBOperations = new DBOperations();
-            User user = new User();
 
-            Security security = new Security();
             Random random = new Random();
 
             user.username = username;
             user.salt = DateTime.Now.ToString();
-            user.password = security.HashPassword($"{password}{user.salt}");
+            user.password = security.Hash($"{password}{user.salt}");
             user.name = name;
             user.lastName = lastName;
             user.email = email;
@@ -44,6 +45,12 @@ namespace Business_Layer
 
         }
 
+        public void RegisterNewPassword(string email, string newPassword)
+        {
+            user = dBOperations.GetUserFromEmail(email);
+
+            dBOperations.ChangePassword(email, security.Hash($"{newPassword}{user.salt}"));
+        }
 
 
     }

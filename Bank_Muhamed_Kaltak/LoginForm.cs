@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business_Layer;
-using DataAccessLibrary.Entity;
+using DataAccessLibrary.Entity; //Ta bort när projektet är klart
 
 namespace Bank_Muhamed_Kaltak
 {
@@ -31,16 +31,13 @@ namespace Bank_Muhamed_Kaltak
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             LoginManager loginManager = new LoginManager();
-            User user = new User();
-
-            user = loginManager.LogIn(textBoxUsername.Text, textBoxPassword.Text);
 
 
-            if (user != null)
+            if (loginManager.LogIn(textBoxUsername.Text, textBoxPassword.Text))
             {
-                
-                FormChanger.ChangeForm(this,new SignUpForm());
+                FormChanger.ChangeForm(this, new SignUpForm());
             }
+            
 
             //if (String.Equals(test.username,textBoxUsername.Text) && String.Equals(test.username,textBoxPassword.Text))
             //{

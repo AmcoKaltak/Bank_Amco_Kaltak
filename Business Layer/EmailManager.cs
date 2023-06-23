@@ -37,13 +37,26 @@ namespace Business_Layer
 
             User user = GetUserFromEmail(receiver);
 
+            Security security = new Security();
+
+            DBOperations dBOperations = new DBOperations();
+
+            string verificationCode = security.GenerateVerificationCode();
+
             if (user == null)
             {
                 return;
             }
 
-            SendEmail(receiver, "Password Verification Code", 123.ToString());
+            SendEmail(receiver, "Password Verification Code", "Verification code: " +  verificationCode);
+
+
+            dBOperations.AddPasswordTokenAndDateToUser(receiver,security.Hash(verificationCode), DateTime.Now);
+
+            
         }
+
+        
 
 
         private void SendEmail(string receiver, string subject, string body)

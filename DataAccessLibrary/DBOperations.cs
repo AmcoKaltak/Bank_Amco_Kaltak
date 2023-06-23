@@ -19,6 +19,29 @@ namespace DataAccessLibrary
             context.SaveChanges();
         }
 
+        public void AddPasswordTokenAndDateToUser(string email,string passwordResetToken,DateTime passwordResetDate)
+        {
+            using Context context = new Context();
+
+            var user = context.Users.FirstOrDefault(u => u.email == email);
+
+            user.passwordResetToken = passwordResetToken;
+            user.passwordResetDate = passwordResetDate;
+
+            context.SaveChanges();
+        }
+
+        public void ChangePassword(string email,string newPassword)
+        {
+            using Context context = new Context();
+
+            var user = context.Users.FirstOrDefault(u => u.email == email);
+
+            user.password = newPassword;
+
+            context.SaveChanges();
+        }
+
         public User GetUserFromUsername(string username) //Hittat en entity i databasen med matchande användar namn
         {
             using Context context= new Context();
@@ -32,7 +55,7 @@ namespace DataAccessLibrary
             return user;
         }
 
-        public User GetUserFromEmail(string email) //Hittat en entity i databasen med matchande användar namn
+        public User GetUserFromEmail(string email) //Hittat en entity i databasen med matchande email
         {
             using Context context = new Context();
 

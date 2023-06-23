@@ -10,21 +10,20 @@ namespace Business_Layer
 {
     public class LoginManager
     {
-        public User LogIn(string username,string password) //Kollar först ifall det finns en användare i databasen med den angivna användarnamnet. Om det finns checkas lösenordet
+        public bool LogIn(string username,string password) //Kollar först ifall det finns en användare i databasen med den angivna användarnamnet. Om det finns checkas lösenordet
         {
             DBOperations dBOperations = new DBOperations();
 
             var user = dBOperations.GetUserFromUsername(username);
 
-            if (user != null)
+            if (user != null && CheckValidUsernameAndPassword(username, password, user))
             {
-                if (CheckValidUsernameAndPassword(username,password, user))
-                {
-                    return user;
-                }
+
+                return true;
+                
             }
 
-            return null;
+            return false;
 
         }
 
@@ -32,7 +31,28 @@ namespace Business_Layer
         {
             Security security = new Security();
 
-            if (enteredUsername == user.username && security.HashPassword($"{enteredPassword}{user.salt}") == user.password)
+            if (enteredUsername == user.username && security.Hash($"{enteredPassword}{user.salt}") == user.password)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public bool CheckValidVerficationCode(string email,string enteredCode)
+        {
+            DBOperations dBOperations = new DBOperations();
+
+            Security security = new Security();
+
+            User user = dBOperations.GetUserFromEmail(email);
+
+            TimeSpan timeSpan = DateTime.Now - user.passwordResetDate;
+
+            if (user.passwordResetToken == security.Hash(enteredCode) && timeSpan.Minutes <= 10 ) //Kollar ifall coden matchar tokenet samt att det ej har passerat 10 min sen begäran av att ändra lösenordet skett
             {
                 return true;
             }

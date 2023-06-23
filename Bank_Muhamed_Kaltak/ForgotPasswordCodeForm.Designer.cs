@@ -43,6 +43,7 @@
             this.buttonCode.TabIndex = 33;
             this.buttonCode.Text = "Submit";
             this.buttonCode.UseVisualStyleBackColor = true;
+            this.buttonCode.Click += new System.EventHandler(this.buttonCode_Click);
             // 
             // labelCode
             // 
@@ -70,6 +71,7 @@
             this.buttonCancel.TabIndex = 30;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // ForgotPasswordCodeForm
             // 

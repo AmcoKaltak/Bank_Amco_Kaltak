@@ -14,6 +14,8 @@ namespace DataAccessLibrary.Entity
         public string email { get; set; }
         public string name { get; set; }
         public string lastName { get; set; }
+        public string? passwordResetToken { get; set; } //? Ser till att variabeln kan vara null
+        public DateTime passwordResetDate { get; set; }
         public float moneyBalance { get; set; }
 
 
