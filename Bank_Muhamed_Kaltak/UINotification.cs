@@ -9,7 +9,7 @@ namespace Bank_Muhamed_Kaltak
 {
     public static class UINotification
     {
-        public static void Popup(Color color, string title, string body) //Möljigtvist att jag gör det till en klass och har denna metoden med, om det ska användas i andra pos
+        public static void Popup(Color color, string title, string body)
         {
             PopupNotifier popupNotifier = new PopupNotifier();
 
