@@ -29,7 +29,7 @@ namespace Bank_Muhamed_Kaltak
 
             if (registrationManager.Register(textBoxUsername.Text, textBoxPassword.Text, textBoxName.Text, textBoxLastName.Text, textBoxEmail.Text))
             {
-                Popup(Color.Green,"Registered", "Successfully registered to the database!");
+                UINotification.Popup(Color.Green, "Registered", "Successfully registered to the database!");
 
                 LoginForm loginForm = new LoginForm();
                 FormChanger.ChangeForm(this,loginForm);
@@ -37,7 +37,7 @@ namespace Bank_Muhamed_Kaltak
             }
             else
             {
-                Popup(Color.Red,"Invalid Fields", "Make sure that the fields are not empty");
+                UINotification.Popup(Color.Red,"Invalid Fields", "Make sure that the fields are not empty");
             }
         }
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -46,20 +46,7 @@ namespace Bank_Muhamed_Kaltak
             FormChanger.ChangeForm(this, loginForm);
         }
 
-        private void Popup(Color color,string title,string body) //Möljigtvist att jag gör det till en klass och har denna metoden med, om det ska användas i andra pos
-        {
-            PopupNotifier popupNotifier = new PopupNotifier();
 
-            popupNotifier.BodyColor = color;
-            popupNotifier.TitleText = title;
-            popupNotifier.TitleColor = Color.White;
-            popupNotifier.TitleFont = new Font("Century Gothic", 15, FontStyle.Bold);
-
-            popupNotifier.ContentText = body;
-            popupNotifier.ContentColor = Color.White;
-            popupNotifier.ContentFont = new Font("Century Gothic", 15);
-            popupNotifier.Popup();
-        }
 
         
     }

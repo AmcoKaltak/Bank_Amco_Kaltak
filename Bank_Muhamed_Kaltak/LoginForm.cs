@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business_Layer;
-using DataAccessLibrary.Entity; //Ta bort när projektet är klart
+using DataAccessLibrary.Entity; //Ta bort när projektet är klart -- Testing purposes
 
 namespace Bank_Muhamed_Kaltak
 {
@@ -35,7 +35,12 @@ namespace Bank_Muhamed_Kaltak
 
             if (loginManager.LogIn(textBoxUsername.Text, textBoxPassword.Text))
             {
+                UINotification.Popup(Color.Green, "Succesful Login", "Logged in to the system");
                 FormChanger.ChangeForm(this, new SignUpForm());
+            }
+            else
+            {
+                UINotification.Popup(Color.Red, "Failed Login", "Invalid username/password");
             }
             
 

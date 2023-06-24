@@ -29,9 +29,19 @@ namespace Bank_Muhamed_Kaltak
 
         private void buttonRegister_Click(object sender, EventArgs e)
         {
+
             if (textBoxNewPassword.Text != textBoxConfirmPassword.Text)
             {
-                MessageBox.Show("Passwords do not match!");
+                UINotification.Popup(Color.Red, "Not Matching Passwords", "The passwords do not match, please try again");
+
+                textBoxNewPassword.Text = "";
+                textBoxConfirmPassword.Text = "";
+
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(textBoxNewPassword.Text) || string.IsNullOrWhiteSpace(textBoxConfirmPassword.Text))
+            {
+                UINotification.Popup(Color.Red, "Empty Passwords", "New password cannot be empty");
                 return;
             }
 
@@ -42,14 +52,15 @@ namespace Bank_Muhamed_Kaltak
                 RegistrationManager registrationManager = new RegistrationManager();
                 registrationManager.RegisterNewPassword(userEmail, textBoxConfirmPassword.Text);
 
-                MessageBox.Show("Passwords have been changed");
+                UINotification.Popup(Color.Green, "Succesfully changed passwords", "Passwords have been changed for your account");
 
                 FormChanger.ChangeForm(this, new LoginForm());
             }
             else
             {
-                MessageBox.Show("ERROR: Something Went Wrong");
+                UINotification.Popup(Color.Red, "ERROR", "Someting went wrong");
             }
         }
+
     }
 }

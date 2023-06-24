@@ -32,7 +32,7 @@ namespace Bank_Muhamed_Kaltak
             ForgotPasswordCodeForm forgotPasswordCodeForm = new ForgotPasswordCodeForm();
             forgotPasswordCodeForm.userEmail = textBoxEmail.Text;
 
-            MessageBox.Show("Verfication code has been sent to the following email adress");
+            UINotification.Popup(Color.Green, "Succesfully sent verification code", "Verification code has beent sent to the specified email adress");
 
             FormChanger.ChangeForm(this, forgotPasswordCodeForm);
         }

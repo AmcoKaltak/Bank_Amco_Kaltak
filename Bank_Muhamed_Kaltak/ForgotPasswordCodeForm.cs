@@ -35,7 +35,7 @@ namespace Bank_Muhamed_Kaltak
             }
             else
             {
-                MessageBox.Show("INVALID CODE");
+                UINotification.Popup(Color.Red, "ERROR", "INVALID CODE");
             }
         }
 
