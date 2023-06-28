@@ -42,7 +42,7 @@ namespace Bank_Muhamed_Kaltak
             {
                 UINotification.Popup(Color.Red, "Failed Login", "Invalid username/password");
             }
-            
+
 
             //if (String.Equals(test.username,textBoxUsername.Text) && String.Equals(test.username,textBoxPassword.Text))
             //{
@@ -61,6 +61,11 @@ namespace Bank_Muhamed_Kaltak
         private void linkLabelPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormChanger.ChangeForm(this, new ForgotPasswordEmailForm());
+        }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
