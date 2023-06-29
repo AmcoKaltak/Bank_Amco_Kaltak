@@ -16,6 +16,9 @@ namespace Bank_Muhamed_Kaltak
     {
         User test = new User();
 
+        TextBox lastMarkedTextBox;
+        Panel lastMarkedPanel;
+
         public LoginForm()
         {
             test.username = "test";
@@ -23,9 +26,21 @@ namespace Bank_Muhamed_Kaltak
             InitializeComponent();
         }
 
+        private void OpenForm(Form form)
+        {
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            panelMain.Controls.Add(form);
+            panelMain.Tag = form;
+            form.BringToFront();
+            form.Show();
+        }
+
         private void buttonSignUp_Click(object sender, EventArgs e)
         {
-            FormChanger.ChangeForm(this, new SignUpForm());
+            //FormChanger.ChangeForm(this, new SignUpForm());
+            OpenForm(new SignUpForm());
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -36,7 +51,7 @@ namespace Bank_Muhamed_Kaltak
             if (loginManager.LogIn(textBoxUsername.Text, textBoxPassword.Text))
             {
                 UINotification.Popup(Color.Green, "Succesful Login", "Logged in to the system");
-                FormChanger.ChangeForm(this, new SignUpForm());
+                FormChanger.ChangeForm(this, new SignUpFormOld());
             }
             else
             {
@@ -70,20 +85,33 @@ namespace Bank_Muhamed_Kaltak
 
         private void textBoxUsername_Click(object sender, EventArgs e)
         {
-            textBoxUsername.BackColor = SystemColors.Control;
-            panelUsername.BackColor = SystemColors.Control;
-
-            textBoxPassword.BackColor = Color.White;
-            panelPassword.BackColor = Color.White;
+            Mark(textBoxUsername, panelUsername);
         }
 
         private void textBoxPassword_Click(object sender, EventArgs e)
         {
-            textBoxPassword.BackColor = SystemColors.Control;
-            panelPassword.BackColor = SystemColors.Control;
+            Mark(textBoxPassword, panelPassword);
+        }
 
-            textBoxUsername.BackColor = Color.White;
-            panelUsername.BackColor = Color.White;
+        private void Mark(TextBox textBoxMark, Panel panelMark)
+        {
+
+            if (lastMarkedTextBox != null)
+            {
+                lastMarkedTextBox.BackColor = Color.White;
+            }
+
+            if (lastMarkedPanel != null)
+            {
+                lastMarkedPanel.BackColor = Color.White;
+            }
+
+            lastMarkedTextBox = textBoxMark;
+            lastMarkedPanel = panelMark;
+
+            textBoxMark.BackColor = SystemColors.Control;
+            panelMark.BackColor = SystemColors.Control;
+
         }
 
         private void LoginForm_Load(object sender, EventArgs e)

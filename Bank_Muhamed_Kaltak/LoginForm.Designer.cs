@@ -50,14 +50,14 @@
             pictureBox3 = new PictureBox();
             panelUsername = new Panel();
             pictureBox2 = new PictureBox();
-            panel2 = new Panel();
+            panelMain = new Panel();
             panelSideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelPassword.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panelUsername.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            panel2.SuspendLayout();
+            panelMain.SuspendLayout();
             SuspendLayout();
             // 
             // buttonSignUp
@@ -81,6 +81,7 @@
             textBoxPassword.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
             textBoxPassword.Location = new Point(35, 14);
             textBoxPassword.Name = "textBoxPassword";
+            textBoxPassword.PlaceholderText = "Enter your password";
             textBoxPassword.Size = new Size(434, 20);
             textBoxPassword.TabIndex = 11;
             textBoxPassword.UseSystemPasswordChar = true;
@@ -92,6 +93,7 @@
             textBoxUsername.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
             textBoxUsername.Location = new Point(36, 16);
             textBoxUsername.Name = "textBoxUsername";
+            textBoxUsername.PlaceholderText = "Enter your username";
             textBoxUsername.Size = new Size(434, 20);
             textBoxUsername.TabIndex = 9;
             textBoxUsername.Click += textBoxUsername_Click;
@@ -205,17 +207,18 @@
             // 
             // buttonClose
             // 
+            buttonClose.BackColor = Color.White;
             buttonClose.Cursor = Cursors.Hand;
             buttonClose.FlatAppearance.BorderSize = 0;
             buttonClose.FlatStyle = FlatStyle.Flat;
             buttonClose.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             buttonClose.ForeColor = Color.LightSkyBlue;
-            buttonClose.Location = new Point(460, 0);
+            buttonClose.Location = new Point(764, 0);
             buttonClose.Name = "buttonClose";
             buttonClose.Size = new Size(40, 40);
             buttonClose.TabIndex = 18;
             buttonClose.Text = "X";
-            buttonClose.UseVisualStyleBackColor = true;
+            buttonClose.UseVisualStyleBackColor = false;
             buttonClose.Click += buttonClose_Click;
             // 
             // label5
@@ -223,7 +226,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Rockwell Nova Cond", 22F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.LightSkyBlue;
-            label5.Location = new Point(35, 163);
+            label5.Location = new Point(6, 119);
             label5.Name = "label5";
             label5.Size = new Size(284, 41);
             label5.TabIndex = 5;
@@ -314,26 +317,25 @@
             pictureBox2.TabIndex = 5;
             pictureBox2.TabStop = false;
             // 
-            // panel2
+            // panelMain
             // 
-            panel2.BackColor = Color.White;
-            panel2.Controls.Add(linkLabel1);
-            panel2.Controls.Add(linkLabelPassword);
-            panel2.Controls.Add(buttonClose);
-            panel2.Controls.Add(label8);
-            panel2.Controls.Add(label5);
-            panel2.Controls.Add(panelUsername);
-            panel2.Controls.Add(label7);
-            panel2.Controls.Add(linkLabelUsername);
-            panel2.Controls.Add(panelPassword);
-            panel2.Controls.Add(label6);
-            panel2.Controls.Add(buttonSignUp);
-            panel2.Controls.Add(buttonLogin);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(300, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(500, 600);
-            panel2.TabIndex = 18;
+            panelMain.BackColor = Color.White;
+            panelMain.Controls.Add(linkLabel1);
+            panelMain.Controls.Add(linkLabelPassword);
+            panelMain.Controls.Add(label8);
+            panelMain.Controls.Add(label5);
+            panelMain.Controls.Add(panelUsername);
+            panelMain.Controls.Add(label7);
+            panelMain.Controls.Add(linkLabelUsername);
+            panelMain.Controls.Add(panelPassword);
+            panelMain.Controls.Add(label6);
+            panelMain.Controls.Add(buttonSignUp);
+            panelMain.Controls.Add(buttonLogin);
+            panelMain.Dock = DockStyle.Fill;
+            panelMain.Location = new Point(300, 0);
+            panelMain.Name = "panelMain";
+            panelMain.Size = new Size(500, 600);
+            panelMain.TabIndex = 18;
             // 
             // LoginForm
             // 
@@ -341,7 +343,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 600);
             ControlBox = false;
-            Controls.Add(panel2);
+            Controls.Add(buttonClose);
+            Controls.Add(panelMain);
             Controls.Add(panelSideBar);
             FormBorderStyle = FormBorderStyle.None;
             Name = "LoginForm";
@@ -357,8 +360,8 @@
             panelUsername.ResumeLayout(false);
             panelUsername.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            panelMain.ResumeLayout(false);
+            panelMain.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -386,6 +389,6 @@
         private Label label8;
         private Label label7;
         private LinkLabel linkLabel1;
-        private Panel panel2;
+        private Panel panelMain;
     }
 }
