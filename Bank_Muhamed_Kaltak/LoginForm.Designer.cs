@@ -34,15 +34,14 @@
             buttonLogin = new Button();
             linkLabelUsername = new LinkLabel();
             linkLabelPassword = new LinkLabel();
-            panel1 = new Panel();
+            panelSideBar = new Panel();
+            label2 = new Label();
             label4 = new Label();
             label3 = new Label();
-            label2 = new Label();
             label1 = new Label();
             pictureBox1 = new PictureBox();
             buttonClose = new Button();
             label5 = new Label();
-            panel2 = new Panel();
             linkLabel1 = new LinkLabel();
             label8 = new Label();
             label7 = new Label();
@@ -51,13 +50,14 @@
             pictureBox3 = new PictureBox();
             panelUsername = new Panel();
             pictureBox2 = new PictureBox();
-            panel1.SuspendLayout();
+            panel2 = new Panel();
+            panelSideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel2.SuspendLayout();
             panelPassword.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panelUsername.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // buttonSignUp
@@ -67,7 +67,7 @@
             buttonSignUp.FlatStyle = FlatStyle.Flat;
             buttonSignUp.Font = new Font("Verdana Pro Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
             buttonSignUp.ForeColor = Color.White;
-            buttonSignUp.Location = new Point(377, 357);
+            buttonSignUp.Location = new Point(86, 376);
             buttonSignUp.Name = "buttonSignUp";
             buttonSignUp.Size = new Size(148, 35);
             buttonSignUp.TabIndex = 13;
@@ -103,7 +103,7 @@
             buttonLogin.FlatStyle = FlatStyle.Flat;
             buttonLogin.Font = new Font("Verdana Pro Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
             buttonLogin.ForeColor = Color.White;
-            buttonLogin.Location = new Point(531, 357);
+            buttonLogin.Location = new Point(240, 376);
             buttonLogin.Name = "buttonLogin";
             buttonLogin.Size = new Size(148, 35);
             buttonLogin.TabIndex = 8;
@@ -115,7 +115,7 @@
             // 
             linkLabelUsername.AutoSize = true;
             linkLabelUsername.Font = new Font("Roboto", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            linkLabelUsername.Location = new Point(665, 450);
+            linkLabelUsername.Location = new Point(381, 476);
             linkLabelUsername.Name = "linkLabelUsername";
             linkLabelUsername.Size = new Size(107, 14);
             linkLabelUsername.TabIndex = 15;
@@ -127,7 +127,7 @@
             // 
             linkLabelPassword.AutoSize = true;
             linkLabelPassword.Font = new Font("Roboto", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            linkLabelPassword.Location = new Point(666, 479);
+            linkLabelPassword.Location = new Point(382, 505);
             linkLabelPassword.Name = "linkLabelPassword";
             linkLabelPassword.Size = new Size(106, 14);
             linkLabelPassword.TabIndex = 16;
@@ -135,26 +135,37 @@
             linkLabelPassword.Text = "Forgot Password?";
             linkLabelPassword.LinkClicked += linkLabelPassword_LinkClicked;
             // 
-            // panel1
+            // panelSideBar
             // 
-            panel1.BackColor = Color.LightSkyBlue;
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Dock = DockStyle.Left;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(300, 561);
-            panel1.TabIndex = 17;
+            panelSideBar.BackColor = Color.LightSkyBlue;
+            panelSideBar.Controls.Add(label2);
+            panelSideBar.Controls.Add(label4);
+            panelSideBar.Controls.Add(label3);
+            panelSideBar.Controls.Add(label1);
+            panelSideBar.Controls.Add(pictureBox1);
+            panelSideBar.Dock = DockStyle.Left;
+            panelSideBar.Location = new Point(0, 0);
+            panelSideBar.Name = "panelSideBar";
+            panelSideBar.Size = new Size(300, 600);
+            panelSideBar.TabIndex = 17;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Rockwell Nova Cond", 36F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(35, 293);
+            label2.Name = "label2";
+            label2.Size = new Size(228, 64);
+            label2.TabIndex = 2;
+            label2.Text = "Swädbänk";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Rockwell Nova Cond", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(150, 530);
+            label4.Location = new Point(150, 564);
             label4.Name = "label4";
             label4.Size = new Size(122, 22);
             label4.TabIndex = 4;
@@ -165,29 +176,18 @@
             label3.AutoSize = true;
             label3.Font = new Font("Rockwell Nova Cond", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(26, 530);
+            label3.Location = new Point(26, 564);
             label3.Name = "label3";
             label3.Size = new Size(80, 22);
             label3.TabIndex = 3;
             label3.Text = "Skapat av :";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Rockwell Nova Cond", 36F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(44, 286);
-            label2.Name = "label2";
-            label2.Size = new Size(228, 64);
-            label2.TabIndex = 2;
-            label2.Text = "Swädbänk";
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Rockwell Nova Cond", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(79, 246);
+            label1.Location = new Point(69, 246);
             label1.Name = "label1";
             label1.Size = new Size(146, 29);
             label1.TabIndex = 1;
@@ -210,7 +210,7 @@
             buttonClose.FlatStyle = FlatStyle.Flat;
             buttonClose.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             buttonClose.ForeColor = Color.LightSkyBlue;
-            buttonClose.Location = new Point(744, 0);
+            buttonClose.Location = new Point(460, 0);
             buttonClose.Name = "buttonClose";
             buttonClose.Size = new Size(40, 40);
             buttonClose.TabIndex = 18;
@@ -223,38 +223,18 @@
             label5.AutoSize = true;
             label5.Font = new Font("Rockwell Nova Cond", 22F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.LightSkyBlue;
-            label5.Location = new Point(321, 173);
+            label5.Location = new Point(35, 163);
             label5.Name = "label5";
             label5.Size = new Size(284, 41);
             label5.TabIndex = 5;
             label5.Text = "Login to your account";
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.White;
-            panel2.Controls.Add(linkLabel1);
-            panel2.Controls.Add(label8);
-            panel2.Controls.Add(label7);
-            panel2.Controls.Add(label6);
-            panel2.Controls.Add(panelPassword);
-            panel2.Controls.Add(panelUsername);
-            panel2.Controls.Add(linkLabelPassword);
-            panel2.Controls.Add(label5);
-            panel2.Controls.Add(buttonLogin);
-            panel2.Controls.Add(linkLabelUsername);
-            panel2.Controls.Add(buttonSignUp);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(784, 561);
-            panel2.TabIndex = 19;
             // 
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
             linkLabel1.Font = new Font("Roboto", 9F, FontStyle.Regular, GraphicsUnit.Point);
             linkLabel1.LinkColor = Color.DeepSkyBlue;
-            linkLabel1.Location = new Point(488, 533);
+            linkLabel1.Location = new Point(172, 570);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(175, 14);
             linkLabel1.TabIndex = 19;
@@ -266,7 +246,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Rockwell Nova Cond", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label8.ForeColor = Color.Silver;
-            label8.Location = new Point(321, 530);
+            label8.Location = new Point(5, 567);
             label8.Name = "label8";
             label8.Size = new Size(171, 17);
             label8.TabIndex = 18;
@@ -277,7 +257,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Rockwell Nova Cond", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label7.ForeColor = Color.Silver;
-            label7.Location = new Point(321, 511);
+            label7.Location = new Point(5, 548);
             label7.Name = "label7";
             label7.Size = new Size(175, 17);
             label7.TabIndex = 17;
@@ -288,7 +268,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Rockwell Nova Cond", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = Color.Silver;
-            label6.Location = new Point(321, 493);
+            label6.Location = new Point(5, 530);
             label6.Name = "label6";
             label6.Size = new Size(65, 17);
             label6.TabIndex = 5;
@@ -299,7 +279,7 @@
             panelPassword.BackColor = Color.White;
             panelPassword.Controls.Add(pictureBox3);
             panelPassword.Controls.Add(textBoxPassword);
-            panelPassword.Location = new Point(302, 293);
+            panelPassword.Location = new Point(0, 293);
             panelPassword.Name = "panelPassword";
             panelPassword.Size = new Size(480, 45);
             panelPassword.TabIndex = 6;
@@ -319,7 +299,7 @@
             panelUsername.BackColor = Color.White;
             panelUsername.Controls.Add(pictureBox2);
             panelUsername.Controls.Add(textBoxUsername);
-            panelUsername.Location = new Point(302, 246);
+            panelUsername.Location = new Point(0, 246);
             panelUsername.Name = "panelUsername";
             panelUsername.Size = new Size(480, 45);
             panelUsername.TabIndex = 6;
@@ -334,31 +314,51 @@
             pictureBox2.TabIndex = 5;
             pictureBox2.TabStop = false;
             // 
+            // panel2
+            // 
+            panel2.BackColor = Color.White;
+            panel2.Controls.Add(linkLabel1);
+            panel2.Controls.Add(linkLabelPassword);
+            panel2.Controls.Add(buttonClose);
+            panel2.Controls.Add(label8);
+            panel2.Controls.Add(label5);
+            panel2.Controls.Add(panelUsername);
+            panel2.Controls.Add(label7);
+            panel2.Controls.Add(linkLabelUsername);
+            panel2.Controls.Add(panelPassword);
+            panel2.Controls.Add(label6);
+            panel2.Controls.Add(buttonSignUp);
+            panel2.Controls.Add(buttonLogin);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(300, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(500, 600);
+            panel2.TabIndex = 18;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(784, 561);
+            ClientSize = new Size(800, 600);
             ControlBox = false;
-            Controls.Add(buttonClose);
-            Controls.Add(panel1);
             Controls.Add(panel2);
+            Controls.Add(panelSideBar);
             FormBorderStyle = FormBorderStyle.None;
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LoginForm";
             Load += LoginForm_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            panelSideBar.ResumeLayout(false);
+            panelSideBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             panelPassword.ResumeLayout(false);
             panelPassword.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panelUsername.ResumeLayout(false);
             panelUsername.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -370,7 +370,7 @@
         private Button buttonLogin;
         private LinkLabel linkLabelUsername;
         private LinkLabel linkLabelPassword;
-        private Panel panel1;
+        private Panel panelSideBar;
         private PictureBox pictureBox1;
         private Label label1;
         private Label label4;
@@ -378,7 +378,6 @@
         private Label label2;
         private Button buttonClose;
         private Label label5;
-        private Panel panel2;
         private Panel panelUsername;
         private Panel panelPassword;
         private PictureBox pictureBox2;
@@ -387,5 +386,6 @@
         private Label label8;
         private Label label7;
         private LinkLabel linkLabel1;
+        private Panel panel2;
     }
 }
