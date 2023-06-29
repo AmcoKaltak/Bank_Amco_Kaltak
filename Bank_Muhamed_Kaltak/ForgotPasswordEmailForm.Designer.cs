@@ -28,65 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonEmail = new System.Windows.Forms.Button();
-            this.labelEmail = new System.Windows.Forms.Label();
-            this.textBoxEmail = new System.Windows.Forms.TextBox();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            buttonEmail = new Button();
+            labelEmail = new Label();
+            textBoxEmail = new TextBox();
+            buttonCancel = new Button();
+            SuspendLayout();
             // 
             // buttonEmail
             // 
-            this.buttonEmail.Font = new System.Drawing.Font("Verdana Pro Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonEmail.Location = new System.Drawing.Point(403, 220);
-            this.buttonEmail.Name = "buttonEmail";
-            this.buttonEmail.Size = new System.Drawing.Size(78, 33);
-            this.buttonEmail.TabIndex = 29;
-            this.buttonEmail.Text = "Submit";
-            this.buttonEmail.UseVisualStyleBackColor = true;
-            this.buttonEmail.Click += new System.EventHandler(this.buttonEmail_Click);
+            buttonEmail.Font = new Font("Verdana Pro Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonEmail.Location = new Point(276, 221);
+            buttonEmail.Name = "buttonEmail";
+            buttonEmail.Size = new Size(78, 33);
+            buttonEmail.TabIndex = 29;
+            buttonEmail.Text = "Submit";
+            buttonEmail.UseVisualStyleBackColor = true;
+            buttonEmail.Click += buttonEmail_Click;
             // 
             // labelEmail
             // 
-            this.labelEmail.AutoSize = true;
-            this.labelEmail.Font = new System.Drawing.Font("Verdana Pro", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelEmail.Location = new System.Drawing.Point(301, 155);
-            this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(84, 16);
-            this.labelEmail.TabIndex = 28;
-            this.labelEmail.Text = "Enter Email";
+            labelEmail.AutoSize = true;
+            labelEmail.Font = new Font("Verdana Pro", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            labelEmail.Location = new Point(174, 156);
+            labelEmail.Name = "labelEmail";
+            labelEmail.Size = new Size(84, 16);
+            labelEmail.TabIndex = 28;
+            labelEmail.Text = "Enter Email";
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(301, 173);
-            this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(180, 23);
-            this.textBoxEmail.TabIndex = 27;
+            textBoxEmail.Location = new Point(174, 174);
+            textBoxEmail.Name = "textBoxEmail";
+            textBoxEmail.Size = new Size(180, 23);
+            textBoxEmail.TabIndex = 27;
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Font = new System.Drawing.Font("Verdana Pro Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonCancel.Location = new System.Drawing.Point(301, 220);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(78, 33);
-            this.buttonCancel.TabIndex = 26;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            buttonCancel.Font = new Font("Verdana Pro Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonCancel.Location = new Point(174, 221);
+            buttonCancel.Name = "buttonCancel";
+            buttonCancel.Size = new Size(78, 33);
+            buttonCancel.TabIndex = 26;
+            buttonCancel.Text = "Cancel";
+            buttonCancel.UseVisualStyleBackColor = true;
+            buttonCancel.Click += buttonCancel_Click;
             // 
             // ForgotPasswordEmailForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.buttonEmail);
-            this.Controls.Add(this.labelEmail);
-            this.Controls.Add(this.textBoxEmail);
-            this.Controls.Add(this.buttonCancel);
-            this.Name = "ForgotPasswordEmailForm";
-            this.Text = "ForgotPasswordEmailForm";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(484, 561);
+            Controls.Add(buttonEmail);
+            Controls.Add(labelEmail);
+            Controls.Add(textBoxEmail);
+            Controls.Add(buttonCancel);
+            Name = "ForgotPasswordEmailForm";
+            Text = "ForgotPasswordEmailForm";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

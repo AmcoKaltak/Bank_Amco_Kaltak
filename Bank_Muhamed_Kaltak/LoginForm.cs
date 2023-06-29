@@ -24,23 +24,16 @@ namespace Bank_Muhamed_Kaltak
             test.username = "test";
             test.password = "test";
             InitializeComponent();
+
+            FormChanger.activePanel = panelMain;
         }
 
-        private void OpenForm(Form form)
-        {
-            form.TopLevel = false;
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.Dock = DockStyle.Fill;
-            panelMain.Controls.Add(form);
-            panelMain.Tag = form;
-            form.BringToFront();
-            form.Show();
-        }
+
 
         private void buttonSignUp_Click(object sender, EventArgs e)
         {
             //FormChanger.ChangeForm(this, new SignUpForm());
-            OpenForm(new SignUpForm());
+            FormChanger.OpenForm(new SignUpForm());
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -75,7 +68,8 @@ namespace Bank_Muhamed_Kaltak
 
         private void linkLabelPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormChanger.ChangeForm(this, new ForgotPasswordEmailForm());
+            //FormChanger.ChangeForm(this, new ForgotPasswordEmailForm());
+            FormChanger.OpenForm(new ForgotPasswordEmailForm());
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

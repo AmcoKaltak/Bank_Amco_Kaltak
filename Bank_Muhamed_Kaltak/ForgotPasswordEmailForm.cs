@@ -34,7 +34,8 @@ namespace Bank_Muhamed_Kaltak
 
             UINotification.Popup(Color.Green, "Succesfully sent verification code", "Verification code has beent sent to the specified email adress");
 
-            FormChanger.ChangeForm(this, forgotPasswordCodeForm);
+            //FormChanger.ChangeForm(this, forgotPasswordCodeForm);
+            FormChanger.OpenForm(new ForgotPasswordCodeForm());
         }
     }
 }

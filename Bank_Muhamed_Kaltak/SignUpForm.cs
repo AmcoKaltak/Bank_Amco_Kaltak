@@ -42,8 +42,7 @@ namespace Bank_Muhamed_Kaltak
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            LoginForm loginForm = new LoginForm();
-            FormChanger.ChangeForm(this, loginForm);
+            FormChanger.ChangeForm(this, new LoginForm());
         }
 
         private void Mark(TextBox textBoxMark, Panel panelMark)

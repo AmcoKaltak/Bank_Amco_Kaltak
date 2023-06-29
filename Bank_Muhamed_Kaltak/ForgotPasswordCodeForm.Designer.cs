@@ -28,65 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonCode = new System.Windows.Forms.Button();
-            this.labelCode = new System.Windows.Forms.Label();
-            this.textBoxCode = new System.Windows.Forms.TextBox();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            buttonCode = new Button();
+            labelCode = new Label();
+            textBoxCode = new TextBox();
+            buttonCancel = new Button();
+            SuspendLayout();
             // 
             // buttonCode
             // 
-            this.buttonCode.Font = new System.Drawing.Font("Verdana Pro Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonCode.Location = new System.Drawing.Point(406, 215);
-            this.buttonCode.Name = "buttonCode";
-            this.buttonCode.Size = new System.Drawing.Size(78, 33);
-            this.buttonCode.TabIndex = 33;
-            this.buttonCode.Text = "Submit";
-            this.buttonCode.UseVisualStyleBackColor = true;
-            this.buttonCode.Click += new System.EventHandler(this.buttonCode_Click);
+            buttonCode.Font = new Font("Verdana Pro Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonCode.Location = new Point(281, 227);
+            buttonCode.Name = "buttonCode";
+            buttonCode.Size = new Size(78, 33);
+            buttonCode.TabIndex = 33;
+            buttonCode.Text = "Submit";
+            buttonCode.UseVisualStyleBackColor = true;
+            buttonCode.Click += buttonCode_Click;
             // 
             // labelCode
             // 
-            this.labelCode.AutoSize = true;
-            this.labelCode.Font = new System.Drawing.Font("Verdana Pro", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelCode.Location = new System.Drawing.Point(304, 150);
-            this.labelCode.Name = "labelCode";
-            this.labelCode.Size = new System.Drawing.Size(80, 16);
-            this.labelCode.TabIndex = 32;
-            this.labelCode.Text = "Enter Code";
+            labelCode.AutoSize = true;
+            labelCode.Font = new Font("Verdana Pro", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            labelCode.Location = new Point(179, 162);
+            labelCode.Name = "labelCode";
+            labelCode.Size = new Size(80, 16);
+            labelCode.TabIndex = 32;
+            labelCode.Text = "Enter Code";
             // 
             // textBoxCode
             // 
-            this.textBoxCode.Location = new System.Drawing.Point(304, 168);
-            this.textBoxCode.Name = "textBoxCode";
-            this.textBoxCode.Size = new System.Drawing.Size(180, 23);
-            this.textBoxCode.TabIndex = 31;
+            textBoxCode.Location = new Point(179, 180);
+            textBoxCode.Name = "textBoxCode";
+            textBoxCode.Size = new Size(180, 23);
+            textBoxCode.TabIndex = 31;
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Font = new System.Drawing.Font("Verdana Pro Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonCancel.Location = new System.Drawing.Point(304, 215);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(78, 33);
-            this.buttonCancel.TabIndex = 30;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            buttonCancel.Font = new Font("Verdana Pro Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonCancel.Location = new Point(179, 227);
+            buttonCancel.Name = "buttonCancel";
+            buttonCancel.Size = new Size(78, 33);
+            buttonCancel.TabIndex = 30;
+            buttonCancel.Text = "Cancel";
+            buttonCancel.UseVisualStyleBackColor = true;
+            buttonCancel.Click += buttonCancel_Click;
             // 
             // ForgotPasswordCodeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.buttonCode);
-            this.Controls.Add(this.labelCode);
-            this.Controls.Add(this.textBoxCode);
-            this.Controls.Add(this.buttonCancel);
-            this.Name = "ForgotPasswordCodeForm";
-            this.Text = "ForgotPasswordCodeForm";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(484, 561);
+            Controls.Add(buttonCode);
+            Controls.Add(labelCode);
+            Controls.Add(textBoxCode);
+            Controls.Add(buttonCancel);
+            Name = "ForgotPasswordCodeForm";
+            Text = "ForgotPasswordCodeForm";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
