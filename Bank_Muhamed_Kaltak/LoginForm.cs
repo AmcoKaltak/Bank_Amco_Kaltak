@@ -67,5 +67,28 @@ namespace Bank_Muhamed_Kaltak
         {
             Application.Exit();
         }
+
+        private void textBoxUsername_Click(object sender, EventArgs e)
+        {
+            textBoxUsername.BackColor = SystemColors.Control;
+            panelUsername.BackColor = SystemColors.Control;
+
+            textBoxPassword.BackColor = Color.White;
+            panelPassword.BackColor = Color.White;
+        }
+
+        private void textBoxPassword_Click(object sender, EventArgs e)
+        {
+            textBoxPassword.BackColor = SystemColors.Control;
+            panelPassword.BackColor = SystemColors.Control;
+
+            textBoxUsername.BackColor = Color.White;
+            panelUsername.BackColor = Color.White;
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            textBoxUsername_Click(sender, e);
+        }
     }
 }

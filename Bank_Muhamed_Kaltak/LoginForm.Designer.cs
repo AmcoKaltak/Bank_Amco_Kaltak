@@ -47,16 +47,16 @@
             label8 = new Label();
             label7 = new Label();
             label6 = new Label();
-            panel4 = new Panel();
+            panelPassword = new Panel();
             pictureBox3 = new PictureBox();
-            panel3 = new Panel();
+            panelUsername = new Panel();
             pictureBox2 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
-            panel4.SuspendLayout();
+            panelPassword.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            panel3.SuspendLayout();
+            panelUsername.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
@@ -84,6 +84,7 @@
             textBoxPassword.Size = new Size(434, 20);
             textBoxPassword.TabIndex = 11;
             textBoxPassword.UseSystemPasswordChar = true;
+            textBoxPassword.Click += textBoxPassword_Click;
             // 
             // textBoxUsername
             // 
@@ -93,6 +94,7 @@
             textBoxUsername.Name = "textBoxUsername";
             textBoxUsername.Size = new Size(434, 20);
             textBoxUsername.TabIndex = 9;
+            textBoxUsername.Click += textBoxUsername_Click;
             // 
             // buttonLogin
             // 
@@ -234,8 +236,8 @@
             panel2.Controls.Add(label8);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(label6);
-            panel2.Controls.Add(panel4);
-            panel2.Controls.Add(panel3);
+            panel2.Controls.Add(panelPassword);
+            panel2.Controls.Add(panelUsername);
             panel2.Controls.Add(linkLabelPassword);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(buttonLogin);
@@ -292,15 +294,15 @@
             label6.TabIndex = 5;
             label6.Text = "Kundtjänst";
             // 
-            // panel4
+            // panelPassword
             // 
-            panel4.BackColor = Color.White;
-            panel4.Controls.Add(pictureBox3);
-            panel4.Controls.Add(textBoxPassword);
-            panel4.Location = new Point(302, 293);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(480, 45);
-            panel4.TabIndex = 6;
+            panelPassword.BackColor = Color.White;
+            panelPassword.Controls.Add(pictureBox3);
+            panelPassword.Controls.Add(textBoxPassword);
+            panelPassword.Location = new Point(302, 293);
+            panelPassword.Name = "panelPassword";
+            panelPassword.Size = new Size(480, 45);
+            panelPassword.TabIndex = 6;
             // 
             // pictureBox3
             // 
@@ -312,15 +314,15 @@
             pictureBox3.TabIndex = 6;
             pictureBox3.TabStop = false;
             // 
-            // panel3
+            // panelUsername
             // 
-            panel3.BackColor = Color.White;
-            panel3.Controls.Add(pictureBox2);
-            panel3.Controls.Add(textBoxUsername);
-            panel3.Location = new Point(302, 246);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(480, 45);
-            panel3.TabIndex = 6;
+            panelUsername.BackColor = Color.White;
+            panelUsername.Controls.Add(pictureBox2);
+            panelUsername.Controls.Add(textBoxUsername);
+            panelUsername.Location = new Point(302, 246);
+            panelUsername.Name = "panelUsername";
+            panelUsername.Size = new Size(480, 45);
+            panelUsername.TabIndex = 6;
             // 
             // pictureBox2
             // 
@@ -345,16 +347,17 @@
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LoginForm";
+            Load += LoginForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
+            panelPassword.ResumeLayout(false);
+            panelPassword.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
+            panelUsername.ResumeLayout(false);
+            panelUsername.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
@@ -376,8 +379,8 @@
         private Button buttonClose;
         private Label label5;
         private Panel panel2;
-        private Panel panel3;
-        private Panel panel4;
+        private Panel panelUsername;
+        private Panel panelPassword;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private Label label6;
