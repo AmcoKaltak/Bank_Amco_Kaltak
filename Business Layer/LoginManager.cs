@@ -50,6 +50,11 @@ namespace Business_Layer
 
             User user = dBOperations.GetUserFromEmail(email);
 
+            if (user == null)
+            {
+                return false;
+            }
+
             TimeSpan timeSpan = DateTime.Now - user.passwordResetDate;
 
             if (user.passwordResetToken == security.Hash(enteredCode) && timeSpan.Minutes <= 10 ) //Kollar ifall coden matchar tokenet samt att det ej har passerat 10 min sen begäran av att ändra lösenordet skett

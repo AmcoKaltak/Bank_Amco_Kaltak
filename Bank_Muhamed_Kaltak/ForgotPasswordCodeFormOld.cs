@@ -11,26 +11,27 @@ using System.Windows.Forms;
 
 namespace Bank_Muhamed_Kaltak
 {
-    public partial class ForgotPasswordCodeForm : Form
+    public partial class ForgotPasswordCodeFormOld : Form
     {
+
         public string userEmail { get; set; }
 
-        public ForgotPasswordCodeForm()
+        public ForgotPasswordCodeFormOld()
         {
             InitializeComponent();
         }
 
-        private void buttonSubmitCode_Click(object sender, EventArgs e)
+        private void buttonCode_Click(object sender, EventArgs e)
         {
             LoginManager loginManager = new LoginManager();
 
             if (loginManager.CheckValidVerficationCode(userEmail, textBoxCode.Text))
             {
-                ForgotPasswordRegisterForm forgotPasswordRegisterForm = new ForgotPasswordRegisterForm();
+                ForgotPasswordRegisterFormOld forgotPasswordRegisterForm = new ForgotPasswordRegisterFormOld();
                 forgotPasswordRegisterForm.userEmail = userEmail;
                 forgotPasswordRegisterForm.enteredCode = textBoxCode.Text;
 
-                FormChanger.OpenForm(forgotPasswordRegisterForm);
+                FormChanger.ChangeForm(this, forgotPasswordRegisterForm);
             }
             else
             {

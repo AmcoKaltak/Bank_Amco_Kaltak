@@ -28,71 +28,115 @@
         /// </summary>
         private void InitializeComponent()
         {
-            buttonCode = new Button();
-            labelCode = new Label();
-            textBoxCode = new TextBox();
             buttonCancel = new Button();
+            panelEmail = new Panel();
+            pictureBox5 = new PictureBox();
+            textBoxCode = new TextBox();
+            label5 = new Label();
+            buttonSubmitCode = new Button();
+            panelEmail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
-            // 
-            // buttonCode
-            // 
-            buttonCode.Font = new Font("Verdana Pro Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonCode.Location = new Point(281, 227);
-            buttonCode.Name = "buttonCode";
-            buttonCode.Size = new Size(78, 33);
-            buttonCode.TabIndex = 33;
-            buttonCode.Text = "Submit";
-            buttonCode.UseVisualStyleBackColor = true;
-            buttonCode.Click += buttonCode_Click;
-            // 
-            // labelCode
-            // 
-            labelCode.AutoSize = true;
-            labelCode.Font = new Font("Verdana Pro", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            labelCode.Location = new Point(179, 162);
-            labelCode.Name = "labelCode";
-            labelCode.Size = new Size(80, 16);
-            labelCode.TabIndex = 32;
-            labelCode.Text = "Enter Code";
-            // 
-            // textBoxCode
-            // 
-            textBoxCode.Location = new Point(179, 180);
-            textBoxCode.Name = "textBoxCode";
-            textBoxCode.Size = new Size(180, 23);
-            textBoxCode.TabIndex = 31;
             // 
             // buttonCancel
             // 
-            buttonCancel.Font = new Font("Verdana Pro Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonCancel.Location = new Point(179, 227);
+            buttonCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            buttonCancel.BackColor = Color.LightSkyBlue;
+            buttonCancel.Cursor = Cursors.Hand;
+            buttonCancel.FlatStyle = FlatStyle.Flat;
+            buttonCancel.Font = new Font("Verdana Pro Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonCancel.ForeColor = Color.White;
+            buttonCancel.Location = new Point(69, 443);
             buttonCancel.Name = "buttonCancel";
-            buttonCancel.Size = new Size(78, 33);
-            buttonCancel.TabIndex = 30;
+            buttonCancel.Size = new Size(148, 35);
+            buttonCancel.TabIndex = 23;
             buttonCancel.Text = "Cancel";
-            buttonCancel.UseVisualStyleBackColor = true;
+            buttonCancel.UseVisualStyleBackColor = false;
             buttonCancel.Click += buttonCancel_Click;
+            // 
+            // panelEmail
+            // 
+            panelEmail.BackColor = Color.White;
+            panelEmail.Controls.Add(pictureBox5);
+            panelEmail.Controls.Add(textBoxCode);
+            panelEmail.Location = new Point(2, 252);
+            panelEmail.Name = "panelEmail";
+            panelEmail.Size = new Size(480, 45);
+            panelEmail.TabIndex = 22;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = Properties.Resources.coding;
+            pictureBox5.Location = new Point(5, 10);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(24, 24);
+            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox5.TabIndex = 6;
+            pictureBox5.TabStop = false;
+            // 
+            // textBoxCode
+            // 
+            textBoxCode.BorderStyle = BorderStyle.None;
+            textBoxCode.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxCode.Location = new Point(35, 14);
+            textBoxCode.Name = "textBoxCode";
+            textBoxCode.PlaceholderText = "Enter your code";
+            textBoxCode.Size = new Size(434, 20);
+            textBoxCode.TabIndex = 11;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Rockwell Nova Cond", 22F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.ForeColor = Color.LightSkyBlue;
+            label5.Location = new Point(69, 80);
+            label5.Name = "label5";
+            label5.Size = new Size(349, 41);
+            label5.TabIndex = 20;
+            label5.Text = "Enter the code that was sent";
+            // 
+            // buttonSubmitCode
+            // 
+            buttonSubmitCode.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            buttonSubmitCode.BackColor = Color.LightSkyBlue;
+            buttonSubmitCode.Cursor = Cursors.Hand;
+            buttonSubmitCode.FlatStyle = FlatStyle.Flat;
+            buttonSubmitCode.Font = new Font("Verdana Pro Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonSubmitCode.ForeColor = Color.White;
+            buttonSubmitCode.Location = new Point(237, 443);
+            buttonSubmitCode.Name = "buttonSubmitCode";
+            buttonSubmitCode.Size = new Size(148, 35);
+            buttonSubmitCode.TabIndex = 21;
+            buttonSubmitCode.Text = "Submit";
+            buttonSubmitCode.UseVisualStyleBackColor = false;
+            buttonSubmitCode.Click += buttonSubmitCode_Click;
             // 
             // ForgotPasswordCodeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(484, 561);
-            Controls.Add(buttonCode);
-            Controls.Add(labelCode);
-            Controls.Add(textBoxCode);
             Controls.Add(buttonCancel);
+            Controls.Add(panelEmail);
+            Controls.Add(label5);
+            Controls.Add(buttonSubmitCode);
             Name = "ForgotPasswordCodeForm";
             Text = "ForgotPasswordCodeForm";
+            panelEmail.ResumeLayout(false);
+            panelEmail.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button buttonCode;
-        private Label labelCode;
-        private TextBox textBoxCode;
         private Button buttonCancel;
+        private Panel panelEmail;
+        private PictureBox pictureBox5;
+        private TextBox textBoxCode;
+        private Label label5;
+        private Button buttonSubmitCode;
     }
 }

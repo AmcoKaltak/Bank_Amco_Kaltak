@@ -193,7 +193,6 @@
             textBoxLastName.PlaceholderText = "Enter your last name";
             textBoxLastName.Size = new Size(434, 20);
             textBoxLastName.TabIndex = 11;
-            textBoxLastName.UseSystemPasswordChar = true;
             textBoxLastName.Click += textBoxLastName_Click;
             // 
             // panelName
@@ -232,7 +231,7 @@
             panelEmail.BackColor = Color.White;
             panelEmail.Controls.Add(pictureBox5);
             panelEmail.Controls.Add(textBoxEmail);
-            panelEmail.Location = new Point(1, 389);
+            panelEmail.Location = new Point(1, 374);
             panelEmail.Name = "panelEmail";
             panelEmail.Size = new Size(480, 45);
             panelEmail.TabIndex = 16;
@@ -256,7 +255,6 @@
             textBoxEmail.PlaceholderText = "Enter your email";
             textBoxEmail.Size = new Size(434, 20);
             textBoxEmail.TabIndex = 11;
-            textBoxEmail.UseSystemPasswordChar = true;
             textBoxEmail.Click += textBoxEmail_Click;
             // 
             // SignUpForm
@@ -275,6 +273,7 @@
             Controls.Add(buttonRegister);
             Name = "SignUpForm";
             Text = "SignUpForm";
+            Load += SignUpForm_Load;
             panelUsername.ResumeLayout(false);
             panelUsername.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

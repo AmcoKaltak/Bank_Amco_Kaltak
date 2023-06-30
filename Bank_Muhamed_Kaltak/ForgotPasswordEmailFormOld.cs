@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Bank_Muhamed_Kaltak
 {
-    public partial class ForgotPasswordEmailForm : Form
+    public partial class ForgotPasswordEmailFormOld : Form
     {
-        public ForgotPasswordEmailForm()
+        public ForgotPasswordEmailFormOld()
         {
             InitializeComponent();
         }
@@ -23,19 +23,19 @@ namespace Bank_Muhamed_Kaltak
             FormChanger.ChangeForm(this, new LoginForm());
         }
 
-        private void buttonSubmit_Click(object sender, EventArgs e)
+        private void buttonEmail_Click(object sender, EventArgs e)
         {
             EmailManager emailManager = new EmailManager();
 
             emailManager.SendVerificationCode(textBoxEmail.Text);
 
-            ForgotPasswordCodeForm forgotPasswordCodeForm = new ForgotPasswordCodeForm();
+            ForgotPasswordCodeFormOld forgotPasswordCodeForm = new ForgotPasswordCodeFormOld();
             forgotPasswordCodeForm.userEmail = textBoxEmail.Text;
 
             UINotification.Popup(Color.Green, "Succesfully sent verification code", "Verification code has beent sent to the specified email adress");
 
             //FormChanger.ChangeForm(this, forgotPasswordCodeForm);
-            FormChanger.OpenForm(forgotPasswordCodeForm);
+            FormChanger.OpenForm(new ForgotPasswordCodeFormOld());
         }
     }
 }

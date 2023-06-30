@@ -28,70 +28,114 @@
         /// </summary>
         private void InitializeComponent()
         {
-            buttonEmail = new Button();
-            labelEmail = new Label();
+            label5 = new Label();
+            buttonSubmit = new Button();
+            panelEmail = new Panel();
+            pictureBox5 = new PictureBox();
             textBoxEmail = new TextBox();
             buttonCancel = new Button();
+            panelEmail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
-            // buttonEmail
+            // label5
             // 
-            buttonEmail.Font = new Font("Verdana Pro Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonEmail.Location = new Point(276, 221);
-            buttonEmail.Name = "buttonEmail";
-            buttonEmail.Size = new Size(78, 33);
-            buttonEmail.TabIndex = 29;
-            buttonEmail.Text = "Submit";
-            buttonEmail.UseVisualStyleBackColor = true;
-            buttonEmail.Click += buttonEmail_Click;
+            label5.AutoSize = true;
+            label5.Font = new Font("Rockwell Nova Cond", 22F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.ForeColor = Color.LightSkyBlue;
+            label5.Location = new Point(117, 80);
+            label5.Name = "label5";
+            label5.Size = new Size(220, 41);
+            label5.TabIndex = 14;
+            label5.Text = "Enter your email";
             // 
-            // labelEmail
+            // buttonSubmit
             // 
-            labelEmail.AutoSize = true;
-            labelEmail.Font = new Font("Verdana Pro", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            labelEmail.Location = new Point(174, 156);
-            labelEmail.Name = "labelEmail";
-            labelEmail.Size = new Size(84, 16);
-            labelEmail.TabIndex = 28;
-            labelEmail.Text = "Enter Email";
+            buttonSubmit.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            buttonSubmit.BackColor = Color.LightSkyBlue;
+            buttonSubmit.Cursor = Cursors.Hand;
+            buttonSubmit.FlatStyle = FlatStyle.Flat;
+            buttonSubmit.Font = new Font("Verdana Pro Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonSubmit.ForeColor = Color.White;
+            buttonSubmit.Location = new Point(219, 429);
+            buttonSubmit.Name = "buttonSubmit";
+            buttonSubmit.Size = new Size(148, 35);
+            buttonSubmit.TabIndex = 17;
+            buttonSubmit.Text = "Submit";
+            buttonSubmit.UseVisualStyleBackColor = false;
+            buttonSubmit.Click += buttonSubmit_Click;
+            // 
+            // panelEmail
+            // 
+            panelEmail.BackColor = Color.White;
+            panelEmail.Controls.Add(pictureBox5);
+            panelEmail.Controls.Add(textBoxEmail);
+            panelEmail.Location = new Point(2, 252);
+            panelEmail.Name = "panelEmail";
+            panelEmail.Size = new Size(480, 45);
+            panelEmail.TabIndex = 18;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = Properties.Resources.email;
+            pictureBox5.Location = new Point(5, 10);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(24, 24);
+            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox5.TabIndex = 6;
+            pictureBox5.TabStop = false;
             // 
             // textBoxEmail
             // 
-            textBoxEmail.Location = new Point(174, 174);
+            textBoxEmail.BorderStyle = BorderStyle.None;
+            textBoxEmail.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxEmail.Location = new Point(35, 14);
             textBoxEmail.Name = "textBoxEmail";
-            textBoxEmail.Size = new Size(180, 23);
-            textBoxEmail.TabIndex = 27;
+            textBoxEmail.PlaceholderText = "Enter your email";
+            textBoxEmail.Size = new Size(434, 20);
+            textBoxEmail.TabIndex = 11;
             // 
             // buttonCancel
             // 
-            buttonCancel.Font = new Font("Verdana Pro Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonCancel.Location = new Point(174, 221);
+            buttonCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            buttonCancel.BackColor = Color.LightSkyBlue;
+            buttonCancel.Cursor = Cursors.Hand;
+            buttonCancel.FlatStyle = FlatStyle.Flat;
+            buttonCancel.Font = new Font("Verdana Pro Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonCancel.ForeColor = Color.White;
+            buttonCancel.Location = new Point(68, 429);
             buttonCancel.Name = "buttonCancel";
-            buttonCancel.Size = new Size(78, 33);
-            buttonCancel.TabIndex = 26;
+            buttonCancel.Size = new Size(148, 35);
+            buttonCancel.TabIndex = 19;
             buttonCancel.Text = "Cancel";
-            buttonCancel.UseVisualStyleBackColor = true;
+            buttonCancel.UseVisualStyleBackColor = false;
             buttonCancel.Click += buttonCancel_Click;
             // 
             // ForgotPasswordEmailForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(484, 561);
-            Controls.Add(buttonEmail);
-            Controls.Add(labelEmail);
-            Controls.Add(textBoxEmail);
             Controls.Add(buttonCancel);
+            Controls.Add(panelEmail);
+            Controls.Add(label5);
+            Controls.Add(buttonSubmit);
             Name = "ForgotPasswordEmailForm";
-            Text = "ForgotPasswordEmailForm";
+            Text = "ForgotPasswordCodeForm";
+            panelEmail.ResumeLayout(false);
+            panelEmail.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button buttonEmail;
-        private Label labelEmail;
+        private Label label5;
+        private Button buttonSubmit;
+        private Panel panelEmail;
+        private PictureBox pictureBox5;
         private TextBox textBoxEmail;
         private Button buttonCancel;
     }

@@ -90,5 +90,10 @@ namespace Bank_Muhamed_Kaltak
         {
             Mark(textBoxEmail, panelEmail);
         }
+
+        private void SignUpForm_Load(object sender, EventArgs e)
+        {
+            textBoxUsername_Click(sender, e);
+        }
     }
 }
