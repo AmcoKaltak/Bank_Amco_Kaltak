@@ -13,8 +13,6 @@ namespace Bank_Muhamed_Kaltak
 {
     public partial class SignUpForm : Form
     {
-        TextBox lastMarkedTextBox;
-        Panel lastMarkedPanel;
 
         public SignUpForm()
         {
@@ -45,50 +43,30 @@ namespace Bank_Muhamed_Kaltak
             FormChanger.CloseForm(this);
         }
 
-        private void Mark(TextBox textBoxMark, Panel panelMark)
-        {
-
-            if (lastMarkedTextBox != null)
-            {
-                lastMarkedTextBox.BackColor = Color.White;
-            }
-
-            if (lastMarkedPanel != null)
-            {
-                lastMarkedPanel.BackColor = Color.White;
-            }
-
-            lastMarkedTextBox = textBoxMark;
-            lastMarkedPanel = panelMark;
-
-            textBoxMark.BackColor = SystemColors.Control;
-            panelMark.BackColor = SystemColors.Control;
-
-        }
 
         private void textBoxUsername_Click(object sender, EventArgs e)
         {
-            Mark(textBoxUsername, panelUsername);
+            UINotification.Mark(textBoxUsername, panelUsername);
         }
 
         private void textBoxPassword_Click(object sender, EventArgs e)
         {
-            Mark(textBoxPassword, panelPassword);
+            UINotification.Mark(textBoxPassword, panelPassword);
         }
 
         private void textBoxName_Click(object sender, EventArgs e)
         {
-            Mark(textBoxName, panelName);
+            UINotification.Mark(textBoxName, panelName);
         }
 
         private void textBoxLastName_Click(object sender, EventArgs e)
         {
-            Mark(textBoxLastName, panelLastName);
+            UINotification.Mark(textBoxLastName, panelLastName);
         }
 
         private void textBoxEmail_Click(object sender, EventArgs e)
         {
-            Mark(textBoxEmail, panelEmail);
+            UINotification.Mark(textBoxEmail, panelEmail);
         }
 
         private void SignUpForm_Load(object sender, EventArgs e)

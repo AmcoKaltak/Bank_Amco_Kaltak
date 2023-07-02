@@ -79,34 +79,14 @@ namespace Bank_Muhamed_Kaltak
 
         private void textBoxUsername_Click(object sender, EventArgs e)
         {
-            Mark(textBoxUsername, panelUsername);
+            UINotification.Mark(textBoxUsername, panelUsername);
         }
 
         private void textBoxPassword_Click(object sender, EventArgs e)
         {
-            Mark(textBoxPassword, panelPassword);
+            UINotification.Mark(textBoxPassword, panelPassword);
         }
 
-        private void Mark(TextBox textBoxMark, Panel panelMark)
-        {
-
-            if (lastMarkedTextBox != null)
-            {
-                lastMarkedTextBox.BackColor = Color.White;
-            }
-
-            if (lastMarkedPanel != null)
-            {
-                lastMarkedPanel.BackColor = Color.White;
-            }
-
-            lastMarkedTextBox = textBoxMark;
-            lastMarkedPanel = panelMark;
-
-            textBoxMark.BackColor = SystemColors.Control;
-            panelMark.BackColor = SystemColors.Control;
-
-        }
 
         private void LoginForm_Load(object sender, EventArgs e)
         {

@@ -9,6 +9,9 @@ namespace Bank_Muhamed_Kaltak
 {
     public static class UINotification
     {
+        static TextBox lastMarkedTextBox;
+        static Panel lastMarkedPanel;
+
         public static void Popup(Color color, string title, string body)
         {
             PopupNotifier popupNotifier = new PopupNotifier();
@@ -22,6 +25,27 @@ namespace Bank_Muhamed_Kaltak
             popupNotifier.ContentColor = Color.White;
             popupNotifier.ContentFont = new Font("Century Gothic", 15);
             popupNotifier.Popup();
+        }
+
+        public static void Mark(TextBox textBoxMark, Panel panelMark)
+        {
+
+            if (lastMarkedTextBox != null)
+            {
+                lastMarkedTextBox.BackColor = Color.White;
+            }
+
+            if (lastMarkedPanel != null)
+            {
+                lastMarkedPanel.BackColor = Color.White;
+            }
+
+            lastMarkedTextBox = textBoxMark;
+            lastMarkedPanel = panelMark;
+
+            textBoxMark.BackColor = SystemColors.Control;
+            panelMark.BackColor = SystemColors.Control;
+
         }
     }
 }
