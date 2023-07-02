@@ -40,7 +40,8 @@ namespace Bank_Muhamed_Kaltak
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            FormChanger.ChangeForm(this, new LoginForm());
+            //FormChanger.ChangeForm(this, new LoginForm());
+            FormChanger.CloseForm(this);
         }
     }
 }

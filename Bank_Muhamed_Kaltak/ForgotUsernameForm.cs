@@ -27,12 +27,12 @@ namespace Bank_Muhamed_Kaltak
             UINotification.Popup(Color.Green, "Succesfully sent username", "Username has been sent to the specified email adress");//Man ska ej nämna om det lyckades eller ej för att ge så lite
             //- information som möljigt till hackare
 
-            FormChanger.ChangeForm(this, new LoginForm());
+            FormChanger.CloseForm(this);
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            FormChanger.ChangeForm(this, new LoginForm());
+            FormChanger.CloseForm(this);
         }
     }
 }

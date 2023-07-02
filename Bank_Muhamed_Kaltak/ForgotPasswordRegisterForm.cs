@@ -26,7 +26,7 @@ namespace Bank_Muhamed_Kaltak
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            FormChanger.ChangeForm(this, new LoginForm());
+            FormChanger.CloseForm(this);
         }
 
         private void buttonRegister_Click(object sender, EventArgs e)
@@ -55,7 +55,7 @@ namespace Bank_Muhamed_Kaltak
 
                 UINotification.Popup(Color.Green, "Succesfully changed passwords", "Passwords have been changed for your account");
 
-                FormChanger.ChangeForm(this, new LoginForm());
+                FormChanger.CloseForm(this);
             }
             else
             {

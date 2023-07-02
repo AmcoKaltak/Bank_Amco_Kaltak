@@ -34,5 +34,10 @@ namespace Bank_Muhamed_Kaltak
             form.BringToFront();
             form.Show();
         }
+
+        public static void CloseForm(Form form)
+        {
+            form.Close();
+        }
     }
 }

@@ -30,8 +30,7 @@ namespace Bank_Muhamed_Kaltak
             {
                 UINotification.Popup(Color.Green, "Registered", "Successfully registered to the database!");
 
-                LoginForm loginForm = new LoginForm();
-                FormChanger.ChangeForm(this, loginForm);
+                FormChanger.CloseForm(this);
 
             }
             else
@@ -42,7 +41,8 @@ namespace Bank_Muhamed_Kaltak
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            FormChanger.ChangeForm(this, new LoginForm());
+            //FormChanger.ChangeForm(this, new LoginForm());
+            FormChanger.CloseForm(this);
         }
 
         private void Mark(TextBox textBoxMark, Panel panelMark)
