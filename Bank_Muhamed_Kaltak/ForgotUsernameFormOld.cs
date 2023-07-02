@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace Bank_Muhamed_Kaltak
 {
-    public partial class ForgotUsernameForm : Form
+    public partial class ForgotUsernameFormOld : Form
     {
-        public ForgotUsernameForm()
+        public ForgotUsernameFormOld()
         {
             InitializeComponent();
         }
 
-        private void buttonSubmit_Click(object sender, EventArgs e)
+        private void buttonEmail_Click(object sender, EventArgs e)
         {
             EmailManager emailManager = new EmailManager();
 
