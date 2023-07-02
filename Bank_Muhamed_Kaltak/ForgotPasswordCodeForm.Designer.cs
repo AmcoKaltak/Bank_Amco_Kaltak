@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             buttonCancel = new Button();
-            panelEmail = new Panel();
+            panelCode = new Panel();
             pictureBox5 = new PictureBox();
             textBoxCode = new TextBox();
             label5 = new Label();
             buttonSubmitCode = new Button();
-            panelEmail.SuspendLayout();
+            panelCode.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
@@ -54,15 +54,15 @@
             buttonCancel.UseVisualStyleBackColor = false;
             buttonCancel.Click += buttonCancel_Click;
             // 
-            // panelEmail
+            // panelCode
             // 
-            panelEmail.BackColor = Color.White;
-            panelEmail.Controls.Add(pictureBox5);
-            panelEmail.Controls.Add(textBoxCode);
-            panelEmail.Location = new Point(2, 252);
-            panelEmail.Name = "panelEmail";
-            panelEmail.Size = new Size(480, 45);
-            panelEmail.TabIndex = 22;
+            panelCode.BackColor = Color.White;
+            panelCode.Controls.Add(pictureBox5);
+            panelCode.Controls.Add(textBoxCode);
+            panelCode.Location = new Point(2, 252);
+            panelCode.Name = "panelCode";
+            panelCode.Size = new Size(480, 45);
+            panelCode.TabIndex = 22;
             // 
             // pictureBox5
             // 
@@ -83,6 +83,7 @@
             textBoxCode.PlaceholderText = "Enter your code";
             textBoxCode.Size = new Size(434, 20);
             textBoxCode.TabIndex = 11;
+            textBoxCode.Click += textBoxCode_Click;
             // 
             // label5
             // 
@@ -118,13 +119,14 @@
             BackColor = Color.White;
             ClientSize = new Size(484, 561);
             Controls.Add(buttonCancel);
-            Controls.Add(panelEmail);
+            Controls.Add(panelCode);
             Controls.Add(label5);
             Controls.Add(buttonSubmitCode);
             Name = "ForgotPasswordCodeForm";
             Text = "ForgotPasswordCodeForm";
-            panelEmail.ResumeLayout(false);
-            panelEmail.PerformLayout();
+            Load += ForgotPasswordCodeForm_Load;
+            panelCode.ResumeLayout(false);
+            panelCode.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -133,7 +135,7 @@
         #endregion
 
         private Button buttonCancel;
-        private Panel panelEmail;
+        private Panel panelCode;
         private PictureBox pictureBox5;
         private TextBox textBoxCode;
         private Label label5;

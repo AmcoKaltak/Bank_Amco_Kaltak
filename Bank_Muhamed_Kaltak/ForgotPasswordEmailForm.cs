@@ -37,5 +37,15 @@ namespace Bank_Muhamed_Kaltak
             //FormChanger.ChangeForm(this, forgotPasswordCodeForm);
             FormChanger.OpenForm(forgotPasswordCodeForm);
         }
+
+        private void textBoxEmail_Click(object sender, EventArgs e)
+        {
+            UINotification.Mark(textBoxEmail, panelEmail);
+        }
+
+        private void ForgotPasswordEmailForm_Load(object sender, EventArgs e)
+        {
+            textBoxEmail_Click(sender, e);
+        }
     }
 }

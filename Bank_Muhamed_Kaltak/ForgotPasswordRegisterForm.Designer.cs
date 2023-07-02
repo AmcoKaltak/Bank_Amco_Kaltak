@@ -84,6 +84,7 @@
             textBoxNewPassword.Size = new Size(434, 20);
             textBoxNewPassword.TabIndex = 9;
             textBoxNewPassword.UseSystemPasswordChar = true;
+            textBoxNewPassword.Click += textBoxNewPassword_Click;
             // 
             // panelConfirmPassword
             // 
@@ -115,6 +116,7 @@
             textBoxConfirmPassword.Size = new Size(434, 20);
             textBoxConfirmPassword.TabIndex = 11;
             textBoxConfirmPassword.UseSystemPasswordChar = true;
+            textBoxConfirmPassword.Click += textBoxConfirmPassword_Click;
             // 
             // buttonCancel
             // 
@@ -159,6 +161,7 @@
             Controls.Add(buttonRegister);
             Name = "ForgotPasswordRegisterForm";
             Text = "ForgotPasswordRegisterForm";
+            Load += ForgotPasswordRegisterForm_Load;
             panelNewPassword.ResumeLayout(false);
             panelNewPassword.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

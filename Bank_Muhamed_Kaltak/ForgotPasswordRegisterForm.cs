@@ -63,5 +63,19 @@ namespace Bank_Muhamed_Kaltak
             }
         }
 
+        private void textBoxNewPassword_Click(object sender, EventArgs e)
+        {
+            UINotification.Mark(textBoxNewPassword, panelNewPassword);
+        }
+
+        private void textBoxConfirmPassword_Click(object sender, EventArgs e)
+        {
+            UINotification.Mark(textBoxConfirmPassword, panelConfirmPassword);
+        }
+
+        private void ForgotPasswordRegisterForm_Load(object sender, EventArgs e)
+        {
+            textBoxNewPassword_Click(sender,e);
+        }
     }
 }

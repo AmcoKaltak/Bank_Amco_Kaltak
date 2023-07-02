@@ -94,6 +94,7 @@
             textBoxEmail.PlaceholderText = "Enter your email";
             textBoxEmail.Size = new Size(434, 20);
             textBoxEmail.TabIndex = 11;
+            textBoxEmail.Click += textBoxEmail_Click;
             // 
             // buttonCancel
             // 
@@ -123,6 +124,7 @@
             Controls.Add(buttonSubmit);
             Name = "ForgotPasswordEmailForm";
             Text = "ForgotPasswordCodeForm";
+            Load += ForgotPasswordEmailForm_Load;
             panelEmail.ResumeLayout(false);
             panelEmail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
