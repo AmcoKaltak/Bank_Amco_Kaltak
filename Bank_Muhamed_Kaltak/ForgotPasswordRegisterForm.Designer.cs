@@ -83,6 +83,7 @@
             textBoxNewPassword.PlaceholderText = "Enter a new password";
             textBoxNewPassword.Size = new Size(434, 20);
             textBoxNewPassword.TabIndex = 9;
+            textBoxNewPassword.UseSystemPasswordChar = true;
             // 
             // panelConfirmPassword
             // 
