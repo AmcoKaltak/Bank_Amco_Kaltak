@@ -44,7 +44,7 @@ namespace Bank_Muhamed_Kaltak
             if (loginManager.LogIn(textBoxUsername.Text, textBoxPassword.Text))
             {
                 UINotification.Popup(Color.Green, "Succesful Login", "Logged in to the system");
-                FormChanger.ChangeForm(this, new SignUpFormOld());
+                FormChanger.ChangeForm(this, new SignUpForm());
             }
             else
             {
