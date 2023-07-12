@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             panelMenu = new Panel();
-            iconButton8 = new FontAwesome.Sharp.IconButton();
+            buttonLogout = new FontAwesome.Sharp.IconButton();
             iconButton6 = new FontAwesome.Sharp.IconButton();
             iconButton5 = new FontAwesome.Sharp.IconButton();
             iconButton4 = new FontAwesome.Sharp.IconButton();
@@ -53,7 +53,7 @@
             // panelMenu
             // 
             panelMenu.BackColor = Color.LightSkyBlue;
-            panelMenu.Controls.Add(iconButton8);
+            panelMenu.Controls.Add(buttonLogout);
             panelMenu.Controls.Add(iconButton6);
             panelMenu.Controls.Add(iconButton5);
             panelMenu.Controls.Add(iconButton4);
@@ -66,28 +66,29 @@
             panelMenu.Size = new Size(230, 561);
             panelMenu.TabIndex = 0;
             // 
-            // iconButton8
+            // buttonLogout
             // 
-            iconButton8.Dock = DockStyle.Bottom;
-            iconButton8.FlatAppearance.BorderSize = 0;
-            iconButton8.FlatStyle = FlatStyle.Flat;
-            iconButton8.Font = new Font("Verdana Pro", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            iconButton8.ForeColor = Color.White;
-            iconButton8.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
-            iconButton8.IconColor = Color.White;
-            iconButton8.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton8.IconSize = 30;
-            iconButton8.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton8.Location = new Point(0, 518);
-            iconButton8.Name = "iconButton8";
-            iconButton8.Padding = new Padding(10, 0, 0, 15);
-            iconButton8.Size = new Size(230, 43);
-            iconButton8.TabIndex = 7;
-            iconButton8.Tag = "Log out";
-            iconButton8.Text = "   Log out";
-            iconButton8.TextAlign = ContentAlignment.MiddleLeft;
-            iconButton8.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton8.UseVisualStyleBackColor = true;
+            buttonLogout.Dock = DockStyle.Bottom;
+            buttonLogout.FlatAppearance.BorderSize = 0;
+            buttonLogout.FlatStyle = FlatStyle.Flat;
+            buttonLogout.Font = new Font("Verdana Pro", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonLogout.ForeColor = Color.White;
+            buttonLogout.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            buttonLogout.IconColor = Color.White;
+            buttonLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            buttonLogout.IconSize = 30;
+            buttonLogout.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonLogout.Location = new Point(0, 518);
+            buttonLogout.Name = "buttonLogout";
+            buttonLogout.Padding = new Padding(10, 0, 0, 15);
+            buttonLogout.Size = new Size(230, 43);
+            buttonLogout.TabIndex = 7;
+            buttonLogout.Tag = "Log out";
+            buttonLogout.Text = "   Log out";
+            buttonLogout.TextAlign = ContentAlignment.MiddleLeft;
+            buttonLogout.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonLogout.UseVisualStyleBackColor = true;
+            buttonLogout.Click += buttonLogout_Click;
             // 
             // iconButton6
             // 
@@ -355,7 +356,7 @@
         private Panel panel1;
         private PictureBox pictureBox1;
         private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton iconButton8;
+        private FontAwesome.Sharp.IconButton buttonLogout;
         private FontAwesome.Sharp.IconButton iconButton6;
         private FontAwesome.Sharp.IconButton iconButton5;
         private FontAwesome.Sharp.IconButton iconButton4;

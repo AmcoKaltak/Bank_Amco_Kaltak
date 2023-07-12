@@ -34,7 +34,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-       
+
 
         private void MainMenuForm_Load(object sender, EventArgs e)
         {
@@ -77,7 +77,10 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             CollapseMenu();
         }
 
-
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            FormChanger.ChangeForm(this, new LoginForm());
+        }
 
         private void AdjustForm()
         {
@@ -203,5 +206,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             }
             base.WndProc(ref m);
         }
+
+
     }
 }
