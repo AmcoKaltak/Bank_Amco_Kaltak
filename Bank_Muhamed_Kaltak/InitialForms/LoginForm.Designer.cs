@@ -239,10 +239,10 @@
             linkLabel1.LinkColor = Color.DeepSkyBlue;
             linkLabel1.Location = new Point(172, 570);
             linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(175, 14);
+            linkLabel1.Size = new Size(176, 14);
             linkLabel1.TabIndex = 19;
             linkLabel1.TabStop = true;
-            linkLabel1.Text = "muhamedkaltak@outlook.com";
+            linkLabel1.Text = "muhamedkaltak@hotmail.com";
             // 
             // label8
             // 
