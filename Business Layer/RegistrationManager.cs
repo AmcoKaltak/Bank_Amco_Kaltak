@@ -21,7 +21,7 @@ namespace Business_Layer
             //Checks på att varje users username,password och email är unikt i databasen
         {
 
-            Random random = new Random();
+            
 
             user.username = username;
             user.salt = DateTime.Now.ToString();
@@ -29,7 +29,7 @@ namespace Business_Layer
             user.name = name;
             user.lastName = lastName;
             user.email = email;
-            user.moneyBalance = random.Next(10000, 1000000);
+            user.Accounts.Add(RegisterStartingMoneyAccount());
 
 
             if (string.IsNullOrWhiteSpace(user.username) || string.IsNullOrWhiteSpace(user.password) || string.IsNullOrWhiteSpace(user.name) || string.IsNullOrWhiteSpace(user.lastName) || string.IsNullOrWhiteSpace(user.email) || dBOperations.CheckUniqueUser(user) == false)
@@ -52,6 +52,18 @@ namespace Business_Layer
             dBOperations.ChangePassword(email, security.Hash($"{newPassword}{user.salt}"));
         }
 
+        private Account RegisterStartingMoneyAccount()
+        {
+            Account account = new Account();
+            Random random = new Random();
+
+            //account.user = user;
+            account.accountName = "Sparkonto";
+            account.money = random.Next(10000, 1000000);
+            account.accountCode = security.GenerateVerificationCode();
+
+            return account;
+        }
 
     }
 }

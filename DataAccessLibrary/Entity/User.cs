@@ -6,7 +6,7 @@ namespace DataAccessLibrary.Entity
     {
         public int Id { get; set; }
         public ICollection<Transaction> Transactions { get; set; }
-
+        public ICollection<Account> Accounts { get; } = new List<Account>(); //One to many
 
         public string username { get; set; }
         public string password { get; set; }
@@ -16,7 +16,6 @@ namespace DataAccessLibrary.Entity
         public string lastName { get; set; }
         public string? passwordResetToken { get; set; } //? Ser till att variabeln kan vara null
         public DateTime passwordResetDate { get; set; }
-        public float moneyBalance { get; set; }
 
 
 
