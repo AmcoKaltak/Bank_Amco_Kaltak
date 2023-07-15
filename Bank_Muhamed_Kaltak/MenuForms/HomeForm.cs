@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Bank_Muhamed_Kaltak
+namespace Bank_Muhamed_Kaltak.MenuForms
 {
     public partial class HomeForm : Form
     {

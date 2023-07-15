@@ -19,7 +19,11 @@ namespace Bank_Muhamed_Kaltak.MenuForms
         public MainMenuForm()
         {
             InitializeComponent();
+
             this.Padding = new Padding(borderSize); //Border storlek
+
+            FormChanger.activePanel = panelMainMenu;
+            FormChanger.activeForm = null;
         }
 
         //Drag Form
@@ -98,12 +102,12 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void CollapseMenu()
         {
-            if (this.panelMenu.Width > 200) //Kollapsa menyn
+            if (this.panelSideMenu.Width > 200) //Kollapsa menyn
             {
-                panelMenu.Width = 100;
+                panelSideMenu.Width = 100;
                 pictureBox1.Visible = false;
                 buttonMenu.Dock = DockStyle.Top;
-                foreach (Button menuButton in panelMenu.Controls.OfType<Button>())
+                foreach (Button menuButton in panelSideMenu.Controls.OfType<Button>())
                 {
                     menuButton.Text = "";
                     menuButton.ImageAlign = ContentAlignment.MiddleCenter;
@@ -112,10 +116,10 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             }
             else
             { //Expandera menyn
-                panelMenu.Width = 230;
+                panelSideMenu.Width = 230;
                 pictureBox1.Visible = true;
                 buttonMenu.Dock = DockStyle.None;
-                foreach (Button menuButton in panelMenu.Controls.OfType<Button>())
+                foreach (Button menuButton in panelSideMenu.Controls.OfType<Button>())
                 {
                     menuButton.Text = "   " + menuButton.Tag.ToString();
                     menuButton.ImageAlign = ContentAlignment.MiddleLeft;
@@ -207,6 +211,10 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             base.WndProc(ref m);
         }
 
-
+        private void buttonHome_Click(object sender, EventArgs e)
+        {
+            labelDashboard.Text = "Home";
+            FormChanger.OpenForm(new HomeForm());
+        }
     }
 }

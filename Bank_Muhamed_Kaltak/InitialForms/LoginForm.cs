@@ -17,9 +17,6 @@ namespace Bank_Muhamed_Kaltak
     {
         User test = new User();
 
-        TextBox lastMarkedTextBox;
-        Panel lastMarkedPanel;
-
         public LoginForm()
         {
             test.username = "test";

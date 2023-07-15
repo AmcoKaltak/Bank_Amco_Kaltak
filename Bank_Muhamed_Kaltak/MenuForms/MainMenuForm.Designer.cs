@@ -28,43 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panelMenu = new Panel();
+            panelSideMenu = new Panel();
             buttonLogout = new FontAwesome.Sharp.IconButton();
-            iconButton6 = new FontAwesome.Sharp.IconButton();
-            iconButton5 = new FontAwesome.Sharp.IconButton();
-            iconButton4 = new FontAwesome.Sharp.IconButton();
-            iconButton3 = new FontAwesome.Sharp.IconButton();
-            iconButton2 = new FontAwesome.Sharp.IconButton();
-            panel1 = new Panel();
+            buttonSetting = new FontAwesome.Sharp.IconButton();
+            buttonContact = new FontAwesome.Sharp.IconButton();
+            buttonTransaction = new FontAwesome.Sharp.IconButton();
+            buttonAccount = new FontAwesome.Sharp.IconButton();
+            buttonHome = new FontAwesome.Sharp.IconButton();
+            panelLogo = new Panel();
             buttonMenu = new FontAwesome.Sharp.IconButton();
             pictureBox1 = new PictureBox();
-            panelTitleBar = new Panel();
-            label5 = new Label();
+            panelDashboard = new Panel();
+            labelDashboard = new Label();
             buttonMinimize = new FontAwesome.Sharp.IconButton();
             buttonMaximize = new FontAwesome.Sharp.IconButton();
             buttonClose = new FontAwesome.Sharp.IconButton();
-            panelDesktop = new Panel();
-            panelMenu.SuspendLayout();
-            panel1.SuspendLayout();
+            panelMainMenu = new Panel();
+            panelSideMenu.SuspendLayout();
+            panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panelTitleBar.SuspendLayout();
+            panelDashboard.SuspendLayout();
             SuspendLayout();
             // 
-            // panelMenu
+            // panelSideMenu
             // 
-            panelMenu.BackColor = Color.LightSkyBlue;
-            panelMenu.Controls.Add(buttonLogout);
-            panelMenu.Controls.Add(iconButton6);
-            panelMenu.Controls.Add(iconButton5);
-            panelMenu.Controls.Add(iconButton4);
-            panelMenu.Controls.Add(iconButton3);
-            panelMenu.Controls.Add(iconButton2);
-            panelMenu.Controls.Add(panel1);
-            panelMenu.Dock = DockStyle.Left;
-            panelMenu.Location = new Point(0, 0);
-            panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(230, 561);
-            panelMenu.TabIndex = 0;
+            panelSideMenu.BackColor = Color.LightSkyBlue;
+            panelSideMenu.Controls.Add(buttonLogout);
+            panelSideMenu.Controls.Add(buttonSetting);
+            panelSideMenu.Controls.Add(buttonContact);
+            panelSideMenu.Controls.Add(buttonTransaction);
+            panelSideMenu.Controls.Add(buttonAccount);
+            panelSideMenu.Controls.Add(buttonHome);
+            panelSideMenu.Controls.Add(panelLogo);
+            panelSideMenu.Dock = DockStyle.Left;
+            panelSideMenu.Location = new Point(0, 0);
+            panelSideMenu.Name = "panelSideMenu";
+            panelSideMenu.Size = new Size(230, 561);
+            panelSideMenu.TabIndex = 0;
             // 
             // buttonLogout
             // 
@@ -90,130 +90,131 @@
             buttonLogout.UseVisualStyleBackColor = true;
             buttonLogout.Click += buttonLogout_Click;
             // 
-            // iconButton6
+            // buttonSetting
             // 
-            iconButton6.Dock = DockStyle.Top;
-            iconButton6.FlatAppearance.BorderSize = 0;
-            iconButton6.FlatStyle = FlatStyle.Flat;
-            iconButton6.Font = new Font("Verdana Pro", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            iconButton6.ForeColor = Color.White;
-            iconButton6.IconChar = FontAwesome.Sharp.IconChar.Gear;
-            iconButton6.IconColor = Color.White;
-            iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton6.IconSize = 30;
-            iconButton6.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton6.Location = new Point(0, 300);
-            iconButton6.Name = "iconButton6";
-            iconButton6.Padding = new Padding(10, 0, 0, 0);
-            iconButton6.Size = new Size(230, 43);
-            iconButton6.TabIndex = 5;
-            iconButton6.Tag = "Settings";
-            iconButton6.Text = "   Settings";
-            iconButton6.TextAlign = ContentAlignment.MiddleLeft;
-            iconButton6.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton6.UseVisualStyleBackColor = true;
+            buttonSetting.Dock = DockStyle.Top;
+            buttonSetting.FlatAppearance.BorderSize = 0;
+            buttonSetting.FlatStyle = FlatStyle.Flat;
+            buttonSetting.Font = new Font("Verdana Pro", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonSetting.ForeColor = Color.White;
+            buttonSetting.IconChar = FontAwesome.Sharp.IconChar.Gear;
+            buttonSetting.IconColor = Color.White;
+            buttonSetting.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            buttonSetting.IconSize = 30;
+            buttonSetting.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonSetting.Location = new Point(0, 300);
+            buttonSetting.Name = "buttonSetting";
+            buttonSetting.Padding = new Padding(10, 0, 0, 0);
+            buttonSetting.Size = new Size(230, 43);
+            buttonSetting.TabIndex = 5;
+            buttonSetting.Tag = "Settings";
+            buttonSetting.Text = "   Settings";
+            buttonSetting.TextAlign = ContentAlignment.MiddleLeft;
+            buttonSetting.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonSetting.UseVisualStyleBackColor = true;
             // 
-            // iconButton5
+            // buttonContact
             // 
-            iconButton5.Dock = DockStyle.Top;
-            iconButton5.FlatAppearance.BorderSize = 0;
-            iconButton5.FlatStyle = FlatStyle.Flat;
-            iconButton5.Font = new Font("Verdana Pro", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            iconButton5.ForeColor = Color.White;
-            iconButton5.IconChar = FontAwesome.Sharp.IconChar.AddressBook;
-            iconButton5.IconColor = Color.White;
-            iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton5.IconSize = 30;
-            iconButton5.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton5.Location = new Point(0, 257);
-            iconButton5.Name = "iconButton5";
-            iconButton5.Padding = new Padding(10, 0, 0, 0);
-            iconButton5.Size = new Size(230, 43);
-            iconButton5.TabIndex = 4;
-            iconButton5.Tag = "Contacts";
-            iconButton5.Text = "   Contacts";
-            iconButton5.TextAlign = ContentAlignment.MiddleLeft;
-            iconButton5.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton5.UseVisualStyleBackColor = true;
+            buttonContact.Dock = DockStyle.Top;
+            buttonContact.FlatAppearance.BorderSize = 0;
+            buttonContact.FlatStyle = FlatStyle.Flat;
+            buttonContact.Font = new Font("Verdana Pro", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonContact.ForeColor = Color.White;
+            buttonContact.IconChar = FontAwesome.Sharp.IconChar.AddressBook;
+            buttonContact.IconColor = Color.White;
+            buttonContact.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            buttonContact.IconSize = 30;
+            buttonContact.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonContact.Location = new Point(0, 257);
+            buttonContact.Name = "buttonContact";
+            buttonContact.Padding = new Padding(10, 0, 0, 0);
+            buttonContact.Size = new Size(230, 43);
+            buttonContact.TabIndex = 4;
+            buttonContact.Tag = "Contacts";
+            buttonContact.Text = "   Contacts";
+            buttonContact.TextAlign = ContentAlignment.MiddleLeft;
+            buttonContact.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonContact.UseVisualStyleBackColor = true;
             // 
-            // iconButton4
+            // buttonTransaction
             // 
-            iconButton4.Dock = DockStyle.Top;
-            iconButton4.FlatAppearance.BorderSize = 0;
-            iconButton4.FlatStyle = FlatStyle.Flat;
-            iconButton4.Font = new Font("Verdana Pro", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            iconButton4.ForeColor = Color.White;
-            iconButton4.IconChar = FontAwesome.Sharp.IconChar.MoneyBillTransfer;
-            iconButton4.IconColor = Color.White;
-            iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton4.IconSize = 30;
-            iconButton4.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton4.Location = new Point(0, 214);
-            iconButton4.Name = "iconButton4";
-            iconButton4.Padding = new Padding(10, 0, 0, 0);
-            iconButton4.Size = new Size(230, 43);
-            iconButton4.TabIndex = 3;
-            iconButton4.Tag = "Transaction";
-            iconButton4.Text = "   Transaction";
-            iconButton4.TextAlign = ContentAlignment.MiddleLeft;
-            iconButton4.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton4.UseVisualStyleBackColor = true;
+            buttonTransaction.Dock = DockStyle.Top;
+            buttonTransaction.FlatAppearance.BorderSize = 0;
+            buttonTransaction.FlatStyle = FlatStyle.Flat;
+            buttonTransaction.Font = new Font("Verdana Pro", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonTransaction.ForeColor = Color.White;
+            buttonTransaction.IconChar = FontAwesome.Sharp.IconChar.MoneyBillTransfer;
+            buttonTransaction.IconColor = Color.White;
+            buttonTransaction.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            buttonTransaction.IconSize = 30;
+            buttonTransaction.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonTransaction.Location = new Point(0, 214);
+            buttonTransaction.Name = "buttonTransaction";
+            buttonTransaction.Padding = new Padding(10, 0, 0, 0);
+            buttonTransaction.Size = new Size(230, 43);
+            buttonTransaction.TabIndex = 3;
+            buttonTransaction.Tag = "Transaction";
+            buttonTransaction.Text = "   Transaction";
+            buttonTransaction.TextAlign = ContentAlignment.MiddleLeft;
+            buttonTransaction.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonTransaction.UseVisualStyleBackColor = true;
             // 
-            // iconButton3
+            // buttonAccount
             // 
-            iconButton3.Dock = DockStyle.Top;
-            iconButton3.FlatAppearance.BorderSize = 0;
-            iconButton3.FlatStyle = FlatStyle.Flat;
-            iconButton3.Font = new Font("Verdana Pro", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            iconButton3.ForeColor = Color.White;
-            iconButton3.IconChar = FontAwesome.Sharp.IconChar.Wallet;
-            iconButton3.IconColor = Color.White;
-            iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton3.IconSize = 30;
-            iconButton3.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton3.Location = new Point(0, 171);
-            iconButton3.Name = "iconButton3";
-            iconButton3.Padding = new Padding(10, 0, 0, 0);
-            iconButton3.Size = new Size(230, 43);
-            iconButton3.TabIndex = 2;
-            iconButton3.Tag = "Accounts";
-            iconButton3.Text = "   Accounts";
-            iconButton3.TextAlign = ContentAlignment.MiddleLeft;
-            iconButton3.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton3.UseVisualStyleBackColor = true;
+            buttonAccount.Dock = DockStyle.Top;
+            buttonAccount.FlatAppearance.BorderSize = 0;
+            buttonAccount.FlatStyle = FlatStyle.Flat;
+            buttonAccount.Font = new Font("Verdana Pro", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonAccount.ForeColor = Color.White;
+            buttonAccount.IconChar = FontAwesome.Sharp.IconChar.Wallet;
+            buttonAccount.IconColor = Color.White;
+            buttonAccount.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            buttonAccount.IconSize = 30;
+            buttonAccount.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonAccount.Location = new Point(0, 171);
+            buttonAccount.Name = "buttonAccount";
+            buttonAccount.Padding = new Padding(10, 0, 0, 0);
+            buttonAccount.Size = new Size(230, 43);
+            buttonAccount.TabIndex = 2;
+            buttonAccount.Tag = "Accounts";
+            buttonAccount.Text = "   Accounts";
+            buttonAccount.TextAlign = ContentAlignment.MiddleLeft;
+            buttonAccount.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonAccount.UseVisualStyleBackColor = true;
             // 
-            // iconButton2
+            // buttonHome
             // 
-            iconButton2.Dock = DockStyle.Top;
-            iconButton2.FlatAppearance.BorderSize = 0;
-            iconButton2.FlatStyle = FlatStyle.Flat;
-            iconButton2.Font = new Font("Verdana Pro", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            iconButton2.ForeColor = Color.White;
-            iconButton2.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
-            iconButton2.IconColor = Color.White;
-            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton2.IconSize = 30;
-            iconButton2.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton2.Location = new Point(0, 128);
-            iconButton2.Name = "iconButton2";
-            iconButton2.Padding = new Padding(10, 0, 0, 0);
-            iconButton2.Size = new Size(230, 43);
-            iconButton2.TabIndex = 1;
-            iconButton2.Tag = "Home";
-            iconButton2.Text = "   Home";
-            iconButton2.TextAlign = ContentAlignment.MiddleLeft;
-            iconButton2.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton2.UseVisualStyleBackColor = true;
+            buttonHome.Dock = DockStyle.Top;
+            buttonHome.FlatAppearance.BorderSize = 0;
+            buttonHome.FlatStyle = FlatStyle.Flat;
+            buttonHome.Font = new Font("Verdana Pro", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonHome.ForeColor = Color.White;
+            buttonHome.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
+            buttonHome.IconColor = Color.White;
+            buttonHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            buttonHome.IconSize = 30;
+            buttonHome.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonHome.Location = new Point(0, 128);
+            buttonHome.Name = "buttonHome";
+            buttonHome.Padding = new Padding(10, 0, 0, 0);
+            buttonHome.Size = new Size(230, 43);
+            buttonHome.TabIndex = 1;
+            buttonHome.Tag = "Home";
+            buttonHome.Text = "   Home";
+            buttonHome.TextAlign = ContentAlignment.MiddleLeft;
+            buttonHome.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonHome.UseVisualStyleBackColor = true;
+            buttonHome.Click += buttonHome_Click;
             // 
-            // panel1
+            // panelLogo
             // 
-            panel1.Controls.Add(buttonMenu);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(230, 128);
-            panel1.TabIndex = 0;
+            panelLogo.Controls.Add(buttonMenu);
+            panelLogo.Controls.Add(pictureBox1);
+            panelLogo.Dock = DockStyle.Top;
+            panelLogo.Location = new Point(0, 0);
+            panelLogo.Name = "panelLogo";
+            panelLogo.Size = new Size(230, 128);
+            panelLogo.TabIndex = 0;
             // 
             // buttonMenu
             // 
@@ -240,30 +241,30 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // panelTitleBar
+            // panelDashboard
             // 
-            panelTitleBar.BackColor = Color.WhiteSmoke;
-            panelTitleBar.Controls.Add(label5);
-            panelTitleBar.Controls.Add(buttonMinimize);
-            panelTitleBar.Controls.Add(buttonMaximize);
-            panelTitleBar.Controls.Add(buttonClose);
-            panelTitleBar.Dock = DockStyle.Top;
-            panelTitleBar.Location = new Point(230, 0);
-            panelTitleBar.Name = "panelTitleBar";
-            panelTitleBar.Size = new Size(904, 60);
-            panelTitleBar.TabIndex = 1;
-            panelTitleBar.MouseDown += panelTitleBar_MouseDown;
+            panelDashboard.BackColor = Color.WhiteSmoke;
+            panelDashboard.Controls.Add(labelDashboard);
+            panelDashboard.Controls.Add(buttonMinimize);
+            panelDashboard.Controls.Add(buttonMaximize);
+            panelDashboard.Controls.Add(buttonClose);
+            panelDashboard.Dock = DockStyle.Top;
+            panelDashboard.Location = new Point(230, 0);
+            panelDashboard.Name = "panelDashboard";
+            panelDashboard.Size = new Size(904, 60);
+            panelDashboard.TabIndex = 1;
+            panelDashboard.MouseDown += panelTitleBar_MouseDown;
             // 
-            // label5
+            // labelDashboard
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Rockwell Nova Cond", 22F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.ForeColor = Color.LightSkyBlue;
-            label5.Location = new Point(17, 9);
-            label5.Name = "label5";
-            label5.Size = new Size(149, 41);
-            label5.TabIndex = 6;
-            label5.Text = "Dashboard";
+            labelDashboard.AutoSize = true;
+            labelDashboard.Font = new Font("Rockwell Nova Cond", 22F, FontStyle.Bold, GraphicsUnit.Point);
+            labelDashboard.ForeColor = Color.LightSkyBlue;
+            labelDashboard.Location = new Point(17, 9);
+            labelDashboard.Name = "labelDashboard";
+            labelDashboard.Size = new Size(149, 41);
+            labelDashboard.TabIndex = 6;
+            labelDashboard.Text = "Dashboard";
             // 
             // buttonMinimize
             // 
@@ -319,13 +320,13 @@
             buttonClose.UseVisualStyleBackColor = false;
             buttonClose.Click += buttonClose_Click;
             // 
-            // panelDesktop
+            // panelMainMenu
             // 
-            panelDesktop.Dock = DockStyle.Fill;
-            panelDesktop.Location = new Point(230, 60);
-            panelDesktop.Name = "panelDesktop";
-            panelDesktop.Size = new Size(904, 501);
-            panelDesktop.TabIndex = 2;
+            panelMainMenu.Dock = DockStyle.Fill;
+            panelMainMenu.Location = new Point(230, 60);
+            panelMainMenu.Name = "panelMainMenu";
+            panelMainMenu.Size = new Size(904, 501);
+            panelMainMenu.TabIndex = 2;
             // 
             // MainMenuForm
             // 
@@ -333,38 +334,38 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1134, 561);
-            Controls.Add(panelDesktop);
-            Controls.Add(panelTitleBar);
-            Controls.Add(panelMenu);
+            Controls.Add(panelMainMenu);
+            Controls.Add(panelDashboard);
+            Controls.Add(panelSideMenu);
             Name = "MainMenuForm";
             Text = "MainMenuForm";
             Load += MainMenuForm_Load;
             Resize += MainMenuForm_Resize;
-            panelMenu.ResumeLayout(false);
-            panel1.ResumeLayout(false);
+            panelSideMenu.ResumeLayout(false);
+            panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panelTitleBar.ResumeLayout(false);
-            panelTitleBar.PerformLayout();
+            panelDashboard.ResumeLayout(false);
+            panelDashboard.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panelMenu;
-        private Panel panelTitleBar;
-        private Panel panelDesktop;
-        private Panel panel1;
+        private Panel panelSideMenu;
+        private Panel panelDashboard;
+        private Panel panelMainMenu;
+        private Panel panelLogo;
         private PictureBox pictureBox1;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton buttonHome;
         private FontAwesome.Sharp.IconButton buttonLogout;
-        private FontAwesome.Sharp.IconButton iconButton6;
-        private FontAwesome.Sharp.IconButton iconButton5;
-        private FontAwesome.Sharp.IconButton iconButton4;
-        private FontAwesome.Sharp.IconButton iconButton3;
+        private FontAwesome.Sharp.IconButton buttonSetting;
+        private FontAwesome.Sharp.IconButton buttonContact;
+        private FontAwesome.Sharp.IconButton buttonTransaction;
+        private FontAwesome.Sharp.IconButton buttonAccount;
         private FontAwesome.Sharp.IconButton buttonClose;
         private FontAwesome.Sharp.IconButton buttonMaximize;
         private FontAwesome.Sharp.IconButton buttonMinimize;
-        private Label label5;
+        private Label labelDashboard;
         private FontAwesome.Sharp.IconButton buttonMenu;
     }
 }
