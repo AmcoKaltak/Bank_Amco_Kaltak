@@ -28,25 +28,62 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
+            accountNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            moneyDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            accountCodeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            accountBindingSource = new BindingSource(components);
             label1 = new Label();
             label8 = new Label();
             dataGridView2 = new DataGridView();
-            label5 = new Label();
+            labelUserFullName = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)accountBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { accountNameDataGridViewTextBoxColumn, moneyDataGridViewTextBoxColumn, accountCodeDataGridViewTextBoxColumn });
+            dataGridView1.DataSource = accountBindingSource;
             dataGridView1.Location = new Point(57, 175);
             dataGridView1.MaximumSize = new Size(0, 800);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(337, 250);
+            dataGridView1.Size = new Size(343, 250);
             dataGridView1.TabIndex = 0;
+            // 
+            // accountNameDataGridViewTextBoxColumn
+            // 
+            accountNameDataGridViewTextBoxColumn.DataPropertyName = "accountName";
+            accountNameDataGridViewTextBoxColumn.HeaderText = "accountName";
+            accountNameDataGridViewTextBoxColumn.Name = "accountNameDataGridViewTextBoxColumn";
+            accountNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // moneyDataGridViewTextBoxColumn
+            // 
+            moneyDataGridViewTextBoxColumn.DataPropertyName = "money";
+            moneyDataGridViewTextBoxColumn.HeaderText = "money";
+            moneyDataGridViewTextBoxColumn.Name = "moneyDataGridViewTextBoxColumn";
+            moneyDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // accountCodeDataGridViewTextBoxColumn
+            // 
+            accountCodeDataGridViewTextBoxColumn.DataPropertyName = "accountCode";
+            accountCodeDataGridViewTextBoxColumn.HeaderText = "accountCode";
+            accountCodeDataGridViewTextBoxColumn.Name = "accountCodeDataGridViewTextBoxColumn";
+            accountCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // accountBindingSource
+            // 
+            accountBindingSource.DataSource = typeof(DataAccessLibrary.Entity.Account);
             // 
             // label1
             // 
@@ -81,17 +118,17 @@
             dataGridView2.Size = new Size(337, 250);
             dataGridView2.TabIndex = 7;
             // 
-            // label5
+            // labelUserFullName
             // 
-            label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            label5.AutoSize = true;
-            label5.Font = new Font("Rockwell Nova Cond", 22F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.ForeColor = Color.LightSkyBlue;
-            label5.Location = new Point(281, 33);
-            label5.Name = "label5";
-            label5.Size = new Size(296, 41);
-            label5.TabIndex = 21;
-            label5.Text = "Hello Name Last Name!";
+            labelUserFullName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            labelUserFullName.Font = new Font("Rockwell Nova Cond", 22F, FontStyle.Bold, GraphicsUnit.Point);
+            labelUserFullName.ForeColor = Color.LightSkyBlue;
+            labelUserFullName.Location = new Point(281, 33);
+            labelUserFullName.Name = "labelUserFullName";
+            labelUserFullName.Size = new Size(296, 41);
+            labelUserFullName.TabIndex = 21;
+            labelUserFullName.Text = "Hello Name Last Name!";
+            labelUserFullName.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // HomeForm
             // 
@@ -99,7 +136,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(888, 462);
-            Controls.Add(label5);
+            Controls.Add(labelUserFullName);
             Controls.Add(dataGridView2);
             Controls.Add(label8);
             Controls.Add(label1);
@@ -107,6 +144,7 @@
             Name = "HomeForm";
             Text = "Home";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)accountBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -118,6 +156,10 @@
         private Label label1;
         private Label label8;
         private DataGridView dataGridView2;
-        private Label label5;
+        public Label labelUserFullName;
+        private BindingSource accountBindingSource;
+        private DataGridViewTextBoxColumn accountNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn moneyDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn accountCodeDataGridViewTextBoxColumn;
     }
 }

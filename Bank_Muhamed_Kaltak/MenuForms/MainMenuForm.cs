@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business_Layer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,8 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 {
     public partial class MainMenuForm : Form
     {
+        public UserClient userClient { get; set; }
+
         private int borderSize = 2;
         private Size formSize; //Ha koll på form storleken när man minimerar och expanderar, sparar värdet innan man minimerar och återställer det när man maximerar.
 
@@ -43,7 +46,8 @@ namespace Bank_Muhamed_Kaltak.MenuForms
         private void MainMenuForm_Load(object sender, EventArgs e)
         {
             formSize = this.ClientSize;
-            buttonHome_Click(sender, e);
+
+            ChangeToHome();
         }
 
         private void MainMenuForm_Resize(object sender, EventArgs e)
@@ -214,8 +218,22 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void buttonHome_Click(object sender, EventArgs e)
         {
+         
+            ChangeToHome();
+
+        }
+
+        private void ChangeToHome()
+        {
             labelDashboard.Text = "Home";
-            FormChanger.OpenForm(new HomeForm());
+
+            HomeForm homeForm = new HomeForm();
+
+            homeForm.LabelUserFullNameValue = $"Hello {userClient.user.name} {userClient.user.lastName} !";
+            homeForm.addAccountsToDatagridviewFromClient(userClient);
+
+
+            FormChanger.OpenForm(homeForm);
         }
     }
 }

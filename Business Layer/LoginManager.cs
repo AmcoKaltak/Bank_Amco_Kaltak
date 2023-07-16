@@ -10,7 +10,7 @@ namespace Business_Layer
 {
     public class LoginManager
     {
-        public bool LogIn(string username,string password) //Kollar först ifall det finns en användare i databasen med den angivna användarnamnet. Om det finns checkas lösenordet
+        public User LogIn(string username,string password) //Kollar först ifall det finns en användare i databasen med den angivna användarnamnet. Om det finns checkas lösenordet
         {
             DBOperations dBOperations = new DBOperations();
 
@@ -19,11 +19,11 @@ namespace Business_Layer
             if (user != null && CheckValidUsernameAndPassword(username, password, user))
             {
 
-                return true;
+                return user;
                 
             }
 
-            return false;
+            return null;
 
         }
 

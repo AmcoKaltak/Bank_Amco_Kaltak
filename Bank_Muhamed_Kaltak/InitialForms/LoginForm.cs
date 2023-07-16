@@ -37,12 +37,20 @@ namespace Bank_Muhamed_Kaltak
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             LoginManager loginManager = new LoginManager();
+            User user = new User();
+
+            user = loginManager.LogIn(textBoxUsername.Text, textBoxPassword.Text);
 
 
-            if (loginManager.LogIn(textBoxUsername.Text, textBoxPassword.Text))
+            if (user != null)
             {
                 UINotification.Popup(Color.Green, "Succesful Login", "Logged in to the system");
-                FormChanger.ChangeForm(this, new MainMenuForm());
+
+                MainMenuForm mainMenuForm = new MainMenuForm();
+
+                mainMenuForm.userClient = new UserClient(user);
+
+                FormChanger.ChangeForm(this, mainMenuForm);
             }
             else
             {

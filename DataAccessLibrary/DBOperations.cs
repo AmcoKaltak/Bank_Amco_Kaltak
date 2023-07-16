@@ -85,6 +85,15 @@ namespace DataAccessLibrary
             return false;
         }
 
+        public List<Account> GetUserAccounts(User user)
+        {
+            using Context context = new Context();
+
+            var accounts = context.Accounts.Where(a => a.UserId == user.Id).ToList();
+
+            return accounts;
+        }
+
         //public void RemoveUser()
         //{
         //    using Context context = new Context();
