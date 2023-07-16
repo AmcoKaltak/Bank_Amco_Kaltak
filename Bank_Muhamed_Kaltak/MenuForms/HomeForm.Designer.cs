@@ -28,86 +28,70 @@
         /// </summary>
         private void InitializeComponent()
         {
-            buttonCancel = new Button();
-            panelEmail = new Panel();
-            pictureBox5 = new PictureBox();
-            textBoxEmail = new TextBox();
+            dataGridView1 = new DataGridView();
+            label1 = new Label();
+            label8 = new Label();
+            dataGridView2 = new DataGridView();
             label5 = new Label();
-            buttonSubmit = new Button();
-            panelEmail.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
-            // buttonCancel
+            // dataGridView1
             // 
-            buttonCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            buttonCancel.BackColor = Color.LightSkyBlue;
-            buttonCancel.Cursor = Cursors.Hand;
-            buttonCancel.FlatStyle = FlatStyle.Flat;
-            buttonCancel.Font = new Font("Verdana Pro Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonCancel.ForeColor = Color.White;
-            buttonCancel.Location = new Point(272, 393);
-            buttonCancel.Name = "buttonCancel";
-            buttonCancel.Size = new Size(148, 35);
-            buttonCancel.TabIndex = 23;
-            buttonCancel.Text = "Cancel";
-            buttonCancel.UseVisualStyleBackColor = false;
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(57, 175);
+            dataGridView1.MaximumSize = new Size(0, 800);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(337, 250);
+            dataGridView1.TabIndex = 0;
             // 
-            // panelEmail
+            // label1
             // 
-            panelEmail.BackColor = Color.White;
-            panelEmail.Controls.Add(pictureBox5);
-            panelEmail.Controls.Add(textBoxEmail);
-            panelEmail.Location = new Point(206, 204);
-            panelEmail.Name = "panelEmail";
-            panelEmail.Size = new Size(480, 45);
-            panelEmail.TabIndex = 22;
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            label1.AutoSize = true;
+            label1.Location = new Point(201, 141);
+            label1.Name = "label1";
+            label1.Size = new Size(38, 15);
+            label1.TabIndex = 1;
+            label1.Text = "label1";
             // 
-            // pictureBox5
+            // label8
             // 
-            pictureBox5.Image = Properties.Resources.email;
-            pictureBox5.Location = new Point(5, 10);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(24, 24);
-            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox5.TabIndex = 6;
-            pictureBox5.TabStop = false;
+            label8.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            label8.AutoSize = true;
+            label8.Location = new Point(608, 141);
+            label8.Name = "label8";
+            label8.Size = new Size(38, 15);
+            label8.TabIndex = 6;
+            label8.Text = "label8";
             // 
-            // textBoxEmail
+            // dataGridView2
             // 
-            textBoxEmail.BorderStyle = BorderStyle.None;
-            textBoxEmail.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBoxEmail.Location = new Point(35, 14);
-            textBoxEmail.Name = "textBoxEmail";
-            textBoxEmail.PlaceholderText = "Enter your email";
-            textBoxEmail.Size = new Size(434, 20);
-            textBoxEmail.TabIndex = 11;
+            dataGridView2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Location = new Point(459, 175);
+            dataGridView2.Margin = new Padding(0);
+            dataGridView2.MaximumSize = new Size(0, 800);
+            dataGridView2.MinimumSize = new Size(0, 250);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.RowTemplate.Height = 25;
+            dataGridView2.Size = new Size(337, 250);
+            dataGridView2.TabIndex = 7;
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             label5.AutoSize = true;
             label5.Font = new Font("Rockwell Nova Cond", 22F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.LightSkyBlue;
-            label5.Location = new Point(321, 32);
+            label5.Location = new Point(281, 33);
             label5.Name = "label5";
-            label5.Size = new Size(220, 41);
-            label5.TabIndex = 20;
-            label5.Text = "Enter your email";
-            // 
-            // buttonSubmit
-            // 
-            buttonSubmit.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            buttonSubmit.BackColor = Color.LightSkyBlue;
-            buttonSubmit.Cursor = Cursors.Hand;
-            buttonSubmit.FlatStyle = FlatStyle.Flat;
-            buttonSubmit.Font = new Font("Verdana Pro Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonSubmit.ForeColor = Color.White;
-            buttonSubmit.Location = new Point(511, 393);
-            buttonSubmit.Name = "buttonSubmit";
-            buttonSubmit.Size = new Size(148, 35);
-            buttonSubmit.TabIndex = 21;
-            buttonSubmit.Text = "Submit";
-            buttonSubmit.UseVisualStyleBackColor = false;
+            label5.Size = new Size(296, 41);
+            label5.TabIndex = 21;
+            label5.Text = "Hello Name Last Name!";
             // 
             // HomeForm
             // 
@@ -115,26 +99,25 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(888, 462);
-            Controls.Add(buttonCancel);
-            Controls.Add(panelEmail);
             Controls.Add(label5);
-            Controls.Add(buttonSubmit);
+            Controls.Add(dataGridView2);
+            Controls.Add(label8);
+            Controls.Add(label1);
+            Controls.Add(dataGridView1);
             Name = "HomeForm";
             Text = "Home";
-            panelEmail.ResumeLayout(false);
-            panelEmail.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button buttonCancel;
-        private Panel panelEmail;
-        private PictureBox pictureBox5;
-        private TextBox textBoxEmail;
+        private DataGridView dataGridView1;
+        private Label label1;
+        private Label label8;
+        private DataGridView dataGridView2;
         private Label label5;
-        private Button buttonSubmit;
     }
 }

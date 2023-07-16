@@ -337,6 +337,7 @@
             Controls.Add(panelMainMenu);
             Controls.Add(panelDashboard);
             Controls.Add(panelSideMenu);
+            MinimumSize = new Size(1150, 600);
             Name = "MainMenuForm";
             Text = "MainMenuForm";
             Load += MainMenuForm_Load;

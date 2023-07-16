@@ -43,6 +43,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
         private void MainMenuForm_Load(object sender, EventArgs e)
         {
             formSize = this.ClientSize;
+            buttonHome_Click(sender, e);
         }
 
         private void MainMenuForm_Resize(object sender, EventArgs e)
