@@ -29,10 +29,14 @@ namespace Business_Layer
             user.name = name;
             user.lastName = lastName;
             user.email = email;
-            user.Accounts.Add(RegisterStartingMoneyAccount());
+            for (int i = 0; i < 10; i++)
+            {
+                user.Accounts.Add(RegisterStartingMoneyAccount());
+
+            }
 
 
-            if (string.IsNullOrWhiteSpace(user.username) || string.IsNullOrWhiteSpace(user.password) || string.IsNullOrWhiteSpace(user.name) || string.IsNullOrWhiteSpace(user.lastName) || string.IsNullOrWhiteSpace(user.email) || dBOperations.CheckUniqueUser(user) == false)
+            if (dBOperations.CheckUniqueUser(user) == false || string.IsNullOrWhiteSpace(user.username) || string.IsNullOrWhiteSpace(user.password) || string.IsNullOrWhiteSpace(user.name) || string.IsNullOrWhiteSpace(user.lastName) || string.IsNullOrWhiteSpace(user.email))
             {
                 return false;
             } 

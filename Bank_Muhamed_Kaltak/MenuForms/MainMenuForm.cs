@@ -216,12 +216,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             base.WndProc(ref m);
         }
 
-        private void buttonHome_Click(object sender, EventArgs e)
-        {
-         
-            ChangeToHome();
 
-        }
 
         private void ChangeToHome()
         {
@@ -234,6 +229,30 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
 
             FormChanger.OpenForm(homeForm);
+        }
+
+        private void ChangeToAccount()
+        {
+            labelDashboard.Text = "Account";
+
+            AccountForm accountForm = new AccountForm();
+
+            accountForm.addAccountsToDatagridviewFromClient(userClient);
+
+            FormChanger.OpenForm(accountForm);
+            
+        }
+
+        private void buttonHome_Click(object sender, EventArgs e)
+        {
+
+            ChangeToHome();
+
+        }
+
+        private void buttonAccount_Click(object sender, EventArgs e)
+        {
+            ChangeToAccount();
         }
     }
 }

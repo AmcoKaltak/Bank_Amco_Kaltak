@@ -30,14 +30,13 @@
         {
             components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
-            accountNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            moneyDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            accountCodeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             accountBindingSource = new BindingSource(components);
             label1 = new Label();
             label8 = new Label();
             dataGridView2 = new DataGridView();
             labelUserFullName = new Label();
+            accountNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            moneyDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)accountBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
@@ -47,9 +46,10 @@
             // 
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { accountNameDataGridViewTextBoxColumn, moneyDataGridViewTextBoxColumn, accountCodeDataGridViewTextBoxColumn });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { accountNameDataGridViewTextBoxColumn, moneyDataGridViewTextBoxColumn });
             dataGridView1.DataSource = accountBindingSource;
             dataGridView1.Location = new Point(57, 175);
             dataGridView1.MaximumSize = new Size(0, 800);
@@ -59,27 +59,6 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(343, 250);
             dataGridView1.TabIndex = 0;
-            // 
-            // accountNameDataGridViewTextBoxColumn
-            // 
-            accountNameDataGridViewTextBoxColumn.DataPropertyName = "accountName";
-            accountNameDataGridViewTextBoxColumn.HeaderText = "accountName";
-            accountNameDataGridViewTextBoxColumn.Name = "accountNameDataGridViewTextBoxColumn";
-            accountNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // moneyDataGridViewTextBoxColumn
-            // 
-            moneyDataGridViewTextBoxColumn.DataPropertyName = "money";
-            moneyDataGridViewTextBoxColumn.HeaderText = "money";
-            moneyDataGridViewTextBoxColumn.Name = "moneyDataGridViewTextBoxColumn";
-            moneyDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // accountCodeDataGridViewTextBoxColumn
-            // 
-            accountCodeDataGridViewTextBoxColumn.DataPropertyName = "accountCode";
-            accountCodeDataGridViewTextBoxColumn.HeaderText = "accountCode";
-            accountCodeDataGridViewTextBoxColumn.Name = "accountCodeDataGridViewTextBoxColumn";
-            accountCodeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // accountBindingSource
             // 
@@ -130,6 +109,20 @@
             labelUserFullName.Text = "Hello Name Last Name!";
             labelUserFullName.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // accountNameDataGridViewTextBoxColumn
+            // 
+            accountNameDataGridViewTextBoxColumn.DataPropertyName = "accountName";
+            accountNameDataGridViewTextBoxColumn.HeaderText = "accountName";
+            accountNameDataGridViewTextBoxColumn.Name = "accountNameDataGridViewTextBoxColumn";
+            accountNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // moneyDataGridViewTextBoxColumn
+            // 
+            moneyDataGridViewTextBoxColumn.DataPropertyName = "money";
+            moneyDataGridViewTextBoxColumn.HeaderText = "money";
+            moneyDataGridViewTextBoxColumn.Name = "moneyDataGridViewTextBoxColumn";
+            moneyDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // HomeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -160,6 +153,5 @@
         private BindingSource accountBindingSource;
         private DataGridViewTextBoxColumn accountNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn moneyDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn accountCodeDataGridViewTextBoxColumn;
     }
 }

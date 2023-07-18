@@ -181,6 +181,7 @@
             buttonAccount.TextAlign = ContentAlignment.MiddleLeft;
             buttonAccount.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonAccount.UseVisualStyleBackColor = true;
+            buttonAccount.Click += buttonAccount_Click;
             // 
             // buttonHome
             // 
