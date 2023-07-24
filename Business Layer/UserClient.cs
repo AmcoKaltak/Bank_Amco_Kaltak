@@ -1,5 +1,7 @@
 ﻿using DataAccessLibrary;
 using DataAccessLibrary.Entity;
+using Microsoft.Identity.Client;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +19,22 @@ namespace Business_Layer
             this.user = user;
         }
 
-        public List<Account> getAccounts()
+        public void AddNewAccount(string accountName)
+        {
+            DBOperations dBOperations = new DBOperations();
+            Security security = new Security();
+
+            Account account = new Account();
+            account.accountName = accountName;
+            account.money = 0;
+            account.accountCode = security.GenerateVerificationCode();
+
+            dBOperations.AddAccountToUser(user,account);
+
+
+        }
+
+        public List<Account> GetAccounts()
         {
             DBOperations dBOperations = new DBOperations();
 

@@ -10,6 +10,17 @@ namespace DataAccessLibrary
 {
     public class DBOperations
     {
+        public void AddAccountToUser(User user,Account account)
+        {
+            using Context context = new Context();
+
+            var userClient = context.Users.FirstOrDefault(u => u.Id == user.Id);
+
+            userClient.Accounts.Add(account);
+
+            context.SaveChanges();
+        }
+
         public void AddUser(User user)
         {
             using Context context = new Context();
@@ -68,6 +79,15 @@ namespace DataAccessLibrary
             return user;
         }
 
+        public List<Account> GetUserAccounts(User user)
+        {
+            using Context context = new Context();
+
+            var accounts = context.Accounts.Where(a => a.UserId == user.Id).ToList();
+
+            return accounts;
+        }
+
         public bool CheckUniqueUser(User user)
         {
 
@@ -83,15 +103,6 @@ namespace DataAccessLibrary
             }
 
             return false;
-        }
-
-        public List<Account> GetUserAccounts(User user)
-        {
-            using Context context = new Context();
-
-            var accounts = context.Accounts.Where(a => a.UserId == user.Id).ToList();
-
-            return accounts;
         }
 
         //public void RemoveUser()

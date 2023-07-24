@@ -237,7 +237,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
             AccountForm accountForm = new AccountForm();
 
-            accountForm.addAccountsToDatagridviewFromClient(userClient);
+            accountForm.userClient = userClient;
 
             FormChanger.OpenForm(accountForm);
             

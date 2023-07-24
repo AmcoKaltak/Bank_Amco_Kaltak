@@ -29,7 +29,8 @@ namespace Business_Layer
             user.name = name;
             user.lastName = lastName;
             user.email = email;
-            for (int i = 0; i < 10; i++)
+
+            for (int i = 0; i < 20; i++) //TODO: För testing, ta bort när allt är klart
             {
                 user.Accounts.Add(RegisterStartingMoneyAccount());
 

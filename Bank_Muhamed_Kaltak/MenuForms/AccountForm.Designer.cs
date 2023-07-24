@@ -69,6 +69,7 @@
             buttonEdit.TabIndex = 20;
             buttonEdit.Text = "Edit";
             buttonEdit.UseVisualStyleBackColor = false;
+            buttonEdit.Click += buttonEdit_Click;
             // 
             // buttonDelete
             // 
@@ -99,6 +100,7 @@
             buttonAddAccount.TabIndex = 18;
             buttonAddAccount.Text = "Add";
             buttonAddAccount.UseVisualStyleBackColor = false;
+            buttonAddAccount.Click += buttonAddAccount_Click;
             // 
             // dataGridViewAccount
             // 
@@ -198,7 +200,7 @@
             // panelSearchAccount
             // 
             panelSearchAccount.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panelSearchAccount.BackColor = Color.WhiteSmoke;
+            panelSearchAccount.BackColor = SystemColors.Control;
             panelSearchAccount.Controls.Add(pictureBox2);
             panelSearchAccount.Controls.Add(textBoxSearchAccount);
             panelSearchAccount.Location = new Point(30, 26);
@@ -218,7 +220,7 @@
             // 
             // textBoxSearchAccount
             // 
-            textBoxSearchAccount.BackColor = Color.WhiteSmoke;
+            textBoxSearchAccount.BackColor = SystemColors.Control;
             textBoxSearchAccount.BorderStyle = BorderStyle.None;
             textBoxSearchAccount.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
             textBoxSearchAccount.Location = new Point(36, 8);
@@ -241,6 +243,7 @@
             Controls.Add(panelSearchAccount);
             Name = "AccountForm";
             Text = "AccountForm";
+            Load += AccountForm_Load;
             ((System.ComponentModel.ISupportInitialize)accountBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewAccount).EndInit();
             panelSearchAccount.ResumeLayout(false);

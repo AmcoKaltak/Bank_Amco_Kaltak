@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Bank_Muhamed_Kaltak.MenuForms;
 using Business_Layer;
-using DataAccessLibrary.Entity; //Ta bort när projektet är klart -- Testing purposes
+using DataAccessLibrary.Entity; //TODO: Ta bort när projektet är klart -- Testing purposes
 
 namespace Bank_Muhamed_Kaltak
 {
