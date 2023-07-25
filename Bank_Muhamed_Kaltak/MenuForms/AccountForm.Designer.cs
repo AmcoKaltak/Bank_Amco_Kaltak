@@ -85,6 +85,7 @@
             buttonDelete.TabIndex = 19;
             buttonDelete.Text = "Delete";
             buttonDelete.UseVisualStyleBackColor = false;
+            buttonDelete.Click += buttonDelete_Click;
             // 
             // buttonAddAccount
             // 
@@ -149,6 +150,7 @@
             dataGridViewAccount.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewAccount.Size = new Size(737, 386);
             dataGridViewAccount.TabIndex = 17;
+            dataGridViewAccount.CellClick += dataGridViewAccount_CellClick;
             // 
             // idDataGridViewTextBoxColumn
             // 

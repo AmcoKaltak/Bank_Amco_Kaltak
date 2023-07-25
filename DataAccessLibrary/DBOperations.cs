@@ -16,7 +16,10 @@ namespace DataAccessLibrary
 
             var userClient = context.Users.FirstOrDefault(u => u.Id == user.Id);
 
-            userClient.Accounts.Add(account);
+            if (userClient != null)
+            {
+                userClient.Accounts.Add(account);
+            }
 
             context.SaveChanges();
         }
@@ -36,8 +39,11 @@ namespace DataAccessLibrary
 
             var user = context.Users.FirstOrDefault(u => u.email == email);
 
-            user.passwordResetToken = passwordResetToken;
-            user.passwordResetDate = passwordResetDate;
+            if (user != null)
+            {
+                user.passwordResetToken = passwordResetToken;
+                user.passwordResetDate = passwordResetDate;
+            }
 
             context.SaveChanges();
         }
@@ -48,9 +54,28 @@ namespace DataAccessLibrary
 
             var user = context.Users.FirstOrDefault(u => u.email == email);
 
-            user.password = newPassword;
+            if (user != null)
+            {
+                user.password = newPassword;
+
+            }
 
             context.SaveChanges();
+        }
+
+        public void ChangeAccount (Account account,string accountName)
+        {
+            using Context context = new Context();
+
+            var accountClient = context.Accounts.FirstOrDefault(a => a.Id == account.Id);
+
+            if (accountClient != null)
+            {
+                accountClient.accountName = accountName;
+            }
+
+            context.SaveChanges();
+
         }
 
         public User GetUserFromUsername(string username) //Hittat en entity i databasen med matchande användar namn
@@ -103,6 +128,20 @@ namespace DataAccessLibrary
             }
 
             return false;
+        }
+
+        public void DeleteAccount (Account account)
+        {
+            using Context context= new Context();
+
+            var accountClient = context.Accounts.FirstOrDefault(a => a.Id == account.Id);
+
+            if (accountClient != null)
+            {
+                context.Remove(accountClient);
+            }
+
+            context.SaveChanges();
         }
 
         //public void RemoveUser()

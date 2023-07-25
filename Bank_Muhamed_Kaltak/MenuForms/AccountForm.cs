@@ -1,4 +1,5 @@
 ﻿using Business_Layer;
+using DataAccessLibrary.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
     public partial class AccountForm : Form
     {
         public UserClient userClient { get; set; }
+        private Account selectedAccount { get; set; }
 
         public AccountForm()
         {
@@ -40,7 +42,16 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
             modifyAccountForm.isEdit = true;
 
+            modifyAccountForm.selectedAccount = selectedAccount;
+
             FormChanger.OpenForm(modifyAccountForm);
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            userClient.DeleteAccount(selectedAccount);
+
+            addAccountsToDatagridviewFromClient();
         }
 
         private void AccountForm_Load(object sender, EventArgs e)
@@ -56,5 +67,12 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
             return modifyAccount;
         }
+
+        private void dataGridViewAccount_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedAccount = dataGridViewAccount.SelectedRows[0].DataBoundItem as Account;
+        }
+
+
     }
 }

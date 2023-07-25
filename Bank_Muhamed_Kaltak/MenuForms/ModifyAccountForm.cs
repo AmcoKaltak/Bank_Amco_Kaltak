@@ -8,16 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business_Layer;
+using DataAccessLibrary.Entity;
 
 namespace Bank_Muhamed_Kaltak.MenuForms
 {
     public partial class ModifyAccountForm : Form
     {
         public UserClient userClient { get; set; }
+        public Account selectedAccount { get; set; }
 
         public bool isAdd { get; set; }
         public bool isEdit { get; set; }
-        public bool isDelete { get; set; }
 
 
         public ModifyAccountForm()
@@ -35,7 +36,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             else
             {
                 labelDetail.Text = "Edit selected account";
-                textBoxAccount.PlaceholderText = "Change account name";
+                textBoxAccount.Text = selectedAccount.accountName;
             }
         }
 
@@ -50,6 +51,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             }
             else
             {
+                userClient.UpdateAccount(selectedAccount,textBoxAccount.Text);
 
                 ReturnToAccountForm();
             }

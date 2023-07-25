@@ -14,14 +14,17 @@ namespace Business_Layer
     {
         public User user;
 
+        DBOperations dBOperations;
+
         public UserClient(User user)
         {
             this.user = user;
+
+            dBOperations = new DBOperations();
         }
 
         public void AddNewAccount(string accountName)
         {
-            DBOperations dBOperations = new DBOperations();
             Security security = new Security();
 
             Account account = new Account();
@@ -34,9 +37,18 @@ namespace Business_Layer
 
         }
 
+        public void UpdateAccount(Account account,string accountName)
+        {
+            dBOperations.ChangeAccount(account,accountName);
+        }
+
+        public void DeleteAccount(Account account)
+        {
+            dBOperations.DeleteAccount(account);
+        }
+
         public List<Account> GetAccounts()
         {
-            DBOperations dBOperations = new DBOperations();
 
             var accounts = dBOperations.GetUserAccounts(user);
 
