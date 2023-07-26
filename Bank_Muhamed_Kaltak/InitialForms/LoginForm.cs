@@ -36,35 +36,7 @@ namespace Bank_Muhamed_Kaltak
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            LoginManager loginManager = new LoginManager();
-            User user = new User();
-
-            user = loginManager.LogIn(textBoxUsername.Text, textBoxPassword.Text);
-
-
-            if (user != null)
-            {
-                UINotification.Popup(Color.Green, "Succesful Login", "Logged in to the system");
-
-                MainMenuForm mainMenuForm = new MainMenuForm();
-
-                mainMenuForm.userClient = new UserClient(user);
-
-                FormChanger.ChangeForm(this, mainMenuForm);
-            }
-            else
-            {
-                UINotification.Popup(Color.Red, "Failed Login", "Invalid username/password");
-            }
-
-
-            //if (String.Equals(test.username,textBoxUsername.Text) && String.Equals(test.username,textBoxPassword.Text))
-            //{
-            //    this.Hide();
-            //    SignUpForm signUpForm = new SignUpForm();
-            //    signUpForm.ShowDialog();
-            //    this.Close();
-            //}
+            Login();
         }
 
         private void linkLabelUsername_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -97,6 +69,59 @@ namespace Bank_Muhamed_Kaltak
         private void LoginForm_Load(object sender, EventArgs e)
         {
             textBoxUsername_Click(sender, e);
+        }
+
+        private void textBoxUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            LoginIfEnterPressed(sender,e);
+        }
+
+        private void textBoxPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            LoginIfEnterPressed(sender, e);
+        }
+
+        private void Login()
+        {
+            LoginManager loginManager = new LoginManager();
+            User user = new User();
+
+            user = loginManager.LogIn(textBoxUsername.Text, textBoxPassword.Text);
+
+
+            if (user != null)
+            {
+                UINotification.Popup(Color.Green, "Succesful Login", "Logged in to the system");
+
+                MainMenuForm mainMenuForm = new MainMenuForm();
+
+                mainMenuForm.userClient = new UserClient(user);
+
+                FormChanger.ChangeForm(this, mainMenuForm);
+            }
+            else
+            {
+                UINotification.Popup(Color.Red, "Failed Login", "Invalid username/password");
+            }
+
+
+            //if (String.Equals(test.username,textBoxUsername.Text) && String.Equals(test.username,textBoxPassword.Text))
+            //{
+            //    this.Hide();
+            //    SignUpForm signUpForm = new SignUpForm();
+            //    signUpForm.ShowDialog();
+            //    this.Close();
+            //}
+        }
+
+
+
+        private void LoginIfEnterPressed(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Login();
+            }
         }
     }
 }

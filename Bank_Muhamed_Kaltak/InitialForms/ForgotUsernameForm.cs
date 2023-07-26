@@ -20,14 +20,7 @@ namespace Bank_Muhamed_Kaltak
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
-            EmailManager emailManager = new EmailManager();
-
-            emailManager.SendUsername(textBoxEmail.Text);
-
-            UINotification.Popup(Color.Green, "Succesfully sent username", "Username has been sent to the specified email adress");//Man ska ej nämna om det lyckades eller ej för att ge så lite
-            //- information som möljigt till hackare
-
-            FormChanger.CloseForm(this);
+            SendUsernameToEmail();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -43,6 +36,26 @@ namespace Bank_Muhamed_Kaltak
         private void ForgotUsernameForm_Load(object sender, EventArgs e)
         {
             textBoxEmail_Click(sender, e);
+        }
+
+        private void textBoxEmail_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendUsernameToEmail();
+            }
+        }
+
+        private void SendUsernameToEmail()
+        {
+            EmailManager emailManager = new EmailManager();
+
+            emailManager.SendUsername(textBoxEmail.Text);
+
+            UINotification.Popup(Color.Green, "Succesfully sent username", "Username has been sent to the specified email adress");//Man ska ej nämna om det lyckades eller ej för att ge så lite
+            //- information som möljigt till hackare
+
+            FormChanger.CloseForm(this);
         }
     }
 }

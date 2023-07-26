@@ -86,6 +86,7 @@
             textBoxPassword.TabIndex = 11;
             textBoxPassword.UseSystemPasswordChar = true;
             textBoxPassword.Click += textBoxPassword_Click;
+            textBoxPassword.KeyDown += textBoxPassword_KeyDown;
             // 
             // textBoxUsername
             // 
@@ -97,6 +98,7 @@
             textBoxUsername.Size = new Size(434, 20);
             textBoxUsername.TabIndex = 9;
             textBoxUsername.Click += textBoxUsername_Click;
+            textBoxUsername.KeyDown += textBoxUsername_KeyDown;
             // 
             // buttonLogin
             // 

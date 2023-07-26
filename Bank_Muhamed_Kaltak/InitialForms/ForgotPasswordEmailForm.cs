@@ -25,6 +25,29 @@ namespace Bank_Muhamed_Kaltak
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
+            SendVerificationCodeToEmail();
+        }
+
+        private void textBoxEmail_Click(object sender, EventArgs e)
+        {
+            UINotification.Mark(textBoxEmail, panelEmail);
+        }
+
+        private void ForgotPasswordEmailForm_Load(object sender, EventArgs e)
+        {
+            textBoxEmail_Click(sender, e);
+        }
+
+        private void textBoxEmail_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendVerificationCodeToEmail();
+            }
+        }
+
+        private void SendVerificationCodeToEmail()
+        {
             EmailManager emailManager = new EmailManager();
 
             emailManager.SendVerificationCode(textBoxEmail.Text);
@@ -36,16 +59,6 @@ namespace Bank_Muhamed_Kaltak
 
             //FormChanger.ChangeForm(this, forgotPasswordCodeForm);
             FormChanger.OpenForm(forgotPasswordCodeForm);
-        }
-
-        private void textBoxEmail_Click(object sender, EventArgs e)
-        {
-            UINotification.Mark(textBoxEmail, panelEmail);
-        }
-
-        private void ForgotPasswordEmailForm_Load(object sender, EventArgs e)
-        {
-            textBoxEmail_Click(sender, e);
         }
     }
 }

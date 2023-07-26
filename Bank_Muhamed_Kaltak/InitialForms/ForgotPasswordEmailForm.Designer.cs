@@ -95,6 +95,7 @@
             textBoxEmail.Size = new Size(434, 20);
             textBoxEmail.TabIndex = 11;
             textBoxEmail.Click += textBoxEmail_Click;
+            textBoxEmail.KeyDown += textBoxEmail_KeyDown;
             // 
             // buttonCancel
             // 

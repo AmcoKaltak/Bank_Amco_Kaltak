@@ -84,6 +84,7 @@
             textBoxCode.Size = new Size(434, 20);
             textBoxCode.TabIndex = 11;
             textBoxCode.Click += textBoxCode_Click;
+            textBoxCode.KeyDown += textBoxCode_KeyDown;
             // 
             // label5
             // 

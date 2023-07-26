@@ -21,20 +21,7 @@ namespace Bank_Muhamed_Kaltak
 
         private void buttonRegister_Click(object sender, EventArgs e)
         {
-            RegistrationManager registrationManager = new RegistrationManager();
-
-
-            if (registrationManager.Register(textBoxUsername.Text, textBoxPassword.Text, textBoxName.Text, textBoxLastName.Text, textBoxEmail.Text))
-            {
-                UINotification.Popup(Color.Green, "Registered", "Successfully registered to the database!");
-
-                FormChanger.CloseForm(this);
-
-            }
-            else
-            {
-                UINotification.Popup(Color.Red, "Invalid Fields", "Make sure that the fields are not empty");
-            }
+            Register();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -72,6 +59,32 @@ namespace Bank_Muhamed_Kaltak
         private void SignUpForm_Load(object sender, EventArgs e)
         {
             textBoxUsername_Click(sender, e);
+        }
+
+        private void textBoxEmail_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Register();
+            }
+        }
+
+        private void Register()
+        {
+            RegistrationManager registrationManager = new RegistrationManager();
+
+
+            if (registrationManager.Register(textBoxUsername.Text, textBoxPassword.Text, textBoxName.Text, textBoxLastName.Text, textBoxEmail.Text))
+            {
+                UINotification.Popup(Color.Green, "Registered", "Successfully registered to the database!");
+
+                FormChanger.CloseForm(this);
+
+            }
+            else
+            {
+                UINotification.Popup(Color.Red, "Invalid Fields", "Make sure that the fields are not empty");
+            }
         }
     }
 }

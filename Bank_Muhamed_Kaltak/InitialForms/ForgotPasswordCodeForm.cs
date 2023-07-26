@@ -22,20 +22,7 @@ namespace Bank_Muhamed_Kaltak
 
         private void buttonSubmitCode_Click(object sender, EventArgs e)
         {
-            LoginManager loginManager = new LoginManager();
-
-            if (loginManager.CheckValidVerficationCode(userEmail, textBoxCode.Text))
-            {
-                ForgotPasswordRegisterForm forgotPasswordRegisterForm = new ForgotPasswordRegisterForm();
-                forgotPasswordRegisterForm.userEmail = userEmail;
-                forgotPasswordRegisterForm.enteredCode = textBoxCode.Text;
-
-                FormChanger.OpenForm(forgotPasswordRegisterForm);
-            }
-            else
-            {
-                UINotification.Popup(Color.Red, "ERROR", "INVALID CODE");
-            }
+            SubmitCode();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -52,6 +39,32 @@ namespace Bank_Muhamed_Kaltak
         private void ForgotPasswordCodeForm_Load(object sender, EventArgs e)
         {
             textBoxCode_Click(sender, e);
+        }
+
+        private void textBoxCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SubmitCode();
+            }
+        }
+
+        private void SubmitCode()
+        {
+            LoginManager loginManager = new LoginManager();
+
+            if (loginManager.CheckValidVerficationCode(userEmail, textBoxCode.Text))
+            {
+                ForgotPasswordRegisterForm forgotPasswordRegisterForm = new ForgotPasswordRegisterForm();
+                forgotPasswordRegisterForm.userEmail = userEmail;
+                forgotPasswordRegisterForm.enteredCode = textBoxCode.Text;
+
+                FormChanger.OpenForm(forgotPasswordRegisterForm);
+            }
+            else
+            {
+                UINotification.Popup(Color.Red, "ERROR", "INVALID CODE");
+            }
         }
     }
 }

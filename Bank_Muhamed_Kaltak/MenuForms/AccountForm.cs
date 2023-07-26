@@ -22,11 +22,6 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             InitializeComponent();
         }
 
-        public void addAccountsToDatagridviewFromClient()
-        {
-            dataGridViewAccount.DataSource = userClient.GetAccounts();
-        }
-
         private void buttonAddAccount_Click(object sender, EventArgs e)
         {
             ModifyAccountForm modifyAccountForm = SendUserClientToModifyForm();
@@ -51,12 +46,35 @@ namespace Bank_Muhamed_Kaltak.MenuForms
         {
             userClient.DeleteAccount(selectedAccount);
 
-            addAccountsToDatagridviewFromClient();
+            AddAccountsToDatagridviewFromClient();
         }
 
         private void AccountForm_Load(object sender, EventArgs e)
         {
-            addAccountsToDatagridviewFromClient();
+            AddAccountsToDatagridviewFromClient();
+        }
+
+        private void dataGridViewAccount_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedAccount = dataGridViewAccount.SelectedRows[0].DataBoundItem as Account;
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            SearchAccount();
+        }
+
+        private void textBoxSearchAccount_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SearchAccount();
+            }
+        }
+
+        public void AddAccountsToDatagridviewFromClient()
+        {
+            dataGridViewAccount.DataSource = userClient.GetAccounts();
         }
 
         private ModifyAccountForm SendUserClientToModifyForm()
@@ -68,14 +86,8 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             return modifyAccount;
         }
 
-        private void dataGridViewAccount_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void SearchAccount()
         {
-            selectedAccount = dataGridViewAccount.SelectedRows[0].DataBoundItem as Account;
-        }
-
-        private void buttonSearch_Click(object sender, EventArgs e)
-        {
-
             dataGridViewAccount.DataSource = userClient.GetSearchedAccounts(textBoxSearchAccount.Text);
         }
     }

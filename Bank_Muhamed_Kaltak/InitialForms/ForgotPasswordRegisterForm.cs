@@ -31,6 +31,36 @@ namespace Bank_Muhamed_Kaltak
 
         private void buttonRegister_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void textBoxNewPassword_Click(object sender, EventArgs e)
+        {
+            UINotification.Mark(textBoxNewPassword, panelNewPassword);
+        }
+
+        private void textBoxConfirmPassword_Click(object sender, EventArgs e)
+        {
+            UINotification.Mark(textBoxConfirmPassword, panelConfirmPassword);
+        }
+
+        private void ForgotPasswordRegisterForm_Load(object sender, EventArgs e)
+        {
+            textBoxNewPassword_Click(sender, e);
+        }
+
+        private void textBoxNewPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            RegisterNewPasswordIfEnterPressed(sender, e);
+        }
+
+        private void textBoxConfirmPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            RegisterNewPasswordIfEnterPressed(sender, e);
+        }
+
+        private void RegisterNewPassword()
+        {
             if (textBoxNewPassword.Text != textBoxConfirmPassword.Text)
             {
                 UINotification.Popup(Color.Red, "Not Matching Passwords", "The passwords do not match, please try again");
@@ -63,19 +93,12 @@ namespace Bank_Muhamed_Kaltak
             }
         }
 
-        private void textBoxNewPassword_Click(object sender, EventArgs e)
+        private void RegisterNewPasswordIfEnterPressed(object sender, KeyEventArgs e)
         {
-            UINotification.Mark(textBoxNewPassword, panelNewPassword);
-        }
-
-        private void textBoxConfirmPassword_Click(object sender, EventArgs e)
-        {
-            UINotification.Mark(textBoxConfirmPassword, panelConfirmPassword);
-        }
-
-        private void ForgotPasswordRegisterForm_Load(object sender, EventArgs e)
-        {
-            textBoxNewPassword_Click(sender,e);
+            if (e.KeyCode == Keys.Enter)
+            {
+                RegisterNewPassword();
+            }
         }
     }
 }

@@ -85,6 +85,7 @@
             textBoxNewPassword.TabIndex = 9;
             textBoxNewPassword.UseSystemPasswordChar = true;
             textBoxNewPassword.Click += textBoxNewPassword_Click;
+            textBoxNewPassword.KeyDown += textBoxNewPassword_KeyDown;
             // 
             // panelConfirmPassword
             // 
@@ -117,6 +118,7 @@
             textBoxConfirmPassword.TabIndex = 11;
             textBoxConfirmPassword.UseSystemPasswordChar = true;
             textBoxConfirmPassword.Click += textBoxConfirmPassword_Click;
+            textBoxConfirmPassword.KeyDown += textBoxConfirmPassword_KeyDown;
             // 
             // buttonCancel
             // 
