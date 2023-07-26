@@ -37,14 +37,14 @@
             buttonDelete = new Button();
             buttonAddAccount = new Button();
             dataGridViewAccount = new DataGridView();
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            accountNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            moneyDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            accountCodeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             buttonSearch = new Button();
             panelSearchAccount = new Panel();
             pictureBox2 = new PictureBox();
             textBoxSearchAccount = new TextBox();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            accountNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            moneyDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            accountCodeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)accountBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewAccount).BeginInit();
             panelSearchAccount.SuspendLayout();
@@ -152,38 +152,6 @@
             dataGridViewAccount.TabIndex = 17;
             dataGridViewAccount.CellClick += dataGridViewAccount_CellClick;
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.FillWeight = 63.39143F;
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // accountNameDataGridViewTextBoxColumn
-            // 
-            accountNameDataGridViewTextBoxColumn.DataPropertyName = "accountName";
-            accountNameDataGridViewTextBoxColumn.FillWeight = 89.17335F;
-            accountNameDataGridViewTextBoxColumn.HeaderText = "accountName";
-            accountNameDataGridViewTextBoxColumn.Name = "accountNameDataGridViewTextBoxColumn";
-            accountNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // moneyDataGridViewTextBoxColumn
-            // 
-            moneyDataGridViewTextBoxColumn.DataPropertyName = "money";
-            moneyDataGridViewTextBoxColumn.FillWeight = 113.345818F;
-            moneyDataGridViewTextBoxColumn.HeaderText = "money";
-            moneyDataGridViewTextBoxColumn.Name = "moneyDataGridViewTextBoxColumn";
-            moneyDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // accountCodeDataGridViewTextBoxColumn
-            // 
-            accountCodeDataGridViewTextBoxColumn.DataPropertyName = "accountCode";
-            accountCodeDataGridViewTextBoxColumn.FillWeight = 134.089371F;
-            accountCodeDataGridViewTextBoxColumn.HeaderText = "accountCode";
-            accountCodeDataGridViewTextBoxColumn.Name = "accountCodeDataGridViewTextBoxColumn";
-            accountCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // buttonSearch
             // 
             buttonSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -198,6 +166,7 @@
             buttonSearch.TabIndex = 16;
             buttonSearch.Text = "Search";
             buttonSearch.UseVisualStyleBackColor = false;
+            buttonSearch.Click += buttonSearch_Click;
             // 
             // panelSearchAccount
             // 
@@ -231,6 +200,38 @@
             textBoxSearchAccount.Size = new Size(434, 20);
             textBoxSearchAccount.TabIndex = 9;
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.FillWeight = 63.39143F;
+            idDataGridViewTextBoxColumn.HeaderText = "ID";
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // accountNameDataGridViewTextBoxColumn
+            // 
+            accountNameDataGridViewTextBoxColumn.DataPropertyName = "accountName";
+            accountNameDataGridViewTextBoxColumn.FillWeight = 89.17335F;
+            accountNameDataGridViewTextBoxColumn.HeaderText = "Name";
+            accountNameDataGridViewTextBoxColumn.Name = "accountNameDataGridViewTextBoxColumn";
+            accountNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // moneyDataGridViewTextBoxColumn
+            // 
+            moneyDataGridViewTextBoxColumn.DataPropertyName = "money";
+            moneyDataGridViewTextBoxColumn.FillWeight = 113.345818F;
+            moneyDataGridViewTextBoxColumn.HeaderText = "Money";
+            moneyDataGridViewTextBoxColumn.Name = "moneyDataGridViewTextBoxColumn";
+            moneyDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // accountCodeDataGridViewTextBoxColumn
+            // 
+            accountCodeDataGridViewTextBoxColumn.DataPropertyName = "accountCode";
+            accountCodeDataGridViewTextBoxColumn.FillWeight = 134.089371F;
+            accountCodeDataGridViewTextBoxColumn.HeaderText = "Code";
+            accountCodeDataGridViewTextBoxColumn.Name = "accountCodeDataGridViewTextBoxColumn";
+            accountCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // AccountForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -260,13 +261,13 @@
         private Button buttonDelete;
         private Button buttonAddAccount;
         private DataGridView dataGridViewAccount;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn accountNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn moneyDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn accountCodeDataGridViewTextBoxColumn;
         private Button buttonSearch;
         private Panel panelSearchAccount;
         private PictureBox pictureBox2;
         private TextBox textBoxSearchAccount;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn accountNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn moneyDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn accountCodeDataGridViewTextBoxColumn;
     }
 }

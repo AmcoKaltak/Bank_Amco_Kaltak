@@ -113,6 +113,15 @@ namespace DataAccessLibrary
             return accounts;
         }
 
+        public List<Account> GetUserSearchedAccounts(User user, string search)
+        {
+            using Context context = new Context();
+
+            var accounts = context.Accounts.Where(a => a.UserId == user.Id && a.accountName.Contains(search)).ToList();
+
+            return accounts;
+        }
+
         public bool CheckUniqueUser(User user)
         {
 

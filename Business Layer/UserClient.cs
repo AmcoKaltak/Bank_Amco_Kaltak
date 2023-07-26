@@ -56,5 +56,12 @@ namespace Business_Layer
 
         }
 
+        public List<Account> GetSearchedAccounts(string search)
+        {
+            var accountsSearched = dBOperations.GetUserSearchedAccounts(user,search);
+
+            return accountsSearched;
+        }
+
     }
 }

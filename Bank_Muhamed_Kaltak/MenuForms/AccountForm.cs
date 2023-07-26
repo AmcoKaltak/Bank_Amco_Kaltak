@@ -73,6 +73,10 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             selectedAccount = dataGridViewAccount.SelectedRows[0].DataBoundItem as Account;
         }
 
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
 
+            dataGridViewAccount.DataSource = userClient.GetSearchedAccounts(textBoxSearchAccount.Text);
+        }
     }
 }
