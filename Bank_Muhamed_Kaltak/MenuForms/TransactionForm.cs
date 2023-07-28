@@ -16,10 +16,5 @@ namespace Bank_Muhamed_Kaltak.MenuForms
         {
             InitializeComponent();
         }
-
-        private void buttonMakeTransaction_Click(object sender, EventArgs e)
-        {
-            FormChanger.OpenForm(new MakeTransactionForm());
-        }
     }
 }

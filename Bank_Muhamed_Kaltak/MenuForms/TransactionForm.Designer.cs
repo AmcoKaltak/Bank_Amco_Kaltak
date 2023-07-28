@@ -39,7 +39,6 @@
             panelSearchAccount = new Panel();
             pictureBox2 = new PictureBox();
             textBoxSearchAccount = new TextBox();
-            buttonMakeTransaction = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewAccount).BeginInit();
             panelSearchAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -182,29 +181,12 @@
             textBoxSearchAccount.Size = new Size(544, 20);
             textBoxSearchAccount.TabIndex = 9;
             // 
-            // buttonMakeTransaction
-            // 
-            buttonMakeTransaction.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonMakeTransaction.BackColor = Color.LightSkyBlue;
-            buttonMakeTransaction.Cursor = Cursors.Hand;
-            buttonMakeTransaction.FlatStyle = FlatStyle.Flat;
-            buttonMakeTransaction.Font = new Font("Verdana Pro Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonMakeTransaction.ForeColor = Color.White;
-            buttonMakeTransaction.Location = new Point(771, 241);
-            buttonMakeTransaction.Name = "buttonMakeTransaction";
-            buttonMakeTransaction.Size = new Size(114, 49);
-            buttonMakeTransaction.TabIndex = 27;
-            buttonMakeTransaction.Text = "Make a new Transaction";
-            buttonMakeTransaction.UseVisualStyleBackColor = false;
-            buttonMakeTransaction.Click += buttonMakeTransaction_Click;
-            // 
             // TransactionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(888, 462);
-            Controls.Add(buttonMakeTransaction);
             Controls.Add(buttonReceived);
             Controls.Add(buttonDelete);
             Controls.Add(buttonSent);
@@ -230,6 +212,5 @@
         private Panel panelSearchAccount;
         private PictureBox pictureBox2;
         private TextBox textBoxSearchAccount;
-        private Button buttonMakeTransaction;
     }
 }

@@ -243,18 +243,22 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         }
 
+        private void ChangeToMakeTransaction()
+        {
+            labelDashboard.Text = "Transaction";
+
+            MakeTransactionForm makeTransactionForm = new MakeTransactionForm();
+
+            FormChanger.OpenForm(makeTransactionForm);
+        }
+
         private void ChangeToTransaction()
         {
+            labelDashboard.Text = "Transaction";
+
             TransactionForm transactionForm = new TransactionForm();
 
             FormChanger.OpenForm(transactionForm);
-        }
-
-        private void buttonHome_Click(object sender, EventArgs e)
-        {
-
-            ChangeToHome();
-
         }
 
         private void buttonAccount_Click(object sender, EventArgs e)
@@ -262,7 +266,30 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             ChangeToAccount();
         }
 
+        private void buttonHome_Click(object sender, EventArgs e)
+        {
+            ChangeToHome();
+        }
+
         private void buttonTransaction_Click(object sender, EventArgs e)
+        {
+            if (panelTransactionSubMenu.Size.Height < 109)
+            {
+                panelTransactionSubMenu.Size = panelTransactionSubMenu.MaximumSize;
+
+            }
+            else
+            {
+                panelTransactionSubMenu.Size = panelTransactionSubMenu.MinimumSize;
+            }
+        }
+
+        private void buttonMakeTransaction_Click(object sender, EventArgs e)
+        {
+            ChangeToMakeTransaction();
+        }
+
+        private void buttonViewTransaction_Click(object sender, EventArgs e)
         {
             ChangeToTransaction();
         }
