@@ -240,7 +240,14 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             accountForm.userClient = userClient;
 
             FormChanger.OpenForm(accountForm);
-            
+
+        }
+
+        private void ChangeToTransaction()
+        {
+            TransactionForm transactionForm = new TransactionForm();
+
+            FormChanger.OpenForm(transactionForm);
         }
 
         private void buttonHome_Click(object sender, EventArgs e)
@@ -253,6 +260,11 @@ namespace Bank_Muhamed_Kaltak.MenuForms
         private void buttonAccount_Click(object sender, EventArgs e)
         {
             ChangeToAccount();
+        }
+
+        private void buttonTransaction_Click(object sender, EventArgs e)
+        {
+            ChangeToTransaction();
         }
     }
 }

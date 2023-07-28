@@ -158,6 +158,7 @@
             buttonTransaction.TextAlign = ContentAlignment.MiddleLeft;
             buttonTransaction.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonTransaction.UseVisualStyleBackColor = true;
+            buttonTransaction.Click += buttonTransaction_Click;
             // 
             // buttonAccount
             // 

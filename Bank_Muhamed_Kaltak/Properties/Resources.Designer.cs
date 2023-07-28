@@ -73,6 +73,26 @@ namespace Bank_Muhamed_Kaltak.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bank_account2 {
+            get {
+                object obj = ResourceManager.GetObject("bank-account2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bank_account3 {
+            get {
+                object obj = ResourceManager.GetObject("bank-account3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bank2 {
             get {
                 object obj = ResourceManager.GetObject("bank2", resourceCulture);
@@ -123,6 +143,16 @@ namespace Bank_Muhamed_Kaltak.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap money {
+            get {
+                object obj = ResourceManager.GetObject("money", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap padlock {
             get {
                 object obj = ResourceManager.GetObject("padlock", resourceCulture);
@@ -146,6 +176,16 @@ namespace Bank_Muhamed_Kaltak.Properties {
         internal static System.Drawing.Bitmap passbook {
             get {
                 object obj = ResourceManager.GetObject("passbook", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap transaction_name {
+            get {
+                object obj = ResourceManager.GetObject("transaction-name", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
