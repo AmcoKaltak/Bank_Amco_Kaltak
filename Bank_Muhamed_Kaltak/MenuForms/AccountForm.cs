@@ -1,5 +1,4 @@
 ﻿using Business_Layer;
-using DataAccessLibrary.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,11 +14,15 @@ namespace Bank_Muhamed_Kaltak.MenuForms
     public partial class AccountForm : Form
     {
         public UserClient userClient { get; set; }
-        private Account selectedAccount { get; set; }
 
         public AccountForm()
         {
             InitializeComponent();
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            SearchAccount();
         }
 
         private void buttonAddAccount_Click(object sender, EventArgs e)
@@ -37,31 +40,24 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
             modifyAccountForm.isEdit = true;
 
-            modifyAccountForm.selectedAccount = selectedAccount;
-
             FormChanger.OpenForm(modifyAccountForm);
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            userClient.DeleteAccount(selectedAccount);
+            userClient.DeleteAccount(userClient.account);
 
-            AddAccountsToDatagridviewFromClient();
-        }
-
-        private void AccountForm_Load(object sender, EventArgs e)
-        {
             AddAccountsToDatagridviewFromClient();
         }
 
         private void dataGridViewAccount_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            selectedAccount = dataGridViewAccount.SelectedRows[0].DataBoundItem as Account;
+            userClient.account = (DataAccessLibrary.Entity.Account)dataGridViewAccount.SelectedRows[0].DataBoundItem;
         }
 
-        private void buttonSearch_Click(object sender, EventArgs e)
+        private void AccountForm_Load(object sender, EventArgs e)
         {
-            SearchAccount();
+            AddAccountsToDatagridviewFromClient();
         }
 
         private void textBoxSearchAccount_KeyDown(object sender, KeyEventArgs e)
@@ -85,6 +81,8 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
             return modifyAccount;
         }
+
+
 
         private void SearchAccount()
         {

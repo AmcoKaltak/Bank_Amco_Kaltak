@@ -63,7 +63,7 @@ namespace DataAccessLibrary
             context.SaveChanges();
         }
 
-        public void ChangeAccount (Account account,string accountName)
+        public void UpdateAccountName (Account account,string accountName)
         {
             using Context context = new Context();
 

@@ -8,14 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business_Layer;
-using DataAccessLibrary.Entity;
 
 namespace Bank_Muhamed_Kaltak.MenuForms
 {
     public partial class ModifyAccountForm : Form
     {
         public UserClient userClient { get; set; }
-        public Account selectedAccount { get; set; }
 
         public bool isAdd { get; set; }
         public bool isEdit { get; set; }
@@ -36,7 +34,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             else
             {
                 labelDetail.Text = "Edit selected account";
-                textBoxAccount.Text = selectedAccount.accountName;
+                textBoxAccount.Text = userClient.account.accountName;
             }
         }
 
@@ -44,6 +42,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
         {
             if (isAdd)
             {
+
                 userClient.AddNewAccount(textBoxAccount.Text);
 
                 ReturnToAccountForm();
@@ -51,7 +50,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             }
             else
             {
-                userClient.UpdateAccount(selectedAccount,textBoxAccount.Text);
+                userClient.UpdateAccount(userClient.account,textBoxAccount.Text);
 
                 ReturnToAccountForm();
             }

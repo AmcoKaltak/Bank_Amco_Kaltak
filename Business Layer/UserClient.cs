@@ -14,6 +14,8 @@ namespace Business_Layer
     {
         public User user;
 
+        public Account account;
+
         DBOperations dBOperations;
 
         public UserClient(User user)
@@ -26,8 +28,8 @@ namespace Business_Layer
         public void AddNewAccount(string accountName)
         {
             Security security = new Security();
-
             Account account = new Account();
+
             account.accountName = accountName;
             account.money = 0;
             account.accountCode = security.GenerateVerificationCode();
@@ -39,7 +41,7 @@ namespace Business_Layer
 
         public void UpdateAccount(Account account,string accountName)
         {
-            dBOperations.ChangeAccount(account,accountName);
+            dBOperations.UpdateAccountName(account,accountName);
         }
 
         public void DeleteAccount(Account account)
