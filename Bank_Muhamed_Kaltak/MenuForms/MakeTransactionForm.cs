@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business_Layer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,9 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 {
     public partial class MakeTransactionForm : Form
     {
+        public UserClient userClient;
+
+
         public MakeTransactionForm()
         {
             InitializeComponent();
@@ -19,7 +23,12 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void panelSelectFromAccount_Click(object sender, EventArgs e)
         {
-            FormChanger.OpenForm(new SelectTransactionAccount());
+            AccountForm accountForm = new AccountForm();
+
+            accountForm.userClient = userClient;
+            accountForm.isTransactionAccountSelection = true;
+
+            FormChanger.OpenForm(accountForm);
         }
     }
 }

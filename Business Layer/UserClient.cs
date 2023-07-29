@@ -16,54 +16,16 @@ namespace Business_Layer
 
         public Account account;
 
-        DBOperations dBOperations;
+        public AccountManager accountManager;
 
         public UserClient(User user)
         {
             this.user = user;
 
-            dBOperations = new DBOperations();
+            accountManager = new AccountManager();
         }
 
-        public void AddNewAccount(string accountName)
-        {
-            Security security = new Security();
-            Account account = new Account();
 
-            account.accountName = accountName;
-            account.money = 0;
-            account.accountCode = security.GenerateVerificationCode();
-
-            dBOperations.AddAccountToUser(user,account);
-
-
-        }
-
-        public void UpdateAccount(Account account,string accountName)
-        {
-            dBOperations.UpdateAccountName(account,accountName);
-        }
-
-        public void DeleteAccount(Account account)
-        {
-            dBOperations.DeleteAccount(account);
-        }
-
-        public List<Account> GetAccounts()
-        {
-
-            var accounts = dBOperations.GetUserAccounts(user);
-
-            return accounts;
-
-        }
-
-        public List<Account> GetSearchedAccounts(string search)
-        {
-            var accountsSearched = dBOperations.GetUserSearchedAccounts(user,search);
-
-            return accountsSearched;
-        }
 
     }
 }

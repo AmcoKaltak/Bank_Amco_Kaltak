@@ -45,6 +45,7 @@
             panelSearchAccount = new Panel();
             pictureBox2 = new PictureBox();
             textBoxSearchAccount = new TextBox();
+            buttonExternalAccount = new Button();
             ((System.ComponentModel.ISupportInitialize)accountBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewAccount).BeginInit();
             panelSearchAccount.SuspendLayout();
@@ -233,12 +234,28 @@
             textBoxSearchAccount.TabIndex = 9;
             textBoxSearchAccount.KeyDown += textBoxSearchAccount_KeyDown;
             // 
+            // buttonExternalAccount
+            // 
+            buttonExternalAccount.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            buttonExternalAccount.BackColor = Color.LightSkyBlue;
+            buttonExternalAccount.Cursor = Cursors.Hand;
+            buttonExternalAccount.FlatStyle = FlatStyle.Flat;
+            buttonExternalAccount.Font = new Font("Verdana Pro Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonExternalAccount.ForeColor = Color.White;
+            buttonExternalAccount.Location = new Point(773, 402);
+            buttonExternalAccount.Name = "buttonExternalAccount";
+            buttonExternalAccount.Size = new Size(85, 48);
+            buttonExternalAccount.TabIndex = 26;
+            buttonExternalAccount.Text = "External account";
+            buttonExternalAccount.UseVisualStyleBackColor = false;
+            // 
             // AccountForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(888, 462);
+            Controls.Add(buttonExternalAccount);
             Controls.Add(buttonEdit);
             Controls.Add(buttonDelete);
             Controls.Add(buttonAddAccount);
@@ -270,5 +287,6 @@
         private DataGridViewTextBoxColumn accountNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn moneyDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn accountCodeDataGridViewTextBoxColumn;
+        private Button buttonExternalAccount;
     }
 }

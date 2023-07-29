@@ -43,14 +43,14 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             if (isAdd)
             {
 
-                userClient.AddNewAccount(textBoxAccount.Text);
+                userClient.accountManager.AddNewAccount(userClient.user,textBoxAccount.Text);
 
                 ReturnToAccountForm();
                
             }
             else
             {
-                userClient.UpdateAccount(userClient.account,textBoxAccount.Text);
+                userClient.accountManager.UpdateAccount(userClient.account,textBoxAccount.Text);
 
                 ReturnToAccountForm();
             }

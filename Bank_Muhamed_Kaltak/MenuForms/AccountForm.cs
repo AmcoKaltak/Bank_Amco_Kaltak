@@ -15,6 +15,8 @@ namespace Bank_Muhamed_Kaltak.MenuForms
     {
         public UserClient userClient { get; set; }
 
+        public bool isTransactionAccountSelection;
+
         public AccountForm()
         {
             InitializeComponent();
@@ -45,7 +47,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            userClient.DeleteAccount(userClient.account);
+            userClient.accountManager.DeleteAccount(userClient.account);
 
             AddAccountsToDatagridviewFromClient();
         }
@@ -53,11 +55,6 @@ namespace Bank_Muhamed_Kaltak.MenuForms
         private void dataGridViewAccount_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             userClient.account = (DataAccessLibrary.Entity.Account)dataGridViewAccount.SelectedRows[0].DataBoundItem;
-        }
-
-        private void AccountForm_Load(object sender, EventArgs e)
-        {
-            AddAccountsToDatagridviewFromClient();
         }
 
         private void textBoxSearchAccount_KeyDown(object sender, KeyEventArgs e)
@@ -70,7 +67,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         public void AddAccountsToDatagridviewFromClient()
         {
-            dataGridViewAccount.DataSource = userClient.GetAccounts();
+            dataGridViewAccount.DataSource = userClient.accountManager.GetAccounts(userClient.user);
         }
 
         private ModifyAccountForm SendUserClientToModifyForm()
@@ -82,11 +79,26 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             return modifyAccount;
         }
 
-
-
         private void SearchAccount()
         {
-            dataGridViewAccount.DataSource = userClient.GetSearchedAccounts(textBoxSearchAccount.Text);
+            dataGridViewAccount.DataSource = userClient.accountManager.GetSearchedAccounts(userClient.user,textBoxSearchAccount.Text);
+        }
+
+
+        private void AccountForm_Load(object sender, EventArgs e)
+        {
+            AddAccountsToDatagridviewFromClient();
+
+            if (isTransactionAccountSelection)
+            {
+                buttonAddAccount.Visible = false;
+                buttonEdit.Visible = false;
+                buttonDelete.Visible = false;
+            }
+            else
+            {
+                buttonExternalAccount.Visible = false;
+            }
         }
     }
 }
