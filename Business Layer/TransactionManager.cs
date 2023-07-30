@@ -1,0 +1,20 @@
+﻿using DataAccessLibrary.Entity;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Business_Layer
+{
+    public class TransactionManager
+    {
+        public Account senderAccount;
+        public Account receiverAccount;
+
+        public void CommitTransaction()
+        {
+
+        }
+    }
+}

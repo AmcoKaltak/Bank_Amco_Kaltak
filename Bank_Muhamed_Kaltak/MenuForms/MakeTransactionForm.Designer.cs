@@ -30,25 +30,25 @@
         {
             panelSelectFromAccount = new Panel();
             pictureBox2 = new PictureBox();
-            label4 = new Label();
-            label3 = new Label();
-            label6 = new Label();
+            labelAccountFromMoney = new Label();
+            labelAccountFromCode = new Label();
+            labelAccountFromName = new Label();
             label5 = new Label();
             label1 = new Label();
             label2 = new Label();
             panelSelectToAccount = new Panel();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
+            labelAccountToMoney = new Label();
+            labelAccountToCode = new Label();
+            labelAccountToName = new Label();
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
             pictureBox3 = new PictureBox();
-            textBoxUsername = new TextBox();
-            buttonSignUp = new Button();
-            buttonLogin = new Button();
+            textBoxTransactionAmount = new TextBox();
+            buttonCancel = new Button();
+            buttonCommitTransaction = new Button();
             panel3 = new Panel();
             pictureBox4 = new PictureBox();
-            textBox1 = new TextBox();
+            textBoxTransactionName = new TextBox();
             panelSelectFromAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panelSelectToAccount.SuspendLayout();
@@ -63,9 +63,9 @@
             // 
             panelSelectFromAccount.BackColor = SystemColors.Control;
             panelSelectFromAccount.Controls.Add(pictureBox2);
-            panelSelectFromAccount.Controls.Add(label4);
-            panelSelectFromAccount.Controls.Add(label3);
-            panelSelectFromAccount.Controls.Add(label6);
+            panelSelectFromAccount.Controls.Add(labelAccountFromMoney);
+            panelSelectFromAccount.Controls.Add(labelAccountFromCode);
+            panelSelectFromAccount.Controls.Add(labelAccountFromName);
             panelSelectFromAccount.Cursor = Cursors.Hand;
             panelSelectFromAccount.Location = new Point(202, 88);
             panelSelectFromAccount.Name = "panelSelectFromAccount";
@@ -83,35 +83,35 @@
             pictureBox2.TabIndex = 16;
             pictureBox2.TabStop = false;
             // 
-            // label4
+            // labelAccountFromMoney
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(379, 21);
-            label4.Name = "label4";
-            label4.Size = new Size(64, 18);
-            label4.TabIndex = 15;
-            label4.Text = "1000000";
+            labelAccountFromMoney.AutoSize = true;
+            labelAccountFromMoney.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelAccountFromMoney.Location = new Point(379, 21);
+            labelAccountFromMoney.Name = "labelAccountFromMoney";
+            labelAccountFromMoney.Size = new Size(64, 18);
+            labelAccountFromMoney.TabIndex = 15;
+            labelAccountFromMoney.Text = "1000000";
             // 
-            // label3
+            // labelAccountFromCode
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(54, 36);
-            label3.Name = "label3";
-            label3.Size = new Size(152, 18);
-            label3.TabIndex = 14;
-            label3.Text = "287731-3124wads-31";
+            labelAccountFromCode.AutoSize = true;
+            labelAccountFromCode.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelAccountFromCode.Location = new Point(54, 36);
+            labelAccountFromCode.Name = "labelAccountFromCode";
+            labelAccountFromCode.Size = new Size(152, 18);
+            labelAccountFromCode.TabIndex = 14;
+            labelAccountFromCode.Text = "287731-3124wads-31";
             // 
-            // label6
+            // labelAccountFromName
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(54, 10);
-            label6.Name = "label6";
-            label6.Size = new Size(107, 18);
-            label6.TabIndex = 11;
-            label6.Text = "Account Name";
+            labelAccountFromName.AutoSize = true;
+            labelAccountFromName.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelAccountFromName.Location = new Point(54, 10);
+            labelAccountFromName.Name = "labelAccountFromName";
+            labelAccountFromName.Size = new Size(107, 18);
+            labelAccountFromName.TabIndex = 11;
+            labelAccountFromName.Text = "Account Name";
             // 
             // label5
             // 
@@ -147,45 +147,46 @@
             // panelSelectToAccount
             // 
             panelSelectToAccount.BackColor = SystemColors.Control;
-            panelSelectToAccount.Controls.Add(label7);
-            panelSelectToAccount.Controls.Add(label8);
-            panelSelectToAccount.Controls.Add(label9);
+            panelSelectToAccount.Controls.Add(labelAccountToMoney);
+            panelSelectToAccount.Controls.Add(labelAccountToCode);
+            panelSelectToAccount.Controls.Add(labelAccountToName);
             panelSelectToAccount.Controls.Add(pictureBox1);
             panelSelectToAccount.Cursor = Cursors.Hand;
             panelSelectToAccount.Location = new Point(202, 189);
             panelSelectToAccount.Name = "panelSelectToAccount";
             panelSelectToAccount.Size = new Size(480, 64);
             panelSelectToAccount.TabIndex = 12;
+            panelSelectToAccount.Click += panelSelectToAccount_Click;
             // 
-            // label7
+            // labelAccountToMoney
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(379, 21);
-            label7.Name = "label7";
-            label7.Size = new Size(64, 18);
-            label7.TabIndex = 15;
-            label7.Text = "1000000";
+            labelAccountToMoney.AutoSize = true;
+            labelAccountToMoney.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelAccountToMoney.Location = new Point(379, 21);
+            labelAccountToMoney.Name = "labelAccountToMoney";
+            labelAccountToMoney.Size = new Size(64, 18);
+            labelAccountToMoney.TabIndex = 15;
+            labelAccountToMoney.Text = "1000000";
             // 
-            // label8
+            // labelAccountToCode
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(54, 36);
-            label8.Name = "label8";
-            label8.Size = new Size(152, 18);
-            label8.TabIndex = 14;
-            label8.Text = "287731-3124wads-31";
+            labelAccountToCode.AutoSize = true;
+            labelAccountToCode.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelAccountToCode.Location = new Point(54, 36);
+            labelAccountToCode.Name = "labelAccountToCode";
+            labelAccountToCode.Size = new Size(152, 18);
+            labelAccountToCode.TabIndex = 14;
+            labelAccountToCode.Text = "287731-3124wads-31";
             // 
-            // label9
+            // labelAccountToName
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(54, 10);
-            label9.Name = "label9";
-            label9.Size = new Size(107, 18);
-            label9.TabIndex = 11;
-            label9.Text = "Account Name";
+            labelAccountToName.AutoSize = true;
+            labelAccountToName.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelAccountToName.Location = new Point(54, 10);
+            labelAccountToName.Name = "labelAccountToName";
+            labelAccountToName.Size = new Size(107, 18);
+            labelAccountToName.TabIndex = 11;
+            labelAccountToName.Text = "Account Name";
             // 
             // pictureBox1
             // 
@@ -201,7 +202,7 @@
             // 
             panel2.BackColor = Color.White;
             panel2.Controls.Add(pictureBox3);
-            panel2.Controls.Add(textBoxUsername);
+            panel2.Controls.Add(textBoxTransactionAmount);
             panel2.Location = new Point(202, 331);
             panel2.Name = "panel2";
             panel2.Size = new Size(480, 45);
@@ -217,49 +218,49 @@
             pictureBox3.TabIndex = 5;
             pictureBox3.TabStop = false;
             // 
-            // textBoxUsername
+            // textBoxTransactionAmount
             // 
-            textBoxUsername.BorderStyle = BorderStyle.None;
-            textBoxUsername.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBoxUsername.Location = new Point(36, 16);
-            textBoxUsername.Name = "textBoxUsername";
-            textBoxUsername.PlaceholderText = "Enter amount";
-            textBoxUsername.Size = new Size(434, 20);
-            textBoxUsername.TabIndex = 9;
+            textBoxTransactionAmount.BorderStyle = BorderStyle.None;
+            textBoxTransactionAmount.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxTransactionAmount.Location = new Point(36, 16);
+            textBoxTransactionAmount.Name = "textBoxTransactionAmount";
+            textBoxTransactionAmount.PlaceholderText = "Enter amount";
+            textBoxTransactionAmount.Size = new Size(434, 20);
+            textBoxTransactionAmount.TabIndex = 9;
             // 
-            // buttonSignUp
+            // buttonCancel
             // 
-            buttonSignUp.BackColor = Color.LightSkyBlue;
-            buttonSignUp.Cursor = Cursors.Hand;
-            buttonSignUp.FlatStyle = FlatStyle.Flat;
-            buttonSignUp.Font = new Font("Verdana Pro Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonSignUp.ForeColor = Color.White;
-            buttonSignUp.Location = new Point(272, 397);
-            buttonSignUp.Name = "buttonSignUp";
-            buttonSignUp.Size = new Size(163, 35);
-            buttonSignUp.TabIndex = 15;
-            buttonSignUp.Text = "Cancel";
-            buttonSignUp.UseVisualStyleBackColor = false;
+            buttonCancel.BackColor = Color.LightSkyBlue;
+            buttonCancel.Cursor = Cursors.Hand;
+            buttonCancel.FlatStyle = FlatStyle.Flat;
+            buttonCancel.Font = new Font("Verdana Pro Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonCancel.ForeColor = Color.White;
+            buttonCancel.Location = new Point(272, 397);
+            buttonCancel.Name = "buttonCancel";
+            buttonCancel.Size = new Size(163, 35);
+            buttonCancel.TabIndex = 15;
+            buttonCancel.Text = "Cancel";
+            buttonCancel.UseVisualStyleBackColor = false;
             // 
-            // buttonLogin
+            // buttonCommitTransaction
             // 
-            buttonLogin.BackColor = Color.LightSkyBlue;
-            buttonLogin.Cursor = Cursors.Hand;
-            buttonLogin.FlatStyle = FlatStyle.Flat;
-            buttonLogin.Font = new Font("Verdana Pro Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonLogin.ForeColor = Color.White;
-            buttonLogin.Location = new Point(441, 397);
-            buttonLogin.Name = "buttonLogin";
-            buttonLogin.Size = new Size(163, 35);
-            buttonLogin.TabIndex = 14;
-            buttonLogin.Text = "Send Transaction";
-            buttonLogin.UseVisualStyleBackColor = false;
+            buttonCommitTransaction.BackColor = Color.LightSkyBlue;
+            buttonCommitTransaction.Cursor = Cursors.Hand;
+            buttonCommitTransaction.FlatStyle = FlatStyle.Flat;
+            buttonCommitTransaction.Font = new Font("Verdana Pro Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonCommitTransaction.ForeColor = Color.White;
+            buttonCommitTransaction.Location = new Point(441, 397);
+            buttonCommitTransaction.Name = "buttonCommitTransaction";
+            buttonCommitTransaction.Size = new Size(163, 35);
+            buttonCommitTransaction.TabIndex = 14;
+            buttonCommitTransaction.Text = "Send Transaction";
+            buttonCommitTransaction.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
             panel3.BackColor = Color.White;
             panel3.Controls.Add(pictureBox4);
-            panel3.Controls.Add(textBox1);
+            panel3.Controls.Add(textBoxTransactionName);
             panel3.Location = new Point(202, 280);
             panel3.Name = "panel3";
             panel3.Size = new Size(480, 45);
@@ -275,15 +276,15 @@
             pictureBox4.TabIndex = 5;
             pictureBox4.TabStop = false;
             // 
-            // textBox1
+            // textBoxTransactionName
             // 
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(36, 16);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Enter Transaction Name (optional)";
-            textBox1.Size = new Size(434, 20);
-            textBox1.TabIndex = 9;
+            textBoxTransactionName.BorderStyle = BorderStyle.None;
+            textBoxTransactionName.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxTransactionName.Location = new Point(36, 16);
+            textBoxTransactionName.Name = "textBoxTransactionName";
+            textBoxTransactionName.PlaceholderText = "Enter Transaction Name (optional)";
+            textBoxTransactionName.Size = new Size(434, 20);
+            textBoxTransactionName.TabIndex = 9;
             // 
             // MakeTransactionForm
             // 
@@ -291,17 +292,18 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(888, 462);
+            Controls.Add(panelSelectFromAccount);
             Controls.Add(panel3);
-            Controls.Add(buttonSignUp);
-            Controls.Add(buttonLogin);
+            Controls.Add(buttonCancel);
+            Controls.Add(buttonCommitTransaction);
             Controls.Add(panel2);
             Controls.Add(label2);
             Controls.Add(panelSelectToAccount);
             Controls.Add(label1);
             Controls.Add(label5);
-            Controls.Add(panelSelectFromAccount);
             Name = "MakeTransactionForm";
             Text = "MakeTransactionForm";
+            Load += MakeTransactionForm_Load;
             panelSelectFromAccount.ResumeLayout(false);
             panelSelectFromAccount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -323,23 +325,23 @@
         private Panel panelSelectFromAccount;
         private Label label5;
         private Label label1;
-        private Label label4;
-        private Label label3;
-        private Label label6;
+        private Label labelAccountFromMoney;
+        private Label labelAccountFromCode;
+        private Label labelAccountFromName;
         private Label label2;
         private Panel panelSelectToAccount;
-        private Label label7;
-        private Label label8;
-        private Label label9;
+        private Label labelAccountToMoney;
+        private Label labelAccountToCode;
+        private Label labelAccountToName;
         private PictureBox pictureBox1;
         private Panel panel2;
         private PictureBox pictureBox3;
-        private TextBox textBoxUsername;
-        private Button buttonSignUp;
-        private Button buttonLogin;
+        private TextBox textBoxTransactionAmount;
+        private Button buttonCancel;
+        private Button buttonCommitTransaction;
         private Panel panel3;
         private PictureBox pictureBox4;
-        private TextBox textBox1;
+        private TextBox textBoxTransactionName;
         private PictureBox pictureBox2;
     }
 }

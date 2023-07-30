@@ -17,12 +17,14 @@ namespace Business_Layer
         public Account account;
 
         public AccountManager accountManager;
+        public TransactionManager transactionManager;
 
         public UserClient(User user)
         {
             this.user = user;
 
             accountManager = new AccountManager();
+            transactionManager = new TransactionManager();
         }
 
 

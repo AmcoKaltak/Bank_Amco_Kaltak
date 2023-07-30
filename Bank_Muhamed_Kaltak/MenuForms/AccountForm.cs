@@ -16,6 +16,8 @@ namespace Bank_Muhamed_Kaltak.MenuForms
         public UserClient userClient { get; set; }
 
         public bool isTransactionAccountSelection;
+        public bool isTransactionAccountFrom;
+        public bool isTransactionAccountTo;
 
         public AccountForm()
         {
@@ -38,23 +40,48 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            ModifyAccountForm modifyAccountForm = SendUserClientToModifyForm();
+            if (SelectedAccountValid())
+            {
+                ModifyAccountForm modifyAccountForm = SendUserClientToModifyForm();
 
-            modifyAccountForm.isEdit = true;
+                modifyAccountForm.isEdit = true;
 
-            FormChanger.OpenForm(modifyAccountForm);
+                FormChanger.OpenForm(modifyAccountForm);
+            }
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            userClient.accountManager.DeleteAccount(userClient.account);
+            if (SelectedAccountValid())
+            {
+                userClient.accountManager.DeleteAccount(userClient.account);
 
-            AddAccountsToDatagridviewFromClient();
+                AddAccountsToDatagridviewFromClient();
+            }
         }
 
         private void dataGridViewAccount_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            userClient.account = (DataAccessLibrary.Entity.Account)dataGridViewAccount.SelectedRows[0].DataBoundItem;
+            var selectedAccount = (DataAccessLibrary.Entity.Account)dataGridViewAccount.SelectedRows[0].DataBoundItem;
+
+            if (isTransactionAccountSelection && isTransactionAccountFrom)
+            {
+                userClient.transactionManager.senderAccount = selectedAccount;
+
+                ReturnToMakeTransaction();
+
+            }
+            else if (isTransactionAccountSelection && isTransactionAccountTo)
+            {
+                userClient.transactionManager.receiverAccount = selectedAccount;
+
+                ReturnToMakeTransaction();
+
+            }
+            else
+            {
+                userClient.account = selectedAccount;
+            }
         }
 
         private void textBoxSearchAccount_KeyDown(object sender, KeyEventArgs e)
@@ -79,12 +106,6 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             return modifyAccount;
         }
 
-        private void SearchAccount()
-        {
-            dataGridViewAccount.DataSource = userClient.accountManager.GetSearchedAccounts(userClient.user,textBoxSearchAccount.Text);
-        }
-
-
         private void AccountForm_Load(object sender, EventArgs e)
         {
             AddAccountsToDatagridviewFromClient();
@@ -100,5 +121,32 @@ namespace Bank_Muhamed_Kaltak.MenuForms
                 buttonExternalAccount.Visible = false;
             }
         }
+
+        private void SearchAccount()
+        {
+            dataGridViewAccount.DataSource = userClient.accountManager.GetSearchedAccounts(userClient.user, textBoxSearchAccount.Text);
+        }
+
+        private void ReturnToMakeTransaction()
+        {
+            MakeTransactionForm makeTransactionForm = new MakeTransactionForm();
+
+            makeTransactionForm.userClient = userClient;
+
+            FormChanger.OpenForm(makeTransactionForm);
+        }
+
+        private bool SelectedAccountValid()
+        {
+            if (userClient.account != null)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+
+
     }
 }
