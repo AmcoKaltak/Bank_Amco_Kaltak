@@ -83,7 +83,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void buttonMenu_Click(object sender, EventArgs e)
         {
-            CollapseMenu();
+            CollapseOrExpandMenu();
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
@@ -105,34 +105,49 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             }
         }
 
-        private void CollapseMenu()
+        private void CollapseOrExpandMenu()
         {
             if (this.panelSideMenu.Width > 200) //Kollapsa menyn
             {
                 panelSideMenu.Width = 100;
                 pictureBox1.Visible = false;
                 buttonMenu.Dock = DockStyle.Top;
-                foreach (Button menuButton in panelSideMenu.Controls.OfType<Button>())
-                {
-                    menuButton.Text = "";
-                    menuButton.ImageAlign = ContentAlignment.MiddleCenter;
-                    menuButton.Padding = new Padding(0);
-                }
+
+                CollapseButtonsInPanel(panelSideMenu);
+                CollapseButtonsInPanel(panelTransactionSubMenu);
             }
             else
             { //Expandera menyn
+
                 panelSideMenu.Width = 230;
                 pictureBox1.Visible = true;
                 buttonMenu.Dock = DockStyle.None;
-                foreach (Button menuButton in panelSideMenu.Controls.OfType<Button>())
-                {
-                    menuButton.Text = "   " + menuButton.Tag.ToString();
-                    menuButton.ImageAlign = ContentAlignment.MiddleLeft;
-                    menuButton.Padding = new Padding(10, 0, 0, 0);
-                }
+
+                ExpandButtonsInPanel(panelSideMenu);
+                ExpandButtonsInPanel(panelTransactionSubMenu);
+
             }
         }
 
+        private void CollapseButtonsInPanel(Panel panel)
+        {
+            foreach (Button menuButton in panel.Controls.OfType<Button>())
+            {
+                menuButton.Text = "";
+                menuButton.ImageAlign = ContentAlignment.MiddleCenter;
+                menuButton.Padding = new Padding(0);
+            }
+        }
+
+        private void ExpandButtonsInPanel(Panel panel)
+        {
+            foreach (Button menuButton in panel.Controls.OfType<Button>())
+            {
+                menuButton.Text = "   " + menuButton.Tag.ToString();
+                menuButton.ImageAlign = ContentAlignment.MiddleLeft;
+                menuButton.Padding = new Padding(10, 0, 0, 0);
+            }
+        }
 
         protected override void WndProc(ref Message m) // https://learn.microsoft.com/en-us/windows/win32/winmsg/wm-nccalcsize
         {

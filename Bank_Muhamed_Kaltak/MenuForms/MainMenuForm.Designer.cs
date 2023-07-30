@@ -124,8 +124,8 @@
             panelTransactionSubMenu.Controls.Add(buttonTransaction);
             panelTransactionSubMenu.Dock = DockStyle.Top;
             panelTransactionSubMenu.Location = new Point(0, 214);
-            panelTransactionSubMenu.MaximumSize = new Size(230, 109);
-            panelTransactionSubMenu.MinimumSize = new Size(230, 43);
+            panelTransactionSubMenu.MaximumSize = new Size(0, 109);
+            panelTransactionSubMenu.MinimumSize = new Size(0, 43);
             panelTransactionSubMenu.Name = "panelTransactionSubMenu";
             panelTransactionSubMenu.Size = new Size(230, 43);
             panelTransactionSubMenu.TabIndex = 8;
@@ -142,12 +142,13 @@
             buttonViewTransaction.IconColor = Color.White;
             buttonViewTransaction.IconFont = FontAwesome.Sharp.IconFont.Auto;
             buttonViewTransaction.IconSize = 30;
+            buttonViewTransaction.ImageAlign = ContentAlignment.MiddleLeft;
             buttonViewTransaction.Location = new Point(0, 76);
             buttonViewTransaction.Name = "buttonViewTransaction";
             buttonViewTransaction.Padding = new Padding(10, 0, 0, 0);
             buttonViewTransaction.Size = new Size(230, 33);
             buttonViewTransaction.TabIndex = 11;
-            buttonViewTransaction.Tag = "Transaction";
+            buttonViewTransaction.Tag = "View Transactions";
             buttonViewTransaction.Text = "   View Transactions";
             buttonViewTransaction.TextAlign = ContentAlignment.MiddleLeft;
             buttonViewTransaction.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -166,12 +167,13 @@
             buttonMakeTransaction.IconColor = Color.White;
             buttonMakeTransaction.IconFont = FontAwesome.Sharp.IconFont.Auto;
             buttonMakeTransaction.IconSize = 30;
+            buttonMakeTransaction.ImageAlign = ContentAlignment.MiddleLeft;
             buttonMakeTransaction.Location = new Point(0, 43);
             buttonMakeTransaction.Name = "buttonMakeTransaction";
             buttonMakeTransaction.Padding = new Padding(10, 0, 0, 0);
             buttonMakeTransaction.Size = new Size(230, 33);
             buttonMakeTransaction.TabIndex = 10;
-            buttonMakeTransaction.Tag = "Transaction";
+            buttonMakeTransaction.Tag = "Make Transaction";
             buttonMakeTransaction.Text = "   Make Transaction";
             buttonMakeTransaction.TextAlign = ContentAlignment.MiddleLeft;
             buttonMakeTransaction.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -346,7 +348,7 @@
             buttonMinimize.IconColor = Color.LightSkyBlue;
             buttonMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
             buttonMinimize.IconSize = 25;
-            buttonMinimize.Location = new Point(779, 0);
+            buttonMinimize.Location = new Point(778, 0);
             buttonMinimize.Name = "buttonMinimize";
             buttonMinimize.Size = new Size(45, 25);
             buttonMinimize.TabIndex = 4;
@@ -364,7 +366,7 @@
             buttonMaximize.IconColor = Color.LightSkyBlue;
             buttonMaximize.IconFont = FontAwesome.Sharp.IconFont.Auto;
             buttonMaximize.IconSize = 25;
-            buttonMaximize.Location = new Point(821, 0);
+            buttonMaximize.Location = new Point(820, 0);
             buttonMaximize.Name = "buttonMaximize";
             buttonMaximize.Size = new Size(45, 25);
             buttonMaximize.TabIndex = 3;
@@ -382,7 +384,7 @@
             buttonClose.IconColor = Color.LightSkyBlue;
             buttonClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             buttonClose.IconSize = 25;
-            buttonClose.Location = new Point(860, 0);
+            buttonClose.Location = new Point(859, 0);
             buttonClose.Name = "buttonClose";
             buttonClose.Size = new Size(45, 25);
             buttonClose.TabIndex = 2;
