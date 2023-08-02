@@ -22,13 +22,13 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void TransactionForm_Load(object sender, EventArgs e)
         {
-
+            GetUserTransactions();
         }
 
 
         private void GetUserTransactions()
         {
-
+            dataGridViewTransaction.DataSource = userClient.transactionManager.GetTransactions(userClient.user);
         }
     }
 }

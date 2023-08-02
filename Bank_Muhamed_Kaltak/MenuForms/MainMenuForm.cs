@@ -275,6 +275,8 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
             TransactionForm transactionForm = new TransactionForm();
 
+            transactionForm.userClient = userClient;
+
             FormChanger.OpenForm(transactionForm);
         }
 

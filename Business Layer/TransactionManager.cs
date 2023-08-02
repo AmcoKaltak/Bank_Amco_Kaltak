@@ -25,5 +25,10 @@ namespace Business_Layer
 
             dBOperations.Transaction(senderAccount, receiverAccount, name, amount);
         }
+
+        public List<Transaction> GetTransactions(User user)
+        {
+            return dBOperations.GetUserTransactions(user);
+        }
     }
 }

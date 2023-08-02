@@ -28,20 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             buttonReceived = new Button();
             buttonDelete = new Button();
             buttonSent = new Button();
-            dataGridViewAccount = new DataGridView();
+            dataGridViewTransaction = new DataGridView();
             buttonSearch = new Button();
             panelSearchAccount = new Panel();
             pictureBox2 = new PictureBox();
             textBoxSearchTransaction = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewAccount).BeginInit();
+            transactionBindingSource = new BindingSource(components);
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            amountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            transactionDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTransaction).BeginInit();
             panelSearchAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)transactionBindingSource).BeginInit();
             SuspendLayout();
             // 
             // buttonReceived
@@ -89,18 +96,19 @@
             buttonSent.Text = "Sent";
             buttonSent.UseVisualStyleBackColor = false;
             // 
-            // dataGridViewAccount
+            // dataGridViewTransaction
             // 
-            dataGridViewAccount.AllowUserToAddRows = false;
-            dataGridViewAccount.AllowUserToDeleteRows = false;
-            dataGridViewAccount.AllowUserToResizeColumns = false;
-            dataGridViewAccount.AllowUserToResizeRows = false;
-            dataGridViewAccount.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridViewAccount.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewAccount.BackgroundColor = Color.White;
-            dataGridViewAccount.BorderStyle = BorderStyle.None;
-            dataGridViewAccount.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewAccount.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewTransaction.AllowUserToAddRows = false;
+            dataGridViewTransaction.AllowUserToDeleteRows = false;
+            dataGridViewTransaction.AllowUserToResizeColumns = false;
+            dataGridViewTransaction.AllowUserToResizeRows = false;
+            dataGridViewTransaction.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewTransaction.AutoGenerateColumns = false;
+            dataGridViewTransaction.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewTransaction.BackgroundColor = Color.White;
+            dataGridViewTransaction.BorderStyle = BorderStyle.None;
+            dataGridViewTransaction.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewTransaction.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.LightSkyBlue;
             dataGridViewCellStyle1.Font = new Font("Verdana Pro Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
@@ -108,8 +116,10 @@
             dataGridViewCellStyle1.SelectionBackColor = Color.LightSkyBlue;
             dataGridViewCellStyle1.SelectionForeColor = Color.White;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridViewAccount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewAccount.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewTransaction.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewTransaction.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewTransaction.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, amountDataGridViewTextBoxColumn, transactionDateDataGridViewTextBoxColumn });
+            dataGridViewTransaction.DataSource = transactionBindingSource;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -117,22 +127,22 @@
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridViewAccount.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewAccount.EnableHeadersVisualStyles = false;
-            dataGridViewAccount.Location = new Point(30, 60);
-            dataGridViewAccount.Name = "dataGridViewAccount";
-            dataGridViewAccount.ReadOnly = true;
-            dataGridViewAccount.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewAccount.RowHeadersVisible = false;
+            dataGridViewTransaction.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewTransaction.EnableHeadersVisualStyles = false;
+            dataGridViewTransaction.Location = new Point(30, 60);
+            dataGridViewTransaction.Name = "dataGridViewTransaction";
+            dataGridViewTransaction.ReadOnly = true;
+            dataGridViewTransaction.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewTransaction.RowHeadersVisible = false;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Verdana Pro Cond", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             dataGridViewCellStyle3.SelectionBackColor = Color.WhiteSmoke;
             dataGridViewCellStyle3.SelectionForeColor = Color.Black;
-            dataGridViewAccount.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewAccount.RowTemplate.Height = 25;
-            dataGridViewAccount.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewAccount.Size = new Size(737, 386);
-            dataGridViewAccount.TabIndex = 23;
+            dataGridViewTransaction.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewTransaction.RowTemplate.Height = 25;
+            dataGridViewTransaction.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewTransaction.Size = new Size(737, 386);
+            dataGridViewTransaction.TabIndex = 23;
             // 
             // buttonSearch
             // 
@@ -181,6 +191,38 @@
             textBoxSearchTransaction.Size = new Size(544, 20);
             textBoxSearchTransaction.TabIndex = 9;
             // 
+            // transactionBindingSource
+            // 
+            transactionBindingSource.DataSource = typeof(DataAccessLibrary.Entity.Transaction);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // amountDataGridViewTextBoxColumn
+            // 
+            amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
+            amountDataGridViewTextBoxColumn.HeaderText = "Amount";
+            amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
+            amountDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // transactionDateDataGridViewTextBoxColumn
+            // 
+            transactionDateDataGridViewTextBoxColumn.DataPropertyName = "TransactionDate";
+            transactionDateDataGridViewTextBoxColumn.HeaderText = "TransactionDate";
+            transactionDateDataGridViewTextBoxColumn.Name = "transactionDateDataGridViewTextBoxColumn";
+            transactionDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // TransactionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -190,16 +232,17 @@
             Controls.Add(buttonReceived);
             Controls.Add(buttonDelete);
             Controls.Add(buttonSent);
-            Controls.Add(dataGridViewAccount);
+            Controls.Add(dataGridViewTransaction);
             Controls.Add(buttonSearch);
             Controls.Add(panelSearchAccount);
             Name = "TransactionForm";
             Text = "TransactionForm";
             Load += TransactionForm_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridViewAccount).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTransaction).EndInit();
             panelSearchAccount.ResumeLayout(false);
             panelSearchAccount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)transactionBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -208,10 +251,15 @@
         private Button buttonReceived;
         private Button buttonDelete;
         private Button buttonSent;
-        private DataGridView dataGridViewAccount;
+        private DataGridView dataGridViewTransaction;
         private Button buttonSearch;
         private Panel panelSearchAccount;
         private PictureBox pictureBox2;
         private TextBox textBoxSearchTransaction;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn transactionDateDataGridViewTextBoxColumn;
+        private BindingSource transactionBindingSource;
     }
 }

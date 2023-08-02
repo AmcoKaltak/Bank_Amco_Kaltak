@@ -43,7 +43,16 @@ namespace DataAccessLibrary
                     TransactionType = "Receiver"
                 };
 
-                context.AccountTransactions.AddRange(accountTransactionSender,accountTransactionReceiver);
+                try
+                {
+                    context.AccountTransactions.AddRange(accountTransactionSender, accountTransactionReceiver);
+
+                }
+                catch (Exception exception)
+                {
+                    context.Transactions.Remove(transaction);
+                    throw;
+                }
 
 
                 sender.Money -= amount;
@@ -173,6 +182,15 @@ namespace DataAccessLibrary
             var accounts = context.Accounts.Where(a => a.UserId == user.Id && a.AccountName.Contains(search)).ToList();
 
             return accounts;
+        }
+
+        public List<Transaction> GetUserTransactions (User user)
+        {
+            using Context context = new Context();
+
+            var transactions = context.Accounts.Where(a=> a.UserId == user.Id).SelectMany(a=> a.Transactions).OrderByDescending(t=> t.TransactionDate).ToList();
+
+            return transactions;
         }
 
         public bool CheckUniqueUser(User user)
