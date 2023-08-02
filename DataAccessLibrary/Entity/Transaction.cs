@@ -11,9 +11,12 @@ namespace DataAccessLibrary.Entity
     public class Transaction
     {
         public int Id { get; set; }
+        public string Name { get; set; }
+        public float Amount { get; set; }
+        public DateTime TransactionDate { get; set; }
 
-        public string sender { get; set; }
-        public string receiver { get; set; }
-        public float amount { get; set; }
+        //Many-To-Many
+        public List<Account> Accounts { get; } = new();
+        public List<AccountTransaction> AccountTransactions { get; } = new();
     }
 }

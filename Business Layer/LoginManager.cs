@@ -31,7 +31,7 @@ namespace Business_Layer
         {
             Security security = new Security();
 
-            if (enteredUsername == user.username && security.Hash($"{enteredPassword}{user.salt}") == user.password)
+            if (enteredUsername == user.Username && security.Hash($"{enteredPassword}{user.Salt}") == user.Password)
             {
                 return true;
             }
@@ -55,9 +55,9 @@ namespace Business_Layer
                 return false;
             }
 
-            TimeSpan timeSpan = DateTime.Now - user.passwordResetDate;
+            TimeSpan timeSpan = DateTime.Now - user.PasswordResetDate;
 
-            if (user.passwordResetToken == security.Hash(enteredCode) && timeSpan.Minutes <= 10 ) //Kollar ifall coden matchar tokenet samt att det ej har passerat 10 min sen begäran av att ändra lösenordet skett
+            if (user.PasswordResetToken == security.Hash(enteredCode) && timeSpan.Minutes <= 10 ) //Kollar ifall coden matchar tokenet samt att det ej har passerat 10 min sen begäran av att ändra lösenordet skett
             {
                 return true;
             }

@@ -28,7 +28,7 @@ namespace Business_Layer
                 return;
             }
 
-            SendEmail(receiver, "Username Recovery", "Your username is: " + user.username);
+            SendEmail(receiver, "Username Recovery", "Your username is: " + user.Username);
 
         }
 

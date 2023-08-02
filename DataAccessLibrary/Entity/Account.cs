@@ -9,14 +9,16 @@ namespace DataAccessLibrary.Entity
     public class Account
     {
         public int Id { get; set; }
-
         public int UserId { get; set; }
-        public User user { get; set; } = null!;
+        public string AccountName { get; set; }
+        public float Money { get; set; }
+        public string AccountCode { get; set; }
 
-        public string accountName { get; set; }
 
-        public float money { get; set; }
+        public User User { get; set; } = null!;
 
-        public string accountCode { get; set; }
+        //Many-To-Many
+        public List<Transaction> Transactions { get; } = new();
+        public List<AccountTransaction> AccountTransactions { get; } = new();
     }
 }

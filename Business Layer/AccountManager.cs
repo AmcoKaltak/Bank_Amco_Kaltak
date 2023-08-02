@@ -22,9 +22,9 @@ namespace Business_Layer
             Security security = new Security();
             Account account = new Account();
 
-            account.accountName = accountName;
-            account.money = 0;
-            account.accountCode = security.GenerateVerificationCode();
+            account.AccountName = accountName;
+            account.Money = 0;
+            account.AccountCode = security.GenerateVerificationCode();
             dBOperations.AddAccountToUser(user, account);
 
 

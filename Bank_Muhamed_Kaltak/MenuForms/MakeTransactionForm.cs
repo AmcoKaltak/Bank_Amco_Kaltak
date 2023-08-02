@@ -58,16 +58,16 @@ namespace Bank_Muhamed_Kaltak.MenuForms
         {
             if (userClient.transactionManager.senderAccount != null)
             {
-                labelAccountFromName.Text = userClient.transactionManager.senderAccount.accountName;
-                labelAccountFromCode.Text = userClient.transactionManager.senderAccount.accountCode;
-                labelAccountFromMoney.Text = userClient.transactionManager.senderAccount.money.ToString();
+                labelAccountFromName.Text = userClient.transactionManager.senderAccount.AccountName;
+                labelAccountFromCode.Text = userClient.transactionManager.senderAccount.AccountCode;
+                labelAccountFromMoney.Text = userClient.transactionManager.senderAccount.Money.ToString();
             }
 
             if (userClient.transactionManager.receiverAccount != null)
             {
-                labelAccountToName.Text = userClient.transactionManager.receiverAccount.accountName;
-                labelAccountToCode.Text = userClient.transactionManager.receiverAccount.accountCode;
-                labelAccountToMoney.Text = userClient.transactionManager.receiverAccount.money.ToString();
+                labelAccountToName.Text = userClient.transactionManager.receiverAccount.AccountName;
+                labelAccountToCode.Text = userClient.transactionManager.receiverAccount.AccountCode;
+                labelAccountToMoney.Text = userClient.transactionManager.receiverAccount.Money.ToString();
             }
         }
 

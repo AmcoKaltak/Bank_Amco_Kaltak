@@ -37,12 +37,12 @@ namespace DataAccessLibrary
         {
             using Context context = new Context();
 
-            var user = context.Users.FirstOrDefault(u => u.email == email);
+            var user = context.Users.FirstOrDefault(u => u.Email == email);
 
             if (user != null)
             {
-                user.passwordResetToken = passwordResetToken;
-                user.passwordResetDate = passwordResetDate;
+                user.PasswordResetToken = passwordResetToken;
+                user.PasswordResetDate = passwordResetDate;
             }
 
             context.SaveChanges();
@@ -52,11 +52,11 @@ namespace DataAccessLibrary
         {
             using Context context = new Context();
 
-            var user = context.Users.FirstOrDefault(u => u.email == email);
+            var user = context.Users.FirstOrDefault(u => u.Email == email);
 
             if (user != null)
             {
-                user.password = newPassword;
+                user.Password = newPassword;
 
             }
 
@@ -71,7 +71,7 @@ namespace DataAccessLibrary
 
             if (accountClient != null)
             {
-                accountClient.accountName = accountName;
+                accountClient.AccountName = accountName;
             }
 
             context.SaveChanges();
@@ -82,7 +82,7 @@ namespace DataAccessLibrary
         {
             using Context context= new Context();
 
-            var user = context.Users.FirstOrDefault(u => u.username == username);
+            var user = context.Users.FirstOrDefault(u => u.Username == username);
 
             //var user = context.Users //Linq queries är i normala fal alltid case insensitive, för att fixa detta kan man göra den dubbel check i client eller altera databasen
             //        .Where(u => u.username == username && u.password == password )
@@ -95,7 +95,7 @@ namespace DataAccessLibrary
         {
             using Context context = new Context();
 
-            var user = context.Users.FirstOrDefault(u => u.email == email);
+            var user = context.Users.FirstOrDefault(u => u.Email == email);
 
             //var user = context.Users //Linq queries är i normala fal alltid case insensitive, för att fixa detta kan man göra den dubbel check i client eller altera databasen
             //        .Where(u => u.username == username && u.password == password )
@@ -117,7 +117,7 @@ namespace DataAccessLibrary
         {
             using Context context = new Context();
 
-            var accounts = context.Accounts.Where(a => a.UserId == user.Id && a.accountName.Contains(search)).ToList();
+            var accounts = context.Accounts.Where(a => a.UserId == user.Id && a.AccountName.Contains(search)).ToList();
 
             return accounts;
         }
@@ -128,7 +128,7 @@ namespace DataAccessLibrary
             using Context context = new Context();
 
             var userUnique = context.Users //Linq queries är i normala fal alltid case insensitive, för att fixa detta kan man göra den dubbel check i client eller altera databasen
-                    .Where(u => u.username == user.username || u.email == user.email )
+                    .Where(u => u.Username == user.Username || u.Email == user.Email )
                     .FirstOrDefault();
 
             if (userUnique == null)

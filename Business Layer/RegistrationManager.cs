@@ -23,12 +23,12 @@ namespace Business_Layer
 
             
 
-            user.username = username;
-            user.salt = DateTime.Now.ToString();
-            user.password = security.Hash($"{password}{user.salt}");
-            user.name = name;
-            user.lastName = lastName;
-            user.email = email;
+            user.Username = username;
+            user.Salt = DateTime.Now.ToString();
+            user.Password = security.Hash($"{password}{user.Salt}");
+            user.Name = name;
+            user.LastName = lastName;
+            user.Email = email;
 
             for (int i = 0; i < 20; i++) //TODO: För testing, ta bort när allt är klart
             {
@@ -37,7 +37,7 @@ namespace Business_Layer
             }
 
 
-            if (dBOperations.CheckUniqueUser(user) == false || string.IsNullOrWhiteSpace(user.username) || string.IsNullOrWhiteSpace(user.password) || string.IsNullOrWhiteSpace(user.name) || string.IsNullOrWhiteSpace(user.lastName) || string.IsNullOrWhiteSpace(user.email))
+            if (dBOperations.CheckUniqueUser(user) == false || string.IsNullOrWhiteSpace(user.Username) || string.IsNullOrWhiteSpace(user.Password) || string.IsNullOrWhiteSpace(user.Name) || string.IsNullOrWhiteSpace(user.LastName) || string.IsNullOrWhiteSpace(user.Email))
             {
                 return false;
             } 
@@ -54,7 +54,7 @@ namespace Business_Layer
         {
             user = dBOperations.GetUserFromEmail(email);
 
-            dBOperations.ChangePassword(email, security.Hash($"{newPassword}{user.salt}"));
+            dBOperations.ChangePassword(email, security.Hash($"{newPassword}{user.Salt}"));
         }
 
         private Account RegisterStartingMoneyAccount()
@@ -63,9 +63,9 @@ namespace Business_Layer
             Random random = new Random();
 
             //account.user = user;
-            account.accountName = "Sparkonto";
-            account.money = random.Next(10000, 1000000);
-            account.accountCode = security.GenerateVerificationCode();
+            account.AccountName = "Sparkonto";
+            account.Money = random.Next(10000, 1000000);
+            account.AccountCode = security.GenerateVerificationCode();
 
             return account;
         }

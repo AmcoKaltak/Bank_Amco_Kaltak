@@ -19,8 +19,8 @@ namespace Bank_Muhamed_Kaltak
 
         public LoginForm()
         {
-            test.username = "test";
-            test.password = "test";
+            test.Username = "test";
+            test.Password = "test";
             InitializeComponent();
 
             FormChanger.activePanel = panelMain;
