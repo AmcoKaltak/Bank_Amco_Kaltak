@@ -30,5 +30,15 @@ namespace Business_Layer
         {
             return dBOperations.GetUserTransactions(user);
         }
+
+        public List<Transaction> GetSentTransactions(User user)
+        {
+            return dBOperations.GetUserSentTransactions(user);
+        }
+
+        public List<Transaction> GetReceivedTransactions (User user)
+        {
+            return dBOperations.GetUserReceivedTransactions(user);
+        }
     }
 }

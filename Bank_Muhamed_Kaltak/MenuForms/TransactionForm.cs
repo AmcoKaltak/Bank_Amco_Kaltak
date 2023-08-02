@@ -25,10 +25,29 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             GetUserTransactions();
         }
 
+        private void buttonSent_Click(object sender, EventArgs e)
+        {
+            GetUserSentTransactions();
+        }
+
+        private void buttonReceived_Click(object sender, EventArgs e)
+        {
+            GetUserReceivedTransactions();
+        }
 
         private void GetUserTransactions()
         {
             dataGridViewTransaction.DataSource = userClient.transactionManager.GetTransactions(userClient.user);
+        }
+
+        private void GetUserSentTransactions()
+        {
+            dataGridViewTransaction.DataSource = userClient.transactionManager.GetSentTransactions(userClient.user);
+        }
+
+        private void GetUserReceivedTransactions()
+        {
+            dataGridViewTransaction.DataSource = userClient.transactionManager.GetReceivedTransactions(userClient.user);
         }
     }
 }

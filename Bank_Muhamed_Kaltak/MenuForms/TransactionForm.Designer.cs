@@ -36,19 +36,19 @@
             buttonDelete = new Button();
             buttonSent = new Button();
             dataGridViewTransaction = new DataGridView();
-            buttonSearch = new Button();
-            panelSearchAccount = new Panel();
-            pictureBox2 = new PictureBox();
-            textBoxSearchTransaction = new TextBox();
-            transactionBindingSource = new BindingSource(components);
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             amountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             transactionDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            transactionBindingSource = new BindingSource(components);
+            buttonSearch = new Button();
+            panelSearchAccount = new Panel();
+            pictureBox2 = new PictureBox();
+            textBoxSearchTransaction = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTransaction).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)transactionBindingSource).BeginInit();
             panelSearchAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)transactionBindingSource).BeginInit();
             SuspendLayout();
             // 
             // buttonReceived
@@ -65,6 +65,7 @@
             buttonReceived.TabIndex = 26;
             buttonReceived.Text = "Received";
             buttonReceived.UseVisualStyleBackColor = false;
+            buttonReceived.Click += buttonReceived_Click;
             // 
             // buttonDelete
             // 
@@ -95,6 +96,7 @@
             buttonSent.TabIndex = 24;
             buttonSent.Text = "Sent";
             buttonSent.UseVisualStyleBackColor = false;
+            buttonSent.Click += buttonSent_Click;
             // 
             // dataGridViewTransaction
             // 
@@ -144,57 +146,6 @@
             dataGridViewTransaction.Size = new Size(737, 386);
             dataGridViewTransaction.TabIndex = 23;
             // 
-            // buttonSearch
-            // 
-            buttonSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonSearch.BackColor = Color.LightSkyBlue;
-            buttonSearch.Cursor = Cursors.Hand;
-            buttonSearch.FlatStyle = FlatStyle.Flat;
-            buttonSearch.Font = new Font("Verdana Pro Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonSearch.ForeColor = Color.White;
-            buttonSearch.Location = new Point(619, 17);
-            buttonSearch.Name = "buttonSearch";
-            buttonSearch.Size = new Size(148, 35);
-            buttonSearch.TabIndex = 22;
-            buttonSearch.Text = "Search";
-            buttonSearch.UseVisualStyleBackColor = false;
-            // 
-            // panelSearchAccount
-            // 
-            panelSearchAccount.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panelSearchAccount.BackColor = SystemColors.Control;
-            panelSearchAccount.Controls.Add(pictureBox2);
-            panelSearchAccount.Controls.Add(textBoxSearchTransaction);
-            panelSearchAccount.Location = new Point(30, 17);
-            panelSearchAccount.Name = "panelSearchAccount";
-            panelSearchAccount.Size = new Size(583, 37);
-            panelSearchAccount.TabIndex = 21;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = Properties.Resources.passbook;
-            pictureBox2.Location = new Point(6, 4);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(24, 24);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 5;
-            pictureBox2.TabStop = false;
-            // 
-            // textBoxSearchTransaction
-            // 
-            textBoxSearchTransaction.BackColor = SystemColors.Control;
-            textBoxSearchTransaction.BorderStyle = BorderStyle.None;
-            textBoxSearchTransaction.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBoxSearchTransaction.Location = new Point(36, 8);
-            textBoxSearchTransaction.Name = "textBoxSearchTransaction";
-            textBoxSearchTransaction.PlaceholderText = "Search Transaction";
-            textBoxSearchTransaction.Size = new Size(544, 20);
-            textBoxSearchTransaction.TabIndex = 9;
-            // 
-            // transactionBindingSource
-            // 
-            transactionBindingSource.DataSource = typeof(DataAccessLibrary.Entity.Transaction);
-            // 
             // idDataGridViewTextBoxColumn
             // 
             idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -223,6 +174,57 @@
             transactionDateDataGridViewTextBoxColumn.Name = "transactionDateDataGridViewTextBoxColumn";
             transactionDateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // transactionBindingSource
+            // 
+            transactionBindingSource.DataSource = typeof(DataAccessLibrary.Entity.Transaction);
+            // 
+            // buttonSearch
+            // 
+            buttonSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonSearch.BackColor = Color.LightSkyBlue;
+            buttonSearch.Cursor = Cursors.Hand;
+            buttonSearch.FlatStyle = FlatStyle.Flat;
+            buttonSearch.Font = new Font("Verdana Pro Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonSearch.ForeColor = Color.White;
+            buttonSearch.Location = new Point(619, 17);
+            buttonSearch.Name = "buttonSearch";
+            buttonSearch.Size = new Size(148, 35);
+            buttonSearch.TabIndex = 22;
+            buttonSearch.Text = "Search";
+            buttonSearch.UseVisualStyleBackColor = false;
+            // 
+            // panelSearchAccount
+            // 
+            panelSearchAccount.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panelSearchAccount.BackColor = SystemColors.Control;
+            panelSearchAccount.Controls.Add(pictureBox2);
+            panelSearchAccount.Controls.Add(textBoxSearchTransaction);
+            panelSearchAccount.Location = new Point(30, 17);
+            panelSearchAccount.Name = "panelSearchAccount";
+            panelSearchAccount.Size = new Size(583, 37);
+            panelSearchAccount.TabIndex = 21;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.transaction;
+            pictureBox2.Location = new Point(6, 4);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(24, 24);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 5;
+            pictureBox2.TabStop = false;
+            // 
+            // textBoxSearchTransaction
+            // 
+            textBoxSearchTransaction.BackColor = SystemColors.Control;
+            textBoxSearchTransaction.BorderStyle = BorderStyle.None;
+            textBoxSearchTransaction.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxSearchTransaction.Location = new Point(36, 8);
+            textBoxSearchTransaction.Name = "textBoxSearchTransaction";
+            textBoxSearchTransaction.PlaceholderText = "Search Transaction";
+            textBoxSearchTransaction.Size = new Size(544, 20);
+            textBoxSearchTransaction.TabIndex = 9;
+            // 
             // TransactionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -239,10 +241,10 @@
             Text = "TransactionForm";
             Load += TransactionForm_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewTransaction).EndInit();
+            ((System.ComponentModel.ISupportInitialize)transactionBindingSource).EndInit();
             panelSearchAccount.ResumeLayout(false);
             panelSearchAccount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)transactionBindingSource).EndInit();
             ResumeLayout(false);
         }
 

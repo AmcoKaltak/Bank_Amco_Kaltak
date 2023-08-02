@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccessLibrary.DataContext;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataAccessLibrary
 {
@@ -189,6 +190,30 @@ namespace DataAccessLibrary
             using Context context = new Context();
 
             var transactions = context.Accounts.Where(a=> a.UserId == user.Id).SelectMany(a=> a.Transactions).OrderByDescending(t=> t.TransactionDate).ToList();
+
+            return transactions;
+        }
+
+        public List<Transaction> GetUserSentTransactions(User user)
+        {
+            using Context context = new Context();
+
+            var transactions = context.Transactions
+                .Include(t=> t.AccountTransactions)
+                .ThenInclude(at=> at.Account)
+                .Where(t=> t.AccountTransactions.Any(at=> at.TransactionType.Equals("Sender") && at.Account.UserId == user.Id)).OrderByDescending(t=> t.TransactionDate).AsSplitQuery().ToList();
+
+            return transactions;
+        }
+
+        public List<Transaction> GetUserReceivedTransactions(User user)
+        {
+            using Context context = new Context();
+
+            var transactions = context.Transactions
+                .Include(t => t.AccountTransactions)
+                .ThenInclude(at => at.Account)
+                .Where(t => t.AccountTransactions.Any(at => at.TransactionType.Equals("Receiver") && at.Account.UserId == user.Id)).OrderByDescending(t => t.TransactionDate).AsSplitQuery().ToList();
 
             return transactions;
         }
