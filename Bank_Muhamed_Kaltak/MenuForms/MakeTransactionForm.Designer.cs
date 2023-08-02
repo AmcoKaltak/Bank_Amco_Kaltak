@@ -255,6 +255,7 @@
             buttonCommitTransaction.TabIndex = 14;
             buttonCommitTransaction.Text = "Send Transaction";
             buttonCommitTransaction.UseVisualStyleBackColor = false;
+            buttonCommitTransaction.Click += buttonCommitTransaction_Click;
             // 
             // panel3
             // 

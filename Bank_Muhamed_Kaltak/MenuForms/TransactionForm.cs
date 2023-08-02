@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business_Layer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,22 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 {
     public partial class TransactionForm : Form
     {
+        public UserClient userClient { get; set; }
+
         public TransactionForm()
         {
             InitializeComponent();
+        }
+
+        private void TransactionForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void GetUserTransactions()
+        {
+
         }
     }
 }

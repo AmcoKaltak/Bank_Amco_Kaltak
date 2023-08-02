@@ -71,5 +71,9 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             }
         }
 
+        private void buttonCommitTransaction_Click(object sender, EventArgs e)
+        {
+            userClient.transactionManager.MakeTransaction(userClient.transactionManager.senderAccount, userClient.transactionManager.receiverAccount, textBoxTransactionName.Text, float.Parse(textBoxTransactionAmount.Text));
+        }
     }
 }

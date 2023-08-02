@@ -38,7 +38,7 @@
             buttonSearch = new Button();
             panelSearchAccount = new Panel();
             pictureBox2 = new PictureBox();
-            textBoxSearchAccount = new TextBox();
+            textBoxSearchTransaction = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewAccount).BeginInit();
             panelSearchAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -154,7 +154,7 @@
             panelSearchAccount.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panelSearchAccount.BackColor = SystemColors.Control;
             panelSearchAccount.Controls.Add(pictureBox2);
-            panelSearchAccount.Controls.Add(textBoxSearchAccount);
+            panelSearchAccount.Controls.Add(textBoxSearchTransaction);
             panelSearchAccount.Location = new Point(30, 17);
             panelSearchAccount.Name = "panelSearchAccount";
             panelSearchAccount.Size = new Size(583, 37);
@@ -170,16 +170,16 @@
             pictureBox2.TabIndex = 5;
             pictureBox2.TabStop = false;
             // 
-            // textBoxSearchAccount
+            // textBoxSearchTransaction
             // 
-            textBoxSearchAccount.BackColor = SystemColors.Control;
-            textBoxSearchAccount.BorderStyle = BorderStyle.None;
-            textBoxSearchAccount.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBoxSearchAccount.Location = new Point(36, 8);
-            textBoxSearchAccount.Name = "textBoxSearchAccount";
-            textBoxSearchAccount.PlaceholderText = "Search Transaction";
-            textBoxSearchAccount.Size = new Size(544, 20);
-            textBoxSearchAccount.TabIndex = 9;
+            textBoxSearchTransaction.BackColor = SystemColors.Control;
+            textBoxSearchTransaction.BorderStyle = BorderStyle.None;
+            textBoxSearchTransaction.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxSearchTransaction.Location = new Point(36, 8);
+            textBoxSearchTransaction.Name = "textBoxSearchTransaction";
+            textBoxSearchTransaction.PlaceholderText = "Search Transaction";
+            textBoxSearchTransaction.Size = new Size(544, 20);
+            textBoxSearchTransaction.TabIndex = 9;
             // 
             // TransactionForm
             // 
@@ -195,6 +195,7 @@
             Controls.Add(panelSearchAccount);
             Name = "TransactionForm";
             Text = "TransactionForm";
+            Load += TransactionForm_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewAccount).EndInit();
             panelSearchAccount.ResumeLayout(false);
             panelSearchAccount.PerformLayout();
@@ -211,6 +212,6 @@
         private Button buttonSearch;
         private Panel panelSearchAccount;
         private PictureBox pictureBox2;
-        private TextBox textBoxSearchAccount;
+        private TextBox textBoxSearchTransaction;
     }
 }

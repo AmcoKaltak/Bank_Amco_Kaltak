@@ -1,4 +1,6 @@
-﻿using DataAccessLibrary.Entity;
+﻿using DataAccessLibrary;
+using DataAccessLibrary.Entity;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +14,16 @@ namespace Business_Layer
         public Account senderAccount;
         public Account receiverAccount;
 
-        public void CommitTransaction()
-        {
+        DBOperations dBOperations = new DBOperations();
 
+        public void MakeTransaction(Account senderAccount, Account receiverAccount, string name, float amount)
+        {
+            if (name.IsNullOrEmpty())
+            {
+                name = $"Transaction between {senderAccount.AccountName} and {receiverAccount.AccountName} ";
+            }
+
+            dBOperations.Transaction(senderAccount, receiverAccount, name, amount);
         }
     }
 }

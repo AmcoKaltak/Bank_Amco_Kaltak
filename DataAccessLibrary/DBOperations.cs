@@ -10,6 +10,59 @@ namespace DataAccessLibrary
 {
     public class DBOperations
     {
+
+        public void Transaction(Account senderAccount, Account receiverAccount, string name, float amount)
+        {
+            using Context context = new Context();
+
+            var sender = context.Accounts.First(a => a.Id == senderAccount.Id);
+            var receiver = context.Accounts.First(a=> a.Id == receiverAccount.Id);
+
+            if (sender != null && receiver != null)
+            {
+
+                Transaction transaction = new Transaction();
+
+                transaction.Name = name;
+                transaction.Amount = amount;
+                transaction.TransactionDate = DateTime.Now;
+
+                AddTransaction(transaction);
+
+                var accountTransactionSender = new AccountTransaction
+                {
+                    AccountId = sender.Id,
+                    TransactionId = transaction.Id,
+                    TransactionType = "Sender"
+                };
+
+                var accountTransactionReceiver = new AccountTransaction
+                {
+                    AccountId = receiver.Id,
+                    TransactionId = transaction.Id,
+                    TransactionType = "Receiver"
+                };
+
+                context.AccountTransactions.AddRange(accountTransactionSender,accountTransactionReceiver);
+
+
+                sender.Money -= amount;
+                receiver.Money -= amount;
+
+                context.SaveChanges();
+
+            }
+        }
+
+        public void AddTransaction(Transaction transaction)
+        {
+            Context context = new Context();
+
+            context.Transactions.Add(transaction);
+
+            context.SaveChanges();
+        }
+
         public void AddAccountToUser(User user,Account account)
         {
             using Context context = new Context();
