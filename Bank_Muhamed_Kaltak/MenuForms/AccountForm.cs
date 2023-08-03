@@ -54,7 +54,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
         {
             if (SelectedAccountValid())
             {
-                userClient.accountManager.DeleteAccount(userClient.account);
+                userClient.accountManager.DeleteAccount(userClient.selectedAccount);
 
                 AddAccountsToDatagridviewFromClient();
             }
@@ -80,7 +80,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             }
             else
             {
-                userClient.account = selectedAccount;
+                userClient.selectedAccount = selectedAccount;
             }
         }
 
@@ -138,11 +138,12 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private bool SelectedAccountValid()
         {
-            if (userClient.account != null)
+            if (userClient.selectedAccount != null)
             {
                 return true;
             }
 
+            UINotification.Popup(Color.Red, "ERROR", "You have not selected an account");
             return false;
         }
 

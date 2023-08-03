@@ -25,6 +25,11 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             GetUserTransactions();
         }
 
+        private void buttonAll_Click(object sender, EventArgs e)
+        {
+            GetUserTransactions();
+        }
+
         private void buttonSent_Click(object sender, EventArgs e)
         {
             GetUserSentTransactions();
@@ -33,6 +38,23 @@ namespace Bank_Muhamed_Kaltak.MenuForms
         private void buttonReceived_Click(object sender, EventArgs e)
         {
             GetUserReceivedTransactions();
+        }
+
+        private void buttonDetail_Click(object sender, EventArgs e)
+        {
+            ChangeToTransactionDetail();
+        }
+
+        private void dataGridViewTransaction_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            userClient.selectedTransaction = (DataAccessLibrary.Entity.Transaction)dataGridViewTransaction.SelectedRows[0].DataBoundItem;
+        }
+
+        private void dataGridViewTransaction_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            userClient.selectedTransaction = (DataAccessLibrary.Entity.Transaction)dataGridViewTransaction.SelectedRows[0].DataBoundItem;
+
+            ChangeToTransactionDetail();
         }
 
         private void GetUserTransactions()
@@ -49,5 +71,31 @@ namespace Bank_Muhamed_Kaltak.MenuForms
         {
             dataGridViewTransaction.DataSource = userClient.transactionManager.GetReceivedTransactions(userClient.user);
         }
+
+        private void ChangeToTransactionDetail()
+        {
+
+            if (SelectedTransactionValid())
+            {
+                TransactionDetailForm transactionDetail = new TransactionDetailForm();
+
+                transactionDetail.userClient = userClient;
+
+                FormChanger.OpenForm(transactionDetail);
+            }
+            
+        }
+
+        private bool SelectedTransactionValid()
+        {
+            if (userClient.selectedTransaction != null)
+            {
+                return true;
+            }
+
+            UINotification.Popup(Color.Red, "ERROR", "You have not selected an account");
+            return false;
+        }
+
     }
 }

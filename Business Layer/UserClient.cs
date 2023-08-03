@@ -14,7 +14,8 @@ namespace Business_Layer
     {
         public User user;
 
-        public Account account;
+        public Account selectedAccount;
+        public Transaction selectedTransaction;
 
         public AccountManager accountManager;
         public TransactionManager transactionManager;
