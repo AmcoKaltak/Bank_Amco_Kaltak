@@ -167,6 +167,39 @@ namespace DataAccessLibrary
             return user;
         }
 
+        public User GetUserFromAccount(Account account)
+        {
+            using Context context = new Context();
+
+            var user = context.Users.Where(u => u.Accounts.Any(a => a.Id == account.Id)).First();
+
+            return user;
+        }
+
+        public Account GetSenderAccountFromTransaction(Transaction transaction)
+        {
+            using Context context = new Context();
+
+            var account = context.Accounts
+                .Include(a=> a.AccountTransactions)
+                .ThenInclude(at=> at.Transaction)
+                .Where(a=> a.AccountTransactions.Any(at=> at.TransactionType.Equals("Sender") && at.Transaction.Id == transaction.Id)).AsSplitQuery().First();
+
+            return account;
+        }
+
+        public Account GetReceiverAccountFromTransaction(Transaction transaction)
+        {
+            using Context context = new Context();
+
+            var account = context.Accounts
+                .Include(a => a.AccountTransactions)
+                .ThenInclude(at => at.Transaction)
+                .Where(a => a.AccountTransactions.Any(at => at.TransactionType.Equals("Receiver") && at.Transaction.Id == transaction.Id)).AsSplitQuery().First();
+
+            return account;
+        }
+
         public List<Account> GetUserAccounts(User user)
         {
             using Context context = new Context();

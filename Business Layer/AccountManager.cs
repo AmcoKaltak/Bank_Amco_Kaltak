@@ -39,6 +39,7 @@ namespace Business_Layer
         {
             dBOperations.DeleteAccount(account);
         }
+
         public List<Account> GetAccounts(User user)
         {
             var accounts = dBOperations.GetUserAccounts(user);
@@ -52,6 +53,11 @@ namespace Business_Layer
             var accountsSearched = dBOperations.GetUserSearchedAccounts(user, search);
 
             return accountsSearched;
+        }
+
+        public User GetUserFromAccount(Account account)
+        {
+            return dBOperations.GetUserFromAccount(account);
         }
     }
 }

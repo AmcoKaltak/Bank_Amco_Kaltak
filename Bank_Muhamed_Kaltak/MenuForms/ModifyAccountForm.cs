@@ -34,7 +34,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             else
             {
                 labelDetail.Text = "Edit selected account";
-                textBoxAccount.Text = userClient.account.AccountName;
+                textBoxAccount.Text = userClient.selectedAccount.AccountName;
             }
         }
 
@@ -50,7 +50,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             }
             else
             {
-                userClient.accountManager.UpdateAccount(userClient.account,textBoxAccount.Text);
+                userClient.accountManager.UpdateAccount(userClient.selectedAccount,textBoxAccount.Text);
 
                 ReturnToAccountForm();
             }

@@ -40,5 +40,16 @@ namespace Business_Layer
         {
             return dBOperations.GetUserReceivedTransactions(user);
         }
+
+        public Account GetSenderAccountFromTransaction(Transaction transaction)
+        {
+            return dBOperations.GetSenderAccountFromTransaction(transaction);
+        }
+
+        public Account GetReceiverAccountFromTransaction(Transaction transaction)
+        {
+            return dBOperations.GetReceiverAccountFromTransaction(transaction);
+        }
+
     }
 }
