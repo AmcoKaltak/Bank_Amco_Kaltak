@@ -84,6 +84,20 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             }
         }
 
+
+        private void dataGridViewAccount_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            userClient.selectedAccount = (DataAccessLibrary.Entity.Account)dataGridViewAccount.SelectedRows[0].DataBoundItem;
+
+            TransactionForm transactionForm = new TransactionForm();
+
+            transactionForm.userClient = userClient;
+
+            transactionForm.isAccountTransactions = true;
+
+            FormChanger.OpenForm(transactionForm);
+        }
+
         private void textBoxSearchAccount_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -146,7 +160,6 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             UINotification.Popup(Color.Red, "ERROR", "You have not selected an account");
             return false;
         }
-
 
 
     }

@@ -57,7 +57,7 @@ namespace DataAccessLibrary
 
 
                 sender.Money -= amount;
-                receiver.Money -= amount;
+                receiver.Money += amount;
 
                 context.SaveChanges();
 
@@ -216,6 +216,39 @@ namespace DataAccessLibrary
             var accounts = context.Accounts.Where(a => a.UserId == user.Id && a.AccountName.Contains(search)).ToList();
 
             return accounts;
+        }
+
+        public List<Transaction> GetAccountTransactions(Account account)
+        {
+            using Context context = new Context();
+
+            var transactions = context.Accounts.Where(a => a.Id == account.Id).SelectMany(a => a.Transactions).OrderByDescending(t => t.TransactionDate).ToList();
+
+            return transactions;
+        }
+
+        public List<Transaction> GetAccountSentTransactions(Account account)
+        {
+            using Context context = new Context();
+
+            var transactions = context.Transactions
+                .Include(t => t.AccountTransactions)
+                .ThenInclude(at => at.Account)
+                .Where(t => t.AccountTransactions.Any(at => at.TransactionType.Equals("Sender") && at.Account.Id == account.Id)).OrderByDescending(t => t.TransactionDate).AsSplitQuery().ToList();
+
+            return transactions;
+        }
+
+        public List<Transaction> GetAccountReceivedTransactions(Account account)
+        {
+            using Context context = new Context();
+
+            var transactions = context.Transactions
+                .Include(t => t.AccountTransactions)
+                .ThenInclude(at => at.Account)
+                .Where(t => t.AccountTransactions.Any(at => at.TransactionType.Equals("Receiver") && at.Account.Id == account.Id)).OrderByDescending(t => t.TransactionDate).AsSplitQuery().ToList();
+
+            return transactions;
         }
 
         public List<Transaction> GetUserTransactions (User user)

@@ -37,19 +37,24 @@
             buttonDelete = new Button();
             buttonAddAccount = new Button();
             dataGridViewAccount = new DataGridView();
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            accountNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            moneyDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            accountCodeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             buttonSearch = new Button();
             panelSearchAccount = new Panel();
             pictureBox2 = new PictureBox();
             textBoxSearchAccount = new TextBox();
             buttonExternalAccount = new Button();
+            buttonDetail = new Button();
+            accountBindingSource1 = new BindingSource(components);
+            accountBindingSource2 = new BindingSource(components);
+            Id = new DataGridViewTextBoxColumn();
+            AccountName = new DataGridViewTextBoxColumn();
+            Money = new DataGridViewTextBoxColumn();
+            AccountCode = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)accountBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewAccount).BeginInit();
             panelSearchAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)accountBindingSource1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)accountBindingSource2).BeginInit();
             SuspendLayout();
             // 
             // accountBindingSource
@@ -126,8 +131,8 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridViewAccount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewAccount.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewAccount.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, accountNameDataGridViewTextBoxColumn, moneyDataGridViewTextBoxColumn, accountCodeDataGridViewTextBoxColumn });
-            dataGridViewAccount.DataSource = accountBindingSource;
+            dataGridViewAccount.Columns.AddRange(new DataGridViewColumn[] { Id, AccountName, Money, AccountCode });
+            dataGridViewAccount.DataSource = accountBindingSource2;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -152,38 +157,7 @@
             dataGridViewAccount.Size = new Size(737, 386);
             dataGridViewAccount.TabIndex = 17;
             dataGridViewAccount.CellClick += dataGridViewAccount_CellClick;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.FillWeight = 63.39143F;
-            idDataGridViewTextBoxColumn.HeaderText = "ID";
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // accountNameDataGridViewTextBoxColumn
-            // 
-            accountNameDataGridViewTextBoxColumn.DataPropertyName = "accountName";
-            accountNameDataGridViewTextBoxColumn.FillWeight = 89.17335F;
-            accountNameDataGridViewTextBoxColumn.HeaderText = "Name";
-            accountNameDataGridViewTextBoxColumn.Name = "accountNameDataGridViewTextBoxColumn";
-            accountNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // moneyDataGridViewTextBoxColumn
-            // 
-            moneyDataGridViewTextBoxColumn.DataPropertyName = "money";
-            moneyDataGridViewTextBoxColumn.FillWeight = 113.345818F;
-            moneyDataGridViewTextBoxColumn.HeaderText = "Money";
-            moneyDataGridViewTextBoxColumn.Name = "moneyDataGridViewTextBoxColumn";
-            moneyDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // accountCodeDataGridViewTextBoxColumn
-            // 
-            accountCodeDataGridViewTextBoxColumn.DataPropertyName = "accountCode";
-            accountCodeDataGridViewTextBoxColumn.FillWeight = 134.089371F;
-            accountCodeDataGridViewTextBoxColumn.HeaderText = "Code";
-            accountCodeDataGridViewTextBoxColumn.Name = "accountCodeDataGridViewTextBoxColumn";
-            accountCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            dataGridViewAccount.CellDoubleClick += dataGridViewAccount_CellDoubleClick;
             // 
             // buttonSearch
             // 
@@ -249,12 +223,64 @@
             buttonExternalAccount.Text = "External account";
             buttonExternalAccount.UseVisualStyleBackColor = false;
             // 
+            // buttonDetail
+            // 
+            buttonDetail.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonDetail.BackColor = Color.LightSkyBlue;
+            buttonDetail.Cursor = Cursors.Hand;
+            buttonDetail.FlatStyle = FlatStyle.Flat;
+            buttonDetail.Font = new Font("Verdana Pro Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonDetail.ForeColor = Color.White;
+            buttonDetail.Location = new Point(773, 192);
+            buttonDetail.Name = "buttonDetail";
+            buttonDetail.Size = new Size(85, 35);
+            buttonDetail.TabIndex = 27;
+            buttonDetail.Text = "Details";
+            buttonDetail.UseVisualStyleBackColor = false;
+            // 
+            // accountBindingSource1
+            // 
+            accountBindingSource1.DataSource = typeof(DataAccessLibrary.Entity.Account);
+            // 
+            // accountBindingSource2
+            // 
+            accountBindingSource2.DataSource = typeof(DataAccessLibrary.Entity.Account);
+            // 
+            // Id
+            // 
+            Id.DataPropertyName = "Id";
+            Id.HeaderText = "Id";
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            // 
+            // AccountName
+            // 
+            AccountName.DataPropertyName = "AccountName";
+            AccountName.HeaderText = "AccountName";
+            AccountName.Name = "AccountName";
+            AccountName.ReadOnly = true;
+            // 
+            // Money
+            // 
+            Money.DataPropertyName = "Money";
+            Money.HeaderText = "Money";
+            Money.Name = "Money";
+            Money.ReadOnly = true;
+            // 
+            // AccountCode
+            // 
+            AccountCode.DataPropertyName = "AccountCode";
+            AccountCode.HeaderText = "AccountCode";
+            AccountCode.Name = "AccountCode";
+            AccountCode.ReadOnly = true;
+            // 
             // AccountForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(888, 462);
+            Controls.Add(buttonDetail);
             Controls.Add(buttonExternalAccount);
             Controls.Add(buttonEdit);
             Controls.Add(buttonDelete);
@@ -270,6 +296,8 @@
             panelSearchAccount.ResumeLayout(false);
             panelSearchAccount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)accountBindingSource1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)accountBindingSource2).EndInit();
             ResumeLayout(false);
         }
 
@@ -283,10 +311,16 @@
         private Panel panelSearchAccount;
         private PictureBox pictureBox2;
         private TextBox textBoxSearchAccount;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn accountNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn moneyDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn accountCodeDataGridViewTextBoxColumn;
         private Button buttonExternalAccount;
+        private Button buttonDetail;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn AccountName;
+        private DataGridViewTextBoxColumn Money;
+        private DataGridViewTextBoxColumn AccountCode;
+        private BindingSource accountBindingSource2;
+        private BindingSource accountBindingSource1;
     }
 }

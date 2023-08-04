@@ -26,22 +26,37 @@ namespace Business_Layer
             dBOperations.Transaction(senderAccount, receiverAccount, name, amount);
         }
 
-        public List<Transaction> GetTransactions(User user)
+        public List<Transaction> GetUserTransactions(User user)
         {
             return dBOperations.GetUserTransactions(user);
         }
 
-        public List<Transaction> GetSentTransactions(User user)
+        public List<Transaction> GetUserSentTransactions(User user)
         {
             return dBOperations.GetUserSentTransactions(user);
         }
 
-        public List<Transaction> GetReceivedTransactions (User user)
+        public List<Transaction> GetUserReceivedTransactions (User user)
         {
             return dBOperations.GetUserReceivedTransactions(user);
         }
 
-        public Account GetSenderAccountFromTransaction(Transaction transaction)
+        public List<Transaction> GetAccountTransactions(Account account)
+        {
+            return dBOperations.GetAccountTransactions(account);
+        }
+
+        public List<Transaction> GetAccountSentTransactions(Account account)
+        {
+            return dBOperations.GetAccountSentTransactions(account);
+        }
+
+        public List<Transaction> GetAccountReceivedTransactions(Account account)
+        {
+            return dBOperations.GetAccountReceivedTransactions(account);
+        }
+
+        public Account GetSenderAccountFromTransaction(Transaction transaction) //Flytta dessa två nedanför till accountmanager
         {
             return dBOperations.GetSenderAccountFromTransaction(transaction);
         }

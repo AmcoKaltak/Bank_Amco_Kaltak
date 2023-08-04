@@ -15,6 +15,8 @@ namespace Bank_Muhamed_Kaltak.MenuForms
     {
         public UserClient userClient { get; set; }
 
+        public bool isAccountTransactions { get; set; }
+
         public TransactionForm()
         {
             InitializeComponent();
@@ -22,22 +24,50 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void TransactionForm_Load(object sender, EventArgs e)
         {
-            GetUserTransactions();
+            if (isAccountTransactions)
+            {
+                GetAccountTransactions();
+            }
+            else
+            {
+                GetUserTransactions();
+            }
         }
 
         private void buttonAll_Click(object sender, EventArgs e)
         {
-            GetUserTransactions();
+            if (isAccountTransactions)
+            {
+                GetAccountTransactions();
+            }
+            else
+            {
+                GetUserTransactions();
+            }
         }
 
         private void buttonSent_Click(object sender, EventArgs e)
         {
-            GetUserSentTransactions();
+            if (isAccountTransactions)
+            {
+                GetAccountSentTransactions();
+            }
+            else
+            {
+                GetUserSentTransactions();
+            }
         }
 
         private void buttonReceived_Click(object sender, EventArgs e)
         {
-            GetUserReceivedTransactions();
+            if (isAccountTransactions)
+            {
+                GetAccountReceivedTransactions();
+            }
+            else
+            {
+                GetUserReceivedTransactions();
+            }
         }
 
         private void buttonDetail_Click(object sender, EventArgs e)
@@ -59,17 +89,32 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void GetUserTransactions()
         {
-            dataGridViewTransaction.DataSource = userClient.transactionManager.GetTransactions(userClient.user);
+            dataGridViewTransaction.DataSource = userClient.transactionManager.GetUserTransactions(userClient.user);
         }
 
         private void GetUserSentTransactions()
         {
-            dataGridViewTransaction.DataSource = userClient.transactionManager.GetSentTransactions(userClient.user);
+            dataGridViewTransaction.DataSource = userClient.transactionManager.GetUserSentTransactions(userClient.user);
         }
 
         private void GetUserReceivedTransactions()
         {
-            dataGridViewTransaction.DataSource = userClient.transactionManager.GetReceivedTransactions(userClient.user);
+            dataGridViewTransaction.DataSource = userClient.transactionManager.GetUserReceivedTransactions(userClient.user);
+        }
+
+        private void GetAccountTransactions()
+        {
+            dataGridViewTransaction.DataSource = userClient.transactionManager.GetAccountTransactions(userClient.selectedAccount);
+        }
+
+        private void GetAccountSentTransactions()
+        {
+            dataGridViewTransaction.DataSource = userClient.transactionManager.GetAccountSentTransactions(userClient.selectedAccount);
+        }
+        
+        private void GetAccountReceivedTransactions()
+        {
+            dataGridViewTransaction.DataSource = userClient.transactionManager.GetAccountReceivedTransactions(userClient.selectedAccount);
         }
 
         private void ChangeToTransactionDetail()
@@ -83,7 +128,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
                 FormChanger.OpenForm(transactionDetail);
             }
-            
+
         }
 
         private bool SelectedTransactionValid()
