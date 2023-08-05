@@ -24,6 +24,22 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             InitializeComponent();
         }
 
+        private void AccountForm_Load(object sender, EventArgs e)
+        {
+            AddAccountsToDatagridviewFromClient();
+
+            if (isTransactionAccountSelection)
+            {
+                buttonAddAccount.Visible = false;
+                buttonEdit.Visible = false;
+                buttonDelete.Visible = false;
+            }
+            else
+            {
+                buttonExternalAccount.Visible = false;
+            }
+        }
+
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             SearchAccount();
@@ -60,6 +76,14 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             }
         }
 
+        private void buttonDetail_Click(object sender, EventArgs e)
+        {
+            if (SelectedAccountValid())
+            {
+                AccountTransactionDetails();
+            }
+        }
+
         private void dataGridViewAccount_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var selectedAccount = (DataAccessLibrary.Entity.Account)dataGridViewAccount.SelectedRows[0].DataBoundItem;
@@ -87,15 +111,10 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void dataGridViewAccount_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            userClient.selectedAccount = (DataAccessLibrary.Entity.Account)dataGridViewAccount.SelectedRows[0].DataBoundItem;
-
-            TransactionForm transactionForm = new TransactionForm();
-
-            transactionForm.userClient = userClient;
-
-            transactionForm.isAccountTransactions = true;
-
-            FormChanger.OpenForm(transactionForm);
+            if (SelectedAccountValid())
+            {
+                AccountTransactionDetails();
+            }
         }
 
         private void textBoxSearchAccount_KeyDown(object sender, KeyEventArgs e)
@@ -118,22 +137,6 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             modifyAccount.userClient = userClient;
 
             return modifyAccount;
-        }
-
-        private void AccountForm_Load(object sender, EventArgs e)
-        {
-            AddAccountsToDatagridviewFromClient();
-
-            if (isTransactionAccountSelection)
-            {
-                buttonAddAccount.Visible = false;
-                buttonEdit.Visible = false;
-                buttonDelete.Visible = false;
-            }
-            else
-            {
-                buttonExternalAccount.Visible = false;
-            }
         }
 
         private void SearchAccount()
@@ -161,6 +164,16 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             return false;
         }
 
+        private void AccountTransactionDetails()
+        {
+            TransactionForm transactionForm = new TransactionForm();
 
+            transactionForm.userClient = userClient;
+
+            transactionForm.isAccountTransactions = true;
+
+            FormChanger.OpenForm(transactionForm);
+        }
+ 
     }
 }
