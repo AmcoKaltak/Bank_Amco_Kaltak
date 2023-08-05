@@ -14,6 +14,9 @@ namespace DataAccessLibrary.Entity
         public float Money { get; set; }
         public string AccountCode { get; set; }
 
+        //Ska användas för Soft Delete
+        public bool IsDeleleted { get; set; }
+
 
         public User User { get; set; } = null!;
 

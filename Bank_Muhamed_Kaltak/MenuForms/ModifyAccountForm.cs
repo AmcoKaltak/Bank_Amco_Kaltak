@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business_Layer;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Bank_Muhamed_Kaltak.MenuForms
 {
@@ -40,7 +41,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void buttonSaveChanges_Click(object sender, EventArgs e)
         {
-            if (isAdd)
+            if (isAdd && ValidSaveChange())
             {
 
                 userClient.accountManager.AddNewAccount(userClient.user,textBoxAccount.Text);
@@ -48,7 +49,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
                 ReturnToAccountForm();
                
             }
-            else
+            else if(isEdit && ValidSaveChange())
             {
                 userClient.accountManager.UpdateAccount(userClient.selectedAccount,textBoxAccount.Text);
 
@@ -70,6 +71,17 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             accountForm.userClient = userClient;
 
             FormChanger.OpenForm(accountForm);
+        }
+
+        private bool ValidSaveChange()
+        {
+            if (!textBoxAccount.Text.IsNullOrEmpty())
+            {
+                return true;
+            }
+
+            UINotification.Popup(Color.Red, "ERROR", "Please put in a value for the account name");
+            return false;
         }
     }
 }

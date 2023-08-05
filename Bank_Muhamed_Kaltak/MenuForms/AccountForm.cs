@@ -68,11 +68,16 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if (SelectedAccountValid())
+            if (SelectedAccountValid() && EnoughAccounts())
             {
                 userClient.accountManager.DeleteAccount(userClient.selectedAccount);
 
                 AddAccountsToDatagridviewFromClient();
+
+                var accountRetrieverFromDeletion = (DataAccessLibrary.Entity.Account)dataGridViewAccount.Rows[0].DataBoundItem;
+
+                UINotification.Popup(Color.Green, "Deletion of an account",
+                        $"Succesfully deleted {userClient.selectedAccount.AccountName}, {userClient.selectedAccount.Money} kr from the account has been transferred to {accountRetrieverFromDeletion.AccountName} ");
             }
         }
 
@@ -161,6 +166,17 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             }
 
             UINotification.Popup(Color.Red, "ERROR", "You have not selected an account");
+            return false;
+        }
+
+        private bool EnoughAccounts()
+        {
+            if (dataGridViewAccount.RowCount > 1)
+            {
+                return true;
+            }
+
+            UINotification.Popup(Color.Red, "ERROR", "You cannot delete your only left account");
             return false;
         }
 

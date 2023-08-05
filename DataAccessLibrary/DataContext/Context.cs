@@ -23,10 +23,17 @@ namespace DataAccessLibrary.DataContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Many-to-many mellan Account och Transaction
             modelBuilder.Entity<Transaction>()
                 .HasMany(t => t.Accounts)
                 .WithMany(t => t.Transactions)
                 .UsingEntity<AccountTransaction>();
+
+            //Soft Delete värdet i Account ska ha en default värde av False
+            modelBuilder.Entity<Account>()
+                .Property(a => a.IsDeleleted)
+                .HasDefaultValue(false);
+
         }
     }
 }

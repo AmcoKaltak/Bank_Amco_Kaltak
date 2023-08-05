@@ -204,7 +204,7 @@ namespace DataAccessLibrary
         {
             using Context context = new Context();
 
-            var accounts = context.Accounts.Where(a => a.UserId == user.Id).ToList();
+            var accounts = context.Accounts.Where(a => a.UserId == user.Id && a.IsDeleleted == false).ToList();
 
             return accounts;
         }
@@ -309,7 +309,21 @@ namespace DataAccessLibrary
 
             if (accountClient != null)
             {
-                context.Remove(accountClient);
+                if (accountClient.Money > 0)
+                {
+                    Random random = new Random();
+
+                    var randomAccountFromUser = context.Accounts
+                        .Where(a => a.UserId == account.UserId)
+                        .First();
+
+                    if (randomAccountFromUser != null)
+                    {
+                        randomAccountFromUser.Money += accountClient.Money;
+                    }
+                }
+
+                accountClient.IsDeleleted = true;
             }
 
             context.SaveChanges();
