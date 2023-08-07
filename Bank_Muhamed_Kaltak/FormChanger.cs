@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bank_Muhamed_Kaltak.MenuForms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,33 @@ namespace Bank_Muhamed_Kaltak
             activePanel.Tag = form;
             form.BringToFront();
             form.Show();
+        }
+
+        public static void OpenPopupForm(Form popup)
+        {
+            Form formBackground = new Form();
+            try
+            {
+                using (popup)
+                {
+                    formBackground.FormBorderStyle = FormBorderStyle.None;
+                    formBackground.Opacity = 0.7d;
+                    formBackground.BackColor = Color.Black;
+                    formBackground.WindowState = FormWindowState.Maximized;
+                    formBackground.TopMost = true;
+                    formBackground.ShowInTaskbar = false;
+                    formBackground.Show();
+
+                    popup.Owner = formBackground;
+                    popup.ShowDialog();
+
+                    formBackground.Dispose();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public static void CloseForm(Form form)

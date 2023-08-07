@@ -33,6 +33,13 @@ namespace Bank_Muhamed_Kaltak.MenuForms
                 buttonAddAccount.Visible = false;
                 buttonEdit.Visible = false;
                 buttonDelete.Visible = false;
+                buttonDetail.Visible = false;
+
+
+                if (isTransactionAccountFrom)
+                {
+                    buttonExternalAccount.Visible = false;
+                }
             }
             else
             {
@@ -113,6 +120,10 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             }
         }
 
+        private void buttonExternalAccount_Click(object sender, EventArgs e)
+        {
+            GetToRetrieveExternalAccountForm();
+        }
 
         private void dataGridViewAccount_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -147,6 +158,17 @@ namespace Bank_Muhamed_Kaltak.MenuForms
         private void SearchAccount()
         {
             dataGridViewAccount.DataSource = userClient.accountManager.GetSearchedAccounts(userClient.user, textBoxSearchAccount.Text);
+        }
+
+        private void GetToRetrieveExternalAccountForm()
+        {
+            RetrieveExternalAccountForm retrieveExternalAccountForm = new RetrieveExternalAccountForm();
+
+            retrieveExternalAccountForm.userClient = userClient;
+
+            //FormChanger.OpenForm(retrieveExternalAccountForm);
+
+            FormChanger.OpenPopupForm(retrieveExternalAccountForm);
         }
 
         private void ReturnToMakeTransaction()
@@ -190,6 +212,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
             FormChanger.OpenForm(transactionForm);
         }
- 
+
+
     }
 }

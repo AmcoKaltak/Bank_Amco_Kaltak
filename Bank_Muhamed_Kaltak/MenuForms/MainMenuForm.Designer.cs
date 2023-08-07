@@ -410,6 +410,7 @@
             Controls.Add(panelSideMenu);
             MinimumSize = new Size(1150, 600);
             Name = "MainMenuForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MainMenuForm";
             Load += MainMenuForm_Load;
             Resize += MainMenuForm_Resize;

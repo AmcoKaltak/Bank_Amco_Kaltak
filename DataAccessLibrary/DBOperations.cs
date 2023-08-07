@@ -16,8 +16,8 @@ namespace DataAccessLibrary
         {
             using Context context = new Context();
 
-            var sender = context.Accounts.First(a => a.Id == senderAccount.Id);
-            var receiver = context.Accounts.First(a=> a.Id == receiverAccount.Id);
+            var sender = context.Accounts.FirstOrDefault(a => a.Id == senderAccount.Id);
+            var receiver = context.Accounts.FirstOrDefault(a=> a.Id == receiverAccount.Id);
 
             if (sender != null && receiver != null)
             {
@@ -171,7 +171,7 @@ namespace DataAccessLibrary
         {
             using Context context = new Context();
 
-            var user = context.Users.Where(u => u.Accounts.Any(a => a.Id == account.Id)).First();
+            var user = context.Users.Where(u => u.Accounts.Any(a => a.Id == account.Id)).FirstOrDefault();
 
             return user;
         }
@@ -188,6 +188,15 @@ namespace DataAccessLibrary
             return account;
         }
 
+        public Account GetAccountFromEmailAndAccountCode(string email, string accountCode)
+        {
+            using Context context = new Context();
+
+            var account = context.Accounts.Where(a=> a.User.Email == email && a.AccountCode == accountCode).FirstOrDefault();
+
+            return account;
+        }
+
         public Account GetReceiverAccountFromTransaction(Transaction transaction)
         {
             using Context context = new Context();
@@ -195,7 +204,7 @@ namespace DataAccessLibrary
             var account = context.Accounts
                 .Include(a => a.AccountTransactions)
                 .ThenInclude(at => at.Transaction)
-                .Where(a => a.AccountTransactions.Any(at => at.TransactionType.Equals("Receiver") && at.Transaction.Id == transaction.Id)).AsSplitQuery().First();
+                .Where(a => a.AccountTransactions.Any(at => at.TransactionType.Equals("Receiver") && at.Transaction.Id == transaction.Id)).AsSplitQuery().FirstOrDefault();
 
             return account;
         }
@@ -315,7 +324,7 @@ namespace DataAccessLibrary
 
                     var randomAccountFromUser = context.Accounts
                         .Where(a => a.UserId == account.UserId)
-                        .First();
+                        .FirstOrDefault();
 
                     if (randomAccountFromUser != null)
                     {

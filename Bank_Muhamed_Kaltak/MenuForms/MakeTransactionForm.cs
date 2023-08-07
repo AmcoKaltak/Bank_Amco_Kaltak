@@ -110,6 +110,12 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
                 return false;
             }
+            else if (userClient.transactionManager.senderAccount.Id == userClient.transactionManager.receiverAccount.Id)
+            {
+                UINotification.Popup(Color.Red, "ERROR", "You cannot make a transaction between the same sender and receiver account");
+
+                return false;
+            }
 
             return true;
         }

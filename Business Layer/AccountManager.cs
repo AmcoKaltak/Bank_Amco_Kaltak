@@ -48,6 +48,11 @@ namespace Business_Layer
 
         }
 
+        public Account GetAccountByEmailAndAccountCode(string email,string accountCode)
+        {
+            return dBOperations.GetAccountFromEmailAndAccountCode(email, accountCode);
+        }
+
         public List<Account> GetSearchedAccounts(User user, string search)
         {
             var accountsSearched = dBOperations.GetUserSearchedAccounts(user, search);

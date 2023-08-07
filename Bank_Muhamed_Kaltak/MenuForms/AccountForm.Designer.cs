@@ -29,14 +29,18 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             accountBindingSource = new BindingSource(components);
             buttonEdit = new Button();
             buttonDelete = new Button();
             buttonAddAccount = new Button();
             dataGridViewAccount = new DataGridView();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            accountNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            moneyDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            accountCodeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             accountBindingSource2 = new BindingSource(components);
             buttonSearch = new Button();
             panelSearchAccount = new Panel();
@@ -45,10 +49,6 @@
             buttonExternalAccount = new Button();
             buttonDetail = new Button();
             accountBindingSource1 = new BindingSource(components);
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            accountNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            moneyDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            accountCodeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)accountBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewAccount).BeginInit();
             ((System.ComponentModel.ISupportInitialize)accountBindingSource2).BeginInit();
@@ -122,42 +122,70 @@
             dataGridViewAccount.BorderStyle = BorderStyle.None;
             dataGridViewAccount.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewAccount.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.LightSkyBlue;
-            dataGridViewCellStyle4.Font = new Font("Verdana Pro Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = Color.LightSkyBlue;
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dataGridViewAccount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.LightSkyBlue;
+            dataGridViewCellStyle1.Font = new Font("Verdana Pro Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.LightSkyBlue;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewAccount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewAccount.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewAccount.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, accountNameDataGridViewTextBoxColumn, moneyDataGridViewTextBoxColumn, accountCodeDataGridViewTextBoxColumn });
             dataGridViewAccount.DataSource = accountBindingSource2;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Window;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dataGridViewAccount.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridViewAccount.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewAccount.EnableHeadersVisualStyles = false;
             dataGridViewAccount.Location = new Point(30, 69);
             dataGridViewAccount.Name = "dataGridViewAccount";
             dataGridViewAccount.ReadOnly = true;
             dataGridViewAccount.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewAccount.RowHeadersVisible = false;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            dataGridViewCellStyle6.Font = new Font("Verdana Pro Cond", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle6.SelectionBackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
-            dataGridViewAccount.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Verdana Pro Cond", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.SelectionBackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dataGridViewAccount.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewAccount.RowTemplate.Height = 25;
             dataGridViewAccount.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewAccount.Size = new Size(737, 386);
             dataGridViewAccount.TabIndex = 17;
             dataGridViewAccount.CellClick += dataGridViewAccount_CellClick;
             dataGridViewAccount.CellDoubleClick += dataGridViewAccount_CellDoubleClick;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // accountNameDataGridViewTextBoxColumn
+            // 
+            accountNameDataGridViewTextBoxColumn.DataPropertyName = "AccountName";
+            accountNameDataGridViewTextBoxColumn.HeaderText = "AccountName";
+            accountNameDataGridViewTextBoxColumn.Name = "accountNameDataGridViewTextBoxColumn";
+            accountNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // moneyDataGridViewTextBoxColumn
+            // 
+            moneyDataGridViewTextBoxColumn.DataPropertyName = "Money";
+            moneyDataGridViewTextBoxColumn.HeaderText = "Money";
+            moneyDataGridViewTextBoxColumn.Name = "moneyDataGridViewTextBoxColumn";
+            moneyDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // accountCodeDataGridViewTextBoxColumn
+            // 
+            accountCodeDataGridViewTextBoxColumn.DataPropertyName = "AccountCode";
+            accountCodeDataGridViewTextBoxColumn.HeaderText = "AccountCode";
+            accountCodeDataGridViewTextBoxColumn.Name = "accountCodeDataGridViewTextBoxColumn";
+            accountCodeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // accountBindingSource2
             // 
@@ -226,6 +254,7 @@
             buttonExternalAccount.TabIndex = 26;
             buttonExternalAccount.Text = "External account";
             buttonExternalAccount.UseVisualStyleBackColor = false;
+            buttonExternalAccount.Click += buttonExternalAccount_Click;
             // 
             // buttonDetail
             // 
@@ -246,34 +275,6 @@
             // accountBindingSource1
             // 
             accountBindingSource1.DataSource = typeof(DataAccessLibrary.Entity.Account);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // accountNameDataGridViewTextBoxColumn
-            // 
-            accountNameDataGridViewTextBoxColumn.DataPropertyName = "AccountName";
-            accountNameDataGridViewTextBoxColumn.HeaderText = "AccountName";
-            accountNameDataGridViewTextBoxColumn.Name = "accountNameDataGridViewTextBoxColumn";
-            accountNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // moneyDataGridViewTextBoxColumn
-            // 
-            moneyDataGridViewTextBoxColumn.DataPropertyName = "Money";
-            moneyDataGridViewTextBoxColumn.HeaderText = "Money";
-            moneyDataGridViewTextBoxColumn.Name = "moneyDataGridViewTextBoxColumn";
-            moneyDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // accountCodeDataGridViewTextBoxColumn
-            // 
-            accountCodeDataGridViewTextBoxColumn.DataPropertyName = "AccountCode";
-            accountCodeDataGridViewTextBoxColumn.HeaderText = "AccountCode";
-            accountCodeDataGridViewTextBoxColumn.Name = "accountCodeDataGridViewTextBoxColumn";
-            accountCodeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // AccountForm
             // 
