@@ -46,7 +46,7 @@
             panelSearchAccount = new Panel();
             pictureBox2 = new PictureBox();
             textBoxSearchAccount = new TextBox();
-            buttonExternalAccount = new Button();
+            buttonOtherAccount = new Button();
             buttonDetail = new Button();
             accountBindingSource1 = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)accountBindingSource).BeginInit();
@@ -240,21 +240,21 @@
             textBoxSearchAccount.TabIndex = 9;
             textBoxSearchAccount.KeyDown += textBoxSearchAccount_KeyDown;
             // 
-            // buttonExternalAccount
+            // buttonOtherAccount
             // 
-            buttonExternalAccount.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            buttonExternalAccount.BackColor = Color.LightSkyBlue;
-            buttonExternalAccount.Cursor = Cursors.Hand;
-            buttonExternalAccount.FlatStyle = FlatStyle.Flat;
-            buttonExternalAccount.Font = new Font("Verdana Pro Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonExternalAccount.ForeColor = Color.White;
-            buttonExternalAccount.Location = new Point(773, 402);
-            buttonExternalAccount.Name = "buttonExternalAccount";
-            buttonExternalAccount.Size = new Size(85, 48);
-            buttonExternalAccount.TabIndex = 26;
-            buttonExternalAccount.Text = "External account";
-            buttonExternalAccount.UseVisualStyleBackColor = false;
-            buttonExternalAccount.Click += buttonExternalAccount_Click;
+            buttonOtherAccount.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            buttonOtherAccount.BackColor = Color.LightSkyBlue;
+            buttonOtherAccount.Cursor = Cursors.Hand;
+            buttonOtherAccount.FlatStyle = FlatStyle.Flat;
+            buttonOtherAccount.Font = new Font("Verdana Pro Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonOtherAccount.ForeColor = Color.White;
+            buttonOtherAccount.Location = new Point(773, 402);
+            buttonOtherAccount.Name = "buttonOtherAccount";
+            buttonOtherAccount.Size = new Size(85, 48);
+            buttonOtherAccount.TabIndex = 26;
+            buttonOtherAccount.Text = "Other account";
+            buttonOtherAccount.UseVisualStyleBackColor = false;
+            buttonOtherAccount.Click += buttonOtherAccount_Click;
             // 
             // buttonDetail
             // 
@@ -283,7 +283,7 @@
             BackColor = Color.White;
             ClientSize = new Size(888, 462);
             Controls.Add(buttonDetail);
-            Controls.Add(buttonExternalAccount);
+            Controls.Add(buttonOtherAccount);
             Controls.Add(buttonEdit);
             Controls.Add(buttonDelete);
             Controls.Add(buttonAddAccount);
@@ -313,7 +313,7 @@
         private Panel panelSearchAccount;
         private PictureBox pictureBox2;
         private TextBox textBoxSearchAccount;
-        private Button buttonExternalAccount;
+        private Button buttonOtherAccount;
         private Button buttonDetail;
         private BindingSource accountBindingSource2;
         private BindingSource accountBindingSource1;

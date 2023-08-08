@@ -1,6 +1,6 @@
 ﻿namespace Bank_Muhamed_Kaltak.MenuForms
 {
-    partial class RetrieveExternalAccountForm
+    partial class RetrieveOtherAccountForm
     {
         /// <summary>
         /// Required designer variable.
@@ -113,11 +113,11 @@
             label5.BackColor = Color.White;
             label5.Font = new Font("Rockwell Nova Cond", 22F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.LightSkyBlue;
-            label5.Location = new Point(69, 66);
+            label5.Location = new Point(4, 60);
             label5.Name = "label5";
-            label5.Size = new Size(324, 41);
+            label5.Size = new Size(481, 41);
             label5.TabIndex = 27;
-            label5.Text = "Retrieve external account";
+            label5.Text = "Retrieve an account from another user";
             // 
             // panelAccountCode
             // 
@@ -167,7 +167,7 @@
             buttonClose.UseVisualStyleBackColor = false;
             buttonClose.Click += buttonClose_Click;
             // 
-            // RetrieveExternalAccountForm
+            // RetrieveOtherAccountForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -180,11 +180,11 @@
             Controls.Add(label5);
             Controls.Add(panelAccountCode);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "RetrieveExternalAccountForm";
+            Name = "RetrieveOtherAccountForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "AddExternalAccountTransactionForm";
+            Text = "RetrieveOtherAccountForm";
             TopMost = true;
-            Load += RetrieveExternalAccountForm_Load;
+            Load += RetrieveOtherAccountForm_Load;
             panelEmail.ResumeLayout(false);
             panelEmail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

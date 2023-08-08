@@ -19,6 +19,8 @@ namespace Bank_Muhamed_Kaltak.MenuForms
         private int borderSize = 2;
         private Size formSize; //Ha koll på form storleken när man minimerar och expanderar, sparar värdet innan man minimerar och återställer det när man maximerar.
 
+        private Panel panelLastSubMenuOpened;
+
         public MainMenuForm()
         {
             InitializeComponent();
@@ -86,6 +88,42 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             CollapseOrExpandMenu();
         }
 
+        private void buttonHome_Click(object sender, EventArgs e)
+        {
+            ChangeToHome();
+        }
+
+        private void buttonAccount_Click(object sender, EventArgs e)
+        {
+            CollapseOrExpandSubmenu(panelAccountSubmenu);
+
+        }
+
+        private void buttonOwnedAccounts_Click(object sender, EventArgs e)
+        {
+            ChangeToAccount();
+        }
+
+        private void buttonOtherAccounts_Click(object sender, EventArgs e)
+        {
+            ChangeToSavedOtherAccount();
+        }
+
+        private void buttonTransaction_Click(object sender, EventArgs e)
+        {
+            CollapseOrExpandSubmenu(panelTransactionSubmenu);
+        }
+
+        private void buttonMakeTransaction_Click(object sender, EventArgs e)
+        {
+            ChangeToMakeTransaction();
+        }
+
+        private void buttonViewTransaction_Click(object sender, EventArgs e)
+        {
+            ChangeToTransaction();
+        }
+
         private void buttonLogout_Click(object sender, EventArgs e)
         {
             FormChanger.ChangeForm(this, new LoginForm());
@@ -107,6 +145,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void CollapseOrExpandMenu()
         {
+
             if (this.panelSideMenu.Width > 200) //Kollapsa menyn
             {
                 panelSideMenu.Width = 100;
@@ -114,7 +153,8 @@ namespace Bank_Muhamed_Kaltak.MenuForms
                 buttonMenu.Dock = DockStyle.Top;
 
                 CollapseButtonsInPanel(panelSideMenu);
-                CollapseButtonsInPanel(panelTransactionSubMenu);
+                CollapseButtonsInPanel(panelAccountSubmenu);
+                CollapseButtonsInPanel(panelTransactionSubmenu);
             }
             else
             { //Expandera menyn
@@ -124,9 +164,34 @@ namespace Bank_Muhamed_Kaltak.MenuForms
                 buttonMenu.Dock = DockStyle.None;
 
                 ExpandButtonsInPanel(panelSideMenu);
-                ExpandButtonsInPanel(panelTransactionSubMenu);
+                ExpandButtonsInPanel(panelAccountSubmenu);
+                ExpandButtonsInPanel(panelTransactionSubmenu);
 
             }
+        }
+
+        private void CollapseOrExpandSubmenu(Panel panel)
+        {
+            if (panelLastSubMenuOpened != null && panelLastSubMenuOpened != panel)
+            {
+                if (panelLastSubMenuOpened.Height >= 109)
+                {
+                    panelLastSubMenuOpened.Size = panelLastSubMenuOpened.MinimumSize;
+                }
+            }
+
+            if (panel.Size.Height < 109)
+            {
+                panel.Size = panel.MaximumSize;
+
+            }
+            else
+            {
+                panel.Size = panel.MinimumSize;
+            }
+
+            panelLastSubMenuOpened = panel;
+
         }
 
         private void CollapseButtonsInPanel(Panel panel)
@@ -258,6 +323,15 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         }
 
+        private void ChangeToSavedOtherAccount()
+        {
+            SavedOtherAccountForm savedOtherAccountForm = new SavedOtherAccountForm();
+
+            savedOtherAccountForm.userClient = userClient;
+
+            FormChanger.OpenForm(savedOtherAccountForm);
+        }
+
         private void ChangeToMakeTransaction()
         {
             labelDashboard.Text = "Transaction";
@@ -280,37 +354,6 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             FormChanger.OpenForm(transactionForm);
         }
 
-        private void buttonAccount_Click(object sender, EventArgs e)
-        {
-            ChangeToAccount();
-        }
 
-        private void buttonHome_Click(object sender, EventArgs e)
-        {
-            ChangeToHome();
-        }
-
-        private void buttonTransaction_Click(object sender, EventArgs e)
-        {
-            if (panelTransactionSubMenu.Size.Height < 109)
-            {
-                panelTransactionSubMenu.Size = panelTransactionSubMenu.MaximumSize;
-
-            }
-            else
-            {
-                panelTransactionSubMenu.Size = panelTransactionSubMenu.MinimumSize;
-            }
-        }
-
-        private void buttonMakeTransaction_Click(object sender, EventArgs e)
-        {
-            ChangeToMakeTransaction();
-        }
-
-        private void buttonViewTransaction_Click(object sender, EventArgs e)
-        {
-            ChangeToTransaction();
-        }
     }
 }

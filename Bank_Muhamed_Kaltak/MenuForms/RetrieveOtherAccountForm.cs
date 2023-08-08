@@ -12,18 +12,18 @@ using System.Windows.Forms;
 
 namespace Bank_Muhamed_Kaltak.MenuForms
 {
-    public partial class RetrieveExternalAccountForm : Form
+    public partial class RetrieveOtherAccountForm : Form
     {
         public UserClient userClient;
 
-        public RetrieveExternalAccountForm()
+        public RetrieveOtherAccountForm()
         {
             InitializeComponent();
 
             buttonRetrieve.Select(); //Fix för att undvika att denna popup formen väljer automatiskt en textbox. Sker pga form.ShowDialog();
         }
 
-        private void RetrieveExternalAccountForm_Load(object sender, EventArgs e)
+        private void RetrieveOtherAccountForm_Load(object sender, EventArgs e)
         {
             textBoxEmail_Click(sender, e);
         }
@@ -52,11 +52,11 @@ namespace Bank_Muhamed_Kaltak.MenuForms
         {
             if (CheckValidInputs())
             {
-                var externalAccount = userClient.accountManager.GetAccountByEmailAndAccountCode(textBoxEmail.Text, textBoxAccountCode.Text);
+                var otherAccount = userClient.accountManager.GetAccountByEmailAndAccountCode(textBoxEmail.Text, textBoxAccountCode.Text);
 
-                if (externalAccount != null)
+                if (otherAccount != null)
                 {
-                    userClient.transactionManager.receiverAccount = externalAccount;
+                    userClient.transactionManager.receiverAccount = otherAccount;
 
                     ReturnToMakeTransactionForm();
 
@@ -68,7 +68,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
                     UINotification.Popup(Color.Red, "ERROR", "The account was not found in the system");
                 }
             }
-            
+
 
 
         }
@@ -97,5 +97,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
             FormChanger.OpenForm(makeTransactionForm);
         }
+
+
     }
 }

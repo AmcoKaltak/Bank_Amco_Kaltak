@@ -38,12 +38,12 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
                 if (isTransactionAccountFrom)
                 {
-                    buttonExternalAccount.Visible = false;
+                    buttonOtherAccount.Visible = false;
                 }
             }
             else
             {
-                buttonExternalAccount.Visible = false;
+                buttonOtherAccount.Visible = false;
             }
         }
 
@@ -96,6 +96,11 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             }
         }
 
+        private void buttonOtherAccount_Click(object sender, EventArgs e)
+        {
+            GetToSavedNonClientAccountForm();
+        }
+
         private void dataGridViewAccount_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var selectedAccount = (DataAccessLibrary.Entity.Account)dataGridViewAccount.SelectedRows[0].DataBoundItem;
@@ -120,9 +125,14 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             }
         }
 
-        private void buttonExternalAccount_Click(object sender, EventArgs e)
+
+        private void GetToSavedNonClientAccountForm()
         {
-            GetToRetrieveExternalAccountForm();
+            SavedOtherAccountForm savedNonClientAccountForm = new SavedOtherAccountForm();
+
+            savedNonClientAccountForm.userClient = userClient;
+
+            FormChanger.OpenForm(savedNonClientAccountForm);
         }
 
         private void dataGridViewAccount_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -160,16 +170,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             dataGridViewAccount.DataSource = userClient.accountManager.GetSearchedAccounts(userClient.user, textBoxSearchAccount.Text);
         }
 
-        private void GetToRetrieveExternalAccountForm()
-        {
-            RetrieveExternalAccountForm retrieveExternalAccountForm = new RetrieveExternalAccountForm();
 
-            retrieveExternalAccountForm.userClient = userClient;
-
-            //FormChanger.OpenForm(retrieveExternalAccountForm);
-
-            FormChanger.OpenPopupForm(retrieveExternalAccountForm);
-        }
 
         private void ReturnToMakeTransaction()
         {

@@ -30,11 +30,13 @@
         {
             panelSideMenu = new Panel();
             buttonSetting = new FontAwesome.Sharp.IconButton();
-            buttonContact = new FontAwesome.Sharp.IconButton();
-            panelTransactionSubMenu = new Panel();
+            panelTransactionSubmenu = new Panel();
             buttonViewTransaction = new FontAwesome.Sharp.IconButton();
             buttonMakeTransaction = new FontAwesome.Sharp.IconButton();
             buttonTransaction = new FontAwesome.Sharp.IconButton();
+            panelAccountSubmenu = new Panel();
+            buttonOtherAccounts = new FontAwesome.Sharp.IconButton();
+            buttonOwnedAccounts = new FontAwesome.Sharp.IconButton();
             buttonAccount = new FontAwesome.Sharp.IconButton();
             buttonHome = new FontAwesome.Sharp.IconButton();
             buttonLogout = new FontAwesome.Sharp.IconButton();
@@ -48,7 +50,8 @@
             buttonClose = new FontAwesome.Sharp.IconButton();
             panelMainMenu = new Panel();
             panelSideMenu.SuspendLayout();
-            panelTransactionSubMenu.SuspendLayout();
+            panelTransactionSubmenu.SuspendLayout();
+            panelAccountSubmenu.SuspendLayout();
             panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelDashboard.SuspendLayout();
@@ -58,9 +61,8 @@
             // 
             panelSideMenu.BackColor = Color.LightSkyBlue;
             panelSideMenu.Controls.Add(buttonSetting);
-            panelSideMenu.Controls.Add(buttonContact);
-            panelSideMenu.Controls.Add(panelTransactionSubMenu);
-            panelSideMenu.Controls.Add(buttonAccount);
+            panelSideMenu.Controls.Add(panelTransactionSubmenu);
+            panelSideMenu.Controls.Add(panelAccountSubmenu);
             panelSideMenu.Controls.Add(buttonHome);
             panelSideMenu.Controls.Add(buttonLogout);
             panelSideMenu.Controls.Add(panelLogo);
@@ -82,53 +84,30 @@
             buttonSetting.IconFont = FontAwesome.Sharp.IconFont.Auto;
             buttonSetting.IconSize = 30;
             buttonSetting.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonSetting.Location = new Point(0, 300);
+            buttonSetting.Location = new Point(0, 257);
             buttonSetting.Name = "buttonSetting";
             buttonSetting.Padding = new Padding(10, 0, 0, 0);
             buttonSetting.Size = new Size(230, 43);
-            buttonSetting.TabIndex = 11;
+            buttonSetting.TabIndex = 18;
             buttonSetting.Tag = "Settings";
             buttonSetting.Text = "   Settings";
             buttonSetting.TextAlign = ContentAlignment.MiddleLeft;
             buttonSetting.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonSetting.UseVisualStyleBackColor = true;
             // 
-            // buttonContact
+            // panelTransactionSubmenu
             // 
-            buttonContact.Dock = DockStyle.Top;
-            buttonContact.FlatAppearance.BorderSize = 0;
-            buttonContact.FlatStyle = FlatStyle.Flat;
-            buttonContact.Font = new Font("Verdana Pro", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonContact.ForeColor = Color.White;
-            buttonContact.IconChar = FontAwesome.Sharp.IconChar.AddressBook;
-            buttonContact.IconColor = Color.White;
-            buttonContact.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            buttonContact.IconSize = 30;
-            buttonContact.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonContact.Location = new Point(0, 257);
-            buttonContact.Name = "buttonContact";
-            buttonContact.Padding = new Padding(10, 0, 0, 0);
-            buttonContact.Size = new Size(230, 43);
-            buttonContact.TabIndex = 10;
-            buttonContact.Tag = "Contacts";
-            buttonContact.Text = "   Contacts";
-            buttonContact.TextAlign = ContentAlignment.MiddleLeft;
-            buttonContact.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonContact.UseVisualStyleBackColor = true;
-            // 
-            // panelTransactionSubMenu
-            // 
-            panelTransactionSubMenu.BackColor = Color.DarkGray;
-            panelTransactionSubMenu.Controls.Add(buttonViewTransaction);
-            panelTransactionSubMenu.Controls.Add(buttonMakeTransaction);
-            panelTransactionSubMenu.Controls.Add(buttonTransaction);
-            panelTransactionSubMenu.Dock = DockStyle.Top;
-            panelTransactionSubMenu.Location = new Point(0, 214);
-            panelTransactionSubMenu.MaximumSize = new Size(0, 109);
-            panelTransactionSubMenu.MinimumSize = new Size(0, 43);
-            panelTransactionSubMenu.Name = "panelTransactionSubMenu";
-            panelTransactionSubMenu.Size = new Size(230, 43);
-            panelTransactionSubMenu.TabIndex = 8;
+            panelTransactionSubmenu.BackColor = Color.DarkGray;
+            panelTransactionSubmenu.Controls.Add(buttonViewTransaction);
+            panelTransactionSubmenu.Controls.Add(buttonMakeTransaction);
+            panelTransactionSubmenu.Controls.Add(buttonTransaction);
+            panelTransactionSubmenu.Dock = DockStyle.Top;
+            panelTransactionSubmenu.Location = new Point(0, 214);
+            panelTransactionSubmenu.MaximumSize = new Size(0, 109);
+            panelTransactionSubmenu.MinimumSize = new Size(0, 43);
+            panelTransactionSubmenu.Name = "panelTransactionSubmenu";
+            panelTransactionSubmenu.Size = new Size(230, 43);
+            panelTransactionSubmenu.TabIndex = 16;
             // 
             // buttonViewTransaction
             // 
@@ -205,8 +184,73 @@
             buttonTransaction.UseVisualStyleBackColor = false;
             buttonTransaction.Click += buttonTransaction_Click;
             // 
+            // panelAccountSubmenu
+            // 
+            panelAccountSubmenu.BackColor = Color.DarkGray;
+            panelAccountSubmenu.Controls.Add(buttonOtherAccounts);
+            panelAccountSubmenu.Controls.Add(buttonOwnedAccounts);
+            panelAccountSubmenu.Controls.Add(buttonAccount);
+            panelAccountSubmenu.Dock = DockStyle.Top;
+            panelAccountSubmenu.Location = new Point(0, 171);
+            panelAccountSubmenu.MaximumSize = new Size(0, 109);
+            panelAccountSubmenu.MinimumSize = new Size(0, 43);
+            panelAccountSubmenu.Name = "panelAccountSubmenu";
+            panelAccountSubmenu.Size = new Size(230, 43);
+            panelAccountSubmenu.TabIndex = 15;
+            // 
+            // buttonOtherAccounts
+            // 
+            buttonOtherAccounts.BackColor = Color.DarkGray;
+            buttonOtherAccounts.Dock = DockStyle.Top;
+            buttonOtherAccounts.FlatAppearance.BorderSize = 0;
+            buttonOtherAccounts.FlatStyle = FlatStyle.Flat;
+            buttonOtherAccounts.Font = new Font("Verdana Pro", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonOtherAccounts.ForeColor = Color.White;
+            buttonOtherAccounts.IconChar = FontAwesome.Sharp.IconChar.Users;
+            buttonOtherAccounts.IconColor = Color.White;
+            buttonOtherAccounts.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            buttonOtherAccounts.IconSize = 28;
+            buttonOtherAccounts.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonOtherAccounts.Location = new Point(0, 76);
+            buttonOtherAccounts.Name = "buttonOtherAccounts";
+            buttonOtherAccounts.Padding = new Padding(10, 0, 0, 0);
+            buttonOtherAccounts.Size = new Size(230, 33);
+            buttonOtherAccounts.TabIndex = 11;
+            buttonOtherAccounts.Tag = "View Other Accounts";
+            buttonOtherAccounts.Text = "   View Other Accounts";
+            buttonOtherAccounts.TextAlign = ContentAlignment.MiddleLeft;
+            buttonOtherAccounts.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonOtherAccounts.UseVisualStyleBackColor = false;
+            buttonOtherAccounts.Click += buttonOtherAccounts_Click;
+            // 
+            // buttonOwnedAccounts
+            // 
+            buttonOwnedAccounts.BackColor = Color.DarkGray;
+            buttonOwnedAccounts.Dock = DockStyle.Top;
+            buttonOwnedAccounts.FlatAppearance.BorderSize = 0;
+            buttonOwnedAccounts.FlatStyle = FlatStyle.Flat;
+            buttonOwnedAccounts.Font = new Font("Verdana Pro", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonOwnedAccounts.ForeColor = Color.White;
+            buttonOwnedAccounts.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
+            buttonOwnedAccounts.IconColor = Color.White;
+            buttonOwnedAccounts.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            buttonOwnedAccounts.IconSize = 28;
+            buttonOwnedAccounts.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonOwnedAccounts.Location = new Point(0, 43);
+            buttonOwnedAccounts.Name = "buttonOwnedAccounts";
+            buttonOwnedAccounts.Padding = new Padding(10, 0, 0, 0);
+            buttonOwnedAccounts.Size = new Size(230, 33);
+            buttonOwnedAccounts.TabIndex = 10;
+            buttonOwnedAccounts.Tag = "View Owned accounts";
+            buttonOwnedAccounts.Text = "   View Owned accounts";
+            buttonOwnedAccounts.TextAlign = ContentAlignment.MiddleLeft;
+            buttonOwnedAccounts.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonOwnedAccounts.UseVisualStyleBackColor = false;
+            buttonOwnedAccounts.Click += buttonOwnedAccounts_Click;
+            // 
             // buttonAccount
             // 
+            buttonAccount.BackColor = Color.LightSkyBlue;
             buttonAccount.Dock = DockStyle.Top;
             buttonAccount.FlatAppearance.BorderSize = 0;
             buttonAccount.FlatStyle = FlatStyle.Flat;
@@ -217,16 +261,16 @@
             buttonAccount.IconFont = FontAwesome.Sharp.IconFont.Auto;
             buttonAccount.IconSize = 30;
             buttonAccount.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonAccount.Location = new Point(0, 171);
+            buttonAccount.Location = new Point(0, 0);
             buttonAccount.Name = "buttonAccount";
             buttonAccount.Padding = new Padding(10, 0, 0, 0);
             buttonAccount.Size = new Size(230, 43);
             buttonAccount.TabIndex = 9;
-            buttonAccount.Tag = "Accounts";
-            buttonAccount.Text = "   Accounts";
+            buttonAccount.Tag = "Account";
+            buttonAccount.Text = "   Account";
             buttonAccount.TextAlign = ContentAlignment.MiddleLeft;
             buttonAccount.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonAccount.UseVisualStyleBackColor = true;
+            buttonAccount.UseVisualStyleBackColor = false;
             buttonAccount.Click += buttonAccount_Click;
             // 
             // buttonHome
@@ -245,7 +289,7 @@
             buttonHome.Name = "buttonHome";
             buttonHome.Padding = new Padding(10, 0, 0, 0);
             buttonHome.Size = new Size(230, 43);
-            buttonHome.TabIndex = 8;
+            buttonHome.TabIndex = 14;
             buttonHome.Tag = "Home";
             buttonHome.Text = "   Home";
             buttonHome.TextAlign = ContentAlignment.MiddleLeft;
@@ -415,7 +459,8 @@
             Load += MainMenuForm_Load;
             Resize += MainMenuForm_Resize;
             panelSideMenu.ResumeLayout(false);
-            panelTransactionSubMenu.ResumeLayout(false);
+            panelTransactionSubmenu.ResumeLayout(false);
+            panelAccountSubmenu.ResumeLayout(false);
             panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panelDashboard.ResumeLayout(false);
@@ -436,12 +481,14 @@
         private FontAwesome.Sharp.IconButton buttonMinimize;
         private Label labelDashboard;
         private FontAwesome.Sharp.IconButton buttonMenu;
-        private Panel panelTransactionSubMenu;
-        private FontAwesome.Sharp.IconButton buttonTransaction;
+        private FontAwesome.Sharp.IconButton buttonSetting;
+        private Panel panelTransactionSubmenu;
         private FontAwesome.Sharp.IconButton buttonViewTransaction;
         private FontAwesome.Sharp.IconButton buttonMakeTransaction;
-        private FontAwesome.Sharp.IconButton buttonSetting;
-        private FontAwesome.Sharp.IconButton buttonContact;
+        private FontAwesome.Sharp.IconButton buttonTransaction;
+        private Panel panelAccountSubmenu;
+        private FontAwesome.Sharp.IconButton buttonOtherAccounts;
+        private FontAwesome.Sharp.IconButton buttonOwnedAccounts;
         private FontAwesome.Sharp.IconButton buttonAccount;
         private FontAwesome.Sharp.IconButton buttonHome;
     }
