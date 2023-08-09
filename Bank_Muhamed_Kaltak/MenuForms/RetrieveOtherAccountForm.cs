@@ -16,6 +16,8 @@ namespace Bank_Muhamed_Kaltak.MenuForms
     {
         public UserClient userClient;
 
+        public SavedOtherAccountForm savedOtherAccountForm;
+
         public RetrieveOtherAccountForm()
         {
             InitializeComponent();
@@ -56,16 +58,23 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
                 if (otherAccount != null)
                 {
-                    userClient.transactionManager.receiverAccount = otherAccount;
-
-                    ReturnToMakeTransactionForm();
-
-                    FormChanger.CloseForm(this);
+                    if (userClient.accountManager.AddAccountToOtherUserAccount(userClient.user, otherAccount))
+                    {
+                        UINotification.Popup(Color.Green, "Succesfully saved account", "The account has been sucesfully retrieved and saved.");
+                        
+                        savedOtherAccountForm.AddAccountsToDatagridviewFromClient();
+                        
+                        FormChanger.CloseForm(this);
+                    }
+                    else
+                    {
+                        UINotification.Popup(Color.Red, "ERROR", "The account could not be saved, It's possible that the account has already been saved before.");
+                    }
 
                 }
                 else
                 {
-                    UINotification.Popup(Color.Red, "ERROR", "The account was not found in the system");
+                    UINotification.Popup(Color.Red, "ERROR", "The account was not found in the system, double check that you have written the correct email and account code");
                 }
             }
 

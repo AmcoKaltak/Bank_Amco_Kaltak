@@ -26,6 +26,8 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void AccountForm_Load(object sender, EventArgs e)
         {
+            userClient.selectedAccount = null;
+
             AddAccountsToDatagridviewFromClient();
 
             if (isTransactionAccountSelection)
@@ -98,7 +100,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void buttonOtherAccount_Click(object sender, EventArgs e)
         {
-            GetToSavedNonClientAccountForm();
+            GetToSavedOtherAccountForm();
         }
 
         private void dataGridViewAccount_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -126,13 +128,15 @@ namespace Bank_Muhamed_Kaltak.MenuForms
         }
 
 
-        private void GetToSavedNonClientAccountForm()
+        private void GetToSavedOtherAccountForm()
         {
-            SavedOtherAccountForm savedNonClientAccountForm = new SavedOtherAccountForm();
+            SavedOtherAccountForm savedOtherAccountForm = new SavedOtherAccountForm();
 
-            savedNonClientAccountForm.userClient = userClient;
+            savedOtherAccountForm.userClient = userClient;
 
-            FormChanger.OpenForm(savedNonClientAccountForm);
+            savedOtherAccountForm.isTransactionAccountSelection = true;
+
+            FormChanger.OpenForm(savedOtherAccountForm);
         }
 
         private void dataGridViewAccount_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

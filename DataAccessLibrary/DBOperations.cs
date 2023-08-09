@@ -87,6 +87,28 @@ namespace DataAccessLibrary
             context.SaveChanges();
         }
 
+        public bool AddAccountToOtherUserAccount(User user, Account account)
+        {
+            using Context context = new Context();
+
+            var checkExisting = context.OtherUserAccounts.Where(oua => oua.UserId == user.Id && oua.AccountId == account.Id).FirstOrDefault();
+
+            if (checkExisting == null && user != null && account != null)
+            {
+                context.OtherUserAccounts.Add(new OtherUserAccount { UserId = user.Id, AccountId = account.Id });
+                context.SaveChanges();
+
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
+        }
+
         public void AddUser(User user)
         {
             using Context context = new Context();
@@ -218,11 +240,20 @@ namespace DataAccessLibrary
             return accounts;
         }
 
+        public List<Account> GetOtherUserAccounts(User user)
+        {
+            using Context context = new Context();
+
+            var accounts = context.Accounts.Where(a => a.OtherUserAccounts.Any(oua => oua.UserId == user.Id && oua.Account.IsDeleleted == false)).ToList();
+
+            return accounts;
+        }
+
         public List<Account> GetUserSearchedAccounts(User user, string search)
         {
             using Context context = new Context();
 
-            var accounts = context.Accounts.Where(a => a.UserId == user.Id && a.AccountName.Contains(search)).ToList();
+            var accounts = context.Accounts.Where(a => a.UserId == user.Id && a.IsDeleleted == false && a.AccountName.Contains(search)).ToList();
 
             return accounts;
         }
@@ -336,6 +367,25 @@ namespace DataAccessLibrary
             }
 
             context.SaveChanges();
+        }
+
+        public bool DeleteOtherUserAccount(User user,Account account)
+        {
+            using Context context = new Context();
+
+            var otherUserAccountToDelete = context.OtherUserAccounts.Where(oua => oua.UserId == user.Id && oua.AccountId == account.Id).FirstOrDefault();
+
+            if (otherUserAccountToDelete != null)
+            {
+                context.OtherUserAccounts.Remove(otherUserAccountToDelete);
+
+                context.SaveChanges();
+
+                return true;
+            }
+
+            return false;
+
         }
 
         //public void RemoveUser()

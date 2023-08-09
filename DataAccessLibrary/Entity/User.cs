@@ -17,6 +17,9 @@ namespace DataAccessLibrary.Entity
 
         public ICollection<Account> Accounts { get; } = new List<Account>(); //One to many
 
+        //Many-To-Many <-> User och Account
+        public List<OtherUserAccount> OtherUserAccounts { get; } = new ();
+
 
     }
 }

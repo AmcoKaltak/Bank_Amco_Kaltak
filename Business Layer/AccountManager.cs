@@ -30,6 +30,11 @@ namespace Business_Layer
 
         }
 
+        public bool AddAccountToOtherUserAccount(User user, Account account)
+        {
+           return dBOperations.AddAccountToOtherUserAccount(user,account);
+        }
+
         public void UpdateAccount(Account account, string accountName)
         {
             dBOperations.UpdateAccountName(account, accountName);
@@ -40,12 +45,22 @@ namespace Business_Layer
             dBOperations.DeleteAccount(account);
         }
 
+        public bool DeleteOtherUserAccount(User user,Account account)
+        {
+           return dBOperations.DeleteOtherUserAccount(user,account);
+        }
+
         public List<Account> GetAccounts(User user)
         {
             var accounts = dBOperations.GetUserAccounts(user);
 
             return accounts;
 
+        }
+
+        public List<Account> GetOtherUserAccounts(User user)
+        {
+            return dBOperations.GetOtherUserAccounts(user);
         }
 
         public Account GetAccountByEmailAndAccountCode(string email,string accountCode)

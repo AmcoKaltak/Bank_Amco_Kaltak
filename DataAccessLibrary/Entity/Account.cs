@@ -17,11 +17,15 @@ namespace DataAccessLibrary.Entity
         //Ska användas för Soft Delete
         public bool IsDeleleted { get; set; }
 
-
+        
         public User User { get; set; } = null!;
 
-        //Many-To-Many
+        //Many-To-Many <-> Account och Transaction 
         public List<Transaction> Transactions { get; } = new();
         public List<AccountTransaction> AccountTransactions { get; } = new();
+
+        //Many-To-Many <-> Account och User
+        public List<OtherUserAccount> OtherUserAccounts { get; } = new();
+
     }
 }

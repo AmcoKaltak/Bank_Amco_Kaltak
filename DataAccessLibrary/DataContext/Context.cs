@@ -15,6 +15,7 @@ namespace DataAccessLibrary.DataContext
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<AccountTransaction> AccountTransactions { get; set; }
+        public DbSet<OtherUserAccount> OtherUserAccounts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -26,7 +27,7 @@ namespace DataAccessLibrary.DataContext
             //Many-to-many mellan Account och Transaction
             modelBuilder.Entity<Transaction>()
                 .HasMany(t => t.Accounts)
-                .WithMany(t => t.Transactions)
+                .WithMany(a => a.Transactions)
                 .UsingEntity<AccountTransaction>();
 
             //Soft Delete värdet i Account ska ha en default värde av False
@@ -34,6 +35,20 @@ namespace DataAccessLibrary.DataContext
                 .Property(a => a.IsDeleleted)
                 .HasDefaultValue(false);
 
+            //Many-to-many mellan User och Account där Account foreign keyen ej är kopplad till Cascade Delete.
+            modelBuilder.Entity<OtherUserAccount>()
+                .HasKey(oua => new { oua.UserId, oua.AccountId });
+
+            modelBuilder.Entity<OtherUserAccount>()
+                .HasOne(oua => oua.User)
+                .WithMany(u => u.OtherUserAccounts)
+                .HasForeignKey(oua => oua.UserId);
+
+            modelBuilder.Entity<OtherUserAccount>()
+                .HasOne(oua => oua.Account)
+                .WithMany(a => a.OtherUserAccounts)
+                .HasForeignKey(oua => oua.AccountId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
