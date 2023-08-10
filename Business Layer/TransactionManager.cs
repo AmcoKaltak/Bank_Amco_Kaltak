@@ -1,4 +1,4 @@
-﻿using DataAccessLibrary;
+﻿using DataAccessLibrary.DataContext;
 using DataAccessLibrary.Entity;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -24,6 +24,21 @@ namespace Business_Layer
             }
 
             dBOperations.Transaction(senderAccount, receiverAccount, name, amount);
+        }
+
+        public List<Transaction> GetUserSearchedTransactionsAll(User user, string search)
+        {
+            return dBOperations.GetUserSearchedTransactionsAll(user, search);
+        }
+
+        public List<Transaction> GetUserSearchedTransactionsSent(User user, string search)
+        {
+            return dBOperations.GetUserSearchedTransactionsSent(user, search);
+        }
+
+        public List<Transaction> GetUserSearchedTransactionsReceived(User user, string search)
+        {
+            return dBOperations.GetUserSearchedTransactionsReceived(user, search);
         }
 
         public List<Transaction> GetUserTransactions(User user)
@@ -56,14 +71,19 @@ namespace Business_Layer
             return dBOperations.GetAccountReceivedTransactions(account);
         }
 
-        public Account GetSenderAccountFromTransaction(Transaction transaction) //Flytta dessa två nedanför till accountmanager
+        public List<Transaction> GetAccountSearchedTransactionsAll(Account account,string search)
         {
-            return dBOperations.GetSenderAccountFromTransaction(transaction);
+            return dBOperations.GetAccountSearchedTransactionsAll(account,search);
         }
 
-        public Account GetReceiverAccountFromTransaction(Transaction transaction)
+        public List<Transaction> GetAccountSearchedTransactionsSent(Account account,string search)
         {
-            return dBOperations.GetReceiverAccountFromTransaction(transaction);
+            return dBOperations.GetAccountSearchedTransactionsSent(account, search);
+        }
+
+        public List<Transaction> GetAccountSearchedTransactionsReceived(Account account,string search)
+        {
+            return dBOperations.GetAccountSearchedTransactionsReceived(account, search);
         }
 
     }

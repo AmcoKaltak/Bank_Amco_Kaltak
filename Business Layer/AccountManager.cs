@@ -1,10 +1,10 @@
 ﻿using DataAccessLibrary.Entity;
-using DataAccessLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccessLibrary.DataContext;
 
 namespace Business_Layer
 {
@@ -75,9 +75,24 @@ namespace Business_Layer
             return accountsSearched;
         }
 
+        public List<Account> GetSearchedOtherUserAccounts(User user, string search)
+        {
+            return dBOperations.GetSearchedOtherUserAccounts(user, search);
+        }
+
         public User GetUserFromAccount(Account account)
         {
             return dBOperations.GetUserFromAccount(account);
+        }
+
+        public Account GetSenderAccountFromTransaction(Transaction transaction)
+        {
+            return dBOperations.GetSenderAccountFromTransaction(transaction);
+        }
+
+        public Account GetReceiverAccountFromTransaction(Transaction transaction)
+        {
+            return dBOperations.GetReceiverAccountFromTransaction(transaction);
         }
     }
 }

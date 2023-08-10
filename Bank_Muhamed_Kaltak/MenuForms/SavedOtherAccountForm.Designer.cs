@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             accountBindingSource1 = new BindingSource(components);
             pictureBox2 = new PictureBox();
             textBoxSearchOtherAccount = new TextBox();
@@ -79,6 +79,7 @@
             textBoxSearchOtherAccount.PlaceholderText = "Search Account";
             textBoxSearchOtherAccount.Size = new Size(544, 20);
             textBoxSearchOtherAccount.TabIndex = 9;
+            textBoxSearchOtherAccount.KeyDown += textBoxSearchOtherAccount_KeyDown;
             // 
             // buttonSearch
             // 
@@ -94,6 +95,7 @@
             buttonSearch.TabIndex = 29;
             buttonSearch.Text = "Search";
             buttonSearch.UseVisualStyleBackColor = false;
+            buttonSearch.Click += buttonSearch_Click;
             // 
             // panelSearchAccount
             // 
@@ -176,36 +178,36 @@
             dataGridViewOtherAccount.BorderStyle = BorderStyle.None;
             dataGridViewOtherAccount.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewOtherAccount.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.LightSkyBlue;
-            dataGridViewCellStyle7.Font = new Font("Verdana Pro Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = Color.LightSkyBlue;
-            dataGridViewCellStyle7.SelectionForeColor = Color.White;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dataGridViewOtherAccount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.LightSkyBlue;
+            dataGridViewCellStyle1.Font = new Font("Verdana Pro Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.LightSkyBlue;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewOtherAccount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewOtherAccount.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewOtherAccount.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, accountNameDataGridViewTextBoxColumn, moneyDataGridViewTextBoxColumn, accountCodeDataGridViewTextBoxColumn });
             dataGridViewOtherAccount.DataSource = accountBindingSource2;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = SystemColors.Window;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dataGridViewOtherAccount.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridViewOtherAccount.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewOtherAccount.EnableHeadersVisualStyles = false;
             dataGridViewOtherAccount.Location = new Point(30, 60);
             dataGridViewOtherAccount.Name = "dataGridViewOtherAccount";
             dataGridViewOtherAccount.ReadOnly = true;
             dataGridViewOtherAccount.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewOtherAccount.RowHeadersVisible = false;
-            dataGridViewCellStyle9.BackColor = Color.White;
-            dataGridViewCellStyle9.Font = new Font("Verdana Pro Cond", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle9.SelectionBackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle9.SelectionForeColor = Color.Black;
-            dataGridViewOtherAccount.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Verdana Pro Cond", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.SelectionBackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dataGridViewOtherAccount.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewOtherAccount.RowTemplate.Height = 25;
             dataGridViewOtherAccount.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewOtherAccount.Size = new Size(737, 386);

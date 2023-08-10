@@ -180,6 +180,7 @@
             buttonSearch.TabIndex = 22;
             buttonSearch.Text = "Search";
             buttonSearch.UseVisualStyleBackColor = false;
+            buttonSearch.Click += buttonSearch_Click;
             // 
             // panelSearchAccount
             // 
@@ -212,6 +213,7 @@
             textBoxSearchTransaction.PlaceholderText = "Search Transaction";
             textBoxSearchTransaction.Size = new Size(544, 20);
             textBoxSearchTransaction.TabIndex = 9;
+            textBoxSearchTransaction.KeyDown += textBoxSearchTransaction_KeyDown;
             // 
             // buttonAll
             // 

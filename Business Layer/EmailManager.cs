@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using System.Net.Mail;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 using System.Net;
-using DataAccessLibrary;
 using DataAccessLibrary.Entity;
+using DataAccessLibrary.DataContext;
 
 namespace Business_Layer
 {

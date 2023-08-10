@@ -53,19 +53,9 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         }
 
-        private void GetToRetrieveOtherAccountForm()
+        private void buttonSearch_Click(object sender, EventArgs e)
         {
-            RetrieveOtherAccountForm retrieveOtherAccountForm = new RetrieveOtherAccountForm();
-
-            retrieveOtherAccountForm.savedOtherAccountForm = this;
-            retrieveOtherAccountForm.userClient = userClient;
-
-            FormChanger.OpenPopupForm(retrieveOtherAccountForm);
-        }
-
-        public void AddAccountsToDatagridviewFromClient()
-        {
-            dataGridViewOtherAccount.DataSource = userClient.accountManager.GetOtherUserAccounts(userClient.user);
+            SearchOtherUserAccount();
         }
 
         private void dataGridViewOtherAccount_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -90,6 +80,21 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         }
 
+        private void GetToRetrieveOtherAccountForm()
+        {
+            RetrieveOtherAccountForm retrieveOtherAccountForm = new RetrieveOtherAccountForm();
+
+            retrieveOtherAccountForm.savedOtherAccountForm = this;
+            retrieveOtherAccountForm.userClient = userClient;
+
+            FormChanger.OpenPopupForm(retrieveOtherAccountForm);
+        }
+
+        public void AddAccountsToDatagridviewFromClient()
+        {
+            dataGridViewOtherAccount.DataSource = userClient.accountManager.GetOtherUserAccounts(userClient.user);
+        }
+
         private bool SelectedAccountValid()
         {
             if (userClient.selectedAccount != null)
@@ -101,6 +106,18 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             return false;
         }
 
+        private void SearchOtherUserAccount()
+        {
+            dataGridViewOtherAccount.DataSource = userClient.accountManager.GetSearchedOtherUserAccounts(userClient.user, textBoxSearchOtherAccount.Text);
 
+        }
+
+        private void textBoxSearchOtherAccount_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SearchOtherUserAccount();
+            }
+        }
     }
 }

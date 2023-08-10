@@ -17,6 +17,8 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         public bool isAccountTransactions { get; set; }
 
+        private bool inAll,inSend,inReceive;
+
         public TransactionForm()
         {
             InitializeComponent();
@@ -24,6 +26,8 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void TransactionForm_Load(object sender, EventArgs e)
         {
+            inSection(ref inAll);
+
             if (isAccountTransactions)
             {
                 GetAccountTransactions();
@@ -36,6 +40,8 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void buttonAll_Click(object sender, EventArgs e)
         {
+            inSection(ref inAll);
+
             if (isAccountTransactions)
             {
                 GetAccountTransactions();
@@ -48,6 +54,8 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void buttonSent_Click(object sender, EventArgs e)
         {
+            inSection(ref inSend);
+
             if (isAccountTransactions)
             {
                 GetAccountSentTransactions();
@@ -60,6 +68,8 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void buttonReceived_Click(object sender, EventArgs e)
         {
+            inSection(ref inReceive);
+
             if (isAccountTransactions)
             {
                 GetAccountReceivedTransactions();
@@ -75,6 +85,18 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             ChangeToTransactionDetail();
         }
 
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            if (isAccountTransactions)
+            {
+                SearchForAccountTransactions();
+            }
+            else
+            {
+                SearchForUserTransactions();
+            }
+        }
+
         private void dataGridViewTransaction_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             userClient.selectedTransaction = (DataAccessLibrary.Entity.Transaction)dataGridViewTransaction.SelectedRows[0].DataBoundItem;
@@ -85,6 +107,18 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             userClient.selectedTransaction = (DataAccessLibrary.Entity.Transaction)dataGridViewTransaction.SelectedRows[0].DataBoundItem;
 
             ChangeToTransactionDetail();
+        }
+
+        private void textBoxSearchTransaction_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && isAccountTransactions)
+            {
+                SearchForAccountTransactions();
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                SearchForUserTransactions();
+            }
         }
 
         private void GetUserTransactions()
@@ -111,10 +145,75 @@ namespace Bank_Muhamed_Kaltak.MenuForms
         {
             dataGridViewTransaction.DataSource = userClient.transactionManager.GetAccountSentTransactions(userClient.selectedAccount);
         }
-        
+
         private void GetAccountReceivedTransactions()
         {
             dataGridViewTransaction.DataSource = userClient.transactionManager.GetAccountReceivedTransactions(userClient.selectedAccount);
+        }
+
+        private void SearchForUserTransactions()
+        {
+            if (inAll)
+            {
+                SearchUserTransactionAll();
+            }
+            else if (inSend)
+            {
+                SearchUserTransactionSent();
+            }
+            else
+            {
+                SearchUserTransactionReceived();
+            }
+        }
+
+        private void SearchUserTransactionAll()
+        {
+            dataGridViewTransaction.DataSource = userClient.transactionManager.GetUserSearchedTransactionsAll(userClient.user, textBoxSearchTransaction.Text);
+        }
+
+        private void SearchUserTransactionSent()
+        {
+            dataGridViewTransaction.DataSource = userClient.transactionManager.GetUserSearchedTransactionsSent(userClient.user, textBoxSearchTransaction.Text);
+        }
+
+        private void SearchUserTransactionReceived()
+        {
+            dataGridViewTransaction.DataSource = userClient.transactionManager.GetUserSearchedTransactionsReceived(userClient.user, textBoxSearchTransaction.Text);
+        }
+
+        private void SearchForAccountTransactions()
+        {
+            if (inAll)
+            {
+                SearchAccountTransactionAll();
+            }
+            else if (inSend)
+            {
+                SearchAccountTransactionSent();
+            }
+            else
+            {
+                SearchAccountTransactionReceived();
+            }
+        }
+
+        private void SearchAccountTransactionAll()
+        {
+            dataGridViewTransaction.DataSource = userClient.transactionManager.GetAccountSearchedTransactionsAll(userClient.selectedAccount, textBoxSearchTransaction.Text);
+
+        }
+
+        private void SearchAccountTransactionSent()
+        {
+            dataGridViewTransaction.DataSource = userClient.transactionManager.GetAccountSearchedTransactionsSent(userClient.selectedAccount, textBoxSearchTransaction.Text);
+
+        }
+
+        private void SearchAccountTransactionReceived()
+        {
+            dataGridViewTransaction.DataSource = userClient.transactionManager.GetAccountSearchedTransactionsReceived(userClient.selectedAccount, textBoxSearchTransaction.Text);
+
         }
 
         private void ChangeToTransactionDetail()
@@ -142,5 +241,13 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             return false;
         }
 
+        private void inSection(ref bool inWhere)
+        {
+            inAll = false;
+            inSend = false;
+            inReceive = false;
+
+            inWhere = true;
+        }
     }
 }

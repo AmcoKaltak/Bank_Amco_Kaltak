@@ -28,11 +28,11 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void GetTransactionDetails()
         {
-            var userSenderAccount = userClient.transactionManager.GetSenderAccountFromTransaction(userClient.selectedTransaction);
+            var userSenderAccount = userClient.accountManager.GetSenderAccountFromTransaction(userClient.selectedTransaction);
             var userSender = userClient.accountManager.GetUserFromAccount(userSenderAccount);
 
 
-            var userReceiverAccount = userClient.transactionManager.GetReceiverAccountFromTransaction(userClient.selectedTransaction);
+            var userReceiverAccount = userClient.accountManager.GetReceiverAccountFromTransaction(userClient.selectedTransaction);
             var userReceiver = userClient.accountManager.GetUserFromAccount(userReceiverAccount);
 
             labelSenderAccountName.Text = userSenderAccount.AccountName;
