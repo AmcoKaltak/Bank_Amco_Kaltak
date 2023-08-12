@@ -23,20 +23,15 @@ namespace Business_Layer
             
 
             user.Username = username;
-            user.Salt = DateTime.Now.ToString();
+            user.Salt = GenerateUniqueSalt();
             user.Password = security.Hash($"{password}{user.Salt}");
             user.Name = name;
             user.LastName = lastName;
             user.Email = email;
-
-            for (int i = 0; i < 20; i++) //TODO: För testing, ta bort när allt är klart
-            {
-                user.Accounts.Add(RegisterStartingMoneyAccount());
-
-            }
+            user.Accounts.Add(RegisterStartingMoneyAccount());
 
 
-            if (dBOperations.CheckUniqueUser(user) == false || string.IsNullOrWhiteSpace(user.Username) || string.IsNullOrWhiteSpace(user.Password) || string.IsNullOrWhiteSpace(user.Name) || string.IsNullOrWhiteSpace(user.LastName) || string.IsNullOrWhiteSpace(user.Email))
+            if (dBOperations.CheckIfUsernameOrEmailExists(user))
             {
                 return false;
             } 
@@ -54,6 +49,20 @@ namespace Business_Layer
             user = dBOperations.GetUserFromEmail(email);
 
             dBOperations.ChangePassword(email, security.Hash($"{newPassword}{user.Salt}"));
+        }
+
+        private string GenerateUniqueSalt()
+        {
+            var salt = DateTime.Now.ToString();
+
+            if (dBOperations.CheckIfSaltExists(salt) == false)
+            {
+                return salt;
+            }
+            else
+            {
+               return GenerateUniqueSalt();
+            }
         }
 
         private Account RegisterStartingMoneyAccount()

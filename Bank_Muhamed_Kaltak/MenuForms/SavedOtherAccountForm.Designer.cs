@@ -239,6 +239,7 @@
             buttonDetail.TabIndex = 33;
             buttonDetail.Text = "Detail";
             buttonDetail.UseVisualStyleBackColor = false;
+            buttonDetail.Click += buttonDetail_Click;
             // 
             // SavedOtherAccountForm
             // 

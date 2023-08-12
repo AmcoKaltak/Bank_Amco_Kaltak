@@ -73,18 +73,51 @@ namespace Bank_Muhamed_Kaltak
         {
             RegistrationManager registrationManager = new RegistrationManager();
 
-
-            if (registrationManager.Register(textBoxUsername.Text, textBoxPassword.Text, textBoxName.Text, textBoxLastName.Text, textBoxEmail.Text))
+            if (CheckValidFields())
             {
-                UINotification.Popup(Color.Green, "Registered", "Successfully registered to the database!");
+                if (registrationManager.Register(textBoxUsername.Text, textBoxPassword.Text, textBoxName.Text, textBoxLastName.Text, textBoxEmail.Text))
+                {
+                    UINotification.Popup(Color.Green, "Registered", "Successfully registered to the database!");
 
-                FormChanger.CloseForm(this);
+                    FormChanger.CloseForm(this);
 
+                }
+                else
+                {
+                    UINotification.Popup(Color.Red, "ERROR", "Could not register the account");
+                }
             }
-            else
+        }
+
+        private bool CheckValidFields()
+        {
+            if (string.IsNullOrEmpty(textBoxUsername.Text))
             {
-                UINotification.Popup(Color.Red, "Invalid Fields", "Make sure that the fields are not empty");
+                UINotification.Popup(Color.Red, "ERROR", "Username field cannot be empty");
+                return false;
             }
+            else if (string.IsNullOrEmpty(textBoxPassword.Text))
+            {
+                UINotification.Popup(Color.Red, "ERROR", "Password field cannot be empty");
+                return false;
+            }
+            else if (string.IsNullOrEmpty(textBoxName.Text))
+            {
+                UINotification.Popup(Color.Red, "ERROR", "Name field cannot be empty");
+                return false;
+            }
+            else if (string.IsNullOrEmpty(textBoxLastName.Text))
+            {
+                UINotification.Popup(Color.Red, "ERROR", "Last Name field cannot be empty");
+                return false;
+            }
+            else if (string.IsNullOrEmpty(textBoxEmail.Text))
+            {
+                UINotification.Popup(Color.Red, "ERROR", "Email field cannot be empty");
+                return false;
+            }
+
+            return true;
         }
     }
 }

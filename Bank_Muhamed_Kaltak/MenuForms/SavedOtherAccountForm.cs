@@ -34,6 +34,14 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             GetToRetrieveOtherAccountForm();
         }
 
+        private void buttonDetail_Click(object sender, EventArgs e)
+        {
+            if (SelectedAccountValid())
+            {
+                GetToOtherAccountDetailForm();
+            }
+        }
+
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
@@ -90,6 +98,15 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             FormChanger.OpenPopupForm(retrieveOtherAccountForm);
         }
 
+        private void GetToOtherAccountDetailForm()
+        {
+            OtherAccountDetail otherAccountDetail = new OtherAccountDetail();
+
+            otherAccountDetail.userClient = userClient;
+
+            FormChanger.OpenPopupForm(otherAccountDetail);
+        }
+
         public void AddAccountsToDatagridviewFromClient()
         {
             dataGridViewOtherAccount.DataSource = userClient.accountManager.GetOtherUserAccounts(userClient.user);
@@ -119,5 +136,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
                 SearchOtherUserAccount();
             }
         }
+
+
     }
 }

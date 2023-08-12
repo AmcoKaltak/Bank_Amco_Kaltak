@@ -492,21 +492,20 @@ namespace DataAccessLibrary.DataContext
 
 
 
-        public bool CheckUniqueUser(User user)
+        public bool CheckIfUsernameOrEmailExists(User user)
         {
-
             using Context context = new Context();
 
-            var userUnique = context.Users //Linq queries är i normala fal alltid case insensitive, för att fixa detta kan man göra den dubbel check i client eller altera databasen
-                    .Where(u => u.Username == user.Username || u.Email == user.Email)
-                    .FirstOrDefault();
+            var test = context.Users.Any(u => u.Username == user.Username || u.Email == user.Email);
 
-            if (userUnique == null)
-            {
-                return true;
-            }
+            return test;
+        }
 
-            return false;
+        public bool CheckIfSaltExists(string salt)
+        {
+            using Context context = new Context();
+
+            return context.Users.Any(u => u.Salt == salt);
         }
 
         public void DeleteAccount(Account account)
