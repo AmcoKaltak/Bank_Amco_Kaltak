@@ -1,6 +1,6 @@
 ﻿namespace Bank_Muhamed_Kaltak.MenuForms
 {
-    partial class OtherAccountDetail
+    partial class OtherAccountDetailForm
     {
         /// <summary>
         /// Required designer variable.

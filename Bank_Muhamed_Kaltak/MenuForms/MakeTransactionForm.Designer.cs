@@ -61,6 +61,7 @@
             // 
             // panelSelectFromAccount
             // 
+            panelSelectFromAccount.Anchor = AnchorStyles.None;
             panelSelectFromAccount.BackColor = SystemColors.Control;
             panelSelectFromAccount.Controls.Add(pictureBox2);
             panelSelectFromAccount.Controls.Add(labelSenderAccountMoney);
@@ -115,6 +116,7 @@
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.None;
             label5.AutoSize = true;
             label5.Font = new Font("Rockwell Nova Cond", 22F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.LightSkyBlue;
@@ -126,6 +128,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(202, 67);
@@ -136,6 +139,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
             label2.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(202, 168);
@@ -146,6 +150,7 @@
             // 
             // panelSelectToAccount
             // 
+            panelSelectToAccount.Anchor = AnchorStyles.None;
             panelSelectToAccount.BackColor = SystemColors.Control;
             panelSelectToAccount.Controls.Add(labelReceiverAccountMoney);
             panelSelectToAccount.Controls.Add(labelReceiverAccountCode);
@@ -200,6 +205,7 @@
             // 
             // panelAmount
             // 
+            panelAmount.Anchor = AnchorStyles.None;
             panelAmount.BackColor = Color.White;
             panelAmount.Controls.Add(pictureBox3);
             panelAmount.Controls.Add(textBoxTransactionAmount);
@@ -231,6 +237,7 @@
             // 
             // buttonCancel
             // 
+            buttonCancel.Anchor = AnchorStyles.None;
             buttonCancel.BackColor = Color.LightSkyBlue;
             buttonCancel.Cursor = Cursors.Hand;
             buttonCancel.FlatStyle = FlatStyle.Flat;
@@ -245,6 +252,7 @@
             // 
             // buttonCommitTransaction
             // 
+            buttonCommitTransaction.Anchor = AnchorStyles.None;
             buttonCommitTransaction.BackColor = Color.LightSkyBlue;
             buttonCommitTransaction.Cursor = Cursors.Hand;
             buttonCommitTransaction.FlatStyle = FlatStyle.Flat;
@@ -260,6 +268,7 @@
             // 
             // panelTransactionName
             // 
+            panelTransactionName.Anchor = AnchorStyles.None;
             panelTransactionName.BackColor = Color.White;
             panelTransactionName.Controls.Add(pictureBox4);
             panelTransactionName.Controls.Add(textBoxTransactionName);

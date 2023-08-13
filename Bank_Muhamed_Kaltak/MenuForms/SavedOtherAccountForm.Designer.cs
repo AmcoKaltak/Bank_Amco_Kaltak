@@ -213,6 +213,7 @@
             dataGridViewOtherAccount.Size = new Size(737, 386);
             dataGridViewOtherAccount.TabIndex = 30;
             dataGridViewOtherAccount.CellClick += dataGridViewOtherAccount_CellClick;
+            dataGridViewOtherAccount.CellDoubleClick += dataGridViewOtherAccount_CellDoubleClick;
             // 
             // moneyDataGridViewTextBoxColumn
             // 

@@ -88,6 +88,15 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         }
 
+
+        private void dataGridViewOtherAccount_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (SelectedAccountValid())
+            {
+                GetToOtherAccountDetailForm();
+            }
+        }
+
         private void GetToRetrieveOtherAccountForm()
         {
             RetrieveOtherAccountForm retrieveOtherAccountForm = new RetrieveOtherAccountForm();
@@ -100,7 +109,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void GetToOtherAccountDetailForm()
         {
-            OtherAccountDetail otherAccountDetail = new OtherAccountDetail();
+            OtherAccountDetailForm otherAccountDetail = new OtherAccountDetailForm();
 
             otherAccountDetail.userClient = userClient;
 
@@ -136,7 +145,6 @@ namespace Bank_Muhamed_Kaltak.MenuForms
                 SearchOtherUserAccount();
             }
         }
-
 
     }
 }

@@ -77,6 +77,7 @@
             // 
             // panel6
             // 
+            panel6.Anchor = AnchorStyles.None;
             panel6.BackColor = SystemColors.Control;
             panel6.Controls.Add(labelSenderUserEmail);
             panel6.Controls.Add(labelSenderUserLastName);
@@ -141,6 +142,7 @@
             // 
             // panel7
             // 
+            panel7.Anchor = AnchorStyles.None;
             panel7.BackColor = SystemColors.Control;
             panel7.Controls.Add(label19);
             panel7.Controls.Add(pictureBox4);
@@ -206,6 +208,7 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = SystemColors.Control;
             panel1.Controls.Add(labelReceiverUserEmail);
             panel1.Controls.Add(labelReceiverUserLastName);
@@ -270,6 +273,7 @@
             // 
             // panel3
             // 
+            panel3.Anchor = AnchorStyles.None;
             panel3.BackColor = SystemColors.Control;
             panel3.Controls.Add(label5);
             panel3.Controls.Add(pictureBox3);
@@ -335,6 +339,7 @@
             // 
             // label21
             // 
+            label21.Anchor = AnchorStyles.None;
             label21.AutoSize = true;
             label21.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label21.Location = new Point(48, 177);
@@ -345,6 +350,7 @@
             // 
             // label22
             // 
+            label22.Anchor = AnchorStyles.None;
             label22.AutoSize = true;
             label22.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label22.Location = new Point(48, 16);
@@ -355,6 +361,7 @@
             // 
             // panel2
             // 
+            panel2.Anchor = AnchorStyles.None;
             panel2.BackColor = SystemColors.Control;
             panel2.Controls.Add(labelTransactionAmount);
             panel2.Controls.Add(labelTransactionTime);
@@ -442,6 +449,7 @@
             // 
             // label26
             // 
+            label26.Anchor = AnchorStyles.None;
             label26.AutoSize = true;
             label26.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label26.Location = new Point(48, 328);
@@ -450,7 +458,7 @@
             label26.TabIndex = 32;
             label26.Text = "Transaction Details";
             // 
-            // TransactionDetail
+            // TransactionDetailForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -464,7 +472,7 @@
             Controls.Add(panel1);
             Controls.Add(panel6);
             Controls.Add(panel7);
-            Name = "TransactionDetail";
+            Name = "TransactionDetailForm";
             Text = "TransactionDetail";
             Load += TransactionDetail_Load;
             panel6.ResumeLayout(false);

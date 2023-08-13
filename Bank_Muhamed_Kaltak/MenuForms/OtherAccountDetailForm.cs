@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace Bank_Muhamed_Kaltak.MenuForms
 {
-    public partial class OtherAccountDetail : Form
+    public partial class OtherAccountDetailForm : Form
     {
         public UserClient userClient;
 
-        public OtherAccountDetail()
+        public OtherAccountDetailForm()
         {
             InitializeComponent();
         }
