@@ -94,6 +94,7 @@
             buttonSetting.TextAlign = ContentAlignment.MiddleLeft;
             buttonSetting.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonSetting.UseVisualStyleBackColor = true;
+            buttonSetting.Click += buttonSetting_Click;
             // 
             // panelTransactionSubmenu
             // 

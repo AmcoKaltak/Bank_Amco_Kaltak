@@ -157,7 +157,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         public void AddAccountsToDatagridviewFromClient()
         {
-            dataGridViewAccount.DataSource = userClient.accountManager.GetAccounts(userClient.user);
+            dataGridViewAccount.DataSource = userClient.accountManager.GetAccounts();
         }
 
         private ModifyAccountForm SendUserClientToModifyForm()
@@ -171,7 +171,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void SearchAccount()
         {
-            dataGridViewAccount.DataSource = userClient.accountManager.GetSearchedAccounts(userClient.user, textBoxSearchAccount.Text);
+            dataGridViewAccount.DataSource = userClient.accountManager.GetSearchedAccounts(textBoxSearchAccount.Text);
         }
 
 

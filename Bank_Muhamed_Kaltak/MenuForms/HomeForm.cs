@@ -30,7 +30,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
         public void addAccountsToDatagridviewFromClient(UserClient userClient)
         {
 
-            dataGridView1.DataSource = userClient.accountManager.GetAccounts(userClient.user);
+            dataGridView1.DataSource = userClient.accountManager.GetAccounts();
 
         }
 

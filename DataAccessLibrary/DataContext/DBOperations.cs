@@ -133,6 +133,26 @@ namespace DataAccessLibrary.DataContext
             context.SaveChanges();
         }
 
+        public bool ChangeUsername(User user,string newUsername)
+        {
+            using Context context = new Context();
+
+            var userClient = context.Users.FirstOrDefault(u => u.Username == user.Username);
+
+            bool uniqueUsername = CheckIfUsernameExists(newUsername);
+
+            if (userClient != null && uniqueUsername == false)
+            {
+                userClient.Username = newUsername;
+
+                context.SaveChanges();
+
+                return true;
+            }
+
+            return false;
+        }
+
         public void ChangePassword(string email, string newPassword)
         {
             using Context context = new Context();
@@ -490,15 +510,22 @@ namespace DataAccessLibrary.DataContext
             return transactions;
         }
 
+        public bool CheckIfUsernameExists(string username)
+        {
+            using Context context = new Context();
 
+            var check = context.Users.Any(u => u.Username == username);
+
+            return check;
+        }
 
         public bool CheckIfUsernameOrEmailExists(User user)
         {
             using Context context = new Context();
 
-            var test = context.Users.Any(u => u.Username == user.Username || u.Email == user.Email);
+            var check = context.Users.Any(u => u.Username == user.Username || u.Email == user.Email);
 
-            return test;
+            return check;
         }
 
         public bool CheckIfSaltExists(string salt)

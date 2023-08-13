@@ -117,7 +117,6 @@
             // label5
             // 
             label5.Anchor = AnchorStyles.None;
-            label5.AutoSize = true;
             label5.Font = new Font("Rockwell Nova Cond", 22F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.LightSkyBlue;
             label5.Location = new Point(294, 28);
@@ -129,7 +128,6 @@
             // label1
             // 
             label1.Anchor = AnchorStyles.None;
-            label1.AutoSize = true;
             label1.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(202, 67);
             label1.Name = "label1";
@@ -140,7 +138,6 @@
             // label2
             // 
             label2.Anchor = AnchorStyles.None;
-            label2.AutoSize = true;
             label2.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(202, 168);
             label2.Name = "label2";
@@ -329,7 +326,6 @@
             panelTransactionName.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

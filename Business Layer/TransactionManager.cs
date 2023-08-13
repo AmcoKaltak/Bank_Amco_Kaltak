@@ -11,10 +11,18 @@ namespace Business_Layer
 {
     public class TransactionManager
     {
+        private User user;
+        private DBOperations dBOperations;
+
         public Account senderAccount;
         public Account receiverAccount;
 
-        DBOperations dBOperations = new DBOperations();
+
+        public TransactionManager(ref User user,DBOperations dBOperations)
+        {
+            this.user = user;
+            this.dBOperations = dBOperations;
+        }
 
         public void MakeTransaction(Account senderAccount, Account receiverAccount, string name, float amount)
         {
@@ -26,32 +34,32 @@ namespace Business_Layer
             dBOperations.Transaction(senderAccount, receiverAccount, name, amount);
         }
 
-        public List<Transaction> GetUserSearchedTransactionsAll(User user, string search)
+        public List<Transaction> GetUserSearchedTransactionsAll(string search)
         {
             return dBOperations.GetUserSearchedTransactionsAll(user, search);
         }
 
-        public List<Transaction> GetUserSearchedTransactionsSent(User user, string search)
+        public List<Transaction> GetUserSearchedTransactionsSent(string search)
         {
             return dBOperations.GetUserSearchedTransactionsSent(user, search);
         }
 
-        public List<Transaction> GetUserSearchedTransactionsReceived(User user, string search)
+        public List<Transaction> GetUserSearchedTransactionsReceived(string search)
         {
             return dBOperations.GetUserSearchedTransactionsReceived(user, search);
         }
 
-        public List<Transaction> GetUserTransactions(User user)
+        public List<Transaction> GetUserTransactions()
         {
             return dBOperations.GetUserTransactions(user);
         }
 
-        public List<Transaction> GetUserSentTransactions(User user)
+        public List<Transaction> GetUserSentTransactions()
         {
             return dBOperations.GetUserSentTransactions(user);
         }
 
-        public List<Transaction> GetUserReceivedTransactions (User user)
+        public List<Transaction> GetUserReceivedTransactions ()
         {
             return dBOperations.GetUserReceivedTransactions(user);
         }

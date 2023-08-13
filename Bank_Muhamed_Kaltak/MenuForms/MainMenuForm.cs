@@ -49,7 +49,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
         {
             formSize = this.ClientSize;
 
-            ChangeToHome();
+            ChangeToHomeForm();
         }
 
         private void MainMenuForm_Resize(object sender, EventArgs e)
@@ -90,7 +90,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void buttonHome_Click(object sender, EventArgs e)
         {
-            ChangeToHome();
+            ChangeToHomeForm();
         }
 
         private void buttonAccount_Click(object sender, EventArgs e)
@@ -101,12 +101,12 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void buttonOwnedAccounts_Click(object sender, EventArgs e)
         {
-            ChangeToAccount();
+            ChangeToAccountForm();
         }
 
         private void buttonOtherAccounts_Click(object sender, EventArgs e)
         {
-            ChangeToSavedOtherAccount();
+            ChangeToSavedOtherAccountForm();
         }
 
         private void buttonTransaction_Click(object sender, EventArgs e)
@@ -116,12 +116,17 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void buttonMakeTransaction_Click(object sender, EventArgs e)
         {
-            ChangeToMakeTransaction();
+            ChangeToMakeTransactionForm();
         }
 
         private void buttonViewTransaction_Click(object sender, EventArgs e)
         {
-            ChangeToTransaction();
+            ChangeToTransactionForm();
+        }
+
+        private void buttonSetting_Click(object sender, EventArgs e)
+        {
+            ChangeToSettings();
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
@@ -298,7 +303,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
 
 
-        private void ChangeToHome()
+        private void ChangeToHomeForm()
         {
             labelDashboard.Text = "Home";
 
@@ -311,7 +316,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             FormChanger.OpenForm(homeForm);
         }
 
-        private void ChangeToAccount()
+        private void ChangeToAccountForm()
         {
             labelDashboard.Text = "Account";
 
@@ -323,7 +328,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         }
 
-        private void ChangeToSavedOtherAccount()
+        private void ChangeToSavedOtherAccountForm()
         {
             SavedOtherAccountForm savedOtherAccountForm = new SavedOtherAccountForm();
 
@@ -332,7 +337,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             FormChanger.OpenForm(savedOtherAccountForm);
         }
 
-        private void ChangeToMakeTransaction()
+        private void ChangeToMakeTransactionForm()
         {
             labelDashboard.Text = "Transaction";
 
@@ -343,7 +348,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             FormChanger.OpenForm(makeTransactionForm);
         }
 
-        private void ChangeToTransaction()
+        private void ChangeToTransactionForm()
         {
             labelDashboard.Text = "Transaction";
 
@@ -352,6 +357,18 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             transactionForm.userClient = userClient;
 
             FormChanger.OpenForm(transactionForm);
+        }
+
+        private void ChangeToSettings()
+        {
+
+            labelDashboard.Text = "Settings";
+
+            SettingsForm settingsForm = new SettingsForm();
+
+            settingsForm.userClient = userClient;
+
+            FormChanger.OpenForm(settingsForm);
         }
 
 

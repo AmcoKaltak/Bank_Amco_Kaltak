@@ -48,7 +48,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
             if (SelectedAccountValid())
             {
-                if (userClient.accountManager.DeleteOtherUserAccount(userClient.user, userClient.selectedAccount))
+                if (userClient.accountManager.DeleteOtherUserAccount(userClient.selectedAccount))
                 {
                     AddAccountsToDatagridviewFromClient();
                     UINotification.Popup(Color.Green, "Sucessfully deleted saved account", "The selected account has been deleted from your saved other accounts");
@@ -118,7 +118,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         public void AddAccountsToDatagridviewFromClient()
         {
-            dataGridViewOtherAccount.DataSource = userClient.accountManager.GetOtherUserAccounts(userClient.user);
+            dataGridViewOtherAccount.DataSource = userClient.accountManager.GetOtherUserAccounts();
         }
 
         private bool SelectedAccountValid()
@@ -134,7 +134,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void SearchOtherUserAccount()
         {
-            dataGridViewOtherAccount.DataSource = userClient.accountManager.GetSearchedOtherUserAccounts(userClient.user, textBoxSearchOtherAccount.Text);
+            dataGridViewOtherAccount.DataSource = userClient.accountManager.GetSearchedOtherUserAccounts(textBoxSearchOtherAccount.Text);
 
         }
 

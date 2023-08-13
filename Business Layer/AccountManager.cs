@@ -10,14 +10,16 @@ namespace Business_Layer
 {
     public class AccountManager
     {
-        DBOperations dBOperations;
+       private DBOperations dBOperations;
+       private User user;
 
-        public AccountManager()
+        public AccountManager(ref User user,DBOperations dBOperations)
         {
-            dBOperations = new DBOperations();
+            this.user = user;
+            this.dBOperations = dBOperations;
         }
 
-        public void AddNewAccount(User user, string accountName)
+        public void AddNewAccount(string accountName)
         {
             Security security = new Security();
             Account account = new Account();
@@ -30,7 +32,7 @@ namespace Business_Layer
 
         }
 
-        public bool AddAccountToOtherUserAccount(User user, Account account)
+        public bool AddAccountToOtherUserAccount(Account account)
         {
            return dBOperations.AddAccountToOtherUserAccount(user,account);
         }
@@ -45,12 +47,12 @@ namespace Business_Layer
             dBOperations.DeleteAccount(account);
         }
 
-        public bool DeleteOtherUserAccount(User user,Account account)
+        public bool DeleteOtherUserAccount(Account account)
         {
            return dBOperations.DeleteOtherUserAccount(user,account);
         }
 
-        public List<Account> GetAccounts(User user)
+        public List<Account> GetAccounts()
         {
             var accounts = dBOperations.GetUserAccounts(user);
 
@@ -58,7 +60,7 @@ namespace Business_Layer
 
         }
 
-        public List<Account> GetOtherUserAccounts(User user)
+        public List<Account> GetOtherUserAccounts()
         {
             return dBOperations.GetOtherUserAccounts(user);
         }
@@ -68,14 +70,14 @@ namespace Business_Layer
             return dBOperations.GetAccountFromEmailAndAccountCode(email, accountCode);
         }
 
-        public List<Account> GetSearchedAccounts(User user, string search)
+        public List<Account> GetSearchedAccounts(string search)
         {
             var accountsSearched = dBOperations.GetUserSearchedAccounts(user, search);
 
             return accountsSearched;
         }
 
-        public List<Account> GetSearchedOtherUserAccounts(User user, string search)
+        public List<Account> GetSearchedOtherUserAccounts(string search)
         {
             return dBOperations.GetSearchedOtherUserAccounts(user, search);
         }

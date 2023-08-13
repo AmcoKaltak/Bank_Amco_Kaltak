@@ -58,7 +58,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
                 if (otherAccount != null)
                 {
-                    if (userClient.accountManager.AddAccountToOtherUserAccount(userClient.user, otherAccount))
+                    if (userClient.accountManager.AddAccountToOtherUserAccount(otherAccount))
                     {
                         UINotification.Popup(Color.Green, "Succesfully saved account", "The account has been sucesfully retrieved and saved.");
                         

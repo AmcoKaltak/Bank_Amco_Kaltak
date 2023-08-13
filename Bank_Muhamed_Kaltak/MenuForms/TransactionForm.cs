@@ -123,17 +123,17 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void GetUserTransactions()
         {
-            dataGridViewTransaction.DataSource = userClient.transactionManager.GetUserTransactions(userClient.user);
+            dataGridViewTransaction.DataSource = userClient.transactionManager.GetUserTransactions();
         }
 
         private void GetUserSentTransactions()
         {
-            dataGridViewTransaction.DataSource = userClient.transactionManager.GetUserSentTransactions(userClient.user);
+            dataGridViewTransaction.DataSource = userClient.transactionManager.GetUserSentTransactions();
         }
 
         private void GetUserReceivedTransactions()
         {
-            dataGridViewTransaction.DataSource = userClient.transactionManager.GetUserReceivedTransactions(userClient.user);
+            dataGridViewTransaction.DataSource = userClient.transactionManager.GetUserReceivedTransactions();
         }
 
         private void GetAccountTransactions()
@@ -169,17 +169,17 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void SearchUserTransactionAll()
         {
-            dataGridViewTransaction.DataSource = userClient.transactionManager.GetUserSearchedTransactionsAll(userClient.user, textBoxSearchTransaction.Text);
+            dataGridViewTransaction.DataSource = userClient.transactionManager.GetUserSearchedTransactionsAll(textBoxSearchTransaction.Text);
         }
 
         private void SearchUserTransactionSent()
         {
-            dataGridViewTransaction.DataSource = userClient.transactionManager.GetUserSearchedTransactionsSent(userClient.user, textBoxSearchTransaction.Text);
+            dataGridViewTransaction.DataSource = userClient.transactionManager.GetUserSearchedTransactionsSent(textBoxSearchTransaction.Text);
         }
 
         private void SearchUserTransactionReceived()
         {
-            dataGridViewTransaction.DataSource = userClient.transactionManager.GetUserSearchedTransactionsReceived(userClient.user, textBoxSearchTransaction.Text);
+            dataGridViewTransaction.DataSource = userClient.transactionManager.GetUserSearchedTransactionsReceived(textBoxSearchTransaction.Text);
         }
 
         private void SearchForAccountTransactions()

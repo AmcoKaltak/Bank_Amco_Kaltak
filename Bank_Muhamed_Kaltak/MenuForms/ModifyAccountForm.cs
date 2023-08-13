@@ -44,7 +44,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             if (isAdd && ValidSaveChange())
             {
 
-                userClient.accountManager.AddNewAccount(userClient.user,textBoxAccount.Text);
+                userClient.accountManager.AddNewAccount(textBoxAccount.Text);
 
                 ReturnToAccountForm();
                
