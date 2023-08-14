@@ -32,9 +32,9 @@ namespace Business_Layer
             }
         }
 
-        public void ChangePassword()
+        public void ChangePassword(string password)
         {
-
+            dBOperations.ChangePassword(user, password);
         }
 
         public void DeleteUser()

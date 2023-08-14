@@ -96,9 +96,19 @@ namespace Bank_Muhamed_Kaltak
                 UINotification.Popup(Color.Red, "ERROR", "Username field cannot be empty");
                 return false;
             }
+            else if (textBoxUsername.Text.Contains(" "))
+            {
+                UINotification.Popup(Color.Red, "ERROR", "Username field cannot contain whitespaces");
+                return false;
+            }
             else if (string.IsNullOrEmpty(textBoxPassword.Text))
             {
                 UINotification.Popup(Color.Red, "ERROR", "Password field cannot be empty");
+                return false;
+            }
+            else if (textBoxPassword.Text.Contains(" "))
+            {
+                UINotification.Popup(Color.Red, "ERROR", "Password field cannot contain whitespaces");
                 return false;
             }
             else if (string.IsNullOrEmpty(textBoxName.Text))
@@ -106,14 +116,29 @@ namespace Bank_Muhamed_Kaltak
                 UINotification.Popup(Color.Red, "ERROR", "Name field cannot be empty");
                 return false;
             }
+            else if (textBoxName.Text.Contains(" "))
+            {
+                UINotification.Popup(Color.Red, "ERROR", "Name field cannot contain whitespaces");
+                return false;
+            }
             else if (string.IsNullOrEmpty(textBoxLastName.Text))
             {
                 UINotification.Popup(Color.Red, "ERROR", "Last Name field cannot be empty");
                 return false;
             }
+            else if (textBoxLastName.Text.Contains(" "))
+            {
+                UINotification.Popup(Color.Red, "ERROR", "Last Name field cannot contain whitespaces");
+                return false;
+            }
             else if (string.IsNullOrEmpty(textBoxEmail.Text))
             {
                 UINotification.Popup(Color.Red, "ERROR", "Email field cannot be empty");
+                return false;
+            }
+            else if (textBoxEmail.Text.Contains(" "))
+            {
+                UINotification.Popup(Color.Red, "ERROR", "Email field cannot contain whitespaces");
                 return false;
             }
 

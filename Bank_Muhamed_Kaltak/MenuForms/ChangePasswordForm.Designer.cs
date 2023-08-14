@@ -28,36 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panelUsername = new Panel();
+            panelCurrentPassword = new Panel();
             pictureBox2 = new PictureBox();
-            textBoxOldPassword = new TextBox();
+            textBoxCurrentPassword = new TextBox();
             buttonCancel = new Button();
             buttonSave = new Button();
             label5 = new Label();
-            panel1 = new Panel();
+            panelNewPassword = new Panel();
             pictureBox1 = new PictureBox();
             textBoxNewPassword = new TextBox();
-            panel2 = new Panel();
+            panelConfirmNewPassword = new Panel();
             pictureBox3 = new PictureBox();
             textBoxConfirmNewPassword = new TextBox();
             buttonClose = new Button();
-            panelUsername.SuspendLayout();
+            panelCurrentPassword.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            panel1.SuspendLayout();
+            panelNewPassword.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel2.SuspendLayout();
+            panelConfirmNewPassword.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
-            // panelUsername
+            // panelCurrentPassword
             // 
-            panelUsername.BackColor = Color.White;
-            panelUsername.Controls.Add(pictureBox2);
-            panelUsername.Controls.Add(textBoxOldPassword);
-            panelUsername.Location = new Point(12, 147);
-            panelUsername.Name = "panelUsername";
-            panelUsername.Size = new Size(460, 45);
-            panelUsername.TabIndex = 38;
+            panelCurrentPassword.BackColor = Color.White;
+            panelCurrentPassword.Controls.Add(pictureBox2);
+            panelCurrentPassword.Controls.Add(textBoxCurrentPassword);
+            panelCurrentPassword.Location = new Point(12, 147);
+            panelCurrentPassword.Name = "panelCurrentPassword";
+            panelCurrentPassword.Size = new Size(460, 45);
+            panelCurrentPassword.TabIndex = 38;
             // 
             // pictureBox2
             // 
@@ -69,15 +69,17 @@
             pictureBox2.TabIndex = 5;
             pictureBox2.TabStop = false;
             // 
-            // textBoxOldPassword
+            // textBoxCurrentPassword
             // 
-            textBoxOldPassword.BorderStyle = BorderStyle.None;
-            textBoxOldPassword.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBoxOldPassword.Location = new Point(36, 16);
-            textBoxOldPassword.Name = "textBoxOldPassword";
-            textBoxOldPassword.PlaceholderText = "Enter current password";
-            textBoxOldPassword.Size = new Size(421, 20);
-            textBoxOldPassword.TabIndex = 9;
+            textBoxCurrentPassword.BorderStyle = BorderStyle.None;
+            textBoxCurrentPassword.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxCurrentPassword.Location = new Point(36, 16);
+            textBoxCurrentPassword.Name = "textBoxCurrentPassword";
+            textBoxCurrentPassword.PlaceholderText = "Enter current password";
+            textBoxCurrentPassword.Size = new Size(421, 20);
+            textBoxCurrentPassword.TabIndex = 9;
+            textBoxCurrentPassword.Click += textBoxCurrentPassword_Click;
+            textBoxCurrentPassword.KeyDown += textBoxCurrentPassword_KeyDown;
             // 
             // buttonCancel
             // 
@@ -123,15 +125,15 @@
             label5.TabIndex = 37;
             label5.Text = "Change Password";
             // 
-            // panel1
+            // panelNewPassword
             // 
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(textBoxNewPassword);
-            panel1.Location = new Point(12, 239);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(460, 45);
-            panel1.TabIndex = 39;
+            panelNewPassword.BackColor = Color.White;
+            panelNewPassword.Controls.Add(pictureBox1);
+            panelNewPassword.Controls.Add(textBoxNewPassword);
+            panelNewPassword.Location = new Point(12, 239);
+            panelNewPassword.Name = "panelNewPassword";
+            panelNewPassword.Size = new Size(460, 45);
+            panelNewPassword.TabIndex = 39;
             // 
             // pictureBox1
             // 
@@ -152,16 +154,18 @@
             textBoxNewPassword.PlaceholderText = "Enter a new password";
             textBoxNewPassword.Size = new Size(421, 20);
             textBoxNewPassword.TabIndex = 9;
+            textBoxNewPassword.Click += textBoxNewPassword_Click;
+            textBoxNewPassword.KeyDown += textBoxNewPassword_KeyDown;
             // 
-            // panel2
+            // panelConfirmNewPassword
             // 
-            panel2.BackColor = Color.White;
-            panel2.Controls.Add(pictureBox3);
-            panel2.Controls.Add(textBoxConfirmNewPassword);
-            panel2.Location = new Point(12, 290);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(460, 45);
-            panel2.TabIndex = 39;
+            panelConfirmNewPassword.BackColor = Color.White;
+            panelConfirmNewPassword.Controls.Add(pictureBox3);
+            panelConfirmNewPassword.Controls.Add(textBoxConfirmNewPassword);
+            panelConfirmNewPassword.Location = new Point(12, 290);
+            panelConfirmNewPassword.Name = "panelConfirmNewPassword";
+            panelConfirmNewPassword.Size = new Size(460, 45);
+            panelConfirmNewPassword.TabIndex = 39;
             // 
             // pictureBox3
             // 
@@ -182,6 +186,8 @@
             textBoxConfirmNewPassword.PlaceholderText = "Confirm the new password";
             textBoxConfirmNewPassword.Size = new Size(421, 20);
             textBoxConfirmNewPassword.TabIndex = 9;
+            textBoxConfirmNewPassword.Click += textBoxConfirmNewPassword_Click;
+            textBoxConfirmNewPassword.KeyDown += textBoxConfirmNewPassword_KeyDown;
             // 
             // buttonClose
             // 
@@ -206,9 +212,9 @@
             BackColor = Color.White;
             ClientSize = new Size(484, 461);
             Controls.Add(buttonClose);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
-            Controls.Add(panelUsername);
+            Controls.Add(panelConfirmNewPassword);
+            Controls.Add(panelNewPassword);
+            Controls.Add(panelCurrentPassword);
             Controls.Add(buttonCancel);
             Controls.Add(buttonSave);
             Controls.Add(label5);
@@ -217,14 +223,15 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ChangePassword";
             TopMost = true;
-            panelUsername.ResumeLayout(false);
-            panelUsername.PerformLayout();
+            Load += ChangePasswordForm_Load;
+            panelCurrentPassword.ResumeLayout(false);
+            panelCurrentPassword.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            panelNewPassword.ResumeLayout(false);
+            panelNewPassword.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            panelConfirmNewPassword.ResumeLayout(false);
+            panelConfirmNewPassword.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -232,16 +239,16 @@
 
         #endregion
 
-        private Panel panelUsername;
+        private Panel panelCurrentPassword;
         private PictureBox pictureBox2;
-        private TextBox textBoxOldPassword;
+        private TextBox textBoxCurrentPassword;
         private Button buttonCancel;
         private Button buttonSave;
         private Label label5;
-        private Panel panel1;
+        private Panel panelNewPassword;
         private PictureBox pictureBox1;
         private TextBox textBoxNewPassword;
-        private Panel panel2;
+        private Panel panelConfirmNewPassword;
         private PictureBox pictureBox3;
         private TextBox textBoxConfirmNewPassword;
         private Button buttonClose;

@@ -153,6 +153,22 @@ namespace DataAccessLibrary.DataContext
             return false;
         }
 
+
+        public void ChangePassword(User user, string newPassword)
+        {
+            using Context context = new Context();
+
+            var userClient = context.Users.FirstOrDefault(u => u.Email == user.Email);
+
+            if (userClient != null)
+            {
+                userClient.Password = newPassword;
+
+            }
+
+            context.SaveChanges();
+        }
+
         public void ChangePassword(string email, string newPassword)
         {
             using Context context = new Context();

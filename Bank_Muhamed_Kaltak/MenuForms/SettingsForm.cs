@@ -64,7 +64,6 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             ChangePasswordForm changePasswordForm = new ChangePasswordForm();
 
             changePasswordForm.userClient = userClient;
-            changePasswordForm.settingsForm = this;
 
             FormChanger.OpenPopupForm(changePasswordForm);
         }

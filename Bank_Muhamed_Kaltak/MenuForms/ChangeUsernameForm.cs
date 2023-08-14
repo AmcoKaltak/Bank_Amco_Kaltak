@@ -69,10 +69,10 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void textBoxUsername_KeyDown(object sender, KeyEventArgs e)
         {
-            SaveIfEnterPressed(sender, e);
+            ChangeUsernameIfEnterPressed(sender, e);
         }
 
-        private void SaveIfEnterPressed(object sender, KeyEventArgs e)
+        private void ChangeUsernameIfEnterPressed(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {

@@ -31,7 +31,7 @@ namespace Bank_Muhamed_Kaltak
 
         private void buttonRegister_Click(object sender, EventArgs e)
         {
-
+            RegisterNewPassword();
         }
 
         private void textBoxNewPassword_Click(object sender, EventArgs e)
@@ -61,6 +61,29 @@ namespace Bank_Muhamed_Kaltak
 
         private void RegisterNewPassword()
         {
+            if (CheckFields())
+            {
+                Security security = new Security();
+
+                if (security.CheckValidVerficationCode(userEmail, enteredCode)) //Checka en sista gång att tokenet är giltigt och att 10 min ej passerat innan lösenordet ändras
+                {
+                    RegistrationManager registrationManager = new RegistrationManager();
+                    registrationManager.RegisterNewPassword(userEmail, textBoxConfirmPassword.Text);
+
+                    UINotification.Popup(Color.Green, "Succesfully changed passwords", "Passwords have been changed for your account");
+
+                    FormChanger.CloseForm(this);
+                }
+                else
+                {
+                    UINotification.Popup(Color.Red, "ERROR", "Someting went wrong");
+                }
+            }
+
+        }
+
+        private bool CheckFields()
+        {
             if (textBoxNewPassword.Text != textBoxConfirmPassword.Text)
             {
                 UINotification.Popup(Color.Red, "Not Matching Passwords", "The passwords do not match, please try again");
@@ -68,29 +91,20 @@ namespace Bank_Muhamed_Kaltak
                 textBoxNewPassword.Text = "";
                 textBoxConfirmPassword.Text = "";
 
-                return;
+                return false;
             }
             else if (string.IsNullOrWhiteSpace(textBoxNewPassword.Text) || string.IsNullOrWhiteSpace(textBoxConfirmPassword.Text))
             {
                 UINotification.Popup(Color.Red, "Empty Passwords", "New password cannot be empty");
-                return;
+                return false;
             }
-
-            Security security = new Security();
-
-            if (security.CheckValidVerficationCode(userEmail, enteredCode)) //Checka en sista gång att tokenet är giltigt och att 10 min ej passerat innan lösenordet ändras
+            else if (textBoxNewPassword.Text.Contains(" ") || textBoxConfirmPassword.Text.Contains(" "))
             {
-                RegistrationManager registrationManager = new RegistrationManager();
-                registrationManager.RegisterNewPassword(userEmail, textBoxConfirmPassword.Text);
-
-                UINotification.Popup(Color.Green, "Succesfully changed passwords", "Passwords have been changed for your account");
-
-                FormChanger.CloseForm(this);
+                UINotification.Popup(Color.Red, "ERROR", "Passwords cannot include whitespaces");
+                return false;
             }
-            else
-            {
-                UINotification.Popup(Color.Red, "ERROR", "Someting went wrong");
-            }
+
+            return true;
         }
 
         private void RegisterNewPasswordIfEnterPressed(object sender, KeyEventArgs e)
