@@ -51,9 +51,9 @@ namespace Bank_Muhamed_Kaltak
 
         private void SubmitCode()
         {
-            LoginManager loginManager = new LoginManager();
+            Security security = new Security();
 
-            if (loginManager.CheckValidVerficationCode(userEmail, textBoxCode.Text))
+            if (security.CheckValidVerficationCode(userEmail, textBoxCode.Text))
             {
                 ForgotPasswordRegisterForm forgotPasswordRegisterForm = new ForgotPasswordRegisterForm();
                 forgotPasswordRegisterForm.userEmail = userEmail;

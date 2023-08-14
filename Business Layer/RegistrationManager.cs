@@ -23,7 +23,7 @@ namespace Business_Layer
             
 
             user.Username = username;
-            user.Salt = GenerateUniqueSalt();
+            user.Salt = security.GenerateUniqueSalt();
             user.Password = security.Hash($"{password}{user.Salt}");
             user.Name = name;
             user.LastName = lastName;
@@ -51,19 +51,7 @@ namespace Business_Layer
             dBOperations.ChangePassword(email, security.Hash($"{newPassword}{user.Salt}"));
         }
 
-        private string GenerateUniqueSalt()
-        {
-            var salt = DateTime.Now.ToString();
 
-            if (dBOperations.CheckIfSaltExists(salt) == false)
-            {
-                return salt;
-            }
-            else
-            {
-               return GenerateUniqueSalt();
-            }
-        }
 
         private Account RegisterStartingMoneyAccount()
         {

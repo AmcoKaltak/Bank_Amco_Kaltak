@@ -27,7 +27,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void buttonChangePassword_Click(object sender, EventArgs e)
         {
-
+            GetToChangePasswordForm();
         }
 
         private void buttonDeleteUser_Click(object sender, EventArgs e)
@@ -57,6 +57,16 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             changeUsernameForm.settingsForm = this;
 
             FormChanger.OpenPopupForm(changeUsernameForm);
+        }
+
+        private void GetToChangePasswordForm()
+        {
+            ChangePasswordForm changePasswordForm = new ChangePasswordForm();
+
+            changePasswordForm.userClient = userClient;
+            changePasswordForm.settingsForm = this;
+
+            FormChanger.OpenPopupForm(changePasswordForm);
         }
     }
 }

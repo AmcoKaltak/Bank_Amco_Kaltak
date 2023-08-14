@@ -76,9 +76,9 @@ namespace Bank_Muhamed_Kaltak
                 return;
             }
 
-            LoginManager loginManager = new LoginManager();
+            Security security = new Security();
 
-            if (loginManager.CheckValidVerficationCode(userEmail, enteredCode)) //Checka en sista gång att tokenet är giltigt och att 10 min ej passerat innan lösenordet ändras
+            if (security.CheckValidVerficationCode(userEmail, enteredCode)) //Checka en sista gång att tokenet är giltigt och att 10 min ej passerat innan lösenordet ändras
             {
                 RegistrationManager registrationManager = new RegistrationManager();
                 registrationManager.RegisterNewPassword(userEmail, textBoxConfirmPassword.Text);

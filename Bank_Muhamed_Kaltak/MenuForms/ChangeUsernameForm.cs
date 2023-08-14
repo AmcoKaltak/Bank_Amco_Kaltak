@@ -34,7 +34,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
         {
             if (ValidField())
             {
-                SaveChanges();
+                ChangeUsername();
             }
 
         }
@@ -76,11 +76,11 @@ namespace Bank_Muhamed_Kaltak.MenuForms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                SaveChanges();
+                ChangeUsername();
             }
         }
 
-        private void SaveChanges()
+        private void ChangeUsername()
         {
             
 

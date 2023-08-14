@@ -5,6 +5,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using DataAccessLibrary.Entity;
+using DataAccessLibrary.DataContext;
 
 namespace Business_Layer
 {
@@ -40,6 +42,73 @@ namespace Business_Layer
             }
 
             return bytesBase64Url;
+        }
+
+
+        public string GenerateUniqueSalt()
+        {
+            DBOperations dBOperations = new DBOperations();
+
+            var salt = DateTime.Now.ToString();
+
+            if (dBOperations.CheckIfSaltExists(salt) == false)
+            {
+                return salt;
+            }
+            else
+            {
+                return GenerateUniqueSalt();
+            }
+        }
+
+        public bool CheckValidVerficationCode(string email, string enteredCode)
+        {
+            DBOperations dBOperations = new DBOperations();
+
+            User user = dBOperations.GetUserFromEmail(email);
+
+            if (user == null)
+            {
+                return false;
+            }
+
+            TimeSpan timeSpan = DateTime.Now - user.PasswordResetDate;
+
+            if (user.PasswordResetToken == Hash(enteredCode) && timeSpan.Minutes <= 10) //Kollar ifall coden matchar tokenet samt att det ej har passerat 10 min sen begäran av att ändra lösenordet skett
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+
+        public bool CheckValidUsernameAndPassword(string enteredUsername, string enteredPassword, User user)
+        {
+            if (enteredUsername == user.Username && Hash($"{enteredPassword}{user.Salt}") == user.Password)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public bool CheckValidPassword(string enteredPassword, User user)
+        {
+            if (Hash($"{enteredPassword}{user.Salt}") == user.Password)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
