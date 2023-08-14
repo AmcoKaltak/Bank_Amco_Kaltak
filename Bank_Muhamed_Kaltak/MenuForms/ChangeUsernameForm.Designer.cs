@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panelEmail = new Panel();
+            panelUsername = new Panel();
             pictureBox2 = new PictureBox();
             textBoxUsername = new TextBox();
             buttonCancel = new Button();
             buttonSave = new Button();
             label5 = new Label();
             buttonClose = new Button();
-            panelEmail.SuspendLayout();
+            panelUsername.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
-            // panelEmail
+            // panelUsername
             // 
-            panelEmail.BackColor = Color.White;
-            panelEmail.Controls.Add(pictureBox2);
-            panelEmail.Controls.Add(textBoxUsername);
-            panelEmail.Location = new Point(10, 184);
-            panelEmail.Name = "panelEmail";
-            panelEmail.Size = new Size(460, 45);
-            panelEmail.TabIndex = 34;
+            panelUsername.BackColor = Color.White;
+            panelUsername.Controls.Add(pictureBox2);
+            panelUsername.Controls.Add(textBoxUsername);
+            panelUsername.Location = new Point(10, 184);
+            panelUsername.Name = "panelUsername";
+            panelUsername.Size = new Size(460, 45);
+            panelUsername.TabIndex = 34;
             // 
             // pictureBox2
             // 
@@ -65,9 +65,11 @@
             textBoxUsername.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
             textBoxUsername.Location = new Point(36, 16);
             textBoxUsername.Name = "textBoxUsername";
-            textBoxUsername.PlaceholderText = "Enter the connected accounts email";
+            textBoxUsername.PlaceholderText = "Enter new username";
             textBoxUsername.Size = new Size(421, 20);
             textBoxUsername.TabIndex = 9;
+            textBoxUsername.Click += textBoxUsername_Click;
+            textBoxUsername.KeyDown += textBoxUsername_KeyDown;
             // 
             // buttonCancel
             // 
@@ -135,7 +137,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(484, 461);
-            Controls.Add(panelEmail);
+            Controls.Add(panelUsername);
             Controls.Add(buttonCancel);
             Controls.Add(buttonSave);
             Controls.Add(label5);
@@ -145,8 +147,9 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ChangeUsernameForm";
             TopMost = true;
-            panelEmail.ResumeLayout(false);
-            panelEmail.PerformLayout();
+            Load += ChangeUsernameForm_Load;
+            panelUsername.ResumeLayout(false);
+            panelUsername.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -154,7 +157,7 @@
 
         #endregion
 
-        private Panel panelEmail;
+        private Panel panelUsername;
         private PictureBox pictureBox2;
         private TextBox textBoxUsername;
         private Button buttonCancel;

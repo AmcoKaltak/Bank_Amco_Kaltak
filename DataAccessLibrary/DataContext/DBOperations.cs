@@ -211,6 +211,12 @@ namespace DataAccessLibrary.DataContext
 
         public User GetUserFromAccount(Account account)
         {
+
+            if (account == null)
+            {
+                return null;
+            }
+
             using Context context = new Context();
 
             var user = context.Users.Where(u => u.Accounts.Any(a => a.Id == account.Id)).FirstOrDefault();

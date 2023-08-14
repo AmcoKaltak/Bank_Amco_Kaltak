@@ -22,12 +22,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void buttonChangeUsername_Click(object sender, EventArgs e)
         {
-            ChangeUsernameForm changeUsernameForm = new ChangeUsernameForm();
-
-            changeUsernameForm.userClient = userClient;
-            changeUsernameForm.settingsForm = this;
-
-            FormChanger.OpenPopupForm(changeUsernameForm);
+            GetToChangeUsernameForm();
         }
 
         private void buttonChangePassword_Click(object sender, EventArgs e)
@@ -52,6 +47,16 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
             labelUsername.Text = $"Username: {userClient.user.Username}";
             labelEmail.Text = $"Email: {userClient.user.Email}";
+        }
+
+        private void GetToChangeUsernameForm()
+        {
+            ChangeUsernameForm changeUsernameForm = new ChangeUsernameForm();
+
+            changeUsernameForm.userClient = userClient;
+            changeUsernameForm.settingsForm = this;
+
+            FormChanger.OpenPopupForm(changeUsernameForm);
         }
     }
 }

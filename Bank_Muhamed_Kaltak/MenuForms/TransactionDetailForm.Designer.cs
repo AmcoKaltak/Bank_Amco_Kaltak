@@ -30,10 +30,9 @@
         {
             panel6 = new Panel();
             labelSenderUserEmail = new Label();
-            labelSenderUserLastName = new Label();
             pictureBox2 = new PictureBox();
             label13 = new Label();
-            labelSenderUserName = new Label();
+            labelSenderUserFullName = new Label();
             panel7 = new Panel();
             label19 = new Label();
             pictureBox4 = new PictureBox();
@@ -42,10 +41,9 @@
             labelSenderAccountName = new Label();
             panel1 = new Panel();
             labelReceiverUserEmail = new Label();
-            labelReceiverUserLastName = new Label();
             pictureBox1 = new PictureBox();
             label3 = new Label();
-            labelReceiverUserName = new Label();
+            labelReceiverUserFullName = new Label();
             panel3 = new Panel();
             label5 = new Label();
             pictureBox3 = new PictureBox();
@@ -80,10 +78,9 @@
             panel6.Anchor = AnchorStyles.None;
             panel6.BackColor = SystemColors.Control;
             panel6.Controls.Add(labelSenderUserEmail);
-            panel6.Controls.Add(labelSenderUserLastName);
             panel6.Controls.Add(pictureBox2);
             panel6.Controls.Add(label13);
-            panel6.Controls.Add(labelSenderUserName);
+            panel6.Controls.Add(labelSenderUserFullName);
             panel6.Location = new Point(48, 37);
             panel6.Name = "panel6";
             panel6.Size = new Size(396, 100);
@@ -98,16 +95,6 @@
             labelSenderUserEmail.Size = new Size(46, 18);
             labelSenderUserEmail.TabIndex = 22;
             labelSenderUserEmail.Text = "Email";
-            // 
-            // labelSenderUserLastName
-            // 
-            labelSenderUserLastName.AutoSize = true;
-            labelSenderUserLastName.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelSenderUserLastName.Location = new Point(147, 28);
-            labelSenderUserLastName.Name = "labelSenderUserLastName";
-            labelSenderUserLastName.Size = new Size(116, 18);
-            labelSenderUserLastName.TabIndex = 21;
-            labelSenderUserLastName.Text = "User Last Name";
             // 
             // pictureBox2
             // 
@@ -130,15 +117,15 @@
             label13.TabIndex = 19;
             label13.Text = "1000000";
             // 
-            // labelSenderUserName
+            // labelSenderUserFullName
             // 
-            labelSenderUserName.AutoSize = true;
-            labelSenderUserName.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelSenderUserName.Location = new Point(57, 28);
-            labelSenderUserName.Name = "labelSenderUserName";
-            labelSenderUserName.Size = new Size(84, 18);
-            labelSenderUserName.TabIndex = 17;
-            labelSenderUserName.Text = "User Name";
+            labelSenderUserFullName.AutoSize = true;
+            labelSenderUserFullName.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelSenderUserFullName.Location = new Point(57, 28);
+            labelSenderUserFullName.Name = "labelSenderUserFullName";
+            labelSenderUserFullName.Size = new Size(84, 18);
+            labelSenderUserFullName.TabIndex = 17;
+            labelSenderUserFullName.Text = "User Name";
             // 
             // panel7
             // 
@@ -211,10 +198,9 @@
             panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = SystemColors.Control;
             panel1.Controls.Add(labelReceiverUserEmail);
-            panel1.Controls.Add(labelReceiverUserLastName);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label3);
-            panel1.Controls.Add(labelReceiverUserName);
+            panel1.Controls.Add(labelReceiverUserFullName);
             panel1.Location = new Point(48, 198);
             panel1.Name = "panel1";
             panel1.Size = new Size(396, 100);
@@ -229,16 +215,6 @@
             labelReceiverUserEmail.Size = new Size(46, 18);
             labelReceiverUserEmail.TabIndex = 22;
             labelReceiverUserEmail.Text = "Email";
-            // 
-            // labelReceiverUserLastName
-            // 
-            labelReceiverUserLastName.AutoSize = true;
-            labelReceiverUserLastName.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelReceiverUserLastName.Location = new Point(147, 28);
-            labelReceiverUserLastName.Name = "labelReceiverUserLastName";
-            labelReceiverUserLastName.Size = new Size(116, 18);
-            labelReceiverUserLastName.TabIndex = 21;
-            labelReceiverUserLastName.Text = "User Last Name";
             // 
             // pictureBox1
             // 
@@ -261,15 +237,15 @@
             label3.TabIndex = 19;
             label3.Text = "1000000";
             // 
-            // labelReceiverUserName
+            // labelReceiverUserFullName
             // 
-            labelReceiverUserName.AutoSize = true;
-            labelReceiverUserName.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelReceiverUserName.Location = new Point(57, 28);
-            labelReceiverUserName.Name = "labelReceiverUserName";
-            labelReceiverUserName.Size = new Size(84, 18);
-            labelReceiverUserName.TabIndex = 17;
-            labelReceiverUserName.Text = "User Name";
+            labelReceiverUserFullName.AutoSize = true;
+            labelReceiverUserFullName.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelReceiverUserFullName.Location = new Point(57, 28);
+            labelReceiverUserFullName.Name = "labelReceiverUserFullName";
+            labelReceiverUserFullName.Size = new Size(84, 18);
+            labelReceiverUserFullName.TabIndex = 17;
+            labelReceiverUserFullName.Text = "User Name";
             // 
             // panel3
             // 
@@ -497,10 +473,9 @@
         #endregion
         private Panel panel6;
         private Label labelSenderUserEmail;
-        private Label labelSenderUserLastName;
         private PictureBox pictureBox2;
         private Label label13;
-        private Label labelSenderUserName;
+        private Label labelSenderUserFullName;
         private Panel panel7;
         private Label label19;
         private PictureBox pictureBox4;
@@ -509,10 +484,9 @@
         private Label labelSenderAccountName;
         private Panel panel1;
         private Label labelReceiverUserEmail;
-        private Label labelReceiverUserLastName;
         private PictureBox pictureBox1;
         private Label label3;
-        private Label labelReceiverUserName;
+        private Label labelReceiverUserFullName;
         private Panel panel3;
         private Label label5;
         private PictureBox pictureBox3;
