@@ -74,6 +74,7 @@
             textBoxEmail.Size = new Size(421, 20);
             textBoxEmail.TabIndex = 9;
             textBoxEmail.Click += textBoxEmail_Click;
+            textBoxEmail.KeyDown += textBoxEmail_KeyDown;
             // 
             // buttonCancel
             // 
@@ -150,6 +151,7 @@
             textBoxAccountCode.TabIndex = 11;
             textBoxAccountCode.UseSystemPasswordChar = true;
             textBoxAccountCode.Click += textBoxAccountCode_Click;
+            textBoxAccountCode.KeyDown += textBoxAccountCode_KeyDown;
             // 
             // buttonClose
             // 

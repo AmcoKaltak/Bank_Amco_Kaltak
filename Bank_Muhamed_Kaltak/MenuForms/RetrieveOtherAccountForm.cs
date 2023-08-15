@@ -52,34 +52,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void buttonRetrieve_Click(object sender, EventArgs e)
         {
-            if (CheckValidInputs())
-            {
-                var otherAccount = userClient.accountManager.GetAccountByEmailAndAccountCode(textBoxEmail.Text, textBoxAccountCode.Text);
-
-                if (otherAccount != null)
-                {
-                    if (userClient.accountManager.AddAccountToOtherUserAccount(otherAccount))
-                    {
-                        UINotification.Popup(Color.Green, "Succesfully saved account", "The account has been sucesfully retrieved and saved.");
-                        
-                        savedOtherAccountForm.AddAccountsToDatagridviewFromClient();
-                        
-                        FormChanger.CloseForm(this);
-                    }
-                    else
-                    {
-                        UINotification.Popup(Color.Red, "ERROR", "The account could not be saved, It's possible that the account has already been saved before.");
-                    }
-
-                }
-                else
-                {
-                    UINotification.Popup(Color.Red, "ERROR", "The account was not found in the system, double check that you have written the correct email and account code");
-                }
-            }
-
-
-
+            RetrieveOtherAccount();
         }
 
         private bool CheckValidInputs()
@@ -98,13 +71,51 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             return true;
         }
 
-        private void ReturnToMakeTransactionForm()
+        private void textBoxEmail_KeyDown(object sender, KeyEventArgs e)
         {
-            MakeTransactionForm makeTransactionForm = new MakeTransactionForm();
+            RetrieveOtherAccountIfEnterPressed(sender, e);
+        }
 
-            makeTransactionForm.userClient = userClient;
+        private void textBoxAccountCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            RetrieveOtherAccountIfEnterPressed(sender, e);
+        }
 
-            FormChanger.OpenForm(makeTransactionForm);
+        private void RetrieveOtherAccountIfEnterPressed(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                RetrieveOtherAccount();
+            }
+        }
+
+        private void RetrieveOtherAccount()
+        {
+            if (CheckValidInputs())
+            {
+                var otherAccount = userClient.accountManager.GetAccountByEmailAndAccountCode(textBoxEmail.Text, textBoxAccountCode.Text);
+
+                if (otherAccount != null)
+                {
+                    if (userClient.accountManager.AddAccountToOtherUserAccount(otherAccount))
+                    {
+                        UINotification.Popup(Color.Green, "Succesfully saved account", "The account has been sucesfully retrieved and saved.");
+
+                        savedOtherAccountForm.AddAccountsToDatagridviewFromClient();
+
+                        FormChanger.CloseForm(this);
+                    }
+                    else
+                    {
+                        UINotification.Popup(Color.Red, "ERROR", "The account could not be saved, It's possible that the account has already been saved before.");
+                    }
+
+                }
+                else
+                {
+                    UINotification.Popup(Color.Red, "ERROR", "The account was not found in the system, double check that you have written the correct email and account code");
+                }
+            }
         }
 
 

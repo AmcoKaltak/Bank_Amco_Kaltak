@@ -113,21 +113,60 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             }
         }
 
+        private void SetDefaultText()
+        {
+            labelSenderAccountName.Text = labelSenderAccountName.Tag.ToString();
+            labelSenderAccountCode.Text = labelSenderAccountName.Tag.ToString();
+            labelSenderAccountMoney.Text = labelSenderAccountName.Tag.ToString();
+
+            labelReceiverAccountName.Text = labelReceiverAccountName.Tag.ToString();
+            labelReceiverAccountCode.Text = labelReceiverAccountName.Tag.ToString();
+            labelReceiverAccountMoney.Text = labelReceiverAccountName.Tag.ToString();
+
+            textBoxTransactionName.Text = "";
+            textBoxTransactionAmount.Text = "";
+        }
+
         private void buttonCommitTransaction_Click(object sender, EventArgs e)
+        {
+            CommitTransaction();
+
+        }
+
+        private void textBoxTransactionName_KeyDown(object sender, KeyEventArgs e)
+        {
+            CommitTransactionIfEnterPressed(sender, e);
+        }
+
+        private void textBoxTransactionAmount_KeyDown(object sender, KeyEventArgs e)
+        {
+            CommitTransactionIfEnterPressed(sender, e);
+        }
+
+        private void CommitTransactionIfEnterPressed(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                CommitTransaction();
+            }
+        }
+
+        private void CommitTransaction()
         {
             if (CheckValidAccounts() && CheckValidAmount())
             {
                 if (userClient.transactionManager.MakeTransaction(userClient.transactionManager.senderAccount, userClient.transactionManager.receiverAccount, textBoxTransactionName.Text, float.Parse(textBoxTransactionAmount.Text)))
                 {
                     UINotification.Popup(Color.Green, "Succesfully commited transaction", $"The transaction between {userClient.transactionManager.senderAccount.AccountName} and {userClient.transactionManager.receiverAccount.AccountName} has been succesful");
+
                     userClient.transactionManager.ResetSenderReceiverAccounts();
+                    SetDefaultText();
                 }
                 else
                 {
                     UINotification.Popup(Color.Red, "ERROR", $"The transaction between {userClient.transactionManager.senderAccount.AccountName} and {userClient.transactionManager.receiverAccount.AccountName} could not commmit");
                 }
             }
-
         }
 
         private bool CheckValidAccounts()
@@ -199,7 +238,6 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
             FormChanger.OpenForm(accountForm);
         }
-
 
     }
 }

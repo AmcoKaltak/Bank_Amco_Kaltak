@@ -44,7 +44,6 @@
             panelAmount = new Panel();
             pictureBox3 = new PictureBox();
             textBoxTransactionAmount = new TextBox();
-            buttonCancel = new Button();
             buttonCommitTransaction = new Button();
             panelTransactionName = new Panel();
             pictureBox4 = new PictureBox();
@@ -89,11 +88,12 @@
             // 
             labelSenderAccountMoney.AutoSize = true;
             labelSenderAccountMoney.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelSenderAccountMoney.Location = new Point(379, 21);
+            labelSenderAccountMoney.Location = new Point(369, 20);
             labelSenderAccountMoney.Name = "labelSenderAccountMoney";
-            labelSenderAccountMoney.Size = new Size(64, 18);
+            labelSenderAccountMoney.Size = new Size(101, 18);
             labelSenderAccountMoney.TabIndex = 15;
-            labelSenderAccountMoney.Text = "1000000";
+            labelSenderAccountMoney.Tag = "Select Sender";
+            labelSenderAccountMoney.Text = "Select sender";
             labelSenderAccountMoney.Click += labelSenderAccountMoney_Click;
             // 
             // labelSenderAccountCode
@@ -102,9 +102,10 @@
             labelSenderAccountCode.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labelSenderAccountCode.Location = new Point(54, 36);
             labelSenderAccountCode.Name = "labelSenderAccountCode";
-            labelSenderAccountCode.Size = new Size(152, 18);
+            labelSenderAccountCode.Size = new Size(101, 18);
             labelSenderAccountCode.TabIndex = 14;
-            labelSenderAccountCode.Text = "287731-3124wads-31";
+            labelSenderAccountCode.Tag = "Select Sender";
+            labelSenderAccountCode.Text = "Select sender";
             labelSenderAccountCode.Click += labelSenderAccountCode_Click;
             // 
             // labelSenderAccountName
@@ -113,9 +114,10 @@
             labelSenderAccountName.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labelSenderAccountName.Location = new Point(54, 10);
             labelSenderAccountName.Name = "labelSenderAccountName";
-            labelSenderAccountName.Size = new Size(107, 18);
+            labelSenderAccountName.Size = new Size(101, 18);
             labelSenderAccountName.TabIndex = 11;
-            labelSenderAccountName.Text = "Account Name";
+            labelSenderAccountName.Tag = "Select Sender";
+            labelSenderAccountName.Text = "Select sender";
             labelSenderAccountName.Click += labelSenderAccountName_Click;
             // 
             // label5
@@ -162,17 +164,19 @@
             panelSelectToAccount.Name = "panelSelectToAccount";
             panelSelectToAccount.Size = new Size(480, 64);
             panelSelectToAccount.TabIndex = 12;
+            panelSelectToAccount.Tag = "Select Receiver";
             panelSelectToAccount.Click += panelSelectToAccount_Click;
             // 
             // labelReceiverAccountMoney
             // 
             labelReceiverAccountMoney.AutoSize = true;
             labelReceiverAccountMoney.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelReceiverAccountMoney.Location = new Point(379, 21);
+            labelReceiverAccountMoney.Location = new Point(369, 20);
             labelReceiverAccountMoney.Name = "labelReceiverAccountMoney";
-            labelReceiverAccountMoney.Size = new Size(64, 18);
+            labelReceiverAccountMoney.Size = new Size(109, 18);
             labelReceiverAccountMoney.TabIndex = 15;
-            labelReceiverAccountMoney.Text = "1000000";
+            labelReceiverAccountMoney.Tag = "Select Receiver";
+            labelReceiverAccountMoney.Text = "Select receiver";
             labelReceiverAccountMoney.Click += labelReceiverAccountMoney_Click;
             // 
             // labelReceiverAccountCode
@@ -181,9 +185,10 @@
             labelReceiverAccountCode.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labelReceiverAccountCode.Location = new Point(54, 36);
             labelReceiverAccountCode.Name = "labelReceiverAccountCode";
-            labelReceiverAccountCode.Size = new Size(152, 18);
+            labelReceiverAccountCode.Size = new Size(109, 18);
             labelReceiverAccountCode.TabIndex = 14;
-            labelReceiverAccountCode.Text = "287731-3124wads-31";
+            labelReceiverAccountCode.Tag = "Select Receiver";
+            labelReceiverAccountCode.Text = "Select receiver";
             labelReceiverAccountCode.Click += labelReceiverAccountCode_Click;
             // 
             // labelReceiverAccountName
@@ -192,9 +197,10 @@
             labelReceiverAccountName.Font = new Font("Verdana Pro Cond", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labelReceiverAccountName.Location = new Point(54, 10);
             labelReceiverAccountName.Name = "labelReceiverAccountName";
-            labelReceiverAccountName.Size = new Size(107, 18);
+            labelReceiverAccountName.Size = new Size(109, 18);
             labelReceiverAccountName.TabIndex = 11;
-            labelReceiverAccountName.Text = "Account Name";
+            labelReceiverAccountName.Tag = "Select Receiver";
+            labelReceiverAccountName.Text = "Select receiver";
             labelReceiverAccountName.Click += labelReceiverAccountName_Click;
             // 
             // pictureBox1
@@ -239,21 +245,7 @@
             textBoxTransactionAmount.Size = new Size(434, 20);
             textBoxTransactionAmount.TabIndex = 9;
             textBoxTransactionAmount.Click += textBoxTransactionAmount_Click;
-            // 
-            // buttonCancel
-            // 
-            buttonCancel.Anchor = AnchorStyles.None;
-            buttonCancel.BackColor = Color.LightSkyBlue;
-            buttonCancel.Cursor = Cursors.Hand;
-            buttonCancel.FlatStyle = FlatStyle.Flat;
-            buttonCancel.Font = new Font("Verdana Pro Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonCancel.ForeColor = Color.White;
-            buttonCancel.Location = new Point(272, 397);
-            buttonCancel.Name = "buttonCancel";
-            buttonCancel.Size = new Size(163, 35);
-            buttonCancel.TabIndex = 15;
-            buttonCancel.Text = "Cancel";
-            buttonCancel.UseVisualStyleBackColor = false;
+            textBoxTransactionAmount.KeyDown += textBoxTransactionAmount_KeyDown;
             // 
             // buttonCommitTransaction
             // 
@@ -263,7 +255,7 @@
             buttonCommitTransaction.FlatStyle = FlatStyle.Flat;
             buttonCommitTransaction.Font = new Font("Verdana Pro Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
             buttonCommitTransaction.ForeColor = Color.White;
-            buttonCommitTransaction.Location = new Point(441, 397);
+            buttonCommitTransaction.Location = new Point(345, 415);
             buttonCommitTransaction.Name = "buttonCommitTransaction";
             buttonCommitTransaction.Size = new Size(163, 35);
             buttonCommitTransaction.TabIndex = 14;
@@ -302,6 +294,7 @@
             textBoxTransactionName.Size = new Size(434, 20);
             textBoxTransactionName.TabIndex = 9;
             textBoxTransactionName.Click += textBoxTransactionName_Click;
+            textBoxTransactionName.KeyDown += textBoxTransactionName_KeyDown;
             // 
             // MakeTransactionForm
             // 
@@ -311,7 +304,6 @@
             ClientSize = new Size(888, 462);
             Controls.Add(panelSelectFromAccount);
             Controls.Add(panelTransactionName);
-            Controls.Add(buttonCancel);
             Controls.Add(buttonCommitTransaction);
             Controls.Add(panelAmount);
             Controls.Add(label2);
@@ -353,7 +345,6 @@
         private Panel panelAmount;
         private PictureBox pictureBox3;
         private TextBox textBoxTransactionAmount;
-        private Button buttonCancel;
         private Button buttonCommitTransaction;
         private Panel panelTransactionName;
         private PictureBox pictureBox4;
