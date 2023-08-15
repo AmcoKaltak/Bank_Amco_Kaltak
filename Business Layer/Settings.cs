@@ -37,9 +37,9 @@ namespace Business_Layer
             dBOperations.ChangePassword(user, password);
         }
 
-        public void DeleteUser()
+        public bool DeleteUser()
         {
-
+            return dBOperations.DeleteUser(user);
         }
     }
 }

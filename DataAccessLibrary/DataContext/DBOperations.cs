@@ -604,15 +604,24 @@ namespace DataAccessLibrary.DataContext
 
         }
 
-        //public void RemoveUser()
-        //{
-        //    using Context context = new Context();
+        public bool DeleteUser(User user)
+        {
+            using Context context = new Context();
 
-        //    var user = context.Users.Where(u => u.Id == 3).FirstOrDefault();
+            var userClient = context.Users.Find(user.Id);
 
-        //    context.Remove(user);
+            if (userClient != null)
+            {
+                context.Remove(userClient);
+                context.SaveChanges();
 
-        //    context.SaveChanges();
-        //}
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
     }
 }

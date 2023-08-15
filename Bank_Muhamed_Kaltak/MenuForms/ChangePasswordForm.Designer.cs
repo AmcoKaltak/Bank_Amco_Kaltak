@@ -78,6 +78,7 @@
             textBoxCurrentPassword.PlaceholderText = "Enter current password";
             textBoxCurrentPassword.Size = new Size(421, 20);
             textBoxCurrentPassword.TabIndex = 9;
+            textBoxCurrentPassword.UseSystemPasswordChar = true;
             textBoxCurrentPassword.Click += textBoxCurrentPassword_Click;
             textBoxCurrentPassword.KeyDown += textBoxCurrentPassword_KeyDown;
             // 
@@ -154,6 +155,7 @@
             textBoxNewPassword.PlaceholderText = "Enter a new password";
             textBoxNewPassword.Size = new Size(421, 20);
             textBoxNewPassword.TabIndex = 9;
+            textBoxNewPassword.UseSystemPasswordChar = true;
             textBoxNewPassword.Click += textBoxNewPassword_Click;
             textBoxNewPassword.KeyDown += textBoxNewPassword_KeyDown;
             // 
@@ -186,6 +188,7 @@
             textBoxConfirmNewPassword.PlaceholderText = "Confirm the new password";
             textBoxConfirmNewPassword.Size = new Size(421, 20);
             textBoxConfirmNewPassword.TabIndex = 9;
+            textBoxConfirmNewPassword.UseSystemPasswordChar = true;
             textBoxConfirmNewPassword.Click += textBoxConfirmNewPassword_Click;
             textBoxConfirmNewPassword.KeyDown += textBoxConfirmNewPassword_KeyDown;
             // 

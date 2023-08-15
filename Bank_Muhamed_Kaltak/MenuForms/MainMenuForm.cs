@@ -367,6 +367,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             SettingsForm settingsForm = new SettingsForm();
 
             settingsForm.userClient = userClient;
+            settingsForm.mainMenuForm = this;
 
             FormChanger.OpenForm(settingsForm);
         }

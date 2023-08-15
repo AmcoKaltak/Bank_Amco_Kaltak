@@ -15,6 +15,10 @@ namespace Bank_Muhamed_Kaltak.MenuForms
     {
         public UserClient userClient;
 
+        public MainMenuForm mainMenuForm;
+
+        public bool isDeleted;
+
         public SettingsForm()
         {
             InitializeComponent();
@@ -32,12 +36,27 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void buttonDeleteUser_Click(object sender, EventArgs e)
         {
+            if (userClient.settings.DeleteUser())
+            {
+                UINotification.Popup(Color.Green, "Succesfully Deleted User", "The user account has succesfully been deleted");
 
+                GetToLoginForm();
+
+            }
+            else
+            {
+                UINotification.Popup(Color.Red, "ERROR", "Could not delete your user account");
+            }
         }
 
         private void SettingsForm_Load(object sender, EventArgs e)
         {
             GetUserData();
+            if (isDeleted)
+            {
+                GetToLoginForm();
+
+            }
         }
 
         public void GetUserData()
@@ -66,6 +85,11 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             changePasswordForm.userClient = userClient;
 
             FormChanger.OpenPopupForm(changePasswordForm);
+        }
+
+        public void GetToLoginForm()
+        {
+            FormChanger.ChangeForm(mainMenuForm, new LoginForm());
         }
     }
 }
