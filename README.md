@@ -3,7 +3,7 @@ Det här projektet är en applikation som erbjuder olika funktioner för använd
 
 Här är en översikt över de funktioner som ingår i projektet:
 
-* Registrering och Inloggning: Användare kan registrera sig genom att skapa ett konto med unika användarnamn och lösenord. De kan också logga in på sina konton med sina inloggningsuppgifter.
+* Registrering och Inloggning: Användare kan registrera sig genom att skapa ett konto med unika användarnamn och lösenord. De kan också logga in på sina konton med sina inloggningsuppgifter. Lösenorden är hashade och använder sig av unika salt för att säkerställa att användar kontonen är säkra.
 
 * Återställning av Användarnamn och Lösenord: Om en användare har glömt sitt användarnamn eller lösenord, kan de begära att få sitt användarnamn skickat till sin anslutna e-postadress. För lösenordsåterställning får de en e-post med en kod. Genom att ange koden kan de återställa sitt lösenord så länge som token för återställningen inte har gått ut.
 
