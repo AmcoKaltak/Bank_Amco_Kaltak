@@ -41,20 +41,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void buttonSaveChanges_Click(object sender, EventArgs e)
         {
-            if (isAdd && ValidSaveChange())
-            {
-
-                userClient.accountManager.AddNewAccount(textBoxAccount.Text);
-
-                ReturnToAccountForm();
-               
-            }
-            else if(isEdit && ValidSaveChange())
-            {
-                userClient.accountManager.UpdateAccount(userClient.selectedAccount,textBoxAccount.Text);
-
-                ReturnToAccountForm();
-            }
+            SaveChange();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -63,6 +50,36 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             accountForm.userClient = userClient;
 
             FormChanger.OpenForm(accountForm);
+        }
+
+        private void textBoxAccount_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SaveChange();
+            }
+        }
+
+        private void SaveChange()
+        {
+            if (isAdd && ValidSaveChange())
+            {
+
+                userClient.accountManager.AddNewAccount(textBoxAccount.Text);
+
+                UINotification.Popup(Color.Green, "Succesfully added a new account",$"A new account called {textBoxAccount.Text} has been added to your user");
+
+                ReturnToAccountForm();
+
+            }
+            else if (isEdit && ValidSaveChange())
+            {
+                userClient.accountManager.UpdateAccount(userClient.selectedAccount, textBoxAccount.Text);
+
+                UINotification.Popup(Color.Green, "Succesfully changed the name of an account", $"The account name {userClient.selectedAccount.AccountName} has been changed to {textBoxAccount.Text}");
+
+                ReturnToAccountForm();
+            }
         }
 
         private void ReturnToAccountForm()
@@ -83,5 +100,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
             UINotification.Popup(Color.Red, "ERROR", "Please put in a value for the account name");
             return false;
         }
+
+
     }
 }

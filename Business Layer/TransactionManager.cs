@@ -24,14 +24,14 @@ namespace Business_Layer
             this.dBOperations = dBOperations;
         }
 
-        public void MakeTransaction(Account senderAccount, Account receiverAccount, string name, float amount)
+        public bool MakeTransaction(Account senderAccount, Account receiverAccount, string name, float amount)
         {
             if (name.IsNullOrEmpty())
             {
                 name = $"Transaction between {senderAccount.AccountName} and {receiverAccount.AccountName} ";
             }
 
-            dBOperations.Transaction(senderAccount, receiverAccount, name, amount);
+          return dBOperations.Transaction(senderAccount, receiverAccount, name, amount);
         }
 
         public List<Transaction> GetUserSearchedTransactionsAll(string search)
@@ -92,6 +92,12 @@ namespace Business_Layer
         public List<Transaction> GetAccountSearchedTransactionsReceived(Account account,string search)
         {
             return dBOperations.GetAccountSearchedTransactionsReceived(account, search);
+        }
+
+        public void ResetSenderReceiverAccounts()
+        {
+            senderAccount = null;
+            receiverAccount = null;
         }
 
     }

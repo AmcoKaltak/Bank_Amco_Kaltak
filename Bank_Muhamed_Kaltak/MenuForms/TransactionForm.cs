@@ -26,6 +26,9 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void TransactionForm_Load(object sender, EventArgs e)
         {
+
+            userClient.selectedTransaction = null;
+
             inSection(ref inAll);
 
             if (isAccountTransactions)

@@ -309,9 +309,7 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
             HomeForm homeForm = new HomeForm();
 
-            homeForm.LabelUserFullNameValue = $"Hello {userClient.user.Name} {userClient.user.LastName} !";
-            homeForm.addAccountsToDatagridviewFromClient(userClient);
-
+            homeForm.userClient = userClient;
 
             FormChanger.OpenForm(homeForm);
         }

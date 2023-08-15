@@ -29,99 +29,210 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            dataGridView1 = new DataGridView();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
             accountBindingSource = new BindingSource(components);
-            label1 = new Label();
-            label8 = new Label();
-            dataGridView2 = new DataGridView();
-            labelUserFullName = new Label();
+            accountBindingSource1 = new BindingSource(components);
+            dataGridViewAccount = new DataGridView();
             accountNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             moneyDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            accountCodeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            accountBindingSource2 = new BindingSource(components);
+            dataGridViewTransaction = new DataGridView();
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            amountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            transactionDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            transactionsBindingSource = new BindingSource(components);
+            label2 = new Label();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)accountBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)accountBindingSource1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewAccount).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)accountBindingSource2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTransaction).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)transactionsBindingSource).BeginInit();
             SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { accountNameDataGridViewTextBoxColumn, moneyDataGridViewTextBoxColumn });
-            dataGridView1.DataSource = accountBindingSource;
-            dataGridView1.Location = new Point(57, 175);
-            dataGridView1.MaximumSize = new Size(0, 800);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(343, 250);
-            dataGridView1.TabIndex = 0;
             // 
             // accountBindingSource
             // 
             accountBindingSource.DataSource = typeof(DataAccessLibrary.Entity.Account);
             // 
-            // label1
+            // accountBindingSource1
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            label1.AutoSize = true;
-            label1.Location = new Point(201, 141);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 1;
-            label1.Text = "label1";
+            accountBindingSource1.DataSource = typeof(DataAccessLibrary.Entity.Account);
             // 
-            // label8
+            // dataGridViewAccount
             // 
-            label8.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            label8.AutoSize = true;
-            label8.Location = new Point(608, 141);
-            label8.Name = "label8";
-            label8.Size = new Size(38, 15);
-            label8.TabIndex = 6;
-            label8.Text = "label8";
-            // 
-            // dataGridView2
-            // 
-            dataGridView2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(459, 175);
-            dataGridView2.Margin = new Padding(0);
-            dataGridView2.MaximumSize = new Size(0, 800);
-            dataGridView2.MinimumSize = new Size(0, 250);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowTemplate.Height = 25;
-            dataGridView2.Size = new Size(337, 250);
-            dataGridView2.TabIndex = 7;
-            // 
-            // labelUserFullName
-            // 
-            labelUserFullName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            labelUserFullName.Font = new Font("Rockwell Nova Cond", 22F, FontStyle.Bold, GraphicsUnit.Point);
-            labelUserFullName.ForeColor = Color.LightSkyBlue;
-            labelUserFullName.Location = new Point(281, 33);
-            labelUserFullName.Name = "labelUserFullName";
-            labelUserFullName.Size = new Size(296, 41);
-            labelUserFullName.TabIndex = 21;
-            labelUserFullName.Text = "Hello Name Last Name!";
-            labelUserFullName.TextAlign = ContentAlignment.MiddleCenter;
+            dataGridViewAccount.AllowUserToAddRows = false;
+            dataGridViewAccount.AllowUserToDeleteRows = false;
+            dataGridViewAccount.AllowUserToResizeColumns = false;
+            dataGridViewAccount.AllowUserToResizeRows = false;
+            dataGridViewAccount.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewAccount.AutoGenerateColumns = false;
+            dataGridViewAccount.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewAccount.BackgroundColor = Color.White;
+            dataGridViewAccount.BorderStyle = BorderStyle.None;
+            dataGridViewAccount.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewAccount.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.LightSkyBlue;
+            dataGridViewCellStyle7.Font = new Font("Verdana Pro Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = Color.LightSkyBlue;
+            dataGridViewCellStyle7.SelectionForeColor = Color.White;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dataGridViewAccount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewAccount.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewAccount.Columns.AddRange(new DataGridViewColumn[] { accountNameDataGridViewTextBoxColumn, moneyDataGridViewTextBoxColumn, accountCodeDataGridViewTextBoxColumn });
+            dataGridViewAccount.DataSource = accountBindingSource2;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dataGridViewAccount.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewAccount.EnableHeadersVisualStyles = false;
+            dataGridViewAccount.Location = new Point(7, 49);
+            dataGridViewAccount.Name = "dataGridViewAccount";
+            dataGridViewAccount.ReadOnly = true;
+            dataGridViewAccount.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewAccount.RowHeadersVisible = false;
+            dataGridViewCellStyle9.BackColor = Color.White;
+            dataGridViewCellStyle9.Font = new Font("Verdana Pro Cond", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle9.SelectionBackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle9.SelectionForeColor = Color.Black;
+            dataGridViewAccount.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewAccount.RowTemplate.Height = 25;
+            dataGridViewAccount.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewAccount.Size = new Size(869, 178);
+            dataGridViewAccount.TabIndex = 22;
             // 
             // accountNameDataGridViewTextBoxColumn
             // 
-            accountNameDataGridViewTextBoxColumn.DataPropertyName = "accountName";
-            accountNameDataGridViewTextBoxColumn.HeaderText = "accountName";
+            accountNameDataGridViewTextBoxColumn.DataPropertyName = "AccountName";
+            accountNameDataGridViewTextBoxColumn.HeaderText = "Name";
             accountNameDataGridViewTextBoxColumn.Name = "accountNameDataGridViewTextBoxColumn";
             accountNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // moneyDataGridViewTextBoxColumn
             // 
-            moneyDataGridViewTextBoxColumn.DataPropertyName = "money";
-            moneyDataGridViewTextBoxColumn.HeaderText = "money";
+            moneyDataGridViewTextBoxColumn.DataPropertyName = "Money";
+            moneyDataGridViewTextBoxColumn.HeaderText = "Money";
             moneyDataGridViewTextBoxColumn.Name = "moneyDataGridViewTextBoxColumn";
             moneyDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // accountCodeDataGridViewTextBoxColumn
+            // 
+            accountCodeDataGridViewTextBoxColumn.DataPropertyName = "AccountCode";
+            accountCodeDataGridViewTextBoxColumn.HeaderText = "AccountCode";
+            accountCodeDataGridViewTextBoxColumn.Name = "accountCodeDataGridViewTextBoxColumn";
+            accountCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // accountBindingSource2
+            // 
+            accountBindingSource2.DataSource = typeof(DataAccessLibrary.Entity.Account);
+            // 
+            // dataGridViewTransaction
+            // 
+            dataGridViewTransaction.AllowUserToAddRows = false;
+            dataGridViewTransaction.AllowUserToDeleteRows = false;
+            dataGridViewTransaction.AllowUserToResizeColumns = false;
+            dataGridViewTransaction.AllowUserToResizeRows = false;
+            dataGridViewTransaction.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewTransaction.AutoGenerateColumns = false;
+            dataGridViewTransaction.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewTransaction.BackgroundColor = Color.White;
+            dataGridViewTransaction.BorderStyle = BorderStyle.None;
+            dataGridViewTransaction.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewTransaction.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = Color.LightSkyBlue;
+            dataGridViewCellStyle10.Font = new Font("Verdana Pro Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle10.ForeColor = Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = Color.LightSkyBlue;
+            dataGridViewCellStyle10.SelectionForeColor = Color.White;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+            dataGridViewTransaction.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewTransaction.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewTransaction.Columns.AddRange(new DataGridViewColumn[] { nameDataGridViewTextBoxColumn, amountDataGridViewTextBoxColumn, transactionDateDataGridViewTextBoxColumn });
+            dataGridViewTransaction.DataSource = transactionsBindingSource;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = SystemColors.Window;
+            dataGridViewCellStyle11.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle11.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
+            dataGridViewTransaction.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewTransaction.EnableHeadersVisualStyles = false;
+            dataGridViewTransaction.Location = new Point(7, 272);
+            dataGridViewTransaction.Name = "dataGridViewTransaction";
+            dataGridViewTransaction.ReadOnly = true;
+            dataGridViewTransaction.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewTransaction.RowHeadersVisible = false;
+            dataGridViewCellStyle12.BackColor = Color.White;
+            dataGridViewCellStyle12.Font = new Font("Verdana Pro Cond", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle12.SelectionBackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle12.SelectionForeColor = Color.Black;
+            dataGridViewTransaction.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewTransaction.RowTemplate.Height = 25;
+            dataGridViewTransaction.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewTransaction.Size = new Size(869, 178);
+            dataGridViewTransaction.TabIndex = 23;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // amountDataGridViewTextBoxColumn
+            // 
+            amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
+            amountDataGridViewTextBoxColumn.HeaderText = "Amount";
+            amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
+            amountDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // transactionDateDataGridViewTextBoxColumn
+            // 
+            transactionDateDataGridViewTextBoxColumn.DataPropertyName = "TransactionDate";
+            transactionDateDataGridViewTextBoxColumn.HeaderText = "TransactionDate";
+            transactionDateDataGridViewTextBoxColumn.Name = "transactionDateDataGridViewTextBoxColumn";
+            transactionDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // transactionsBindingSource
+            // 
+            transactionsBindingSource.DataMember = "Transactions";
+            transactionsBindingSource.DataSource = accountBindingSource;
+            // 
+            // label2
+            // 
+            label2.Font = new Font("Rockwell Nova Cond", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.LightSkyBlue;
+            label2.Location = new Point(7, 5);
+            label2.Name = "label2";
+            label2.Size = new Size(96, 41);
+            label2.TabIndex = 24;
+            label2.Text = "Accounts";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            label1.Font = new Font("Rockwell Nova Cond", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.LightSkyBlue;
+            label1.Location = new Point(7, 228);
+            label1.Name = "label1";
+            label1.Size = new Size(131, 41);
+            label1.TabIndex = 25;
+            label1.Text = "Transactions";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // HomeForm
             // 
@@ -129,29 +240,36 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(888, 462);
-            Controls.Add(labelUserFullName);
-            Controls.Add(dataGridView2);
-            Controls.Add(label8);
             Controls.Add(label1);
-            Controls.Add(dataGridView1);
+            Controls.Add(label2);
+            Controls.Add(dataGridViewTransaction);
+            Controls.Add(dataGridViewAccount);
             Name = "HomeForm";
             Text = "Home";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += HomeForm_Load;
             ((System.ComponentModel.ISupportInitialize)accountBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)accountBindingSource1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewAccount).EndInit();
+            ((System.ComponentModel.ISupportInitialize)accountBindingSource2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTransaction).EndInit();
+            ((System.ComponentModel.ISupportInitialize)transactionsBindingSource).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private DataGridView dataGridView1;
-        private Label label1;
-        private Label label8;
-        private DataGridView dataGridView2;
-        public Label labelUserFullName;
         private BindingSource accountBindingSource;
+        private BindingSource accountBindingSource1;
+        private DataGridView dataGridViewAccount;
         private DataGridViewTextBoxColumn accountNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn moneyDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn accountCodeDataGridViewTextBoxColumn;
+        private BindingSource accountBindingSource2;
+        private DataGridView dataGridViewTransaction;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn transactionDateDataGridViewTextBoxColumn;
+        private BindingSource transactionsBindingSource;
+        public Label label2;
+        public Label label1;
     }
 }

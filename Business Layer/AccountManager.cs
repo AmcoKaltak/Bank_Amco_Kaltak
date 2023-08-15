@@ -60,6 +60,11 @@ namespace Business_Layer
 
         }
 
+        public List<Account> GetAccountsByCount(int count)
+        {
+            return dBOperations.GetUserAccountsByCount(user, count);
+        }
+
         public List<Account> GetOtherUserAccounts()
         {
             return dBOperations.GetOtherUserAccounts(user);

@@ -16,22 +16,29 @@ namespace Bank_Muhamed_Kaltak.MenuForms
     public partial class HomeForm : Form
     {
 
+        public UserClient userClient;
+
         public HomeForm()
         {
             InitializeComponent();
         }
 
-        public string LabelUserFullNameValue
+        private void HomeForm_Load(object sender, EventArgs e)
         {
-            get { return labelUserFullName.Text; }
-            set { labelUserFullName.Text = value; }
+            AddAccountsToDatagridviewFromClient();
+            AddTransactionsToDatagridViewFromClient();
         }
 
-        public void addAccountsToDatagridviewFromClient(UserClient userClient)
+        private void AddAccountsToDatagridviewFromClient()
         {
 
-            dataGridView1.DataSource = userClient.accountManager.GetAccounts();
+            dataGridViewAccount.DataSource = userClient.accountManager.GetAccountsByCount(6);
 
+        }
+
+        private void AddTransactionsToDatagridViewFromClient()
+        {
+            dataGridViewTransaction.DataSource = userClient.transactionManager.GetUserTransactions();
         }
 
     }

@@ -23,20 +23,52 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
         private void panelSelectFromAccount_Click(object sender, EventArgs e)
         {
-            AccountForm accountForm = SendDataToAccountForm();
-
-            accountForm.isTransactionAccountFrom = true;
-
-            FormChanger.OpenForm(accountForm);
+            SelectFromAccount();
         }
 
         private void panelSelectToAccount_Click(object sender, EventArgs e)
         {
-            AccountForm accountForm = SendDataToAccountForm();
+            SelectToAccount();
+        }
 
-            accountForm.isTransactionAccountTo = true;
+        private void labelSenderAccountName_Click(object sender, EventArgs e)
+        {
+            SelectFromAccount();
+        }
 
-            FormChanger.OpenForm(accountForm);
+        private void labelSenderAccountCode_Click(object sender, EventArgs e)
+        {
+            SelectFromAccount();
+        }
+
+        private void labelSenderAccountMoney_Click(object sender, EventArgs e)
+        {
+            SelectFromAccount();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            SelectFromAccount();
+        }
+
+        private void labelReceiverAccountName_Click(object sender, EventArgs e)
+        {
+            SelectToAccount();
+        }
+
+        private void labelReceiverAccountCode_Click(object sender, EventArgs e)
+        {
+            SelectToAccount();
+        }
+
+        private void labelReceiverAccountMoney_Click(object sender, EventArgs e)
+        {
+            SelectToAccount();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            SelectToAccount();
         }
 
         private void textBoxTransactionName_Click(object sender, EventArgs e)
@@ -85,7 +117,15 @@ namespace Bank_Muhamed_Kaltak.MenuForms
         {
             if (CheckValidAccounts() && CheckValidAmount())
             {
-                userClient.transactionManager.MakeTransaction(userClient.transactionManager.senderAccount, userClient.transactionManager.receiverAccount, textBoxTransactionName.Text, float.Parse(textBoxTransactionAmount.Text));
+                if (userClient.transactionManager.MakeTransaction(userClient.transactionManager.senderAccount, userClient.transactionManager.receiverAccount, textBoxTransactionName.Text, float.Parse(textBoxTransactionAmount.Text)))
+                {
+                    UINotification.Popup(Color.Green, "Succesfully commited transaction", $"The transaction between {userClient.transactionManager.senderAccount.AccountName} and {userClient.transactionManager.receiverAccount.AccountName} has been succesful");
+                    userClient.transactionManager.ResetSenderReceiverAccounts();
+                }
+                else
+                {
+                    UINotification.Popup(Color.Red, "ERROR", $"The transaction between {userClient.transactionManager.senderAccount.AccountName} and {userClient.transactionManager.receiverAccount.AccountName} could not commmit");
+                }
             }
 
         }
@@ -141,6 +181,25 @@ namespace Bank_Muhamed_Kaltak.MenuForms
 
             return true;
         }
+
+        private void SelectFromAccount()
+        {
+            AccountForm accountForm = SendDataToAccountForm();
+
+            accountForm.isTransactionAccountFrom = true;
+
+            FormChanger.OpenForm(accountForm);
+        }
+
+        private void SelectToAccount()
+        {
+            AccountForm accountForm = SendDataToAccountForm();
+
+            accountForm.isTransactionAccountTo = true;
+
+            FormChanger.OpenForm(accountForm);
+        }
+
 
     }
 }

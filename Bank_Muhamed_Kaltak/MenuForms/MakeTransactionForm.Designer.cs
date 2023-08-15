@@ -83,6 +83,7 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 16;
             pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
             // 
             // labelSenderAccountMoney
             // 
@@ -93,6 +94,7 @@
             labelSenderAccountMoney.Size = new Size(64, 18);
             labelSenderAccountMoney.TabIndex = 15;
             labelSenderAccountMoney.Text = "1000000";
+            labelSenderAccountMoney.Click += labelSenderAccountMoney_Click;
             // 
             // labelSenderAccountCode
             // 
@@ -103,6 +105,7 @@
             labelSenderAccountCode.Size = new Size(152, 18);
             labelSenderAccountCode.TabIndex = 14;
             labelSenderAccountCode.Text = "287731-3124wads-31";
+            labelSenderAccountCode.Click += labelSenderAccountCode_Click;
             // 
             // labelSenderAccountName
             // 
@@ -113,6 +116,7 @@
             labelSenderAccountName.Size = new Size(107, 18);
             labelSenderAccountName.TabIndex = 11;
             labelSenderAccountName.Text = "Account Name";
+            labelSenderAccountName.Click += labelSenderAccountName_Click;
             // 
             // label5
             // 
@@ -169,6 +173,7 @@
             labelReceiverAccountMoney.Size = new Size(64, 18);
             labelReceiverAccountMoney.TabIndex = 15;
             labelReceiverAccountMoney.Text = "1000000";
+            labelReceiverAccountMoney.Click += labelReceiverAccountMoney_Click;
             // 
             // labelReceiverAccountCode
             // 
@@ -179,6 +184,7 @@
             labelReceiverAccountCode.Size = new Size(152, 18);
             labelReceiverAccountCode.TabIndex = 14;
             labelReceiverAccountCode.Text = "287731-3124wads-31";
+            labelReceiverAccountCode.Click += labelReceiverAccountCode_Click;
             // 
             // labelReceiverAccountName
             // 
@@ -189,6 +195,7 @@
             labelReceiverAccountName.Size = new Size(107, 18);
             labelReceiverAccountName.TabIndex = 11;
             labelReceiverAccountName.Text = "Account Name";
+            labelReceiverAccountName.Click += labelReceiverAccountName_Click;
             // 
             // pictureBox1
             // 
@@ -199,6 +206,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // panelAmount
             // 

@@ -79,6 +79,7 @@
             textBoxAccount.PlaceholderText = "Modify Account";
             textBoxAccount.Size = new Size(434, 20);
             textBoxAccount.TabIndex = 9;
+            textBoxAccount.KeyDown += textBoxAccount_KeyDown;
             // 
             // buttonCancel
             // 

@@ -12,7 +12,7 @@ namespace DataAccessLibrary.DataContext
     public class DBOperations
     {
 
-        public void Transaction(Account senderAccount, Account receiverAccount, string name, float amount)
+        public bool Transaction(Account senderAccount, Account receiverAccount, string name, float amount)
         {
             using Context context = new Context();
 
@@ -60,6 +60,13 @@ namespace DataAccessLibrary.DataContext
                 receiver.Money += amount;
 
                 context.SaveChanges();
+
+                return true;
+
+            }
+            else
+            {
+                return false;
 
             }
         }
@@ -288,6 +295,15 @@ namespace DataAccessLibrary.DataContext
             return accounts;
         }
 
+        public List<Account> GetUserAccountsByCount(User user,  int count)
+        {
+            using Context context = new Context();
+
+            var accounts = context.Accounts.Where(a => a.UserId == user.Id && a.IsDeleleted == false).Take(count).ToList();
+
+            return accounts;
+        }
+
         public List<Account> GetOtherUserAccounts(User user)
         {
             using Context context = new Context();
@@ -309,7 +325,7 @@ namespace DataAccessLibrary.DataContext
             //var accounts = context.Accounts.Where(a=> a.OtherUserAccounts.Any(oua=> oua.UserId == user.Id && oua.Account.IsDeleleted == false && oua.Account.AccountName.Contains(search))).ToList();
 
             var accounts = context.OtherUserAccounts
-                .Where(oua => oua.UserId == user.Id && oua.Account.AccountName.Contains(search))
+                .Where(oua => oua.UserId == user.Id && oua.Account.IsDeleleted == false && oua.Account.AccountName.Contains(search))
                 .Select(oua => oua.Account)
                 .ToList();
 
