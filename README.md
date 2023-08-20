@@ -49,42 +49,42 @@ This project is an application that offers various functionalities for user mana
 
 Here is an overview of the features included in the project:
 
-Registration and Login: Users can register by creating an account with unique usernames and passwords. They can also log in to their accounts using their credentials. Passwords are hashed and utilize unique salts to ensure the security of user accounts.
+* Registration and Login: Users can register by creating an account with unique usernames and passwords. They can also log in to their accounts using their credentials. Passwords are hashed and utilize unique salts to ensure the security of user accounts.
 
-Username and Password Recovery: If a user forgets their username or password, they can request their username to be sent to their associated email address. For password recovery, they receive an email with a code. By entering the code, they can reset their password as long as the reset token has not expired.
+* Username and Password Recovery: If a user forgets their username or password, they can request their username to be sent to their associated email address. For password recovery, they receive an email with a code. By entering the code, they can reset their password as long as the reset token has not expired.
 
-Wallet Account Management: Users can manage multiple wallet accounts. They can change the names of wallet accounts, add new accounts, and remove existing ones.
+* Wallet Account Management: Users can manage multiple wallet accounts. They can change the names of wallet accounts, add new accounts, and remove existing ones.
 
-Saving Wallet Accounts: Users can save wallet accounts from other users by referencing the connected user's email address and account code.
+* Saving Wallet Accounts: Users can save wallet accounts from other users by referencing the connected user's email address and account code.
 
-Transactions: Users can perform transactions between their own accounts or other saved accounts. They can view an overview of transaction history and filter it by sent or received transactions.
+* Transactions: Users can perform transactions between their own accounts or other saved accounts. They can view an overview of transaction history and filter it by sent or received transactions.
 
-Transaction Details: For each transaction, users can view details showing which user sent the transaction and the connected accounts for both the sender and recipient.
+* Transaction Details: For each transaction, users can view details showing which user sent the transaction and the connected accounts for both the sender and recipient.
 
-Account Details: Users can view details about their accounts, including an overview of all transactions related to each account.
+* Account Details: Users can view details about their accounts, including an overview of all transactions related to each account.
 
-User Management: Users have the ability to change their usernames and passwords, as well as delete their account after logging in.
+* User Management: Users have the ability to change their usernames and passwords, as well as delete their account after logging in.
 
 The architecture used is a 3-tier architecture, where the code is divided into three separate layers: Presentation, Business Layer, and Data Access Layer. This architecture offers several advantages, including:
 
-Separation of Concerns: Each layer has a specific task and responsibility, making the code more organized and maintainable.
+* Separation of Concerns: Each layer has a specific task and responsibility, making the code more organized and maintainable.
 
-Reusability: Logic and data access can be reused in different parts of the application and even in future projects.
+* Reusability: Logic and data access can be reused in different parts of the application and even in future projects.
 
-Facilitated Development: Development teams can work in parallel on different layers without negatively impacting each other.
+* Facilitated Development: Development teams can work in parallel on different layers without negatively impacting each other.
 
-Scalability: The architecture makes it easier to scale and adapt the application when new features or changes are needed.
+* Scalability: The architecture makes it easier to scale and adapt the application when new features or changes are needed.
 
 Database Tables:
 
-User: Stores data related to users, including id, username, password, salt, email, first name, last name, password reset token, and password reset date.
+* User: Stores data related to users, including id, username, password, salt, email, first name, last name, password reset token, and password reset date.
 
-Account: Represents wallet accounts linked to specific users. Account data includes id, user id, account name, balance, account code, and whether the account has been deleted. There's a "one-to-many" relationship between User and Account, where each user can have multiple accounts.
+* Account: Represents wallet accounts linked to specific users. Account data includes id, user id, account name, balance, account code, and whether the account has been deleted. There's a "one-to-many" relationship between User and Account, where each user can have multiple accounts.
 
-Transaction: Stores relevant data for all transactions performed in the system, including id, name, amount, and transaction date.
+* Transaction: Stores relevant data for all transactions performed in the system, including id, name, amount, and transaction date.
 
-AccountTransaction: Links Account and Transaction through a "many-to-many" relationship. This table contains accountID, transactionID, and a payload value of TransactionType, used to distinguish between sender and recipient in transactions.
+* AccountTransaction: Links Account and Transaction through a "many-to-many" relationship. This table contains accountID, transactionID, and a payload value of TransactionType, used to distinguish between sender and recipient in transactions.
 
-OtherUserAccount: Links User with Account in a "many-to-many" relationship. It's used to save data when a user saves an account from another user. Data includes user id and account id.
+* OtherUserAccount: Links User with Account in a "many-to-many" relationship. It's used to save data when a user saves an account from another user. Data includes user id and account id.
 
 The project has been designed with security and database management in mind, following a structured architecture to ensure a robust and maintainable application.
