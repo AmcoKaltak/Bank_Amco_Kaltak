@@ -1,4 +1,4 @@
-# Bank_Muhamed_Kaltak - SV
+# Bank_Amco_Kaltak - SV
 Det här projektet är en applikation som erbjuder olika funktioner för användarhantering och transaktionshantering. Användarna kan registrera konton, logga in och utföra olika åtgärder relaterade till hantering av användarkonton och plånbokstransaktioner. Applikationen utvecklades med hjälp av Windows Forms och använder en databas för att lagra relaterade data, som hanteras med hjälp av Entity Framework. Projektet följer också en 3-lagers arkitektur för att organisera och strukturera kodbasen på ett effektivt sätt.
 
 Här är en översikt över de funktioner som ingår i projektet:
@@ -43,7 +43,7 @@ Tabeller i Databasen:
 
 Projektet har designats med säkerhet och databashantering i åtanke, och följer en strukturerad arkitektur för att säkerställa en robust och underhållbar applikation.
 
-# Bank_Muhamed_Kaltak - ENG
+# Bank_Amco_Kaltak - ENG
 
 This project is an application that offers various functionalities for user management and transaction handling. Users can register accounts, log in, and perform various actions related to user account management and wallet transactions. The application was developed using Windows Forms and utilizes a database to store related data, managed with the help of Entity Framework. The project also follows a 3-tier architecture to efficiently organize and structure the codebase.
 
